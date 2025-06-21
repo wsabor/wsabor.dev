@@ -29,7 +29,6 @@ export function ContactForm() {
 
     try {
       const response = await fetch("https://formspree.io/f/xovwnrng", {
-        // <-- LEMBRE-SE DE SUBSTITUIR
         method: "POST",
         headers: {
           Accept: "application/json",
