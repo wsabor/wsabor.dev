@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* Seção Hero */}
       <section className="bg-neutral-900 py-24 md:py-48">
         <div className="container mx-auto px-8 py-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-8">
             Wagner Sabor
           </h1>
           <p className="text-2xl md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8">
