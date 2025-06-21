@@ -33,7 +33,7 @@ const latestArticles = [
     title: "Por que todo Dev Deveria Aprender Design",
     summary:
       "Uma reflexão sobre como os princípios de design podem transformar a maneira como escrevemos código e construímos produtos.",
-    slug: "/blog/dev-e-design", // Mantemos /blog como futura pasta de artigos
+    slug: "/blog/dev-e-design",
   },
   {
     id: 2,
@@ -46,20 +46,20 @@ const latestArticles = [
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col">
+    <>
       {/* Seção Hero */}
-      <section className="bg-neutral-900 py-24 md:py-32">
+      <section className="bg-neutral-900 py-24 md:py-48">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-6">
             Wagner Sabor
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8">
+          <p className="text-5xl md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8">
             Do Pixel ao Código. Do Código à Educação. <br />
             Eu construo experiências digitais e capacito a próxima geração de
             desenvolvedores.
           </p>
           <Link
-            href="/projects" // <-- AJUSTADO
+            href="/projects"
             className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-lg rounded-lg px-8 py-3 transition-colors"
           >
             Conheça meus Projetos
@@ -68,11 +68,11 @@ export default function HomePage() {
       </section>
 
       {/* Seção Especialidades */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="flex flex-col items-center gap-4">
-              <div className="bg-neutral-800 p-4 rounded-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+            <div className="bg-neutral-800 flex flex-col items-center px-8 py-10 gap-4 rounded-xl hover:bg-neutral-700 transition-colors">
+              <div className="bg-neutral-900 p-4 rounded-full">
                 <CodeXml className="text-cyan-400" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-white">
@@ -83,8 +83,8 @@ export default function HomePage() {
                 e as melhores práticas do mercado.
               </p>
             </div>
-            <div className="flex flex-col items-center gap-4">
-              <div className="bg-neutral-800 p-4 rounded-full">
+            <div className="bg-neutral-800 flex flex-col items-center px-8 py-10 gap-4 rounded-xl  hover:bg-neutral-700 transition-colors">
+              <div className="bg-neutral-900 p-4 rounded-full">
                 <PenTool className="text-cyan-400" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-white">Design & UX</h3>
@@ -93,16 +93,16 @@ export default function HomePage() {
                 resolvem problemas reais e encantam.
               </p>
             </div>
-            <div className="flex flex-col items-center gap-4">
-              <div className="bg-neutral-800 p-4 rounded-full">
+            <div className="bg-neutral-800 flex flex-col items-center px-8 py-10 gap-4 rounded-xl  hover:bg-neutral-700 transition-colors">
+              <div className="bg-neutral-900 p-4 rounded-full">
                 <BrainCircuit className="text-cyan-400" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-white">
                 Mentoria & Educação
               </h3>
               <p className="text-neutral-400">
-                Capacitando novos talentos em tecnologia no SENAI-SP com uma
-                abordagem prática e focada no mercado.
+                Capacitando novos talentos em tecnologia com uma abordagem
+                prática e focada no mercado.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function HomePage() {
               <Link
                 href={article.slug}
                 key={article.id}
-                className="block border border-neutral-700 rounded-lg p-6 hover:bg-neutral-800 transition-colors"
+                className="block border border-neutral-700 rounded-xl p-6 hover:bg-neutral-800 transition-colors"
               >
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {article.title}
@@ -191,6 +191,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-    </main>
+    </>
   );
 }

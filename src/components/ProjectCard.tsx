@@ -6,7 +6,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ title, description, tags }: ProjectCardProps) {
   return (
-    <div className="border border-neutral-700 rounded-lg p-6 flex flex-col gap-4 hover:bg-neutral-800 transition-colors">
+    <div className="border border-neutral-700 rounded-xl p-6 flex flex-col gap-4 hover:bg-neutral-800 transition-colors">
       <h3 className="text-xl font-semibold text-white">{title}</h3>
       <p className="text-neutral-400 flex-1">{description}</p>
       <div className="flex flex-wrap gap-2">

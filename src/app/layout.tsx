@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 // A LINHA MAIS IMPORTANTE DO ARQUIVO:
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${sora.variable}`}>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

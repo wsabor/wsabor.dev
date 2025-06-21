@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { ProjectCard } from "@/components/ProjectCard";
 
 // Dados mocados (substituiremos pelos arquivos MDX depois)
@@ -27,7 +29,7 @@ const mockProjects = [
 
 export default function ProjetosPage() {
   return (
-    <main className="container mx-auto px-4 py-16 md:py-24">
+    <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Portfólio de Projetos
@@ -48,6 +50,6 @@ export default function ProjetosPage() {
           />
         ))}
       </div>
-    </main>
+    </section>
   );
 }

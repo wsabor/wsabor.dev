@@ -1,12 +1,13 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function ContatoPage() {
   return (
-    <main className="container mx-auto px-4 py-16 md:py-24 flex flex-col items-center text-center">
+    <div className="container mx-auto px-4 py-16 md:py-12 flex flex-col items-center text-center">
       <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
         Vamos Conectar?
       </h1>
-      <p className="text-lg text-neutral-400 max-w-xl mb-12">
+      <p className="text-lg text-neutral-400 max-w-xl mb-8">
         Estou sempre aberto a novas colaborações, conversas sobre tecnologia,
         educação ou para ajudar em projetos open source.
       </p>
@@ -38,11 +39,9 @@ export default function ContatoPage() {
           E-mail
         </a>
       </div>
-
-      {/* 
-        Futuramente, você pode adicionar um formulário de contato aqui.
-        Por exemplo, usando bibliotecas como 'react-hook-form'.
-      */}
-    </main>
+      <div className="w-full max-w-lg border-neutral-700 p-8 mt-8 bg-neutral-800 rounded-xl">
+        <ContactForm />
+      </div>
+    </div>
   );
 }

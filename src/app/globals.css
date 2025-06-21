@@ -14,4 +14,19 @@
   h6 {
     @apply font-display;
   }
+  /* Ajustes finos para os textos gerados pelo MDX */
+  .prose {
+    /* Cor dos parágrafos, etc. */
+    --tw-prose-body: theme(colors.text.muted);
+    /* Cor dos títulos dentro dos artigos */
+    --tw-prose-headings: theme(colors.text.main);
+    /* Cor dos links */
+    --tw-prose-links: theme(colors.primary.DEFAULT);
+    /* Cor dos itens de lista e outros elementos */
+    --tw-prose-bullets: theme(colors.primary.dark);
+    --tw-prose-counters: theme(colors.primary.dark);
+    /* Cor de citações e blocos de código */
+    --tw-prose-quotes: theme(colors.text.main);
+    --tw-prose-code: theme(colors.primary.light);
+  }
 }
