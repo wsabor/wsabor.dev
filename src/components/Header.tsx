@@ -68,7 +68,7 @@ export default function Header() {
         className={`
           md:hidden fixed top-0 left-0 w-full h-screen bg-background bg-opacity-95 backdrop-blur-sm z-40
           transform transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          ${isOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
         <nav className="h-full flex flex-col items-center justify-center">
