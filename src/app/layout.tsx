@@ -1,8 +1,5 @@
-// src/app/layout.tsx - VERSÃO PARA VERIFICAÇÃO
-
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-// A LINHA MAIS IMPORTANTE DO ARQUIVO:
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -31,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${sora.variable}`}>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

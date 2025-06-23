@@ -12,25 +12,38 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-surface text-text-main py-6 relative">
-      <div className="container mx-auto px-4 flex justify-between items-center">
+    <header className="relative bg-background py-6 text-text-main">
+      <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold font-display z-50">
+        <Link
+          href="/"
+          className="z-50 font-display text-xl font-bold transition-colors hover:text-primary"
+        >
           wsabor.dev
         </Link>
 
         {/* Menu de Navegação para Desktop */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
-            <li>
+            {/* Ocultei  o link "Home" para simplificar a navegação, mas você pode descomentar se desejar exibi-lo.
+            Se quiser exibir o link "Home", descomente a linha abaixo */}
+            {/* <li>
               <Link href="/" className="hover:text-primary transition-colors">
                 Home
+              </Link>
+            </li> */}
+            <li>
+              <Link
+                href="/about"
+                className="transition-colors hover:text-primary"
+              >
+                Sobre
               </Link>
             </li>
             <li>
               <Link
                 href="/projects"
-                className="hover:text-primary transition-colors"
+                className="transition-colors hover:text-primary"
               >
                 Projetos
               </Link>
@@ -38,7 +51,7 @@ export default function Header() {
             <li>
               <Link
                 href="/blog"
-                className="hover:text-primary transition-colors"
+                className="transition-colors hover:text-primary"
               >
                 Blog
               </Link>
@@ -46,7 +59,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className="hover:text-primary transition-colors"
+                className="transition-colors hover:text-primary"
               >
                 Contato
               </Link>
@@ -55,7 +68,7 @@ export default function Header() {
         </nav>
 
         {/* Botão Hamburger para Mobile */}
-        <div className="md:hidden z-50">
+        <div className="z-50 md:hidden">
           <button onClick={toggleMenu} aria-label="Abrir menu">
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -65,18 +78,14 @@ export default function Header() {
       {/* Painel do Menu Mobile */}
       {/* A mágica acontece com as classes de transição e transformação */}
       <div
-        className={`
-          md:hidden fixed top-0 left-0 w-full h-screen bg-background bg-opacity-95 backdrop-blur-sm z-40
-          transform transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "translate-x-full"}
-        `}
+        className={`fixed left-0 top-0 z-40 h-screen w-full transform bg-background bg-opacity-95 backdrop-blur-sm transition-transform duration-300 ease-in-out md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"} `}
       >
-        <nav className="h-full flex flex-col items-center justify-center">
-          <ul className="text-center space-y-8">
+        <nav className="flex h-full flex-col items-center justify-center">
+          <ul className="space-y-8 text-center">
             <li>
               <Link
                 href="/"
-                className="text-3xl font-display hover:text-primary transition-colors"
+                className="font-display text-3xl transition-colors hover:text-primary"
                 onClick={toggleMenu}
               >
                 Home
@@ -84,8 +93,17 @@ export default function Header() {
             </li>
             <li>
               <Link
+                href="/about"
+                className="font-display text-3xl transition-colors hover:text-primary"
+                onClick={toggleMenu}
+              >
+                Sobre
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/projects"
-                className="text-3xl font-display hover:text-primary transition-colors"
+                className="font-display text-3xl transition-colors hover:text-primary"
                 onClick={toggleMenu}
               >
                 Projetos
@@ -94,7 +112,7 @@ export default function Header() {
             <li>
               <Link
                 href="/blog"
-                className="text-3xl font-display hover:text-primary transition-colors"
+                className="font-display text-3xl transition-colors hover:text-primary"
                 onClick={toggleMenu}
               >
                 Blog
@@ -103,7 +121,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className="text-3xl font-display hover:text-primary transition-colors"
+                className="font-display text-3xl transition-colors hover:text-primary"
                 onClick={toggleMenu}
               >
                 Contato

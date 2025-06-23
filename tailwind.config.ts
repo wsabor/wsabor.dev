@@ -13,15 +13,15 @@ const config: Config = {
         display: ["var(--font-sora)"],
       },
       colors: {
-        background: "#09090B",
-        surface: "#18181B",
+        background: "#121212",
+        surface: "#1E1E1E",
         primary: {
-          DEFAULT: "#06B6D4",
-          light: "#22D3EE",
+          DEFAULT: "#3399FF",
+          light: "#00C4FF",
           dark: "#0891B2",
         },
         text: {
-          main: "#FAFAFA",
+          main: "#F7FAFC",
           muted: "#A1A1AA",
         },
       },

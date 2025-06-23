@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CodeXml, PenTool, BrainCircuit, ArrowRight } from "lucide-react";
 
@@ -47,33 +48,44 @@ const latestArticles = [
 export default function HomePage() {
   return (
     <>
-      {/* Seção Hero */}
-      <section className="bg-neutral-900 py-24 md:py-48">
-        <div className="container mx-auto px-8 py-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-400 mb-8">
-            Wagner Sabor
-          </h1>
-          <p className="text-2xl md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8">
-            Do Pixel ao Código. Do Código à Educação. <br />
-            Eu construo experiências digitais e capacito a próxima geração de
-            desenvolvedores.
-          </p>
-          <Link
-            href="/projects"
-            className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-lg rounded-lg px-8 py-3 transition-colors"
-          >
-            Conheça meus Projetos
-          </Link>
+      {/* Seção Hero - COM ASPECT RATIO RESPONSIVO */}
+      <section className="hero-aspect-ratio relative">
+        <div className="hero-content-wrapper flex items-center justify-center text-center">
+          {/* Contêiner da Imagem de Fundo e Overlay */}
+          <div className="absolute inset-0 z-0">
+            <div className="hero-background h-full w-full bg-cover bg-center bg-no-repeat"></div>
+            <div className="absolute inset-0 bg-background/50 bg-gradient-to-t from-background via-transparent to-background/20"></div>
+          </div>
+
+          {/* Conteúdo do Hero (acima do overlay) */}
+          <div className="container relative z-10 mx-auto px-4">
+            <div className="mx-auto max-w-3xl">
+              <h1 className="mb-6 bg-gradient-to-b from-white to-neutral-300 bg-clip-text text-4xl font-bold text-transparent md:text-6xl">
+                Wagner Sabor
+              </h1>
+              <p className="mx-auto mb-8 max-w-2xl text-xl text-neutral-200 md:text-2xl">
+                Do Pixel ao Código. Do Código à Educação. <br />
+                Eu construo experiências digitais e capacito a próxima geração
+                de desenvolvedores.
+              </p>
+              <Link
+                href="/projects"
+                className="inline-block rounded-lg bg-primary px-8 py-3 text-lg font-bold text-white transition-colors hover:bg-primary-light"
+              >
+                Conheça meus Projetos
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Seção Especialidades */}
       <section className="py-16 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-            <div className="bg-neutral-800 flex flex-col items-center px-8 py-10 gap-4 rounded-xl hover:bg-neutral-700 transition-colors">
-              <div className="bg-neutral-900 p-4 rounded-full">
-                <CodeXml className="text-cyan-400" size={32} />
+          <div className="grid grid-cols-1 gap-16 text-center md:grid-cols-3">
+            <div className="flex flex-col items-center gap-4 rounded-xl bg-neutral-800 px-8 py-10 transition-colors hover:bg-neutral-700">
+              <div className="rounded-full bg-neutral-900 p-4">
+                <CodeXml className="text-primary" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-white">
                 Desenvolvimento Full Stack
@@ -83,9 +95,9 @@ export default function HomePage() {
                 e as melhores práticas do mercado.
               </p>
             </div>
-            <div className="bg-neutral-800 flex flex-col items-center px-8 py-10 gap-4 rounded-xl  hover:bg-neutral-700 transition-colors">
-              <div className="bg-neutral-900 p-4 rounded-full">
-                <PenTool className="text-cyan-400" size={32} />
+            <div className="flex flex-col items-center gap-4 rounded-xl bg-neutral-800 px-8 py-10 transition-colors hover:bg-neutral-700">
+              <div className="rounded-full bg-neutral-900 p-4">
+                <PenTool className="text-primary" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-white">Design & UX</h3>
               <p className="text-neutral-400">
@@ -93,9 +105,9 @@ export default function HomePage() {
                 resolvem problemas reais e encantam.
               </p>
             </div>
-            <div className="bg-neutral-800 flex flex-col items-center px-8 py-10 gap-4 rounded-xl  hover:bg-neutral-700 transition-colors">
-              <div className="bg-neutral-900 p-4 rounded-full">
-                <BrainCircuit className="text-cyan-400" size={32} />
+            <div className="flex flex-col items-center gap-4 rounded-xl bg-neutral-800 px-8 py-10 transition-colors hover:bg-neutral-700">
+              <div className="rounded-full bg-neutral-900 p-4">
+                <BrainCircuit className="text-primary" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-white">
                 Mentoria & Educação
@@ -110,17 +122,17 @@ export default function HomePage() {
       </section>
 
       {/* Seção Projetos em Destaque */}
-      <section className="py-16 md:py-24 bg-neutral-900">
+      <section className="bg-neutral-900 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Projetos em Destaque
             </h2>
             <p className="text-lg text-neutral-400">
               Uma amostra do meu trabalho, da concepção à implementação.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((project) => (
               <ProjectCard
                 key={project.id}
@@ -133,7 +145,7 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/projects" // <-- AJUSTADO
-              className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold"
+              className="inline-flex items-center gap-2 font-semibold text-cyan-400 hover:text-cyan-300"
             >
               Ver todos os projetos <ArrowRight size={16} />
             </Link>
@@ -144,8 +156,8 @@ export default function HomePage() {
       {/* Seção Artigos Recentes (Blog Teaser) */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Artigos Recentes
             </h2>
             <p className="text-lg text-neutral-400">
@@ -153,18 +165,18 @@ export default function HomePage() {
               educação.
             </p>
           </div>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             {latestArticles.map((article) => (
               <Link
                 href={article.slug}
                 key={article.id}
-                className="block border border-neutral-700 rounded-xl p-6 hover:bg-neutral-800 transition-colors"
+                className="block rounded-xl border border-neutral-700 p-6 transition-colors hover:bg-neutral-800"
               >
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="mb-2 text-xl font-semibold text-white">
                   {article.title}
                 </h3>
-                <p className="text-neutral-400 mb-4">{article.summary}</p>
-                <span className="font-semibold text-cyan-400 flex items-center gap-2">
+                <p className="mb-4 text-neutral-400">{article.summary}</p>
+                <span className="flex items-center gap-2 font-semibold text-cyan-400">
                   Ler Artigo <ArrowRight size={16} />
                 </span>
               </Link>
@@ -174,18 +186,18 @@ export default function HomePage() {
       </section>
 
       {/* Seção CTA Final */}
-      <section className="py-24 bg-gradient-to-t from-neutral-900 to-black">
+      <section className="bg-gradient-to-t from-neutral-900 to-black py-24">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
             Vamos construir algo incrível juntos?
           </h2>
-          <p className="text-lg text-neutral-300 mb-8">
+          <p className="mb-8 text-lg text-neutral-300">
             Se você tem uma ideia, um projeto ou apenas quer conversar sobre
             tecnologia, me chame.
           </p>
           <Link
             href="/contact" // <-- AJUSTADO
-            className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-lg rounded-lg px-8 py-3 transition-colors"
+            className="inline-block rounded-lg bg-cyan-600 px-8 py-3 text-lg font-bold text-white transition-colors hover:bg-cyan-500"
           >
             Entre em Contato
           </Link>
