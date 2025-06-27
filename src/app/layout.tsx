@@ -27,10 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${sora.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${inter.variable} ${sora.variable}`}
+      suppressHydrationWarning={true}
+    >
       <body className="flex min-h-screen flex-col">
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
       </body>
     </html>
