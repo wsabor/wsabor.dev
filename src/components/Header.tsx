@@ -27,11 +27,11 @@ export default function Header() {
           <ul className="flex space-x-8">
             {/* Ocultei  o link "Home" para simplificar a navegação, mas você pode descomentar se desejar exibi-lo.
             Se quiser exibir o link "Home", descomente a linha abaixo */}
-            {/* <li>
-              <Link href="/" className="hover:text-primary transition-colors">
+            <li>
+              <Link href="/" className="transition-colors hover:text-primary">
                 Home
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link
                 href="/about"
