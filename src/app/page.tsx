@@ -54,7 +54,7 @@ export default function HomePage() {
           {/* Contêiner da Imagem de Fundo e Overlay */}
           <div className="absolute inset-0 z-0">
             <div className="hero-background h-full w-full bg-cover bg-center bg-no-repeat"></div>
-            <div className="absolute inset-0 bg-background/50 bg-gradient-to-t from-background via-transparent to-background/20"></div>
+            <div className="absolute inset-0 bg-background/20 bg-gradient-to-t from-background via-transparent to-background/40"></div>
           </div>
 
           {/* Conteúdo do Hero (acima do overlay) */}
@@ -122,7 +122,7 @@ export default function HomePage() {
       </section>
 
       {/* Seção Projetos em Destaque */}
-      <section className="bg-neutral-900 py-16 md:py-24">
+      <section className="bg-neutral-900 py-16 md:py-44">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -154,7 +154,7 @@ export default function HomePage() {
       </section>
 
       {/* Seção Artigos Recentes (Blog Teaser) */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-44">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -186,7 +186,7 @@ export default function HomePage() {
       </section>
 
       {/* Seção CTA Final */}
-      <section className="bg-gradient-to-t from-neutral-900 to-black py-24">
+      <section className="bg-gradient-to-t from-neutral-800 to-black py-16 py-24 md:py-44">
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
             Vamos construir algo incrível juntos?
