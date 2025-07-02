@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ProjectCard } from "@/components/ProjectCard";
+import { SpecialtyCard } from "@/components/SpecialtyCard";
 import { CodeXml, PenTool, BrainCircuit, ArrowRight } from "lucide-react";
 
 // Dados mocados (depois, eles virão dos seus arquivos MDX)
@@ -45,6 +46,27 @@ const latestArticles = [
   },
 ];
 
+const specialties = [
+  {
+    icon: <CodeXml className="text-primary" size={32} />,
+    title: "Desenvolvimento Full Stack",
+    description:
+      "Construindo aplicações robustas e escaláveis com React, Node.js e as melhores práticas do mercado.",
+  },
+  {
+    icon: <PenTool className="text-primary" size={32} />,
+    title: "Design & UX",
+    description:
+      "Criando interfaces intuitivas e experiências de usuário que resolvem problemas reais e encantam.",
+  },
+  {
+    icon: <BrainCircuit className="text-primary" size={32} />,
+    title: "Mentoria & Educação",
+    description:
+      "Capacitando novos talentos em tecnologia com uma abordagem prática e focada no mercado.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -83,40 +105,14 @@ export default function HomePage() {
       <section className="py-16 md:py-32">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-16 text-center md:grid-cols-3">
-            <div className="flex flex-col items-center gap-4 rounded-xl bg-neutral-800 px-8 py-10 transition-colors hover:bg-neutral-700">
-              <div className="rounded-full bg-neutral-900 p-4">
-                <CodeXml className="text-primary" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white">
-                Desenvolvimento Full Stack
-              </h3>
-              <p className="text-neutral-400">
-                Construindo aplicações robustas e escaláveis com React, Node.js
-                e as melhores práticas do mercado.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-4 rounded-xl bg-neutral-800 px-8 py-10 transition-colors hover:bg-neutral-700">
-              <div className="rounded-full bg-neutral-900 p-4">
-                <PenTool className="text-primary" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white">Design & UX</h3>
-              <p className="text-neutral-400">
-                Criando interfaces intuitivas e experiências de usuário que
-                resolvem problemas reais e encantam.
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-4 rounded-xl bg-neutral-800 px-8 py-10 transition-colors hover:bg-neutral-700">
-              <div className="rounded-full bg-neutral-900 p-4">
-                <BrainCircuit className="text-primary" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white">
-                Mentoria & Educação
-              </h3>
-              <p className="text-neutral-400">
-                Capacitando novos talentos em tecnologia com uma abordagem
-                prática e focada no mercado.
-              </p>
-            </div>
+            {specialties.map((specialty) => (
+              <SpecialtyCard
+                key={specialty.title}
+                icon={specialty.icon}
+                title={specialty.title}
+                description={specialty.description}
+              />
+            ))}
           </div>
         </div>
       </section>
