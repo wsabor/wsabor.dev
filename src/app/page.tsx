@@ -2,70 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SpecialtyCard } from "@/components/SpecialtyCard";
-import { CodeXml, PenTool, BrainCircuit, ArrowRight } from "lucide-react";
-
-// Dados mocados (depois, eles virão dos seus arquivos MDX)
-const featuredProjects = [
-  {
-    id: 1,
-    title: "Jogo Educacional (Quiz Preparaí 2025)",
-    description:
-      "Desenvolvimento de um quiz interativo para preparar estudantes, usando React e Node.js.",
-    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 2,
-    title: "Plataforma de E-Commerce",
-    description:
-      "Criação de uma plataforma de vendas completa, aplicando conceitos de engenharia de software.",
-    tags: ["Node.js", "MySQL", "Eng. de Software"],
-  },
-  {
-    id: 3,
-    title: "Soluções Web para Negócios Locais",
-    description:
-      "Orientação na criação de sites para diversos segmentos, utilizando a stack MERN.",
-    tags: ["MERN", "MongoDB", "React", "SEO"],
-  },
-];
-
-const latestArticles = [
-  {
-    id: 1,
-    title: "Por que todo Dev Deveria Aprender Design",
-    summary:
-      "Uma reflexão sobre como os princípios de design podem transformar a maneira como escrevemos código e construímos produtos.",
-    slug: "/blog/dev-e-design",
-  },
-  {
-    id: 2,
-    title: "Os 3 Maiores Desafios que Meus Alunos Enfrentam",
-    summary:
-      "Analisando os obstáculos mais comuns na jornada de um desenvolvedor júnior e como superá-los.",
-    slug: "/blog/desafios-alunos",
-  },
-];
-
-const specialties = [
-  {
-    icon: <CodeXml className="text-primary" size={32} />,
-    title: "Desenvolvimento Full Stack",
-    description:
-      "Construindo aplicações robustas e escaláveis com React, Node.js e as melhores práticas do mercado.",
-  },
-  {
-    icon: <PenTool className="text-primary" size={32} />,
-    title: "Design & UX",
-    description:
-      "Criando interfaces intuitivas e experiências de usuário que resolvem problemas reais e encantam.",
-  },
-  {
-    icon: <BrainCircuit className="text-primary" size={32} />,
-    title: "Mentoria & Educação",
-    description:
-      "Capacitando novos talentos em tecnologia com uma abordagem prática e focada no mercado.",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { featuredProjects } from "@/data/projects";
+import { latestArticles } from "@/data/articles";
+import { specialties } from "@/data/specialties";
 
 export default function HomePage() {
   return (
@@ -107,7 +47,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-16 text-center md:grid-cols-3">
             {specialties.map((specialty) => (
               <SpecialtyCard
-                key={specialty.title}
+                key={specialty.id}
                 icon={specialty.icon}
                 title={specialty.title}
                 description={specialty.description}
