@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -35,24 +36,28 @@ export default function Header() {
           wsabor.dev
         </Link>
 
-        {/* Menu de Navegação para Desktop */}
-        <nav className="hidden md:block" aria-label="Navegação principal">
-          <ul className="flex space-x-8">
-            {navLinks.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="transition-colors hover:text-primary"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="hidden items-center gap-4 md:flex">
+          {/* Menu de Navegação para Desktop */}
+          <nav aria-label="Navegação principal">
+            <ul className="flex space-x-8">
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <ThemeSwitcher />
+        </div>
 
         {/* Botão Hamburger para Mobile */}
-        <div className="z-50 md:hidden">
+        <div className="z-50 flex items-center gap-4 md:hidden">
+          <ThemeSwitcher />
           <button
             onClick={toggleMenu}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}

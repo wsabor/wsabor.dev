@@ -34,12 +34,12 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     const { meta, content } = getPostBySlug(params.slug);
 
     return (
-      <main className="container mx-auto px-4 py-16 md:py-24 max-w-4xl">
-        <article className="prose prose-invert prose-lg max-w-none">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {meta.title}
-          </h1>
-          <p className="text-lg text-neutral-400 mt-0 mb-8">
+      <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
+        {/* Usamos dark:prose-invert para que o plugin de tipografia use as cores do tema escuro */}
+        <article className="prose prose-lg max-w-none dark:prose-invert">
+          {/* Título e data agora usam as cores do tema, que são herdadas pelo .prose */}
+          <h1>{meta.title}</h1>
+          <p className="mb-8 mt-0 text-lg">
             Publicado em{" "}
             {new Date(meta.publishedAt).toLocaleDateString("pt-BR", {
               year: "numeric",
@@ -53,7 +53,6 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </main>
     );
   } catch (e) {
-    // Se o arquivo do post não for encontrado, mostra a página 404
     notFound();
   }
 }

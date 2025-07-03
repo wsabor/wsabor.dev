@@ -21,11 +21,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-800 bg-background py-8 text-neutral-400">
+    <footer className="border-t border-black/10 bg-background py-8 text-text-muted dark:border-white/10">
       <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-4 md:flex-row">
         <div className="flex flex-col items-center gap-2 text-center md:items-start md:text-left">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} Wagner Sabor. Todos os direitos
+            © {new Date().getFullYear()} Wagner Sabor. Todos os direitos
             reservados.
           </p>
           <p className="text-sm">
@@ -40,7 +40,7 @@ export default function Footer() {
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
+              className="text-text-muted transition-colors hover:text-primary"
             >
               {icon}
             </Link>

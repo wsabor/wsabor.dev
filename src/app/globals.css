@@ -1,11 +1,42 @@
+/* src/app/globals.css - VERSÃO REFATORADA */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* ======================================== */
+  /* DEFINIÇÃO DAS CORES DO TEMA (VARS CSS)   */
+  /* ======================================== */
+
+  /* :root define as variáveis para o TEMA CLARO por padrão */
+  :root {
+    --background: 0 0% 100%; /* Branco */
+    --surface: 0 0% 95%; /* Cinza claro para cards */
+    --primary: 214 100% 50%; /* Azul elétrico (um pouco mais escuro para contraste) */
+    --primary-light: 193 100% 45%; /* Ciano brilhante */
+    --text-main: 0 0% 7%; /* Preto suave */
+    --text-muted: 0 0% 30%; /* Cinza escuro */
+  }
+
+  /* A classe .dark sobrescreve as variáveis para o TEMA ESCURO */
+  .dark {
+    --background: 0 0% 7%; /* #121212 */
+    --surface: 0 0% 12%; /* #1E1E1E */
+    --primary: 214 100% 60%; /* #3399FF */
+    --primary-light: 193 100% 50%; /* #00C4FF */
+    --text-main: 0 0% 88%; /* #E0E0E0 */
+    --text-muted: 0 0% 53%; /* #888888 */
+  }
+
+  /* ======================================== */
+  /* APLICAÇÃO DOS ESTILOS GLOBAIS            */
+  /* ======================================== */
+
   body {
     @apply bg-background font-sans text-text-main antialiased;
   }
+
   h1,
   h2,
   h3,
@@ -14,57 +45,57 @@
   h6 {
     @apply font-display;
   }
-  /* Ajustes finos para os textos gerados pelo MDX */
+
+  /* ======================================== */
+  /* ESTILOS PARA O CONTEÚDO MDX (.prose)     */
+  /* ======================================== */
+
   .prose {
-    /* Cor dos parágrafos, etc. */
     --tw-prose-body: theme(colors.text.muted);
-    /* Cor dos títulos dentro dos artigos */
     --tw-prose-headings: theme(colors.text.main);
-    /* Cor dos links */
     --tw-prose-links: theme(colors.primary.DEFAULT);
-    /* Cor dos itens de lista e outros elementos */
-    --tw-prose-bullets: theme(colors.primary.dark);
-    --tw-prose-counters: theme(colors.primary.dark);
-    /* Cor de citações e blocos de código */
+    --tw-prose-bullets: theme(colors.primary.DEFAULT);
+    --tw-prose-counters: theme(colors.primary.DEFAULT);
     --tw-prose-quotes: theme(colors.text.main);
     --tw-prose-code: theme(colors.primary.light);
+
+    /* Para o tema claro, usamos as mesmas variáveis, mas elas apontarão para os valores de :root */
+    --tw-prose-invert-body: theme(colors.text.muted);
+    --tw-prose-invert-headings: theme(colors.text.main);
+    --tw-prose-invert-links: theme(colors.primary.DEFAULT);
+    --tw-prose-invert-bullets: theme(colors.primary.DEFAULT);
+    --tw-prose-invert-counters: theme(colors.primary.DEFAULT);
+    --tw-prose-invert-quotes: theme(colors.text.main);
+    --tw-prose-invert-code: theme(colors.primary.light);
   }
 }
 
-/* Classe para o fundo do Hero */
+/* ======================================== */
+/* ESTILOS DE COMPONENTES CUSTOMIZADOS      */
+/* ======================================== */
+
 .hero-background {
-  /* Imagem padrão para desktop */
   background-image: url("/hero-desktop.webp");
 }
 
-/* Media Query: Aplica estes estilos apenas em telas com largura máxima de 768px */
 @media (max-width: 768px) {
   .hero-background {
-    /* Troca a imagem para a versão mobile */
     background-image: url("/hero-mobile.webp");
   }
 }
 
-/* Sistema de Aspect Ratio Responsivo */
 .hero-aspect-ratio {
   position: relative;
   width: 100%;
-
-  /* PROPORÇÃO PADRÃO (MOBILE FIRST) */
-  /* Proporção da imagem mobile (1080x1500) -> (1500 / 1080) * 100% */
-  padding-bottom: 138.88%;
+  padding-bottom: 138.88%; /* Mobile First */
 }
 
-/* Media Query para telas maiores (md: 768px em diante) */
 @media (min-width: 768px) {
   .hero-aspect-ratio {
-    /* MUDA PARA A PROPORÇÃO DESKTOP */
-    /* Proporção da imagem desktop (1920x700) -> (700 / 1920) * 100% */
-    padding-bottom: 36.45%;
+    padding-bottom: 36.45%; /* Desktop */
   }
 }
 
-/* Classe para o conteúdo que vai dentro do contêiner de aspect-ratio */
 .hero-content-wrapper {
   position: absolute;
   top: 0;

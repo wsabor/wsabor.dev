@@ -1,47 +1,23 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { ProjectCard } from "@/components/ProjectCard";
+import { allProjects } from "@/data/projects";
 
-// Dados mocados (substituiremos pelos arquivos MDX depois)
-const mockProjects = [
-  {
-    id: 1,
-    title: "Jogo Educacional (Quiz Preparaí 2025)",
-    description:
-      "Desenvolvimento ponta a ponta de um quiz interativo para preparar estudantes para avaliações, usando React e Node.js.",
-    tags: ["React", "Node.js", "Express", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 2,
-    title: "Plataforma de E-Commerce",
-    description:
-      "Criação de uma plataforma de vendas online completa, aplicando conceitos de engenharia de software e arquitetura clássica.",
-    tags: ["Node.js", "MySQL", "Eng. de Software", "Arquitetura"],
-  },
-  {
-    id: 3,
-    title: "Soluções Web para Negócios Locais",
-    description:
-      "Orientação na criação de sites e aplicações para restaurantes, lojas, etc., utilizando a stack MERN.",
-    tags: ["MERN", "MongoDB", "React", "SEO", "Design Responsivo"],
-  },
-];
-
-export default function ProjetosPage() {
+export default function ProjectsPage() {
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+    <main className="container mx-auto px-4 py-16 md:py-24">
+      <div className="mb-12 text-center">
+        {/* Usando as cores de texto do tema */}
+        <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
           Portfólio de Projetos
         </h1>
-        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+        <p className="mx-auto max-w-2xl text-lg text-text-muted">
           Aqui estão alguns dos projetos que desenvolvi ou orientei,
           transformando ideias em soluções digitais de valor.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {mockProjects.map((project) => (
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Mapeando sobre os dados importados */}
+        {allProjects.map((project) => (
           <ProjectCard
             key={project.id}
             title={project.title}
@@ -50,6 +26,6 @@ export default function ProjetosPage() {
           />
         ))}
       </div>
-    </section>
+    </main>
   );
 }

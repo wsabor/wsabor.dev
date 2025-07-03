@@ -5,7 +5,7 @@ export type Project = {
   tags: string[];
 };
 
-export const featuredProjects: Project[] = [
+export const allProjects: Project[] = [
   {
     id: 1,
     title: "Jogo Educacional (Quiz Preparaí 2025)",

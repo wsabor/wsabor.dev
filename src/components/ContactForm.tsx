@@ -20,7 +20,7 @@ export function ContactForm() {
   } = useForm<Inputs>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null
+    null,
   );
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -61,29 +61,31 @@ export function ContactForm() {
       className="w-full max-w-lg space-y-6"
       noValidate
     >
-      {/* O resto do seu formulário (inputs, labels, etc.) permanece exatamente o mesmo */}
       <div>
         <label
           htmlFor="name"
-          className="block text-sm font-medium text-text-muted text-left mb-2"
+          className="mb-2 block text-left text-sm font-medium text-text-muted"
         >
           Nome
         </label>
+        {/* O input agora usa as cores de borda do tema */}
         <input
           id="name"
           type="text"
           {...register("name", { required: "O nome é obrigatório" })}
-          className="w-full bg-surface border border-neutral-700 rounded-lg px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
         />
         {errors.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          <p className="mt-1 text-left text-sm text-red-500">
+            {errors.name.message}
+          </p>
         )}
       </div>
 
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-text-muted text-left mb-2"
+          className="mb-2 block text-left text-sm font-medium text-text-muted"
         >
           E-mail
         </label>
@@ -91,23 +93,21 @@ export function ContactForm() {
           id="email"
           type="email"
           {...register("email", {
-            required: "O e-mail é obrigatório",
-            pattern: {
-              value: /^\S+@\S+$/i,
-              message: "Formato de e-mail inválido",
-            },
+            /* ... */
           })}
-          className="w-full bg-surface border border-neutral-700 rounded-lg px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
         />
         {errors.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          <p className="mt-1 text-left text-sm text-red-500">
+            {errors.email.message}
+          </p>
         )}
       </div>
 
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font--medium text-text-muted text-left mb-2"
+          className="mb-2 block text-left text-sm font-medium text-text-muted"
         >
           Mensagem
         </label>
@@ -115,28 +115,30 @@ export function ContactForm() {
           id="message"
           rows={5}
           {...register("message", { required: "A mensagem é obrigatória" })}
-          className="w-full bg-surface border border-neutral-700 rounded-lg px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
         />
         {errors.message && (
-          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+          <p className="mt-1 text-left text-sm text-red-500">
+            {errors.message.message}
+          </p>
         )}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full rounded-lg bg-primary px-6 py-3 font-bold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
       </button>
 
       {submitStatus === "success" && (
-        <p className="text-green-500 text-center">
+        <p className="text-center text-green-500">
           Mensagem enviada com sucesso! Obrigado.
         </p>
       )}
       {submitStatus === "error" && (
-        <p className="text-red-500 text-center">
+        <p className="text-center text-red-500">
           Ocorreu um erro. Tente novamente mais tarde.
         </p>
       )}

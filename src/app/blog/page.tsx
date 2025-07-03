@@ -12,27 +12,27 @@ export default function BlogPage() {
   const posts = getAllPostsMeta();
 
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
-      {/* Cabeçalho da página */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Blog</h1>
-        <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+    <main className="container mx-auto px-4 py-16 md:py-24">
+      <div className="mb-16 text-center">
+        <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
+          Blog
+        </h1>
+        <p className="mx-auto max-w-2xl text-lg text-text-muted">
           Aqui compartilho conhecimentos, tutoriais e reflexões sobre o universo
           da tecnologia, do desenvolvimento ao design.
         </p>
       </div>
 
-      {/* Lista de Posts */}
-      <div className="max-w-4xl mx-auto space-y-12">
+      <div className="mx-auto max-w-4xl space-y-12">
         {posts.map((post) => (
           <Link
-            href={`/blog/${post.slug}`} // Link dinâmico para cada post
+            href={`/blog/${post.slug}`}
             key={post.slug}
             className="group block"
           >
             <article>
               <div className="mb-2">
-                <p className="text-sm text-neutral-400">
+                <p className="text-sm text-text-muted">
                   {new Date(post.meta.publishedAt).toLocaleDateString("pt-BR", {
                     year: "numeric",
                     month: "long",
@@ -40,19 +40,19 @@ export default function BlogPage() {
                   })}
                 </p>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
+              <h2 className="mb-4 text-2xl font-bold text-text-main transition-colors group-hover:text-primary md:text-3xl">
                 {post.meta.title}
               </h2>
-              <p className="text-lg text-neutral-300 mb-6">
+              <p className="mb-6 text-lg text-text-muted">
                 {post.meta.summary}
               </p>
-              <span className="font-semibold text-primary inline-flex items-center gap-2">
+              <span className="inline-flex items-center gap-2 font-semibold text-primary">
                 Ler artigo <ArrowRight size={16} />
               </span>
             </article>
           </Link>
         ))}
       </div>
-    </div>
+    </main>
   );
 }

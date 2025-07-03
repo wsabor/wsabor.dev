@@ -1,3 +1,5 @@
+// tailwind.config.ts - VERSÃO REFATORADA
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -6,6 +8,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // Perfeito, já estava certo
   theme: {
     extend: {
       fontFamily: {
@@ -13,16 +16,16 @@ const config: Config = {
         display: ["var(--font-sora)"],
       },
       colors: {
-        background: "#121212",
-        surface: "#1E1E1E",
+        // Mapeando nossas variáveis CSS para classes do Tailwind
+        background: "hsl(var(--background))",
+        surface: "hsl(var(--surface))", // Nova cor para cards
         primary: {
-          DEFAULT: "#3399FF",
-          light: "#00C4FF",
-          dark: "#0891B2",
+          DEFAULT: "hsl(var(--primary))",
+          light: "hsl(var(--primary-light))",
         },
         text: {
-          main: "#F7FAFC",
-          muted: "#A1A1AA",
+          main: "hsl(var(--text-main))",
+          muted: "hsl(var(--text-muted))", // Nova cor para textos secundários
         },
       },
     },
