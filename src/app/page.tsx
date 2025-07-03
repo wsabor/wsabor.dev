@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SpecialtyCard } from "@/components/SpecialtyCard";
 import { ArrowRight } from "lucide-react";
-import { allProjects } from "@/data/projects";
+import { featuredProjects } from "@/data/projects";
 import { latestArticles } from "@/data/articles";
 import { specialties } from "@/data/specialties";
 
@@ -67,7 +67,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {allProjects.map((project) => (
+            {featuredProjects.map((project) => (
               <ProjectCard
                 key={project.id}
                 image={project.image}

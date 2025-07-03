@@ -70,3 +70,5 @@ export const allProjects: Project[] = [
   //   tags: ["MERN", "MongoDB", "React", "SEO"],
   // },
 ];
+
+export const featuredProjects = allProjects.slice(0, 3);
