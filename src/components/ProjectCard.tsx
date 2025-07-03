@@ -1,27 +1,66 @@
+import Image from "next/image";
+import Link from "next/link"; // 1. Importe o Link
+import { ExternalLink } from "lucide-react"; // Um ícone para links externos
+
 type ProjectCardProps = {
   title: string;
+  image: string;
+  link: string; // 2. Adicione a nova prop
   description: string;
   tags: string[];
 };
 
-export function ProjectCard({ title, description, tags }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  image,
+  link,
+  description,
+  tags,
+}: ProjectCardProps) {
   return (
-    // Usando bg-surface para o fundo do card e a borda com opacidade
-    <div className="flex flex-col gap-4 rounded-xl border border-black/10 bg-surface p-6 transition-colors hover:border-primary dark:border-white/10 dark:hover:border-primary">
-      {/* Usando text-main para o título */}
-      <h3 className="text-xl font-semibold text-text-main">{title}</h3>
-      {/* Usando text-muted para a descrição */}
-      <p className="flex-1 text-text-muted">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          // Usando a cor primary para as tags, com opacidade
-          <span
-            key={tag}
-            className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary"
+    <div className="flex flex-col overflow-hidden rounded-xl border border-black/10 bg-surface transition-colors dark:border-white/10">
+      {/* Imagem */}
+      {image && (
+        <div className="relative h-48 w-full">
+          <Image
+            src={`/${image}`}
+            alt={`Imagem de capa do projeto ${title}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
+
+      {/* Conteúdo do Card */}
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-xl font-semibold text-text-main">{title}</h3>
+        <p className="mt-2 flex-1 text-text-muted">{description}</p>
+
+        {/* Tags */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* 3. Botão do Link */}
+        {link && link !== "#" && (
+          <Link
+            href={link}
+            target="_blank" // Abre em nova aba
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 font-semibold text-white transition-colors hover:bg-primary-light"
           >
-            {tag}
-          </span>
-        ))}
+            Ver Projeto
+            <ExternalLink size={16} />
+          </Link>
+        )}
       </div>
     </div>
   );
