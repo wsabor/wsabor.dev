@@ -23,7 +23,7 @@ export function ProjectCard({
       {image && (
         <div className="relative h-48 w-full">
           <Image
-            src={`/${image}`}
+            src={`/img/projects/${image}`}
             alt={`Imagem de capa do projeto ${title}`}
             fill
             className="object-cover"
