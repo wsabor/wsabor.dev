@@ -75,12 +75,12 @@
 /* ======================================== */
 
 .hero-background {
-  background-image: url("/hero-desktop.webp");
+  background-image: url("/img/hero-desktop.webp");
 }
 
 @media (max-width: 768px) {
   .hero-background {
-    background-image: url("/hero-mobile.webp");
+    background-image: url("/img/hero-mobile.webp");
   }
 }
 
