@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #353535;
+}
+
+header {
+    background-color: #515151;
+    padding: 0 15px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+header>h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #EBEBEB;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+aside {
+    width: 100%;
+    max-width: 270px;
+    background-color: #252525;
+    padding: 30px 20px 20px;
+    min-height: calc(100dvh - 55px);
+}
+
+.canvas {
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 1/1;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    gap: 2px;
+}
+
+.pixel {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #444;
+    user-select: none;
+}
+
+.option-title {
+    color: #EBEBEB;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.input-size {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #252525;
+    outline: none;
+    margin: 10px 0 20px;
+}
+
+.input-color {
+    appearance: none;
+    width: 42px;
+    height: 45px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 5px 0 15px;
+}
+
+.input-color::-moz-color-swatch {
+    border-radius: 50px;
+    border: 2px solid #EBEBEB;
+}
+
+.input-color::-webkit-color-swatch {
+    border-radius: 50px;
+    border: 2px solid #EBEBEB;
+}
+
+.used-colors {
+    margin: 10px 0;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.button-color {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-save {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    background-color: #EBEBEB;
+    cursor: pointer;
+}
+
+.button-save:hover {
+    background-color: #ccc;
+}
+
+.resize {
+    height: 720px;
+    width: 3px;
+    background-color: #444;
+    margin-top: 20px;
+    cursor: col-resize;
+}
