@@ -18,7 +18,7 @@ export function ProjectCard({
   tags,
 }: ProjectCardProps) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl border border-black/10 bg-surface transition-colors dark:border-white/10 dark:hover:border-primary">
+    <div className="flex flex-col overflow-hidden rounded-xl border border-black/10 bg-surface transition-colors hover:border-primary dark:border-white/10 dark:hover:border-primary">
       {/* Imagem */}
       {image && (
         <div className="relative h-48 w-full">

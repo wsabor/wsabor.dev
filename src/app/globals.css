@@ -74,13 +74,29 @@
 /* ESTILOS DE COMPONENTES CUSTOMIZADOS      */
 /* ======================================== */
 
+/* --- Estilos do Hero Background --- */
+
+/* Padrão (TEMA CLARO - MOBILE FIRST) */
 .hero-background {
-  background-image: url("/img/hero-desktop.webp");
+  background-image: url("/img/hero-mobile-light.webp"); /* Imagem para Celular no Tema Claro */
 }
 
-@media (max-width: 768px) {
+/* Media Query para telas maiores no Tema Claro */
+@media (min-width: 768px) {
   .hero-background {
-    background-image: url("/img/hero-mobile.webp");
+    background-image: url("/img/hero-desktop-light.webp"); /* Imagem para Desktop no Tema Claro */
+  }
+}
+
+/* Sobrescreve para o TEMA ESCURO */
+.dark .hero-background {
+  background-image: url("/img/hero-mobile-dark.webp"); /* Imagem para Celular no Tema Escuro */
+}
+
+/* Media Query para telas maiores no Tema Escuro */
+@media (min-width: 768px) {
+  .dark .hero-background {
+    background-image: url("/img/hero-desktop-dark.webp"); /* Imagem para Desktop no Tema Escuro */
   }
 }
 
