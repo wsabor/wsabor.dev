@@ -1,4 +1,6 @@
 import { getPostBySlug, getAllPostsMeta } from "@/lib/posts";
+import { ImageGallery } from "@/components/ImageGallery";
+import { Comments } from "@/components/Comments";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 
@@ -47,9 +49,17 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               day: "numeric",
             })}
           </p>
-
-          <MDXRemote source={content} />
+          <MDXRemote
+            source={content}
+            components={{
+              ImageGallery: () => (
+                <ImageGallery images={meta.galleryImages || []} />
+              ),
+            }}
+          />{" "}
         </article>
+        <hr className="my-12 border-black/10 dark:border-white/10" />
+        <Comments />
       </main>
     );
   } catch (e) {
