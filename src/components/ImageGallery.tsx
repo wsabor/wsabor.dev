@@ -39,9 +39,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
 
   return (
     <div className="not-prose my-12">
-      <h3 className="mb-6 text-2xl font-bold text-text-main">
-        Galeria do Projeto
-      </h3>
+      <h3 className="mb-6 text-2xl font-bold text-text-main">Galeria</h3>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
         {" "}
         {/* Aumentado o gap */}
