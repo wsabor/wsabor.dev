@@ -11,7 +11,7 @@ export const latestArticles: Article[] = [
     title: "Hackaton Agrotech 2025",
     summary:
       "Um, breve relato sobra a experiência em participar de um evento hackaton com meus alunos do ensino técnico.",
-    slug: "/blog/haclaton-agrotech-2025",
+    slug: "/blog/hackaton-agrotech-2025",
   },
   {
     id: 2,
