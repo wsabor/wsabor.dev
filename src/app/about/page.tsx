@@ -5,7 +5,7 @@ export default function AboutPage() {
     <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
       {/* Usando a cor de texto principal do tema */}
       <h1 className="mb-8 text-4xl font-bold text-text-main md:text-5xl">
-        Minha Jornada: Do Pixel ao Código
+        Do Pixel ao Código
       </h1>
 
       {/* 
@@ -14,40 +14,37 @@ export default function AboutPage() {
       */}
       <div className="prose prose-lg max-w-none dark:prose-invert">
         <p>
-          Minha jornada na tecnologia começou com um pixel e evoluiu para o
-          código. Com um background em design, eu não apenas escrevo software
-          —eu construo experiências. Minha paixão é criar soluções digitais
-          completas, onde a funcionalidade robusta e a usabilidade intuitiva
-          andam de mãos dadas.
+          Minha jornada começou no design e me levou ao código. Por isso, não
+          vejo a programação como um fim, mas como um meio para um objetivo
+          maior: construir experiências. Minha paixão é unir código robusto e
+          design intuitivo para criar produtos que as pessoas amam usar.
         </p>
 
         {/* Os h2 e ul dentro de .prose serão estilizados automaticamente */}
-        <h2>Filosofia de Trabalho</h2>
+        <h2>Minha Filosofia</h2>
         <ul>
           <li>
-            <strong>Design-Driven Development:</strong> O código deve resolver
-            um problema, mas a experiência deve encantar. Penso em UX/UI desde a
-            primeira linha de código.
+            <strong>Design em Primeiro Lugar:</strong> A experiência do usuário
+            não é uma etapa final, é o ponto de partida. Penso em UX/UI antes
+            mesmo da primeira linha de código.
           </li>
           <li>
-            <strong>Foco em Valor:</strong> Seja em um projeto pessoal ou
-            orientando alunos, busco sempre entregar valor real, construindo
-            soluções duráveis e eficientes.
+            <strong>Valor Acima de Tudo:</strong> Meu objetivo é entregar
+            soluções eficientes e duradouras que resolvam problemas reais, seja
+            para um cliente ou para um aluno.
           </li>
           <li>
-            <strong>Ensino para Aprender:</strong> Acredito que a melhor forma
-            de aprofundar o conhecimento é ensinando. Minha atuação como
-            instrutor me mantém em constante aprendizado e atualização.
+            <strong>Aprender Ensinando:</strong> Como instrutor no SENAI-SP,
+            capacito a próxima geração de desenvolvedores e, nesse processo, me
+            mantenho em constante evolução.
           </li>
         </ul>
 
-        <h2>Além do Código</h2>
+        <h2>Paixões Atuais</h2>
         <p>
-          Hoje, como Instrutor de Formação Profissional no SENAI-SP, minha
-          missão é capacitar a próxima geração de desenvolvedores. Fora da sala
-          de aula, estou sempre explorando o potencial da Inteligência
-          Artificial Generativa e da prototipagem com impressão 3D para
-          transformar ideias em realidade.
+          Fora da sala de aula, minha curiosidade me leva a explorar o potencial
+          da Inteligência Artificial Generativa e a materializar ideias com
+          impressão 3D.
         </p>
       </div>
     </main>
