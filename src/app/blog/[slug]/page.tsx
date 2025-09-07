@@ -1,3 +1,5 @@
+// src/app/blog/[slug]/page.tsx
+
 import { getPostBySlug, getAllPostsMeta } from "@/lib/posts";
 import { ImageGallery } from "@/components/ImageGallery";
 import { Comments } from "@/components/Comments";
@@ -37,9 +39,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
     return (
       <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
-        {/* Usamos dark:prose-invert para que o plugin de tipografia use as cores do tema escuro */}
         <article className="prose prose-lg max-w-none dark:prose-invert">
-          {/* Título e data agora usam as cores do tema, que são herdadas pelo .prose */}
           <h1>{meta.title}</h1>
           <p className="mb-8 mt-0 text-lg">
             Publicado em{" "}
@@ -52,8 +52,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <MDXRemote
             source={content}
             components={{
+              // A mágica acontece aqui! Passamos os dados do frontmatter
+              // para o componente ImageGallery quando ele for encontrado no MDX.
               ImageGallery: () => (
-                <ImageGallery images={meta.galleryImages || []} />
+                <ImageGallery
+                  images={meta.galleryImages || []}
+                  basePath={meta.galleryBasePath || ""}
+                />
               ),
             }}
           />{" "}

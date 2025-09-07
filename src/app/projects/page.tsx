@@ -22,6 +22,7 @@ export default function ProjectsPage() {
             key={project.id}
             title={project.title}
             image={project.image}
+            basePath={project.basePath}
             link={project.link}
             description={project.description}
             tags={project.tags}

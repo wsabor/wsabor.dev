@@ -2,6 +2,7 @@ export type Project = {
   id: number;
   title: string;
   image: string;
+  basePath: string;
   link: string;
   description: string;
   tags: string[];
@@ -12,6 +13,7 @@ export const allProjects: Project[] = [
     id: 1,
     title: "Quiz Prepara Aí 2025",
     image: "preparai2025.webp",
+    basePath: "/img/projects/quiz-preparai/",
     link: "https://preparai2025.wsabor.dev",
     description:
       "Desenvolvimento de um quiz interativo para preparar estudantes para o ENEM, usando React e Node.js.",
@@ -21,6 +23,7 @@ export const allProjects: Project[] = [
     id: 2,
     title: "Next Level ENEM",
     image: "nextLevelEnem.webp",
+    basePath: "/img/projects/quiz-preparai/",
     link: "https://next-level-enem.vercel.app",
     description:
       "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
@@ -30,6 +33,7 @@ export const allProjects: Project[] = [
     id: 3,
     title: "Aprova Mais",
     image: "aprovaMais.webp",
+    basePath: "/img/projects/quiz-preparai/",
     link: "https://aprova-mais.vercel.app",
     description:
       "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
@@ -39,6 +43,7 @@ export const allProjects: Project[] = [
     id: 4,
     title: "Gabarita Mente",
     image: "gabaritaMente.webp",
+    basePath: "/img/projects/quiz-preparai/",
     link: "https://gabarita-mente.vercel.app",
     description:
       "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
@@ -48,6 +53,7 @@ export const allProjects: Project[] = [
     id: 5,
     title: "Desafio Nota 1000",
     image: "desafioNota1000.webp",
+    basePath: "/img/projects/quiz-preparai/",
     link: "https://desafio-nota1000.vercel.app",
     description:
       "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",

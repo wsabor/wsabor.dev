@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Lightbox } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-// (Opcional, mas recomendado) Importe plugins para funcionalidades extras
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions"; // Importe o plugin de Captions
@@ -22,9 +21,10 @@ type GalleryImage = {
 // 2. As props agora esperam um array desse tipo
 type ImageGalleryProps = {
   images: GalleryImage[];
+  basePath: string;
 };
 
-export function ImageGallery({ images }: ImageGalleryProps) {
+export function ImageGallery({ images, basePath }: ImageGalleryProps) {
   const [index, setIndex] = useState(-1);
 
   if (!images || images.length === 0) {
@@ -33,7 +33,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
 
   // 3. Prepara a lista de slides para o lightbox
   const slides = images.map((item) => ({
-    src: `/img/projects/${item.image}`,
+    src: `${basePath}${item.image}`,
     title: item.caption,
   }));
 
@@ -52,7 +52,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
           >
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-black/10 transition-colors hover:border-primary dark:border-white/10 dark:hover:border-primary">
               <Image
-                src={`/img/projects/${item.image}`}
+                src={`${basePath}${item.image}`}
                 alt={item.caption} // Usar a legenda como alt text é ótimo para acessibilidade
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"

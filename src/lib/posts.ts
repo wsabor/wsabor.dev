@@ -17,6 +17,8 @@ type PostMetadata = {
   publishedAt: string;
   summary: string;
   galleryImages?: GalleryImage[]; // Agora é um array de GalleryImage
+  galleryBasePath?: string; // Novo campo para o caminho base das imagens
+  slug: string;
 };
 
 const postsDirectory = path.join(process.cwd(), "content/posts");

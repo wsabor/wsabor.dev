@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react"; // Um ícone para links externos
 type ProjectCardProps = {
   title: string;
   image: string;
+  basePath: string;
   link: string; // 2. Adicione a nova prop
   description: string;
   tags: string[];
@@ -13,6 +14,7 @@ type ProjectCardProps = {
 export function ProjectCard({
   title,
   image,
+  basePath,
   link,
   description,
   tags,
@@ -23,7 +25,7 @@ export function ProjectCard({
       {image && (
         <div className="relative h-48 w-full">
           <Image
-            src={`/img/projects/${image}`}
+            src={`${basePath}${image}`}
             alt={`Imagem de capa do projeto ${title}`}
             fill
             className="object-cover"

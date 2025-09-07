@@ -90,6 +90,7 @@ export default function HomePage() {
                 key={project.id}
                 image={project.image}
                 link={project.link}
+                basePath={project.basePath}
                 title={project.title}
                 description={project.description}
                 tags={project.tags}
