@@ -33,7 +33,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
 
   // 3. Prepara a lista de slides para o lightbox
   const slides = images.map((item) => ({
-    src: `/img/${item.image}`,
+    src: `/img/projects/${item.image}`,
     title: item.caption,
   }));
 
