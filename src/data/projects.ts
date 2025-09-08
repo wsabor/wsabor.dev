@@ -11,6 +11,16 @@ export type Project = {
 export const allProjects: Project[] = [
   {
     id: 1,
+    title: "Agro Solutio",
+    image: "agrosolutio.webp",
+    basePath: "/img/hackaton/",
+    link: "https://agrosolutio.vercel.app",
+    description:
+      "Landing Page desenvolvida pelos alunos durante o Hackathon Agrotech 2025, focada em soluções agrícolas inovadoras, utilizando HTML, CSS e JavaScript.",
+    tags: ["HTML", "CSS", "JavaScript", "UX/UI", "Hackaton"],
+  },
+  {
+    id: 2,
     title: "Quiz Prepara Aí 2025",
     image: "preparai2025.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -20,7 +30,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Next Level ENEM",
     image: "nextLevelEnem.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -30,7 +40,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Aprova Mais",
     image: "aprovaMais.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -40,7 +50,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Gabarita Mente",
     image: "gabaritaMente.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -50,7 +60,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Desafio Nota 1000",
     image: "desafioNota1000.webp",
     basePath: "/img/projects/quiz-preparai/",
