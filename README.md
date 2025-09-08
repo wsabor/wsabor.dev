@@ -1,6 +1,6 @@
 # 🚀 Portfólio e Blog Pessoal - Wagner Sabor
 
-![Banner do Site](https://raw.githubusercontent.com/wsabor/wsabor-dev/main/public/screenshot.webp)
+![Banner do Site](https://github.com/wsabor/wsabor.dev/blob/main/public/screenshot.webp)
 
 Bem-vindo ao repositório do meu site pessoal e blog, um espaço onde compartilho minha jornada profissional, projetos, artigos e reflexões sobre tecnologia, design e educação. Este projeto foi construído com o objetivo de ser não apenas um portfólio, mas também uma plataforma para aplicar e demonstrar minhas habilidades.
 
