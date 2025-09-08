@@ -48,4 +48,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.c
 Obrigado por visitar o repositório! Sinta-se à vontade para se conectar comigo:
 
 - **LinkedIn:** [Wagner Sabor](https://www.linkedin.com/in/wsabor/)
-- **GitHub:** [@wagnersabor](https://github.com/wsabor)
+- **GitHub:** [@wsabor](https://github.com/wsabor)
