@@ -127,12 +127,13 @@ export default function HomePage() {
               <Link
                 href={article.slug}
                 key={article.id}
-                className="block rounded-xl border border-white/10 bg-surface p-6 transition-colors hover:border-primary"
+                className="flex flex-grow flex-col rounded-xl border border-white/10 bg-surface p-6 transition-colors hover:border-primary"
               >
                 <h3 className="mb-2 text-xl font-semibold text-text-main">
                   {article.title}
                 </h3>
                 <p className="mb-4 text-text-muted">{article.summary}</p>
+                <div className="flex-grow"></div>
                 <span className="flex items-center gap-2 font-semibold text-primary transition-colors hover:text-primary-light">
                   Ler Artigo <ArrowRight size={16} />
                 </span>

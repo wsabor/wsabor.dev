@@ -10,7 +10,7 @@ export const latestArticles: Article[] = [
     id: 1,
     title: "Hackaton Agrotech 2025",
     summary:
-      "Um, breve relato sobra a experiência em participar de um evento hackaton com meus alunos do ensino técnico.",
+      "Um breve relato sobre a experiência em participar de um evento hackaton com meus alunos do ensino técnico.",
     slug: "/blog/hackaton-agrotech-2025",
   },
   {
@@ -22,10 +22,11 @@ export const latestArticles: Article[] = [
   },
   {
     id: 3,
-    title: "Por que todo Dev Deveria Aprender Design",
+    title:
+      "Do Pixel ao Código: Como o Design Moldou Minha Trajetória na Tecnologia",
     summary:
-      "Uma reflexão sobre como os princípios de design podem transformar a maneira como escrevemos código e construímos produtos.",
-    slug: "/blog/dev-e-design",
+      "Um relato pessoal sobre minha jornada de transição de carreira, saindo do design gráfico para me tornar um desenvolvedor de software e, hoje, instrutor.",
+    slug: "/blog/minha-trajetoria",
   },
   // {
   //   id: 3,
