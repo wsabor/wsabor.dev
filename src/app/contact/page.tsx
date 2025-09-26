@@ -14,9 +14,7 @@ export default function ContactPage() {
         educação ou para ajudar em projetos open source.
       </p>
 
-      {/* Botões de Contato no layout e ordem original, mas com cores do tema */}
       <div className="flex flex-col gap-6 sm:flex-row">
-        {/* Botão GitHub */}
         <a
           href="https://github.com/wsabor"
           target="_blank"
@@ -27,7 +25,6 @@ export default function ContactPage() {
           GitHub
         </a>
 
-        {/* Botão LinkedIn */}
         <a
           href="https://www.linkedin.com/in/wsabor"
           target="_blank"
@@ -38,7 +35,6 @@ export default function ContactPage() {
           LinkedIn
         </a>
 
-        {/* Botão E-mail */}
         <a
           href="mailto:wsabor.senai@gmail.com"
           className="flex items-center justify-center gap-3 rounded-lg bg-[#EA4335] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-80"
@@ -48,7 +44,6 @@ export default function ContactPage() {
         </a>
       </div>
 
-      {/* Card do Formulário */}
       <div className="mt-16 w-full max-w-lg rounded-xl border border-black/10 bg-surface p-8 dark:border-white/10">
         <ContactForm />
       </div>

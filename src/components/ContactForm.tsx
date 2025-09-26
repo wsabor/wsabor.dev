@@ -68,7 +68,6 @@ export function ContactForm() {
         >
           Nome
         </label>
-        {/* O input agora usa as cores de borda do tema */}
         <input
           id="name"
           type="text"

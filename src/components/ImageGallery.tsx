@@ -42,9 +42,7 @@ export function ImageGallery({ images, basePath }: ImageGalleryProps) {
       <h3 className="mb-6 text-2xl font-bold text-text-main">Galeria</h3>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
         {" "}
-        {/* Aumentado o gap */}
         {images.map((item, index) => (
-          // Cada item da galeria agora é uma <figure> para semântica correta
           <figure
             key={index}
             className="group flex cursor-pointer flex-col gap-2"
@@ -53,27 +51,25 @@ export function ImageGallery({ images, basePath }: ImageGalleryProps) {
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-black/10 transition-colors hover:border-primary dark:border-white/10 dark:hover:border-primary">
               <Image
                 src={`${basePath}${item.image}`}
-                alt={item.caption} // Usar a legenda como alt text é ótimo para acessibilidade
+                alt={item.caption}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            {/* 3. Renderiza a legenda abaixo da imagem */}
             <figcaption className="text-center text-sm text-text-muted transition-colors group-hover:text-primary">
               {item.caption}
             </figcaption>
           </figure>
         ))}
       </div>
-      {/* 5. Renderiza o componente Lightbox */}
       <Lightbox
         open={index >= 0}
         close={() => setIndex(-1)}
         index={index}
         slides={slides}
-        plugins={[Fullscreen, Zoom, Thumbnails, Captions]} // Ativa os plugins
-        captions={{ descriptionTextAlign: "center" }} // Configura a posição das legendas
+        plugins={[Fullscreen, Zoom, Thumbnails, Captions]}
+        captions={{ descriptionTextAlign: "center" }}
         styles={{
           container: { backgroundColor: "rgba(0, 0, 0, .9)" },
         }}

@@ -5,7 +5,6 @@ import { latestArticles } from "@/data/articles";
 export default function RecentArticles() {
   return (
     <>
-      {/* Seção Artigos Recentes (fundo padrão do body) */}
       <section className="py-16 md:py-44">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
@@ -19,7 +18,6 @@ export default function RecentArticles() {
           </div>
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             {latestArticles.map((article) => (
-              // Card do artigo usando as cores do tema
               <Link
                 href={article.slug}
                 key={article.id}

@@ -5,7 +5,6 @@ export default function ProjectsPage() {
   return (
     <main className="container mx-auto px-4 py-16 md:py-24">
       <div className="mb-12 text-center">
-        {/* Usando as cores de texto do tema */}
         <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
           Portfólio de Projetos
         </h1>
@@ -16,7 +15,6 @@ export default function ProjectsPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {/* Mapeando sobre os dados importados */}
         {allProjects.map((project) => (
           <ProjectCard
             key={project.id}

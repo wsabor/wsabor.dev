@@ -3,15 +3,10 @@
 export default function AboutPage() {
   return (
     <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
-      {/* Usando a cor de texto principal do tema */}
       <h1 className="mb-8 text-4xl font-bold text-text-main md:text-5xl">
         Do Pixel ao Código
       </h1>
 
-      {/* 
-        A classe 'prose' estiliza o conteúdo.
-        'dark:prose-invert' diz para usar as variáveis --tw-prose-invert-* que definimos no globals.css para o tema escuro.
-      */}
       <div className="prose prose-lg max-w-none dark:prose-invert">
         <p>
           Minha jornada começou no design e me levou ao código. Por isso, não

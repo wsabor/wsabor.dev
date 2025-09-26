@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Link from "next/link"; // 1. Importe o Link
-import { ExternalLink } from "lucide-react"; // Um ícone para links externos
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 type ProjectCardProps = {
   title: string;
   image: string;
   basePath: string;
-  link: string; // 2. Adicione a nova prop
+  link: string;
   description: string;
   tags: string[];
 };
@@ -21,7 +21,6 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="flex flex-col overflow-hidden rounded-xl border border-black/10 bg-surface transition-colors hover:border-primary dark:border-white/10 dark:hover:border-primary">
-      {/* Imagem */}
       {image && (
         <div className="relative h-48 w-full">
           <Image

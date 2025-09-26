@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function CallToAction() {
   return (
     <>
-      {/* Seção CTA Final */}
       <section className="bg-surface py-24 md:py-44">
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold text-text-main md:text-4xl">
