@@ -6,6 +6,11 @@ import { Comments } from "@/components/Comments";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 
+// Tipo para os params no Next.js 15
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
 // Gera os parâmetros estáticos para cada post na hora do build
 export async function generateStaticParams() {
   const posts = getAllPostsMeta();
@@ -15,27 +20,27 @@ export async function generateStaticParams() {
 }
 
 // Gera os metadados dinâmicos (título da aba) para cada post
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+
   try {
-    const { meta } = getPostBySlug(params.slug);
+    const { meta } = getPostBySlug(slug);
     return {
       title: meta.title,
       description: meta.summary,
     };
-  } catch (e) {
+  } catch {
     return {
       title: "Post não encontrado",
     };
   }
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+
   try {
-    const { meta, content } = getPostBySlug(params.slug);
+    const { meta, content } = getPostBySlug(slug);
 
     return (
       <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
@@ -52,8 +57,6 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <MDXRemote
             source={content}
             components={{
-              // A mágica acontece aqui! Passamos os dados do frontmatter
-              // para o componente ImageGallery quando ele for encontrado no MDX.
               ImageGallery: () => (
                 <ImageGallery
                   images={meta.galleryImages || []}
@@ -61,13 +64,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                 />
               ),
             }}
-          />{" "}
+          />
         </article>
         <hr className="my-12 border-black/10 dark:border-white/10" />
         <Comments />
       </main>
     );
-  } catch (e) {
+  } catch {
     notFound();
   }
 }
