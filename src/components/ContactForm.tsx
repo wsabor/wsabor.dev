@@ -92,7 +92,11 @@ export function ContactForm() {
           id="email"
           type="email"
           {...register("email", {
-            /* ... */
+            required: "O e-mail é obrigatório",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "E-mail inválido",
+            },
           })}
           className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
         />

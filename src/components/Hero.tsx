@@ -19,9 +19,9 @@ export default function Hero() {
               </h1>
 
               <p className="mx-auto mb-8 max-w-2xl text-xl font-medium text-text-main/80 dark:text-neutral-200 md:text-2xl">
-                Do Pixel ao Código. Do Código à Educação. <br />
-                Eu construo experiências digitais e capacito a próxima geração
-                de desenvolvedores.
+                Desenvolvedor Especialista em Next.js e React.
+                <br />
+                Transformando ideias em aplicações web modernas e performáticas.
               </p>
 
               <Link

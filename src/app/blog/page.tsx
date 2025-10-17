@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 export const metadata = {
   title: "Blog | Wagner Sabor",
   description:
-    "Artigos e tutoriais sobre desenvolvimento, design e tecnologia.",
+    "Artigos e tutoriais sobre Next.js, React, TypeScript e desenvolvimento web moderno.",
 };
 
 export default function BlogPage() {
