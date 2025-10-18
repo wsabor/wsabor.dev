@@ -1,5 +1,3 @@
-// src/app/contact/page.tsx
-
 import { Github, Linkedin, Mail } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 

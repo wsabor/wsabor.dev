@@ -1,4 +1,3 @@
-// src/components/Comments.tsx
 "use client";
 
 import { useTheme } from "next-themes";
