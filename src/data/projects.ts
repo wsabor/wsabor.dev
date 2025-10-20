@@ -16,7 +16,7 @@ export const allProjects: Project[] = [
     basePath: "/img/projects/",
     link: "https://epi-system.wsabor.dev",
     description:
-      "Sistema completo de gestão de Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS",
+      "Sistema completo de gestão de EPIs - Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS",
     tags: ["React", "Tailwind CSS", "Firebase", "ERP", "UX/UI"],
   },
   {
