@@ -11,6 +11,16 @@ export type Project = {
 export const allProjects: Project[] = [
   {
     id: 1,
+    title: "EPI System",
+    image: "epi-system.webp",
+    basePath: "/img/projects/",
+    link: "https://epi-system.wsabor.dev",
+    description:
+      "Sistema completo de gestão de Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS",
+    tags: ["React", "Tailwind CSS", "Firebase", "ERP", "UX/UI"],
+  },
+  {
+    id: 2,
     title: "Agro Solutio",
     image: "agrosolutio.webp",
     basePath: "/img/hackaton/",
@@ -20,7 +30,7 @@ export const allProjects: Project[] = [
     tags: ["HTML", "CSS", "JavaScript", "UX/UI", "Hackaton"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Quiz Prepara Aí 2025",
     image: "preparai2025.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -30,7 +40,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Tech Forward",
     image: "tech-forward.webp",
     basePath: "/img/projects/",
@@ -40,7 +50,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Tailwind CSS", "UX/UI", "Mentoria"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Next Level ENEM",
     image: "nextLevelEnem.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -50,7 +60,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Aprova Mais",
     image: "aprovaMais.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -60,7 +70,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Gabarita Mente",
     image: "gabaritaMente.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -70,7 +80,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 7,
+    id: 8,
     title: "Desafio Nota 1000",
     image: "desafioNota1000.webp",
     basePath: "/img/projects/quiz-preparai/",
