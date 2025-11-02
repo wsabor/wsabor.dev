@@ -1,5 +1,6 @@
-import Image from "next/image";
-import ProfileWorking from "../../../public/img/profile_working.webp";
+// import Image from "next/image";
+import { BlogImage } from "@/components/BlogImage";
+// import ProfileWorking from "../../../public/img/profile_working.webp";
 
 export default function AboutPage() {
   return (
@@ -16,10 +17,13 @@ export default function AboutPage() {
           código robusto com design intuitivo, para criar produtos que as
           pessoas amam usar.
         </p>
-        <Image
-          src={ProfileWorking}
-          alt="Foto de perfil trabalhando em um laptop"
-          className="w-full rounded-lg shadow-lg"
+
+        <BlogImage
+          src="/img/profile_working.webp"
+          alt="Wagner trabalhando"
+          caption="Trabalhando em um projeto desafiador."
+          size="medium"
+          aspectRatio="square"
         />
 
         {/* Os h2 e ul dentro de .prose serão estilizados automaticamente */}
