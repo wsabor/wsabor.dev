@@ -100,39 +100,62 @@
 
 /* --- Estilos do Hero Background --- */
 
-/* Padrão (TEMA CLARO - MOBILE FIRST) */
+/* Mobile (0-767px) - TEMA CLARO */
 .hero-background {
-  background-image: url("/img/hero-mobile-light.webp"); /* Imagem para Celular no Tema Claro */
+  background-image: url("/img/hero-mobile-light.webp");
 }
 
-/* Media Query para telas maiores no Tema Claro */
-@media (min-width: 768px) {
+/* Tablet (768px-1023px) - TEMA CLARO */
+@media (min-width: 768px) and (max-width: 1023px) {
   .hero-background {
-    background-image: url("/img/hero-desktop-light.webp"); /* Imagem para Desktop no Tema Claro */
+    background-image: url("/img/hero-tablet-light.webp");
   }
 }
 
-/* Sobrescreve para o TEMA ESCURO */
+/* Desktop (1024px+) - TEMA CLARO */
+@media (min-width: 1024px) {
+  .hero-background {
+    background-image: url("/img/hero-desktop-light.webp");
+  }
+}
+
+/* Mobile (0-767px) - TEMA ESCURO */
 .dark .hero-background {
-  background-image: url("/img/hero-mobile-dark.webp"); /* Imagem para Celular no Tema Escuro */
+  background-image: url("/img/hero-mobile-dark.webp");
 }
 
-/* Media Query para telas maiores no Tema Escuro */
-@media (min-width: 768px) {
+/* Tablet (768px-1023px) - TEMA ESCURO */
+@media (min-width: 768px) and (max-width: 1023px) {
   .dark .hero-background {
-    background-image: url("/img/hero-desktop-dark.webp"); /* Imagem para Desktop no Tema Escuro */
+    background-image: url("/img/hero-tablet-dark.webp");
   }
 }
 
+/* Desktop (1024px+) - TEMA ESCURO */
+@media (min-width: 1024px) {
+  .dark .hero-background {
+    background-image: url("/img/hero-desktop-dark.webp");
+  }
+}
+
+/* Aspect Ratio */
 .hero-aspect-ratio {
   position: relative;
   width: 100%;
-  padding-bottom: 138.88%; /* Mobile First */
+  padding-bottom: 160%; /* Mobile (0-767px) */
 }
 
-@media (min-width: 768px) {
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
   .hero-aspect-ratio {
-    padding-bottom: 36.45%; /* Desktop */
+    padding-bottom: 60%; /* Tablet */
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .hero-aspect-ratio {
+    padding-bottom: 40%; /* Desktop */
   }
 }
 
