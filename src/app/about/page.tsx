@@ -1,6 +1,4 @@
-// import Image from "next/image";
 import { BlogImage } from "@/components/BlogImage";
-// import ProfileWorking from "../../../public/img/profile_working.webp";
 
 export default function AboutPage() {
   return (
