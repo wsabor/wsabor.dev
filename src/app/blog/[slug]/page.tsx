@@ -1,7 +1,6 @@
-// src/app/blog/[slug]/page.tsx
-
 import { getPostBySlug, getAllPostsMeta } from "@/lib/posts";
 import { ImageGallery } from "@/components/ImageGallery";
+import { BlogImage } from "@/components/BlogImage";
 import { Comments } from "@/components/Comments";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
@@ -63,6 +62,7 @@ export default async function PostPage({ params }: Props) {
                   basePath={meta.galleryBasePath || ""}
                 />
               ),
+              BlogImage,
             }}
           />
         </article>

@@ -1,3 +1,6 @@
+import Image from "next/image";
+import ProfileWorking from "../../../public/img/profile_working.webp";
+
 export default function AboutPage() {
   return (
     <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
@@ -13,6 +16,11 @@ export default function AboutPage() {
           código robusto com design intuitivo, para criar produtos que as
           pessoas amam usar.
         </p>
+        <Image
+          src={ProfileWorking}
+          alt="Foto de perfil trabalhando em um laptop"
+          className="w-full rounded-lg shadow-lg"
+        />
 
         {/* Os h2 e ul dentro de .prose serão estilizados automaticamente */}
         <h2>Minha Filosofia</h2>
