@@ -14,7 +14,7 @@ export const specialties: Specialty[] = [
     icon: <CodeXml className="text-primary" size={32} />,
     title: "Desenvolvimento Full Stack",
     description:
-      "Construindo aplicações robustas e escaláveis com React, Node.js e as melhores práticas do mercado.",
+      "Construindo aplicações robustas e escaláveis com Next.js, React e as melhores práticas do mercado.",
   },
   {
     id: 2,

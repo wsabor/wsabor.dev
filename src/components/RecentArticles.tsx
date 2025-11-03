@@ -6,7 +6,7 @@ export default function RecentArticles() {
   return (
     <>
       <section className="py-16 md:py-44">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-text-main md:text-4xl">
               Artigos Recentes

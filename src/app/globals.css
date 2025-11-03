@@ -100,62 +100,39 @@
 
 /* --- Estilos do Hero Background --- */
 
-/* Mobile (0-767px) - TEMA CLARO */
+/* Padrão (TEMA CLARO - MOBILE FIRST) */
 .hero-background {
   background-image: url("/img/hero-mobile-light.webp");
 }
 
-/* Tablet (768px-1023px) - TEMA CLARO */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero-background {
-    background-image: url("/img/hero-tablet-light.webp");
-  }
-}
-
-/* Desktop (1024px+) - TEMA CLARO */
-@media (min-width: 1024px) {
+/* Media Query para telas maiores no Tema Claro */
+@media (min-width: 768px) {
   .hero-background {
     background-image: url("/img/hero-desktop-light.webp");
   }
 }
 
-/* Mobile (0-767px) - TEMA ESCURO */
+/* Sobrescreve para o TEMA ESCURO */
 .dark .hero-background {
   background-image: url("/img/hero-mobile-dark.webp");
 }
 
-/* Tablet (768px-1023px) - TEMA ESCURO */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .dark .hero-background {
-    background-image: url("/img/hero-tablet-dark.webp");
-  }
-}
-
-/* Desktop (1024px+) - TEMA ESCURO */
-@media (min-width: 1024px) {
+/* Media Query para telas maiores no Tema Escuro */
+@media (min-width: 768px) {
   .dark .hero-background {
     background-image: url("/img/hero-desktop-dark.webp");
   }
 }
 
-/* Aspect Ratio */
 .hero-aspect-ratio {
   position: relative;
   width: 100%;
-  padding-bottom: 160%; /* Mobile (0-767px) */
+  padding-bottom: 160%; /* Mobile First */
 }
 
-/* Tablet (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) {
   .hero-aspect-ratio {
-    padding-bottom: 60%; /* Tablet */
-  }
-}
-
-/* Desktop (1024px+) */
-@media (min-width: 1024px) {
-  .hero-aspect-ratio {
-    padding-bottom: 40%; /* Desktop */
+    padding-bottom: 44%; /* Desktop */
   }
 }
 

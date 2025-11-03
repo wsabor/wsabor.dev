@@ -22,7 +22,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-black/10 bg-background py-8 text-text-muted dark:border-white/10">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-4 md:flex-row">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-8 md:flex-row">
         <div className="flex flex-col items-center gap-2 text-center md:items-start md:text-left">
           <p className="text-sm">
             © {new Date().getFullYear()} Wagner Sabor. Todos os direitos

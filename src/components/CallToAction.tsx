@@ -4,7 +4,7 @@ export default function CallToAction() {
   return (
     <>
       <section className="bg-surface py-24 md:py-44">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-text-main md:text-4xl">
             Vamos construir algo incrível juntos?
           </h2>
