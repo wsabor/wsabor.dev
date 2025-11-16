@@ -6,7 +6,7 @@ const SITE_TITLE = "Wagner Sabor - Blog";
 const SITE_DESCRIPTION =
   "Artigos e tutoriais sobre Next.js, React, TypeScript e desenvolvimento web moderno.";
 const SITE_LANGUAGE = "pt-BR";
-const SITE_AUTHOR = "Wagner Sabor";
+const SITE_AUTHOR_EMAIL = "wsabor.senai@gmail.com (Wagner Sabor)";
 
 export async function GET() {
   const posts = getAllPostsMeta();
@@ -20,7 +20,7 @@ export async function GET() {
     <description>${SITE_DESCRIPTION}</description>
     <language>${SITE_LANGUAGE}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
     ${posts
       .map(
         (post) => `
@@ -30,7 +30,7 @@ export async function GET() {
       <description><![CDATA[${post.meta.summary}]]></description>
       <pubDate>${new Date(post.meta.publishedAt).toUTCString()}</pubDate>
       <guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
-      <author>${SITE_AUTHOR}</author>
+      <author>${SITE_AUTHOR_EMAIL}</author>
     </item>
     `,
       )

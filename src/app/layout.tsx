@@ -84,6 +84,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        { url: "/feed.xml", title: "Wagner Sabor - Blog RSS Feed" },
+      ],
+    },
+  },
 };
 
 export default function RootLayout({
