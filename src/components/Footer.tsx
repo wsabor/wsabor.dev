@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Rss, icons } from "lucide-react";
 
 const socialLinks = [
   {
@@ -16,6 +16,13 @@ const socialLinks = [
     href: "https://twitter.com/wsabor",
     label: "Link para o perfil de Wagner Sabor no Twitter",
     icon: <Twitter size={20} />,
+  },
+  {
+    href: "/feed.xml",
+    label: "Link para o feed RSS do blog",
+    icon: <Rss size={20} />,
+    target: "_blank",
+    rel: "noopener noreferrer",
   },
 ];
 
