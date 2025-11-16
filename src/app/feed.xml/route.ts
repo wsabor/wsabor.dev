@@ -20,7 +20,6 @@ export async function GET() {
     <description>${SITE_DESCRIPTION}</description>
     <language>${SITE_LANGUAGE}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
     ${posts
       .map(
         (post) => `
