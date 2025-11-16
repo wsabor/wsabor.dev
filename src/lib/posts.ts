@@ -18,6 +18,12 @@ type PostMetadata = {
   galleryImages?: GalleryImage[]; // Agora é um array de GalleryImage
   galleryBasePath?: string; // Novo campo para o caminho base das imagens
   slug: string;
+  updatedAt?: string; // Data de última atualização
+  readingTime?: string; // Tempo de leitura (ex: "5 min")
+  keywords?: string[]; // Palavras-chave do post
+  category?: string; // Categoria/seção (ex: "Experiências", "Tutoriais")
+  author?: string; // Nome do autor (se for diferente de você)
+  wordCount?: number; // Contagem de palavras
 };
 
 const postsDirectory = path.join(process.cwd(), "content/posts");

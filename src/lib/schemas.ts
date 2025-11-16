@@ -55,7 +55,7 @@ export function getPersonSchema() {
     description: SITE_CONFIG.description,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dracena",
+      addressLocality: "Presidente Prudente",
       addressRegion: "SP",
       addressCountry: "BR",
     },
@@ -100,5 +100,95 @@ export function getOrganizationSchema() {
       name: SITE_CONFIG.author.name,
     },
     sameAs: [SITE_CONFIG.social.linkedin, SITE_CONFIG.social.github],
+  };
+}
+
+// Schema: BlogPosting (Para posts individuais do blog)
+export function getBlogPostingSchema({
+  title,
+  description,
+  publishedAt,
+  updatedAt,
+  url,
+  image,
+  keywords,
+  category,
+  author,
+  readingTime,
+  wordCount,
+}: {
+  title: string;
+  description: string;
+  publishedAt: string;
+  updatedAt?: string;
+  url: string;
+  image?: string;
+  keywords?: string[];
+  category?: string;
+  author?: string;
+  readingTime?: string;
+  wordCount?: number;
+}) {
+  const timeRequiredISO = readingTime
+    ? `PT${readingTime.replace(/\D/g, "")}M`
+    : undefined;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: description,
+    image: image || SITE_CONFIG.author.image,
+    datePublished: new Date(publishedAt).toISOString(),
+    dateModified: updatedAt
+      ? new Date(updatedAt).toISOString()
+      : new Date(publishedAt).toISOString(),
+    author: {
+      "@type": "Person",
+      name: author || SITE_CONFIG.author.name, // Usa autor customizado ou padrão
+      url: SITE_CONFIG.url,
+      image: SITE_CONFIG.author.image,
+    },
+    publisher: {
+      "@type": "Person",
+      name: SITE_CONFIG.author.name,
+      image: SITE_CONFIG.author.image,
+      logo: {
+        "@type": "ImageObject",
+        url: SITE_CONFIG.logo,
+      },
+    },
+    url: url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    inLanguage: "pt-BR",
+    isAccessibleForFree: true,
+    // ⬇️ PROPRIEDADES OPCIONAIS ⬇️
+    ...(keywords && keywords.length > 0 && { keywords: keywords.join(", ") }),
+    ...(category && { articleSection: category }),
+    ...(timeRequiredISO && { timeRequired: timeRequiredISO }),
+    ...(wordCount && { wordCount: wordCount }),
+    // ⬆️ ATÉ AQUI ⬆️
+  };
+}
+
+// Schema: BreadcrumbList (Navegação estruturada)
+export function getBreadcrumbListSchema(
+  items: {
+    name: string;
+    url: string;
+  }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }
