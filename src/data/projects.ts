@@ -31,16 +31,6 @@ export const allProjects: Project[] = [
   },
   {
     id: 3,
-    title: "Quiz Prepara Aí 2025",
-    image: "preparai2025.webp",
-    basePath: "/img/projects/quiz-preparai/",
-    link: "https://preparai2025.wsabor.dev",
-    description:
-      "Desenvolvimento de um quiz interativo para preparar estudantes para o ENEM, usando React e Node.js.",
-    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 4,
     title: "DR Prev Serviços Previdenciários",
     image: "drprev.webp",
     basePath: "/img/projects/",
@@ -48,6 +38,16 @@ export const allProjects: Project[] = [
     description:
       "Site institucional desenvolvido para a DR Prev, empresa de serviços previdenciários, usando Wordpress.",
     tags: ["Wordpress", "UX/UI", "SEO", "Site Institucional"],
+  },
+  {
+    id: 4,
+    title: "Quiz Prepara Aí 2025",
+    image: "preparai2025.webp",
+    basePath: "/img/projects/quiz-preparai/",
+    link: "https://preparai2025.wsabor.dev",
+    description:
+      "Desenvolvimento de um quiz interativo para preparar estudantes para o ENEM, usando React e Node.js.",
+    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
     id: 5,
