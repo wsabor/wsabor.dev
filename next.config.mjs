@@ -6,6 +6,11 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
+  // Otimizações de performance
+  experimental: {
+    optimizePackageImports: ["lucide-react"], // Otimiza imports de ícones
+  },
+
   // Headers de segurança
   async headers() {
     return [
@@ -31,6 +36,12 @@ const nextConfig = {
 
   // Compressão
   compress: true,
+
+  // Minificação de CSS
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
 };
 
 export default nextConfig;

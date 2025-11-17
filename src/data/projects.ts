@@ -41,6 +41,16 @@ export const allProjects: Project[] = [
   },
   {
     id: 4,
+    title: "DR Prev Serviços Previdenciários",
+    image: "drprev.webp",
+    basePath: "/img/projects/",
+    link: "https://drprev.com.br",
+    description:
+      "Site institucional desenvolvido para a DR Prev, empresa de serviços previdenciários, usando Wordpress.",
+    tags: ["Wordpress", "UX/UI", "SEO", "Site Institucional"],
+  },
+  {
+    id: 5,
     title: "Tech Forward",
     image: "tech-forward.webp",
     basePath: "/img/projects/",
@@ -50,7 +60,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Tailwind CSS", "UX/UI", "Mentoria"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Next Level ENEM",
     image: "nextLevelEnem.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -60,7 +70,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Aprova Mais",
     image: "aprovaMais.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -70,7 +80,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 7,
+    id: 8,
     title: "Gabarita Mente",
     image: "gabaritaMente.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -80,7 +90,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
   {
-    id: 8,
+    id: 9,
     title: "Desafio Nota 1000",
     image: "desafioNota1000.webp",
     basePath: "/img/projects/quiz-preparai/",

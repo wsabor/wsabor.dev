@@ -12,12 +12,14 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Wagner Sabor",
     images: [
       {
-        url: "/og-image.png", // Você precisa criar essa imagem
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Wagner Sabor - Desenvolvedor Especialista em Next.js e React",

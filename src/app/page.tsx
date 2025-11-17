@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import Hero from "@/components/Hero";
+import HeroSkeleton from "@/components/HeroSkeleton";
 import Specialties from "@/components/Specialities";
 import Projects from "@/components/Projects";
 import RecentArticles from "@/components/RecentArticles";
@@ -20,7 +22,9 @@ export default function HomePage() {
       <JsonLd data={personSchema} />
 
       {/* Conteúdo da página */}
-      <Hero />
+      <Suspense fallback={<HeroSkeleton />}>
+        <Hero />
+      </Suspense>
       <Specialties />
       <Projects />
       <RecentArticles />

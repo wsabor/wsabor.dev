@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import HeroBackground from "./HeroBackground";
 
 export default function Hero() {
   return (
@@ -7,10 +8,7 @@ export default function Hero() {
       <section className="hero-aspect-ratio relative">
         {/* Mobile: items-start (topo) | Desktop: items-center (centro) */}
         <div className="hero-content-wrapper flex items-center justify-center">
-          <div className="absolute inset-0 z-0">
-            <div className="hero-background h-full w-full bg-cover bg-center bg-no-repeat"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent dark:bg-background/5 dark:to-background/15"></div>
-          </div>
+          <HeroBackground />
 
           {/* Container do conteúdo */}
           <div className="container relative z-10 px-4">
