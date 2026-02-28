@@ -1,36 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Modo escuro baseado em classe .dark (compatível com next-themes) */
+@variant dark (&:where(.dark, .dark *));
+
+/* ======================================== */
+/* TEMA CLARO (padrão)                      */
+/* ======================================== */
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-surface: hsl(0 0% 95%);
+  --color-primary: hsl(214 100% 50%);
+  --color-primary-light: hsl(193 100% 45%);
+  --color-text-main: hsl(0 0% 7%);
+  --color-text-muted: hsl(0 0% 30%);
+}
+
+/* Fontes via variáveis CSS do Next.js */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-sora);
+}
+
+/* ======================================== */
+/* TEMA ESCURO (sobrescreve as vars acima)  */
+/* ======================================== */
+
+.dark {
+  --color-background: hsl(0 0% 7%);
+  --color-surface: hsl(0 0% 12%);
+  --color-primary: hsl(214 100% 60%);
+  --color-primary-light: hsl(193 100% 50%);
+  --color-text-main: hsl(0 0% 88%);
+  --color-text-muted: hsl(0 0% 53%);
+}
+
+/* ======================================== */
+/* ESTILOS GLOBAIS                          */
+/* ======================================== */
 
 @layer base {
-  /* ======================================== */
-  /* DEFINIÇÃO DAS CORES DO TEMA (VARS CSS)   */
-  /* ======================================== */
-
-  /* :root define as variáveis para o TEMA CLARO por padrão */
-  :root {
-    --background: 0 0% 100%; /* Branco */
-    --surface: 0 0% 95%; /* Cinza claro para cards */
-    --primary: 214 100% 50%; /* Azul elétrico (um pouco mais escuro para contraste) */
-    --primary-light: 193 100% 45%; /* Ciano brilhante */
-    --text-main: 0 0% 7%; /* Preto suave */
-    --text-muted: 0 0% 30%; /* Cinza escuro */
-  }
-
-  /* A classe .dark sobrescreve as variáveis para o TEMA ESCURO */
-  .dark {
-    --background: 0 0% 7%; /* #121212 */
-    --surface: 0 0% 12%; /* #1E1E1E */
-    --primary: 214 100% 60%; /* #3399FF */
-    --primary-light: 193 100% 50%; /* #00C4FF */
-    --text-main: 0 0% 88%; /* #E0E0E0 */
-    --text-muted: 0 0% 53%; /* #888888 */
-  }
-
-  /* ======================================== */
-  /* APLICAÇÃO DOS ESTILOS GLOBAIS            */
-  /* ======================================== */
-
   body {
     @apply bg-background font-sans text-text-main antialiased;
   }
@@ -49,22 +59,21 @@
   /* ======================================== */
 
   .prose {
-    --tw-prose-body: theme(colors.text.muted);
-    --tw-prose-headings: theme(colors.text.main);
-    --tw-prose-links: theme(colors.primary.DEFAULT);
-    --tw-prose-bullets: theme(colors.primary.DEFAULT);
-    --tw-prose-counters: theme(colors.primary.DEFAULT);
-    --tw-prose-quotes: theme(colors.text.main);
-    --tw-prose-code: theme(colors.primary.light);
+    --tw-prose-body: var(--color-text-muted);
+    --tw-prose-headings: var(--color-text-main);
+    --tw-prose-links: var(--color-primary);
+    --tw-prose-bullets: var(--color-primary);
+    --tw-prose-counters: var(--color-primary);
+    --tw-prose-quotes: var(--color-text-main);
+    --tw-prose-code: var(--color-primary-light);
 
-    /* Para o tema claro, usamos as mesmas variáveis, mas elas apontarão para os valores de :root */
-    --tw-prose-invert-body: theme(colors.text.muted);
-    --tw-prose-invert-headings: theme(colors.text.main);
-    --tw-prose-invert-links: theme(colors.primary.DEFAULT);
-    --tw-prose-invert-bullets: theme(colors.primary.DEFAULT);
-    --tw-prose-invert-counters: theme(colors.primary.DEFAULT);
-    --tw-prose-invert-quotes: theme(colors.text.main);
-    --tw-prose-invert-code: theme(colors.primary.light);
+    --tw-prose-invert-body: var(--color-text-muted);
+    --tw-prose-invert-headings: var(--color-text-main);
+    --tw-prose-invert-links: var(--color-primary);
+    --tw-prose-invert-bullets: var(--color-primary);
+    --tw-prose-invert-counters: var(--color-primary);
+    --tw-prose-invert-quotes: var(--color-text-main);
+    --tw-prose-invert-code: var(--color-primary-light);
   }
 }
 

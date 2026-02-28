@@ -6,7 +6,7 @@ export default function Specialties() {
     <>
       <section className="py-16 md:py-32">
         <div className="container mx-auto px-8">
-          <div className="grid grid-cols-1 gap-16 text-center md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
             {specialties.map((specialty) => (
               <SpecialtyCard
                 key={specialty.id}

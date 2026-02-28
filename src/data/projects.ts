@@ -11,6 +11,26 @@ export type Project = {
 export const allProjects: Project[] = [
   {
     id: 1,
+    title: "Topcoat Vernizes",
+    image: "topcoat-vernizes.webp",
+    basePath: "/img/projects/",
+    link: "https://topcoatvernizes.com.br",
+    description:
+      "Site institucional desenvolvido para a empresa Topcoat Vernizes utilizando Next.js e Tailwind CSS",
+    tags: ["Next.js", "Tailwind CSS", "Institucional", "UX/UI"],
+  },
+  // {
+  //   id: 1,
+  //   title: "Cor e Processo",
+  //   image: "coreprocesso.webp",
+  //   basePath: "/img/projects/",
+  //   link: "https://coreprocesso.com.br",
+  //   description:
+  //     "Site institucional desenvolvido para a empresa Cor e Processo utilizando Next.js e Tailwind CSS",
+  //   tags: ["Next.js", "Tailwind CSS", "Institucional", "UX/UI"],
+  // },
+  {
+    id: 2,
     title: "EPI System",
     image: "epi-system.webp",
     basePath: "/img/projects/",
@@ -20,7 +40,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Tailwind CSS", "Firebase", "ERP", "UX/UI"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Agro Solutio",
     image: "agrosolutio.webp",
     basePath: "/img/hackaton/",
@@ -30,7 +50,7 @@ export const allProjects: Project[] = [
     tags: ["HTML", "CSS", "JavaScript", "UX/UI", "Hackaton"],
   },
   {
-    id: 3,
+    id: 5,
     title: "DR Prev Serviços Previdenciários",
     image: "drprev.webp",
     basePath: "/img/projects/",
@@ -40,7 +60,7 @@ export const allProjects: Project[] = [
     tags: ["Wordpress", "UX/UI", "SEO", "Site Institucional"],
   },
   {
-    id: 4,
+    id: 6,
     title: "Quiz Prepara Aí 2025",
     image: "preparai2025.webp",
     basePath: "/img/projects/quiz-preparai/",
@@ -49,56 +69,56 @@ export const allProjects: Project[] = [
       "Desenvolvimento de um quiz interativo para preparar estudantes para o ENEM, usando React e Node.js.",
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
-  {
-    id: 5,
-    title: "Tech Forward",
-    image: "tech-forward.webp",
-    basePath: "/img/projects/",
-    link: "https://tech-forward-five.vercel.app",
-    description:
-      "Landing Page desenvolvida para o projeto fictício Tech Forward, usando React e Tailwind CSS.",
-    tags: ["React", "Tailwind CSS", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 6,
-    title: "Next Level ENEM",
-    image: "nextLevelEnem.webp",
-    basePath: "/img/projects/quiz-preparai/",
-    link: "https://next-level-enem.vercel.app",
-    description:
-      "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 7,
-    title: "Aprova Mais",
-    image: "aprovaMais.webp",
-    basePath: "/img/projects/quiz-preparai/",
-    link: "https://aprova-mais.vercel.app",
-    description:
-      "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 8,
-    title: "Gabarita Mente",
-    image: "gabaritaMente.webp",
-    basePath: "/img/projects/quiz-preparai/",
-    link: "https://gabarita-mente.vercel.app",
-    description:
-      "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  },
-  {
-    id: 9,
-    title: "Desafio Nota 1000",
-    image: "desafioNota1000.webp",
-    basePath: "/img/projects/quiz-preparai/",
-    link: "https://desafio-nota1000.vercel.app",
-    description:
-      "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-    tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  },
+  // {
+  //   id: 5,
+  //   title: "Tech Forward",
+  //   image: "tech-forward.webp",
+  //   basePath: "/img/projects/",
+  //   link: "https://tech-forward-five.vercel.app",
+  //   description:
+  //     "Landing Page desenvolvida para o projeto fictício Tech Forward, usando React e Tailwind CSS.",
+  //   tags: ["React", "Tailwind CSS", "UX/UI", "Mentoria"],
+  // },
+  // {
+  //   id: 6,
+  //   title: "Next Level ENEM",
+  //   image: "nextLevelEnem.webp",
+  //   basePath: "/img/projects/quiz-preparai/",
+  //   link: "https://next-level-enem.vercel.app",
+  //   description:
+  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
+  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
+  // },
+  // {
+  //   id: 7,
+  //   title: "Aprova Mais",
+  //   image: "aprovaMais.webp",
+  //   basePath: "/img/projects/quiz-preparai/",
+  //   link: "https://aprova-mais.vercel.app",
+  //   description:
+  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
+  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
+  // },
+  // {
+  //   id: 8,
+  //   title: "Gabarita Mente",
+  //   image: "gabaritaMente.webp",
+  //   basePath: "/img/projects/quiz-preparai/",
+  //   link: "https://gabarita-mente.vercel.app",
+  //   description:
+  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
+  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
+  // },
+  // {
+  //   id: 9,
+  //   title: "Desafio Nota 1000",
+  //   image: "desafioNota1000.webp",
+  //   basePath: "/img/projects/quiz-preparai/",
+  //   link: "https://desafio-nota1000.vercel.app",
+  //   description:
+  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
+  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
+  // },
   // {
   //   id: 2,
   //   title: "Plataforma de E-Commerce",
