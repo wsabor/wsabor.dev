@@ -3,7 +3,6 @@ import { Inter, Sora } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
 import Header from "@/components/Header";
@@ -123,7 +122,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <SpeedInsights />
           <Analytics />
         </ThemeProvider>
       </body>
