@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Sora, Bricolage_Grotesque } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -18,6 +18,13 @@ const inter = Inter({
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
+  display: "swap",
+  preload: true,
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
   display: "swap",
   preload: true,
 });
@@ -103,7 +110,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${sora.variable}`}
+      className={`${inter.variable} ${sora.variable} ${bricolage.variable}`}
       suppressHydrationWarning={true}
     >
       <body

@@ -107,24 +107,75 @@
 /* ESTILOS DE COMPONENTES CUSTOMIZADOS      */
 /* ======================================== */
 
-/* --- Estilos do Hero Layout --- */
+/* --- Hero Background CSS puro --- */
 
-.hero-aspect-ratio {
-  position: relative;
-  width: 100%;
-  padding-bottom: 160%; /* Mobile First */
+.hero-bg {
+  background-image:
+    linear-gradient(to bottom, hsl(210 60% 92%) 0%, hsl(0 0% 91%) 100%),
+    radial-gradient(ellipse at 15% 60%, hsl(214 100% 50% / 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, hsl(193 100% 45% / 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 1px 1px, hsl(0 0% 0% / 0.055) 1px, transparent 0);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+  background-blend-mode: normal, overlay, overlay, overlay;
 }
 
-@media (min-width: 768px) {
-  .hero-aspect-ratio {
-    padding-bottom: 44%; /* Desktop */
-  }
+.dark .hero-bg {
+  background-image:
+    radial-gradient(ellipse at 15% 60%, hsl(214 100% 60% / 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, hsl(193 100% 50% / 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 1px 1px, hsl(0 0% 100% / 0.045) 1px, transparent 0);
+  background-size: 100% 100%, 100% 100%, 28px 28px;
 }
 
-.hero-content-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* --- Gradiente animado no nome --- */
+
+.hero-name {
+  font-family: var(--font-bricolage), sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--color-text-main) 0%,
+    var(--color-primary) 50%,
+    var(--color-primary-light) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hero-gradient 6s ease infinite;
+}
+
+@keyframes hero-gradient {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* --- Foto decorativa --- */
+
+.hero-photo-dots {
+  background-image: radial-gradient(circle, hsl(214 100% 50% / 0.35) 1.5px, transparent 0);
+  background-size: 12px 12px;
+}
+
+.dark .hero-photo-dots {
+  background-image: radial-gradient(circle, hsl(193 100% 50% / 0.35) 1.5px, transparent 0);
+}
+
+/* --- Tech pills --- */
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background-color: hsl(214 100% 50% / 0.08);
+  color: var(--color-primary);
+  border: 1px solid hsl(214 100% 50% / 0.18);
+}
+
+.dark .hero-pill {
+  background-color: hsl(214 100% 60% / 0.1);
+  border-color: hsl(214 100% 60% / 0.22);
 }
