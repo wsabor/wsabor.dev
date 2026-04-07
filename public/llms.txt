@@ -1,0 +1,30 @@
+# wsabor.dev — Wagner Sabor
+
+> Desenvolvedor Especialista em Next.js e React, Designer e Instrutor no SENAI-SP.
+> Site pessoal com portfólio, blog e contato.
+
+## Páginas
+
+- [Home](https://wsabor.dev): Apresentação, especialidades e projetos em destaque.
+- [Sobre](https://wsabor.dev/about): Trajetória profissional, filosofia de trabalho e stack tecnológica.
+- [Projetos](https://wsabor.dev/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
+- [Blog](https://wsabor.dev/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
+- [Contato](https://wsabor.dev/contact): GitHub, LinkedIn e formulário de contato.
+
+## Blog Posts
+
+- [Hackaton Agrotech 2025](https://wsabor.dev/blog/hackaton-agrotech-2025): Relato sobre liderar alunos do SENAI-SP em um hackaton, onde conquistaram o 2º lugar.
+- [Jogo Educacional — Quiz Prepara Aí 2025](https://wsabor.dev/blog/quiz-preparai): Estudo de caso sobre mentoria e desenvolvimento de um quiz para o ENEM com React e Node.js.
+- [Do Pixel ao Código](https://wsabor.dev/blog/minha-trajetoria): Trajetória de transição de carreira do design gráfico para o desenvolvimento web.
+
+## Projetos em Destaque
+
+- [Topcoat Vernizes](https://topcoatvernizes.com.br): Site institucional com i18n (PT/ES) em Next.js.
+- [Sistema de Simulados e Provas](https://simulado.wsabor.dev): Plataforma educacional para aplicação em sala de aula.
+- [EPI System](https://epi-system.wsabor.dev): Sistema de gestão de EPIs com React e Firebase.
+
+## Mais Informações
+
+- Versão completa do conteúdo: https://wsabor.dev/llms-full.txt
+- RSS Feed: https://wsabor.dev/feed.xml
+- Sitemap: https://wsabor.dev/sitemap.xml

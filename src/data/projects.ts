@@ -16,8 +16,25 @@ export const allProjects: Project[] = [
     basePath: "/img/projects/",
     link: "https://topcoatvernizes.com.br",
     description:
-      "Site institucional desenvolvido para a empresa Topcoat Vernizes utilizando Next.js e Tailwind CSS",
-    tags: ["Next.js", "Tailwind CSS", "Institucional", "UX/UI"],
+      "Site institucional com detecção automática de idioma e alteração manual desenvolvido para a empresa Topcoat Vernizes utilizando Next.js e Tailwind CSS",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "Institucional",
+      "i18n",
+      "Português / Espanhol",
+      "UX/UI",
+    ],
+  },
+  {
+    id: 2,
+    title: "Sistema de Simulados e Provas",
+    image: "simulado.webp",
+    basePath: "/img/projects/",
+    link: "https://simulado.wsabor.dev",
+    description:
+      "Sistema de simulados e provas para aplicação em sala de aula desenvolvido utilizando Next.js e Tailwind CSS",
+    tags: ["Next.js", "Tailwind CSS", "Educacional", "UX/UI"],
   },
   // {
   //   id: 1,
@@ -30,7 +47,7 @@ export const allProjects: Project[] = [
   //   tags: ["Next.js", "Tailwind CSS", "Institucional", "UX/UI"],
   // },
   {
-    id: 2,
+    id: 3,
     title: "EPI System",
     image: "epi-system.webp",
     basePath: "/img/projects/",
@@ -40,7 +57,7 @@ export const allProjects: Project[] = [
     tags: ["React", "Tailwind CSS", "Firebase", "ERP", "UX/UI"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Agro Solutio",
     image: "agrosolutio.webp",
     basePath: "/img/hackaton/",
@@ -69,72 +86,6 @@ export const allProjects: Project[] = [
       "Desenvolvimento de um quiz interativo para preparar estudantes para o ENEM, usando React e Node.js.",
     tags: ["React", "Node.js", "UX/UI", "Mentoria"],
   },
-  // {
-  //   id: 5,
-  //   title: "Tech Forward",
-  //   image: "tech-forward.webp",
-  //   basePath: "/img/projects/",
-  //   link: "https://tech-forward-five.vercel.app",
-  //   description:
-  //     "Landing Page desenvolvida para o projeto fictício Tech Forward, usando React e Tailwind CSS.",
-  //   tags: ["React", "Tailwind CSS", "UX/UI", "Mentoria"],
-  // },
-  // {
-  //   id: 6,
-  //   title: "Next Level ENEM",
-  //   image: "nextLevelEnem.webp",
-  //   basePath: "/img/projects/quiz-preparai/",
-  //   link: "https://next-level-enem.vercel.app",
-  //   description:
-  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  // },
-  // {
-  //   id: 7,
-  //   title: "Aprova Mais",
-  //   image: "aprovaMais.webp",
-  //   basePath: "/img/projects/quiz-preparai/",
-  //   link: "https://aprova-mais.vercel.app",
-  //   description:
-  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  // },
-  // {
-  //   id: 8,
-  //   title: "Gabarita Mente",
-  //   image: "gabaritaMente.webp",
-  //   basePath: "/img/projects/quiz-preparai/",
-  //   link: "https://gabarita-mente.vercel.app",
-  //   description:
-  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  // },
-  // {
-  //   id: 9,
-  //   title: "Desafio Nota 1000",
-  //   image: "desafioNota1000.webp",
-  //   basePath: "/img/projects/quiz-preparai/",
-  //   link: "https://desafio-nota1000.vercel.app",
-  //   description:
-  //     "Jogo em formato quiz desenvolvido por um dos grupos de alunos para preparar estudantes para o ENEM, usando React e Node.js.",
-  //   tags: ["React", "Node.js", "UX/UI", "Mentoria"],
-  // },
-  // {
-  //   id: 2,
-  //   title: "Plataforma de E-Commerce",
-  //   image: "",
-  //   description:
-  //     "Criação de uma plataforma de vendas completa, aplicando conceitos de engenharia de software.",
-  //   tags: ["Node.js", "MySQL", "Eng. de Software"],
-  // },
-  // {
-  //   id: 3,
-  //   title: "Soluções Web para Negócios Locais",
-  //   image: "",
-  //   description:
-  //     "Orientação na criação de sites para diversos segmentos, utilizando a stack MERN.",
-  //   tags: ["MERN", "MongoDB", "React", "SEO"],
-  // },
 ];
 
 export const featuredProjects = allProjects.slice(0, 3);

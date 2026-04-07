@@ -1,0 +1,226 @@
+# wsabor.dev — Site Completo de Wagner Sabor
+
+> Site pessoal e portfólio de Wagner Sabor — Desenvolvedor Especialista em Next.js e React, Designer e Instrutor no SENAI-SP.
+
+URL: https://wsabor.dev
+
+---
+
+## Página Inicial
+
+Wagner Sabor é Desenvolvedor Especialista em Next.js e React. Transforma ideias em aplicações web modernas e performáticas.
+
+Stack principal: Next.js, React, TypeScript, Node.js.
+
+### Especialidades
+
+**Desenvolvimento Full Stack**
+Construindo aplicações robustas e escaláveis com Next.js, React e as melhores práticas do mercado.
+
+**Design & UX**
+Criando interfaces intuitivas e experiências de usuário que resolvem problemas reais e encantam.
+
+**Mentoria & Educação**
+Capacitando novos talentos em tecnologia com uma abordagem prática e focada no mercado.
+
+---
+
+## Sobre — /about
+
+### Do Pixel ao Código
+
+A jornada de Wagner começou no design gráfico e o levou ao desenvolvimento web. Hoje, é especialista em Next.js e React, criando aplicações modernas que combinam código robusto com design intuitivo.
+
+### Filosofia
+
+- **Performance em Primeiro Lugar:** Aplicações rápidas, otimizadas e escaláveis usando as melhores práticas do Next.js.
+- **Design que Funciona:** A experiência do usuário não é uma etapa final, é o ponto de partida. UX/UI antes mesmo da primeira linha de código.
+- **Código Limpo e Manutenível:** TypeScript, componentização inteligente e arquitetura escalável para projetos que crescem.
+- **Do Design ao Deploy:** Experiência completa no ciclo de desenvolvimento, desde o Figma até a implantação do sistema.
+- **Valor Acima de Tudo:** Entregar soluções eficientes e duradouras que resolvam problemas reais, seja para um cliente ou para um aluno.
+- **Aprender Ensinando:** Como instrutor no SENAI-SP, capacita a próxima geração de desenvolvedores e se mantém em constante evolução.
+
+### Stack Tecnológica
+
+Trabalha principalmente com Next.js, React, TypeScript, Tailwind CSS e todo o ecossistema moderno de desenvolvimento web. Também tem experiência com Node.js, APIs RESTful, bancos de dados e ferramentas de CI/CD.
+
+### Além do Código
+
+Atua como Instrutor de Formação Profissional no Curso Técnico em Desenvolvimento de Sistemas no SENAI-SP. Como hobby, explora modelagem e impressão 3D (Creality Ender 3 V3 SE) e estuda eletrônica.
+
+---
+
+## Projetos — /projects
+
+### Topcoat Vernizes
+URL: https://topcoatvernizes.com.br
+Site institucional com detecção automática de idioma e alteração manual desenvolvido para a empresa Topcoat Vernizes utilizando Next.js e Tailwind CSS.
+Tags: Next.js, Tailwind CSS, Institucional, i18n, Português / Espanhol, UX/UI
+
+### Sistema de Simulados e Provas
+URL: https://simulado.wsabor.dev
+Sistema de simulados e provas para aplicação em sala de aula desenvolvido utilizando Next.js e Tailwind CSS.
+Tags: Next.js, Tailwind CSS, Educacional, UX/UI
+
+### EPI System
+URL: https://epi-system.wsabor.dev
+Sistema completo de gestão de EPIs - Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS.
+Tags: React, Tailwind CSS, Firebase, ERP, UX/UI
+
+### Agro Solutio
+URL: https://agrosolutio.vercel.app
+Landing Page desenvolvida pelos alunos durante o Hackathon Agrotech 2025, focada em soluções agrícolas inovadoras, utilizando HTML, CSS e JavaScript.
+Tags: HTML, CSS, JavaScript, UX/UI, Hackaton
+
+### DR Prev Serviços Previdenciários
+URL: https://drprev.com.br
+Site institucional desenvolvido para a DR Prev, empresa de serviços previdenciários, usando Wordpress.
+Tags: Wordpress, UX/UI, SEO, Site Institucional
+
+### Quiz Prepara Aí 2025
+URL: https://preparai2025.wsabor.dev
+Desenvolvimento de um quiz interativo para preparar estudantes para o ENEM, usando React e Node.js.
+Tags: React, Node.js, UX/UI, Mentoria
+
+---
+
+## Blog — /blog
+
+### Hackaton Agrotech 2025
+URL: https://wsabor.dev/blog/hackaton-agrotech-2025
+Publicado em: 2025-09-03 | Atualizado em: 2025-11-16
+Categoria: Experiências | Leitura: 8 min
+Resumo: Um breve relato sobre a minha primeira experiência em um Hackaton com meus alunos.
+
+#### Conteúdo completo
+
+**A chamada para o Hackaton**
+
+Fiquei sabendo sobre o Hackaton Agrotech 2025 por um colega professor que já havia participado de outros eventos semelhantes. A princípio, empolguei-me com a ideia de participar, porém, com a correria do dia a dia, ela acabou ficando em segundo plano.
+
+Duas semanas antes do evento, meu coordenador me enviou uma mensagem, perguntando se teríamos condições de encarar este desafio. Na hora, pensei: "Por que não? Vai ser uma experiência nova e interessante para os alunos". Aceitei o desafio e comecei a organizar tudo.
+
+**A síndrome do impostor**
+
+Quando comecei a montagem da equipe, a ansiedade bateu forte. Será que eu conseguiria liderar meus alunos? Será que eles iriam gostar da experiência? Será que eu estava preparado para isso? Essas perguntas me deixaram inseguro, mas decidi seguir em frente. Pedi ajuda a Deus e confiei tanto na minha capacidade de aprender e me adaptar quanto no apoio que estava recebendo do meu coordenador e do meu parceiro de trabalho.
+
+**A montagem da equipe**
+
+Com a ajuda do meu parceiro de trabalho, Irineu, começamos a pensar em quais alunos convidaríamos para se juntar a nós nessa aventura. Queríamos alunos comprometidos, criativos e dispostos a aprender. Após algumas conversas, conseguimos formar uma equipe de 9 alunos.
+
+**Correria para organizar toda a documentação e recursos**
+
+Com a equipe formada, começamos a organizar toda a documentação necessária para a inscrição no Hackaton. Além disso, tivemos que providenciar materiais para os alunos, como notebooks. Agradecimento especial ao coordenador Marcos Cresciulo e ao diretor Alicio Souza pelo apoio fundamental.
+
+**Chegada ao evento**
+
+O evento foi sediado no Colégio Apolo, em Osvaldo Cruz. Chegamos com algumas ideias em mente, mas logo percebemos que o desafio era maior do que imaginávamos.
+
+**Quando descobrimos que não era tanto sobre programação**
+
+Durante o evento, percebemos que o mais importante era resolver uma dor do público-alvo, validar as ideias e criar um MVP (Produto Mínimo Viável). Mentores como Fernanda Batista, Matheus Oliveira, Patricia Reiners e Christopher Menoni foram fundamentais para essa virada de perspectiva.
+
+**Desempenho dos alunos**
+
+O desempenho dos alunos foi simplesmente incrível. Eles se dedicaram de corpo e alma ao desafio, trabalhando longas horas. A criatividade e o comprometimento deles foram inspiradores.
+
+**Desenvolvimento, trabalho, ensaios e mais ensaios**
+
+Dividimos as tarefas: uma subequipe desenvolveu o MVP e uma landing page, enquanto a outra se encarregou do pitch e da apresentação final.
+
+**A hora do pitch**
+
+Duas alunas apresentaram o pitch. A apresentação foi um sucesso, apesar de terem estourado o tempo de 3 minutos. As perguntas dos jurados foram muito bem respondidas.
+
+**Divulgação dos resultados e premiação**
+
+Ficamos em 2º lugar. A alegria foi imensa. Nosso objetivo inicial foi superado — as outras equipes tinham pessoas com experiência no mundo do trabalho e em startups, enquanto a maioria dos alunos nunca tinha participado de um evento assim.
+
+**Lições aprendidas**
+
+Importância de validar ideias, focar no cliente e trabalhar em equipe. Ver o crescimento dos alunos e o impacto positivo que essa experiência teve em suas vidas foi gratificante.
+
+---
+
+### Jogo Educacional — Quiz Prepara Aí 2025
+URL: https://wsabor.dev/blog/quiz-preparai
+Publicado em: 2025-06-05 | Atualizado em: 2025-06-05
+Categoria: Projetos | Leitura: 4 min
+Resumo: Um estudo de caso sobre a orientação e desenvolvimento de um jogo de quiz interativo para preparar estudantes para o ENEM, utilizando React, Node.js e metodologias ágeis.
+
+#### Conteúdo completo
+
+**Visão Geral do Projeto**
+
+O "Quiz Prepara Aí" foi um projeto desenvolvido por uma equipe de alunos do Curso Técnico em Desenvolvimento de Sistemas do SENAI, sob orientação de Wagner Sabor. O objetivo era criar uma ferramenta de estudo gamificada, moderna e engajadora para auxiliar estudantes na preparação para o ENEM e outros vestibulares.
+
+**O Desafio**
+
+Criar uma aplicação web completa, do zero, em um prazo definido, por uma equipe de desenvolvedores em formação. Principais pontos: engajamento do usuário, arquitetura escalável e trabalho em equipe com práticas de mercado como o Scrum.
+
+**Contribuição como Mentor e Arquiteto**
+
+- **Arquitetura da Solução:** Definição da stack (React + Node.js/Express) e design da arquitetura do banco de dados e API REST.
+- **Mentoria Técnica:** Sessões de pair programming, code reviews e ensino de conceitos avançados de React e Node.js.
+- **Gestão Ágil:** Introdução e facilitação do Scrum, com Sprints, backlog e cerimônias (Planning, Daily, Review, Retrospective).
+- **Qualidade de Código:** Boas práticas, código limpo, componentização e versionamento com Git/GitHub.
+
+**A Solução Técnica**
+
+- **Front-end:** React com componentes funcionais e hooks. Interface com foco total em UX.
+- **Back-end:** API RESTful com Node.js e Express.
+- **Banco de Dados:** Google Firebase para questões, alternativas e dados dos usuários.
+
+**Resultados e Aprendizados**
+
+MVP funcional entregue. Os alunos evoluíram de conceitos teóricos para a prática real, ganhando experiência em tecnologias de alta demanda e trabalho em equipe ágil. Cada membro finalizou o projeto com um case de portfólio significativo.
+
+---
+
+### Do Pixel ao Código: Como o Design Moldou Minha Trajetória na Tecnologia
+URL: https://wsabor.dev/blog/minha-trajetoria
+Publicado em: 2025-05-26 | Atualizado em: 2025-05-26
+Categoria: Trajetória Pessoal | Leitura: 4 min
+Resumo: Um relato pessoal sobre a jornada de transição de carreira, saindo do design gráfico para se tornar desenvolvedor de software e, hoje, instrutor.
+
+#### Conteúdo completo
+
+**O Início da Jornada**
+
+A jornada na tecnologia não começou com uma linha de código, mas com um pixel. Wagner iniciou a carreira na área gráfica, atuando principalmente com diagramação editorial — livros, revistas e jornais. Aprendeu a importância do design centrado no usuário e da comunicação visual eficaz.
+
+O atendimento direto ao cliente proporcionou uma visão ampla das necessidades e expectativas dos usuários. Sempre apaixonado por tecnologia e inovação desde os 9 anos, quando teve o primeiro contato com computadores Intel 386 na empresa onde o pai trabalhava.
+
+**Transição de carreira**
+
+Por volta de 2015, decidiu realizar a transição de carreira, saindo do mundo gráfico para a tecnologia. Fez o curso superior em Informática para Negócios na FATEC de São Bernardo do Campo, aprofundando conhecimentos em programação, banco de dados, redes e TI.
+
+O background em design e atendimento ao cliente proporcionou uma visão sistêmica e um olhar cuidadoso ao desenvolver software: não apenas escrever código, mas construir experiências.
+
+**Além do código**
+
+Hoje, como Instrutor de Formação Profissional no Curso Técnico em Desenvolvimento de Sistemas no SENAI-SP, a missão é capacitar a próxima geração de desenvolvedores — ensinando não apenas a programar, mas a pensar como verdadeiros solucionadores de problemas.
+
+Fora da sala de aula, explora o potencial da Inteligência Artificial e é entusiasta de impressão 3D com uma Creality Ender 3 V3 SE.
+
+---
+
+## Contato — /contact
+
+Wagner está sempre aberto a novas colaborações, conversas sobre tecnologia, educação ou para ajudar em projetos open source.
+
+- **GitHub:** https://github.com/wsabor
+- **LinkedIn:** https://www.linkedin.com/in/wsabor
+- **E-mail:** wsabor.senai@gmail.com
+
+---
+
+## Informações Técnicas do Site
+
+- **Framework:** Next.js 16 (App Router) + React 19
+- **Linguagem:** TypeScript
+- **Estilos:** Tailwind CSS 4
+- **Blog:** MDX via next-mdx-remote
+- **Deploy:** Vercel
+- **RSS Feed:** https://wsabor.dev/feed.xml
+- **Sitemap:** https://wsabor.dev/sitemap.xml
