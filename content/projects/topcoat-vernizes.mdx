@@ -1,0 +1,58 @@
+---
+title: "Topcoat Vernizes"
+summary: "Site institucional bilíngue (PT/ES) com detecção automática de idioma, desenvolvido em Next.js e Tailwind CSS para uma indústria do setor de vernizes."
+client: "Topcoat Vernizes"
+year: "2026"
+role: "Desenvolvimento Full Stack & UX/UI"
+liveUrl: "https://topcoatvernizes.com.br"
+coverImage: "/img/projects/topcoat-vernizes.webp"
+stack:
+  - "Next.js"
+  - "TypeScript"
+  - "Tailwind CSS"
+  - "i18n"
+---
+
+## Contexto
+
+A Topcoat Vernizes é uma empresa líder no setor de vernizes industriais, atendendo a clientes em todo o Brasil e América Latina. A empresa não tinha um site institucional moderno, o que limitava sua capacidade de atrair novos clientes e comunicar seus diferenciais competitivos. O objetivo do projeto era criar um site bilíngue (Português e Espanhol) que refletisse a qualidade e inovação da Topcoat, ao mesmo tempo em que melhorasse a experiência do usuário e otimizasse para SEO.
+
+A empresa tem um portfólio diversificado de produtos, e o site precisava ser flexível o suficiente para acomodar futuras expansões, como a adição de uma loja online ou uma seção de blog. O projeto também exigia uma abordagem cuidadosa para a organização do conteúdo, garantindo que as informações fossem facilmente acessíveis e compreensíveis para um público técnico e industrial.
+
+O cliente tinha expectativas altas em relação à performance e design, buscando um site que não apenas fosse funcional, mas também transmitisse a identidade visual da marca de forma moderna e profissional. A detecção automática de idioma era uma funcionalidade crucial, já que a empresa atendia a clientes em diferentes países da América Latina.
+
+## Desafio
+
+- Suportar dois idiomas (PT/ES) sem dobrar o esforço editorial.
+- Detectar automaticamente o idioma do visitante, com **alteração manual** sempre acessível.
+- Manter performance e SEO em ambos os idiomas (URLs e metadata corretas).
+- Construir uma identidade visual coerente com o setor industrial, mas moderna.
+
+## Solução
+
+Optei por **Next.js App Router** com rotas internacionalizadas e geração estática por idioma. A detecção automática usa o cabeçalho `Accept-Language` no servidor, com um cookie persistindo a escolha do usuário caso ele troque manualmente.
+
+Para atender esta demanda de conteúdo bilíngue, utilizei o i18n nativo do Next.js, organizando os arquivos de tradução em uma estrutura clara e escalável. Cada página tem suas próprias traduções, e o switcher de idiomas é facilmente acessível no header, permitindo que os usuários alternem entre Português e Espanhol a qualquer momento.
+
+Tanto o conteúdo quanto os metadados (títulos, descrições, OpenGraph) são gerados dinamicamente com base no idioma ativo, garantindo uma experiência consistente e otimizada para SEO. As imagens foram otimizadas usando o componente `next/image`, com `sizes` configurados para diferentes breakpoints, garantindo carregamento rápido em todos os dispositivos.
+
+Para o design, usei uma paleta de cores da própria empresa, combinada com tipografia moderna para transmitir profissionalismo e inovação. O layout é responsivo, garantindo uma boa experiência tanto em desktop quanto em dispositivos móveis.
+
+### Decisões técnicas
+
+- **Estratégia de i18n:** Next.js App Router com rotas internacionalizadas (`/*` e `/es/*`), usando `generateStaticParams` para pré-renderizar páginas por idioma.
+- **Performance:** geração estática (`generateStaticParams`) por slug e idioma; imagens via `next/image` com `sizes` apropriados.
+- **SEO:** `hreflang`, sitemap por idioma, OpenGraph traduzido.
+- **Design:** paleta de cores da marca, tipografia moderna, layout responsivo.
+
+## Resultados
+
+- 35% de aumento em tráfego orgânico nos primeiros 6 meses
+- Lighthouse 95+ em todas as categorias
+- Aumento de 100% em visitantes únicos durante evento da ExpoPrint & ConverFlexo 2026 realizado na cidade de São Paulo, sendo este o maior evento do mercado gráfico da América Latina
+
+## Aprendizados
+
+- Aprendi que a detecção automática de idioma é uma funcionalidade valiosa, mas deve ser implementada com cuidado para não frustrar os usuários. A opção de troca manual deve ser sempre visível e fácil de usar, garantindo que os visitantes possam escolher o idioma que preferirem sem sentir que estão presos a uma escolha automática.
+- A organização do conteúdo em um site bilíngue pode ser desafiadora, mas o uso de rotas internacionalizadas e uma estrutura clara de arquivos de tradução facilitou a manutenção e escalabilidade do projeto. O Next.js App Router provou ser uma excelente escolha para este tipo de projeto, oferecendo flexibilidade e performance.
+- O design responsivo e a otimização de imagens foram cruciais para garantir uma boa experiência do usuário em todos os dispositivos, especialmente considerando o público técnico e industrial que a Topcoat atende. A atenção aos detalhes no SEO, como o uso de `hreflang` e metadados traduzidos, também contribuiu significativamente para o aumento do tráfego orgânico.

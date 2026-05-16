@@ -28,11 +28,4 @@ export const latestArticles: Article[] = [
       "Um relato pessoal sobre minha jornada de transição de carreira, saindo do design gráfico para me tornar um desenvolvedor de software e, hoje, instrutor.",
     slug: "/blog/minha-trajetoria",
   },
-  // {
-  //   id: 3,
-  //   title: "Os 3 Maiores Desafios que Meus Alunos Enfrentam",
-  //   summary:
-  //     "Analisando os obstáculos mais comuns na jornada de um desenvolvedor júnior e como superá-los.",
-  //   slug: "/blog/desafios-alunos",
-  // },
 ];

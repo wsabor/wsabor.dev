@@ -174,6 +174,33 @@ export function getBlogPostingSchema({
   };
 }
 
+// Schema: Review (Depoimentos sobre o Wagner)
+export function getReviewSchema({
+  quote,
+  authorName,
+  authorRole,
+}: {
+  quote: string;
+  authorName: string;
+  authorRole?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    reviewBody: quote,
+    author: {
+      "@type": "Person",
+      name: authorName,
+      ...(authorRole && { jobTitle: authorRole }),
+    },
+    itemReviewed: {
+      "@type": "Person",
+      name: SITE_CONFIG.author.name,
+      url: SITE_CONFIG.url,
+    },
+  };
+}
+
 // Schema: BreadcrumbList (Navegação estruturada)
 export function getBreadcrumbListSchema(
   items: {

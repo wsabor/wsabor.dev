@@ -6,17 +6,19 @@ export type Project = {
   link: string;
   description: string;
   tags: string[];
+  slug?: string;
 };
 
 export const allProjects: Project[] = [
   {
     id: 1,
     title: "Topcoat Vernizes",
+    slug: "topcoat-vernizes",
     image: "topcoat-vernizes.webp",
     basePath: "/img/projects/",
     link: "https://topcoatvernizes.com.br",
     description:
-      "Site institucional com detecção automática de idioma e alteração manual desenvolvido para a empresa Topcoat Vernizes utilizando Next.js e Tailwind CSS",
+      "Site institucional com detecção automática de idioma, desenvolvido para a empresa Topcoat Vernizes utilizando Next.js e Tailwind CSS",
     tags: [
       "Next.js",
       "Tailwind CSS",
@@ -36,16 +38,6 @@ export const allProjects: Project[] = [
       "Sistema de simulados e provas para aplicação em sala de aula desenvolvido utilizando Next.js e Tailwind CSS",
     tags: ["Next.js", "Tailwind CSS", "Educacional", "UX/UI"],
   },
-  // {
-  //   id: 1,
-  //   title: "Cor e Processo",
-  //   image: "coreprocesso.webp",
-  //   basePath: "/img/projects/",
-  //   link: "https://coreprocesso.com.br",
-  //   description:
-  //     "Site institucional desenvolvido para a empresa Cor e Processo utilizando Next.js e Tailwind CSS",
-  //   tags: ["Next.js", "Tailwind CSS", "Institucional", "UX/UI"],
-  // },
   {
     id: 3,
     title: "EPI System",

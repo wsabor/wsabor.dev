@@ -36,6 +36,7 @@ export default function ProjectsPage() {
               link={project.link}
               description={project.description}
               tags={project.tags}
+              slug={project.slug}
             />
           ))}
         </div>
