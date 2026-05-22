@@ -31,12 +31,13 @@ export const allProjects: Project[] = [
   {
     id: 2,
     title: "Sistema de Simulados e Provas",
+    slug: "sistema-simulados",
     image: "simulado.webp",
     basePath: "/img/projects/",
     link: "https://simulado.wsabor.dev",
     description:
       "Sistema de simulados e provas para aplicação em sala de aula desenvolvido utilizando Next.js e Tailwind CSS",
-    tags: ["Next.js", "Tailwind CSS", "Educacional", "UX/UI"],
+    tags: ["Next.js", "Tailwind CSS", "Engenharia de Software"],
   },
   {
     id: 3,

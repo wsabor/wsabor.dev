@@ -1,0 +1,64 @@
+---
+title: "Sistema de Simulados e Provas"
+summary: "Sistema de simulados e provas para alunos do SENAI e do SESI, desenvolvido em Next.js e Tailwind CSS, com foco em UX/UI, performance e segurança contra fraudes (tentativas de colar ou pesquisar durante a realização)."
+client: "Professores do SENAI e do SESI"
+year: "2026"
+role: "Engenharia de Software e Desenvolvimento Full Stack"
+liveUrl: "https://simulado.wsabor.dev"
+coverImage: "/img/projects/simulado.webp"
+stack:
+  - "Next.js"
+  - "MongoDB"
+  - "Mongoose"
+  - "NextAuth.js"
+  - "Docker Compose"
+---
+
+## Contexto
+
+O Sistema de Simulados e Provas é uma plataforma desenvolvida para atender os alunos do SENAI e do SESI, oferecendo uma solução completa para a realização de simulados e provas. O objetivo do projeto era criar um sistema intuitivo e eficiente, que permitisse aos alunos praticar e se preparar para os exames de forma eficaz.
+
+A plataforma precisava permitir ao professor cadastrar as questões, organizar os simulados por disciplina e série, e acompanhar o desempenho dos alunos. Para os alunos, a experiência de realizar os simulados deveria ser fluida e sem distrações, com um design focado na usabilidade e na retenção de atenção. Além disso, era crucial implementar medidas de segurança para evitar fraudes, como tentativas de colar ou pesquisar durante a realização dos simulados.
+
+O projeto exigiu uma abordagem cuidadosa para a organização do conteúdo, garantindo que as questões fossem facilmente acessíveis e compreensíveis para os alunos. O design da interface precisava ser moderno e intuitivo, facilitando a navegação e a interação com a plataforma. A performance também era uma prioridade, garantindo que os simulados carregassem rapidamente e funcionassem sem problemas, mesmo com um grande número de usuários simultâneos.
+
+## Desafio
+
+- Criar uma plataforma de simulados e provas que fosse fácil de usar para alunos e professores, com uma interface intuitiva e moderna.
+- Implementar medidas de segurança para evitar fraudes durante a realização dos simulados.
+- Garantir que a plataforma fosse performática e escalável, capaz de lidar com um grande número de usuários simultâneos.
+- Facilitar a organização e o acesso às questões, permitindo que os professores cadastrassem e gerenciassem os simulados de forma eficiente, e que os alunos pudessem navegar facilmente pelos conteúdos disponíveis.
+- Manter um banco de dados atualizado e seguro, garantindo a integridade das informações e a privacidade dos usuários.
+
+## Solução
+
+Optei por **Next.js 16 (App Router) + MongoDB 8 (Mongoose) + NextAuth.js v4 (Credentials/JWT)** para o desenvolvimento do sistema, aproveitando a flexibilidade e performance do framework para criar uma experiência de usuário fluida e responsiva. A estrutura do projeto foi organizada de forma modular, com componentes reutilizáveis e uma arquitetura clara para facilitar a manutenção e escalabilidade.
+
+Para o banco de dados, utilizei o **MongoDB 8**, que se encaixava bem com a natureza flexível dos dados de simulados e questões. O **Mongoose** foi escolhido para facilitar a modelagem dos dados e a interação com o banco. Para a autenticação, optei pelo **NextAuth.js** com a estratégia de Credentials/JWT, garantindo uma solução segura e escalável para gerenciar as sessões dos usuários.
+
+No deploy, utilizei o **Docker Compose** para orquestrar os serviços, garantindo uma implantação consistente e fácil de gerenciar. O ambiente de produção foi configurado para otimizar a performance e a segurança, com monitoramento e logging adequados para garantir a estabilidade do sistema. Além disso, tenho controle sobre os dados e a infraestrutura, o que é crucial para um sistema que lida com informações sensíveis de alunos e professores.
+
+Sobre a questão de segurança, implementei medidas para **evitar fraudes durante a realização dos simulados**, como a ampliação em tela inteira durante a realização dos simulados, bloqueio de acesso a outras abas do navegador e controle de violações como alternar entre abas e/ou janelas durante o exame. Essas medidas foram implementadas com cuidado para não prejudicar a experiência do usuário, garantindo que os alunos possam se concentrar na realização dos simulados sem distrações, mas também garantindo a integridade do processo de avaliação.
+
+### Decisões técnicas
+
+- **Deploy:** Docker Compose para orquestrar os serviços.
+- **Segurança:** Implementação de medidas de segurança para evitar fraudes durante a realização dos simulados, como controle de abas e janelas e controle de violações.
+- **Design:** Foco em uma interface moderna e intuitiva, com uma paleta de cores atraente e uma tipografia legível, garantindo uma experiência de usuário fluida e responsiva.
+- **Organização do conteúdo:** Estrutura clara para facilitar o acesso às provas e simulados, com categorias por disciplina e série, e um sistema de busca eficiente para os alunos encontrarem rapidamente os simulados relevantes para suas necessidades de estudo.
+
+## Resultados
+
+- Sistema lançado com sucesso, atendendo às necessidades dos alunos e professores do SENAI e do SESI.
+- Realização de simulados e provas de forma fluida e sem distrações, com um design focado na usabilidade e na retenção de atenção.
+- Implementação de medidas de segurança eficazes para evitar fraudes, garantindo a integridade do processo de avaliação.
+- Feedback positivo dos usuários, destacando a facilidade de uso e a eficiência da plataforma.
+- Aumento significativo no número de simulados realizados e na participação dos alunos, contribuindo para a melhoria do desempenho acadêmico e a preparação para os exames.
+
+## Aprendizados
+
+- Aprendi a importância de focar na experiência do usuário, garantindo que a plataforma fosse intuitiva e fácil de usar para alunos e professores.
+- Desenvolvi habilidades em Next.js, MongoDB, Mongoose e NextAuth.js, aplicando esses conhecimentos para criar uma solução robusta e escalável.
+- Entendi a importância de implementar medidas de segurança eficazes para proteger a integridade do processo de avaliação, especialmente em um ambiente educacional.
+- Aprendi a organizar o conteúdo de forma eficiente, garantindo que os usuários pudessem acessar facilmente as provas e simulados relevantes para suas necessidades de estudo.
+- Desenvolvi habilidades em deploy utilizando Docker Compose, garantindo uma implantação consistente e fácil de gerenciar, e aprendendo a configurar ambientes de produção otimizados para performance e segurança.

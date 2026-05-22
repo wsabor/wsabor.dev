@@ -55,35 +55,35 @@ export default async function ProjectPage({ params }: Props) {
         <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
           <Link
             href="/projects"
-            className="mb-8 inline-flex items-center gap-2 text-text-muted transition-colors hover:text-primary"
+            className="text-text-muted hover:text-primary mb-8 inline-flex items-center gap-2 transition-colors"
           >
             <ArrowLeft size={16} />
             Voltar para projetos
           </Link>
 
           <header className="mb-10">
-            <h1 className="mb-3 text-4xl font-bold text-text-main md:text-5xl">
+            <h1 className="text-text-main mb-3 text-4xl font-bold md:text-5xl">
               {meta.title}
             </h1>
-            <p className="text-lg text-text-muted">{meta.summary}</p>
+            <p className="text-text-muted text-lg">{meta.summary}</p>
 
             <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-sm md:grid-cols-4">
               {meta.client && (
                 <div>
                   <dt className="text-text-muted">Cliente</dt>
-                  <dd className="font-medium text-text-main">{meta.client}</dd>
+                  <dd className="text-text-main font-medium">{meta.client}</dd>
                 </div>
               )}
               {meta.year && (
                 <div>
                   <dt className="text-text-muted">Ano</dt>
-                  <dd className="font-medium text-text-main">{meta.year}</dd>
+                  <dd className="text-text-main font-medium">{meta.year}</dd>
                 </div>
               )}
               {meta.role && (
                 <div>
                   <dt className="text-text-muted">Função</dt>
-                  <dd className="font-medium text-text-main">{meta.role}</dd>
+                  <dd className="text-text-main font-medium">{meta.role}</dd>
                 </div>
               )}
               {meta.liveUrl && (
@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: Props) {
                       href={meta.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-medium text-primary hover:text-primary-light"
+                      className="text-primary hover:text-primary-light inline-flex items-center gap-1 font-medium"
                     >
                       Acessar <ExternalLink size={14} />
                     </a>
@@ -108,7 +108,7 @@ export default async function ProjectPage({ params }: Props) {
                 {meta.stack.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                    className="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium"
                   >
                     {s}
                   </span>
@@ -118,7 +118,7 @@ export default async function ProjectPage({ params }: Props) {
           </header>
 
           {meta.coverImage && (
-            <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl">
+            <div className="hover:border-primary dark:hover:border-primary relative mb-10 aspect-video w-full overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
               <Image
                 src={meta.coverImage}
                 alt={`Capa do projeto ${meta.title}`}
@@ -130,7 +130,7 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           )}
 
-          <article className="prose prose-lg max-w-none dark:prose-invert">
+          <article className="prose prose-lg dark:prose-invert max-w-none">
             <MDXRemote
               source={content}
               components={{
@@ -151,7 +151,7 @@ export default async function ProjectPage({ params }: Props) {
                 href={meta.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-bold text-white transition-colors hover:bg-primary-light"
+                className="bg-primary hover:bg-primary-light inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
               >
                 Ver projeto ao vivo
                 <ExternalLink size={18} />
