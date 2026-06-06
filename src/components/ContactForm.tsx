@@ -27,7 +27,8 @@ export function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch("https://formspree.io/f/xovwnrng", {
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xovwnrng";
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: "POST",
         headers: {
           Accept: "application/json",
