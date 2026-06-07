@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="relative z-10 container mx-auto px-12 lg:px-24">
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-center md:gap-12">
           {/* Coluna Esquerda - Texto */}
-          <div className="order-2 flex-1 text-right md:order-1 md:max-w-2xl">
+          <div className="order-2 flex-1 text-center md:order-1 md:max-w-2xl md:text-right">
             {/* Intro */}
             <p className="text-primary-light mb-3 text-sm font-semibold tracking-widest uppercase">
               Olá, eu sou
@@ -32,7 +32,7 @@ export default function Hero() {
             </p>
 
             {/* Tech pills */}
-            <div className="mb-8 flex flex-wrap justify-end gap-2">
+            <div className="mb-8 flex flex-wrap justify-center gap-2 md:justify-end">
               {techStack.map((tech) => (
                 <span key={tech} className="hero-pill">
                   {tech}
@@ -41,7 +41,7 @@ export default function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap justify-end gap-3">
+            <div className="flex flex-wrap justify-center gap-3 md:justify-end">
               <Link
                 href="/projects"
                 className="bg-primary hover:bg-primary-light rounded-lg px-6 py-2.5 text-base font-bold text-white transition-colors md:px-8 md:py-3 md:text-lg"

@@ -53,23 +53,14 @@ export default function Footer() {
             © {new Date().getFullYear()} Wagner Sabor. Todos os direitos
             reservados.
           </p>
-          <p className="flex items-center gap-1 text-sm text-gray-400">
-            Desenvolvido com <Heart className="h-4 w-4 text-red-500" />
-            e <Coffee className="text-topcoat-cyan h-4 w-4" /> usando Next.js e
-            Tailwind CSS.
-            {/* <a
-              href="https://wsabor.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-topcoat-cyan hover:text-topcoat-green transition-colors"
-            >
-              wsabor.dev
-            </a> */}
+          <p className="text-sm text-gray-400">
+            Desenvolvido com{" "}
+            <Heart className="inline h-4 w-4 align-middle text-red-500" /> e{" "}
+            <Coffee className="text-topcoat-cyan inline h-4 w-4 align-middle" />{" "}
+            usando Next.js e Tailwind CSS.
           </p>
-          {/* <p className="text-sm">
-            Desenvolvido com ❤️ usando Next.js e Tailwind CSS.
-          </p> */}
         </div>
+
         <div className="flex items-center gap-4">
           {socialLinks.map(({ href, label, icon }) => (
             <Link
