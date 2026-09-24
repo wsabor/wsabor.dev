@@ -23,6 +23,11 @@
   --font-display: var(--font-sora);
 }
 
+/* Altura do header sticky (usada pelo ScrollSequence para pinar abaixo dele) */
+:root {
+  --header-h: 84px;
+}
+
 /* ======================================== */
 /* TEMA ESCURO (sobrescreve as vars acima)  */
 /* ======================================== */
