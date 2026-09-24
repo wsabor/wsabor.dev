@@ -1,15 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMounted } from "@/hooks/useMounted";
 import { useTheme } from "next-themes";
 
 export default function HeroBackground() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   // Não renderiza nada até que o componente esteja montado (evita flash)
   if (!mounted) {
