@@ -2,10 +2,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import TechMarquee from "./TechMarquee";
 import {
   businessServices,
   specialties,
-  techStack,
   type Specialty,
 } from "@/data/specialties";
 
@@ -172,27 +172,7 @@ export default function Specialties() {
         </div>
 
         {/* Faixa de tecnologias */}
-        <div data-reveal className="marquee mt-16">
-          <div className="marquee-track">
-            {[false, true].map((duplicate) => (
-              <ul
-                key={String(duplicate)}
-                aria-hidden={duplicate || undefined}
-                aria-label={duplicate ? undefined : "Tecnologias"}
-                className="marquee-group"
-              >
-                {techStack.map((tech) => (
-                  <li
-                    key={tech}
-                    className="card text-text-muted px-5 py-2.5 text-sm font-medium whitespace-nowrap"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            ))}
-          </div>
-        </div>
+        <TechMarquee className="mt-16" />
       </Reveal>
     </section>
   );

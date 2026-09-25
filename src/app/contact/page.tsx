@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <main className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-24">
+      <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-24">
         <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
           Vamos Conectar?
         </h1>
@@ -58,7 +58,7 @@ export default function ContactPage() {
         <div className="mt-16 w-full max-w-lg rounded-xl border border-black/10 bg-surface p-8 dark:border-white/10">
           <ContactForm />
         </div>
-      </main>
+      </div>
     </>
   );
 }

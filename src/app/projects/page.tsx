@@ -15,7 +15,7 @@ export default function ProjectsPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <main className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
             Portfólio de Projetos
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
             />
           ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

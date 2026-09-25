@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: Props) {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <div className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
         <Link
           href="/projects"
           className="text-text-muted hover:text-primary mb-8 inline-flex items-center gap-2 transition-colors"
@@ -167,7 +167,7 @@ export default async function ProjectPage({ params }: Props) {
             </a>
           </div>
         )}
-      </main>
+      </div>
     </>
   );
 }

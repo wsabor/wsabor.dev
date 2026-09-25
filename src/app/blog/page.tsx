@@ -24,7 +24,7 @@ export default function BlogPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <main className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
             Blog
@@ -69,7 +69,7 @@ export default function BlogPage() {
             </Link>
           ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

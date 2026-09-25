@@ -98,7 +98,7 @@ export default async function PostPage({ params }: Props) {
       <JsonLd data={blogPostSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <div className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
         <article className="prose prose-lg max-w-none dark:prose-invert">
           <h1>{meta.title}</h1>
           <p className="mb-8 mt-0 text-lg">
@@ -125,7 +125,7 @@ export default async function PostPage({ params }: Props) {
         </article>
         <hr className="my-12 border-black/10 dark:border-white/10" />
         <Comments />
-      </main>
+      </div>
     </>
   );
 }
