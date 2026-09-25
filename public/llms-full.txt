@@ -221,6 +221,7 @@ Wagner está sempre aberto a novas colaborações, conversas sobre tecnologia, e
 - **Linguagem:** TypeScript
 - **Estilos:** Tailwind CSS 4
 - **Blog:** MDX via next-mdx-remote
+- **Animação da home:** sequência de imagens em canvas controlada pelo scroll (GSAP ScrollTrigger + Lenis)
 - **Deploy:** Vercel
 - **RSS Feed:** https://wsabor.dev/feed.xml
 - **Sitemap:** https://wsabor.dev/sitemap.xml
