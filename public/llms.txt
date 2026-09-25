@@ -5,7 +5,7 @@
 
 ## Páginas
 
-- [Home](https://wsabor.dev): Apresentação, especialidades e projetos em destaque.
+- [Home](https://wsabor.dev): Apresentação, trajetória, especialidades (incluindo presença digital para negócios), projetos e artigos em destaque.
 - [Sobre](https://wsabor.dev/about): Trajetória profissional, filosofia de trabalho e stack tecnológica.
 - [Projetos](https://wsabor.dev/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
 - [Blog](https://wsabor.dev/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
