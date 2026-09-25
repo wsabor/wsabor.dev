@@ -28,6 +28,13 @@ export default function Reveal({ children, className, stagger = 0.1 }: RevealPro
       const container = ref.current;
       if (!container) return;
 
+      // Já visível ao carregar (ex.: grade logo abaixo do cabeçalho de uma
+      // página interna): não esconde o que o servidor já mostrou. Evita o
+      // "some e volta" e contraste medido no meio do fade (Lighthouse/axe).
+      if (container.getBoundingClientRect().top < window.innerHeight * 0.85) {
+        return;
+      }
+
       const items = container.querySelectorAll<HTMLElement>("[data-reveal]");
       const targets = items.length > 0 ? Array.from(items) : [container];
 

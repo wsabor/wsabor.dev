@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-type ProjectMetadata = {
+export type ProjectHighlight = { value: string; label: string };
+
+export type ProjectMetadata = {
   title: string;
   summary: string;
   client?: string;
@@ -13,6 +15,8 @@ type ProjectMetadata = {
   role?: string;
   galleryImages?: { image: string; caption: string }[];
   galleryBasePath?: string;
+  /** Números de destaque dos resultados (opcional; vêm da seção Resultados). */
+  highlights?: ProjectHighlight[];
 };
 
 const projectsDirectory = path.join(process.cwd(), "content/projects");
