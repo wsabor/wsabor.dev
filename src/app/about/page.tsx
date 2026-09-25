@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Download, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { BlogImage } from "@/components/BlogImage";
 
 import JsonLd from "@/components/JsonLd";
@@ -21,17 +21,9 @@ export default function AboutPage() {
         </h1>
 
         <div className="mb-10 flex flex-wrap gap-3">
-          <a
-            href="/cv-wagner-sabor.pdf"
-            download
-            className="inline-flex items-center gap-2 rounded-lg bg-primary-strong px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-primary-deep md:px-8 md:py-3 md:text-lg"
-          >
-            <Download size={18} aria-hidden="true" />
-            Baixar CV
-          </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-primary/30 px-6 py-2.5 text-base font-bold text-primary transition-colors hover:border-primary hover:bg-primary/5 md:px-8 md:py-3 md:text-lg dark:border-primary/40 dark:hover:bg-primary/10"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary-strong px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-primary-deep md:px-8 md:py-3 md:text-lg"
           >
             <Mail size={18} aria-hidden="true" />
             Falar comigo
