@@ -1,8 +1,10 @@
-import Link from "next/link";
 import { getAllPostsMeta } from "@/lib/posts";
-import { ArrowRight } from "lucide-react";
 
 import JsonLd from "@/components/JsonLd";
+import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
+import ArticleCard from "@/components/ArticleCard";
+import CallToAction from "@/components/CallToAction";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
 
 export const metadata = {
@@ -12,7 +14,7 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPostsMeta();
+  const [featured, ...others] = getAllPostsMeta();
 
   // Gerar breadcrumb para a página de blog
   const breadcrumbSchema = getBreadcrumbListSchema([
@@ -24,52 +26,39 @@ export default function BlogPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <div className="container mx-auto px-4 py-16 md:py-24">
-        <div className="mb-16 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-text-main md:text-5xl">
-            Blog
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-text-muted">
-            Aqui compartilho conhecimentos, tutoriais e reflexões sobre o
-            universo da tecnologia, do desenvolvimento ao design.
-          </p>
-        </div>
+      <PageHeader
+        eyebrow="Blog"
+        title="Blog"
+        description="Aqui compartilho conhecimentos, tutoriais e reflexões sobre o universo da tecnologia, do desenvolvimento ao design."
+        breadcrumbs={[
+          { href: "/", label: "Home" },
+          { href: "/blog", label: "Blog" },
+        ]}
+      />
 
-        <div className="mx-auto max-w-4xl space-y-12">
-          {posts.map((post) => (
-            <Link
-              href={`/blog/${post.slug}`}
-              key={post.slug}
-              className="group block"
-            >
-              <article>
-                <div className="mb-2">
-                  <p className="text-sm text-text-muted">
-                    {new Date(post.meta.publishedAt).toLocaleDateString(
-                      "pt-BR",
-                      {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                        timeZone: "UTC", // publishedAt é só a data
-                      },
-                    )}
-                  </p>
-                </div>
-                <h2 className="mb-4 text-2xl font-bold text-text-main transition-colors group-hover:text-primary md:text-3xl">
-                  {post.meta.title}
-                </h2>
-                <p className="mb-6 text-lg text-text-muted">
-                  {post.meta.summary}
-                </p>
-                <span className="inline-flex items-center gap-2 font-semibold text-primary">
-                  Ler artigo <ArrowRight size={16} />
-                </span>
-              </article>
-            </Link>
-          ))}
-        </div>
-      </div>
+      {featured && (
+        <section className="pb-16 md:pb-24" aria-labelledby="lista-artigos">
+          {/* Título só para leitores de tela: os cards usam h3 */}
+          <h2 id="lista-artigos" className="sr-only">
+            Artigos
+          </h2>
+          <Reveal className="container mx-auto px-8">
+            {/* Mais recente em destaque (largura total), demais em grade */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <ArticleCard
+                {...featured}
+                variant="featured-wide"
+                className="md:col-span-2 lg:col-span-3"
+              />
+              {others.map((post) => (
+                <ArticleCard key={post.slug} {...post} />
+              ))}
+            </div>
+          </Reveal>
+        </section>
+      )}
+
+      <CallToAction />
     </>
   );
 }
