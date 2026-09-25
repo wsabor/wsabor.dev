@@ -107,6 +107,7 @@ export default async function PostPage({ params }: Props) {
               year: "numeric",
               month: "long",
               day: "numeric",
+              timeZone: "UTC", // publishedAt é só a data
             })}
           </p>
           <MDXRemote

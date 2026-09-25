@@ -20,6 +20,7 @@ export default async function OgImage({ params }: Props) {
     day: "2-digit",
     month: "short",
     year: "numeric",
+    timeZone: "UTC", // publishedAt é só a data
   });
 
   return new ImageResponse(

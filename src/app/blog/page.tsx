@@ -51,6 +51,7 @@ export default function BlogPage() {
                         year: "numeric",
                         month: "long",
                         day: "numeric",
+                        timeZone: "UTC", // publishedAt é só a data
                       },
                     )}
                   </p>
