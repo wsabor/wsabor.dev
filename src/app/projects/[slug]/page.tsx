@@ -16,6 +16,9 @@ export function generateStaticParams() {
   return getAllProjectsMeta().map((p) => ({ slug: p.slug }));
 }
 
+// Slugs fora do generateStaticParams respondem 404 real (sem render dinâmico)
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 

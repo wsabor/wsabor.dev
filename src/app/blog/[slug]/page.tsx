@@ -22,6 +22,9 @@ export async function generateStaticParams() {
   }));
 }
 
+// Slugs fora do generateStaticParams respondem 404 real (sem render dinâmico)
+export const dynamicParams = false;
+
 // Gera os metadados dinâmicos (título da aba) para cada post
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
