@@ -206,6 +206,9 @@ export default function ScrollSequence({
           pinSpacing: true,
           scrub: 0.5,
           invalidateOnRefresh: true,
+          // Recalcula antes dos gatilhos das seções abaixo (Reveal), que
+          // dependem do espaço que este pin adiciona à página.
+          refreshPriority: 1,
           onUpdate: (self) => {
             setIntroVisible(self.progress < introUntil);
             const index = overlays.findIndex(
@@ -216,6 +219,11 @@ export default function ScrollSequence({
           },
         },
       });
+
+      // O pin nasce depois dos Reveal (espera o re-render da hidratação):
+      // reordena por prioridade e recalcula as posições de todos os gatilhos.
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
 
       let resizeTimeout: ReturnType<typeof setTimeout>;
       function handleResize() {

@@ -1,45 +1,34 @@
 import { ProjectCard } from "./ProjectCard";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 import { featuredProjects } from "@/data/projects";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export default function Projects() {
   return (
-    <>
-      <section className="bg-surface py-16 md:py-32">
-        <div className="container mx-auto px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-text-main mb-4 text-3xl font-bold md:text-4xl">
-              Projetos em Destaque
-            </h2>
-            <p className="text-text-muted text-lg">
-              Uma amostra do meu trabalho, da concepção à implementação.
-            </p>
-          </div>
-          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                image={project.image}
-                link={project.link}
-                basePath={project.basePath}
-                title={project.title}
-                description={project.description}
-                tags={project.tags}
-                slug={project.slug}
-              />
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              href="/projects"
-              className="text-primary hover:text-primary-light inline-flex items-center gap-2 font-semibold transition-colors"
-            >
-              Ver todos os projetos <ArrowRight size={16} />
-            </Link>
-          </div>
+    <section className="bg-surface/40 py-20 md:py-32" aria-labelledby="projetos">
+      <Reveal className="container mx-auto px-8">
+        <SectionHeading
+          id="projetos"
+          eyebrow="Portfólio"
+          title="Projetos em destaque"
+          description="Uma amostra do meu trabalho, da concepção à implementação."
+          action={{ href: "/projects", label: "Ver todos os projetos" }}
+        />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              image={project.image}
+              link={project.link}
+              basePath={project.basePath}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              slug={project.slug}
+            />
+          ))}
         </div>
-      </section>
-    </>
+      </Reveal>
+    </section>
   );
 }

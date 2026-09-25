@@ -22,14 +22,17 @@ export function ProjectCard({
   slug,
 }: ProjectCardProps) {
   return (
-    <div className="bg-surface hover:border-primary dark:hover:border-primary flex flex-col overflow-hidden rounded-xl border border-black/10 transition-colors dark:border-white/10">
+    <div
+      data-reveal
+      className="card card-interactive group flex flex-col overflow-hidden"
+    >
       {image && (
-        <div className="relative h-48 w-full">
+        <div className="relative h-52 w-full overflow-hidden">
           <Image
             src={`${basePath}${image}`}
             alt={`Imagem de capa do projeto ${title}`}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -37,7 +40,9 @@ export function ProjectCard({
 
       {/* Conteúdo do Card */}
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-text-main text-xl font-semibold">{title}</h3>
+        <h3 className="font-display text-text-main text-xl font-semibold">
+          {title}
+        </h3>
         <p className="text-text-muted mt-2 flex-1">{description}</p>
 
         {/* Tags */}

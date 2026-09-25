@@ -118,6 +118,85 @@
 /* ESTILOS DE COMPONENTES CUSTOMIZADOS      */
 /* ======================================== */
 
+/* --- Linguagem visual da home (cards, texturas, rótulos) --- */
+@layer components {
+  /* Card base: borda sutil sobre surface */
+  .card {
+    border-radius: 1rem;
+    border: 1px solid hsl(0 0% 0% / 0.08);
+    background-color: var(--color-surface);
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      translate 0.3s ease;
+  }
+  .dark .card {
+    border-color: hsl(0 0% 100% / 0.08);
+  }
+
+  /* Card clicável: borda ciano + brilho azul + leve elevação no hover/foco */
+  .card-interactive:hover,
+  .card-interactive:focus-within {
+    border-color: hsl(193 100% 45% / 0.5);
+    box-shadow:
+      0 0 0 1px hsl(193 100% 50% / 0.12),
+      0 24px 60px -24px hsl(214 100% 55% / 0.45);
+    translate: 0 -4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-interactive:hover,
+    .card-interactive:focus-within {
+      translate: none;
+    }
+  }
+
+  /* Textura de pontos que se dissolve nas bordas + brilho da marca no topo.
+     Usa ::before para a máscara não afetar o conteúdo da seção. */
+  .section-dots {
+    position: relative;
+    isolation: isolate;
+  }
+  .section-dots::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 50% 0%, hsl(214 100% 55% / 0.1), transparent 70%),
+      radial-gradient(circle at 1px 1px, hsl(0 0% 0% / 0.07) 1px, transparent 0);
+    background-size: 100% 100%, 28px 28px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+  }
+  .dark .section-dots::before {
+    background-image:
+      radial-gradient(ellipse 60% 40% at 50% 0%, hsl(214 100% 60% / 0.12), transparent 70%),
+      radial-gradient(circle at 1px 1px, hsl(0 0% 100% / 0.06) 1px, transparent 0);
+  }
+
+  /* Rótulo curto acima dos títulos de seção (mesmo estilo do "OLÁ, EU SOU") */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary-deep);
+  }
+  .dark .eyebrow {
+    color: var(--color-primary-light);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 2rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  }
+}
+
 /* --- Hero Background CSS puro --- */
 
 .hero-bg {

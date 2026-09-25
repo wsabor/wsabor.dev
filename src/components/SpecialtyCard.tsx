@@ -12,12 +12,17 @@ export function SpecialtyCard({
   description,
 }: SpecialtyCardProps) {
   return (
-    <div className="flex flex-col items-center gap-4 rounded-xl border border-white/10 bg-surface px-8 py-10 transition-colors hover:border-primary">
-      <div className="mb-2 rounded-full bg-background p-4 text-primary">
+    <div
+      data-reveal
+      className="card card-interactive flex flex-col gap-4 p-8"
+    >
+      <div className="from-primary/20 to-primary-light/10 ring-primary/20 text-primary mb-2 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br ring-1">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold text-text-main">{title}</h3>
-      <p className="text-text-muted">{description}</p>
+      <h3 className="font-display text-text-main text-xl font-semibold">
+        {title}
+      </h3>
+      <p className="text-text-muted leading-relaxed">{description}</p>
     </div>
   );
 }

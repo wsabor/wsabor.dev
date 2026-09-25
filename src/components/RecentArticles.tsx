@@ -1,41 +1,45 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 import { latestArticles } from "@/data/articles";
 
 export default function RecentArticles() {
   return (
-    <>
-      <section className="py-16 md:py-32">
-        <div className="container mx-auto px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-text-main mb-4 text-3xl font-bold md:text-4xl">
-              Artigos Recentes
-            </h2>
-            <p className="text-text-muted text-lg">
-              Compartilhando conhecimento e insights sobre tecnologia e
-              educação.
-            </p>
-          </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
-            {latestArticles.map((article) => (
-              <Link
-                href={article.slug}
-                key={article.id}
-                className="bg-surface hover:border-primary flex grow flex-col rounded-xl border border-white/10 p-6 transition-colors"
-              >
-                <h3 className="text-text-main mb-2 text-xl font-semibold">
-                  {article.title}
-                </h3>
-                <p className="text-text-muted mb-4">{article.summary}</p>
-                <div className="grow"></div>
-                <span className="text-primary hover:text-primary-light flex items-center gap-2 font-semibold transition-colors">
-                  Ler Artigo <ArrowRight size={16} />
-                </span>
-              </Link>
-            ))}
-          </div>
+    <section className="py-20 md:py-32" aria-labelledby="artigos">
+      <Reveal className="container mx-auto px-8">
+        <SectionHeading
+          id="artigos"
+          eyebrow="Blog"
+          title="Artigos recentes"
+          description="Compartilhando conhecimento e insights sobre tecnologia e educação."
+          action={{ href: "/blog", label: "Ver todos os artigos" }}
+        />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {latestArticles.map((article) => (
+            <Link
+              href={article.slug}
+              key={article.id}
+              data-reveal
+              className="card card-interactive group flex flex-col p-8"
+            >
+              <h3 className="font-display text-text-main mb-3 text-xl font-semibold">
+                {article.title}
+              </h3>
+              <p className="text-text-muted mb-6 leading-relaxed">
+                {article.summary}
+              </p>
+              <span className="text-primary mt-auto inline-flex items-center gap-2 font-semibold">
+                Ler artigo
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </span>
+            </Link>
+          ))}
         </div>
-      </section>
-    </>
+      </Reveal>
+    </section>
   );
 }
