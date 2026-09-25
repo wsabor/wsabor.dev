@@ -4,7 +4,9 @@ const nextConfig = {
   agentRules: false,
 
   images: {
-    formats: ["image/avif", "image/webp"],
+    // Só WebP: o encoder AVIF do sharp trava em imagens largas (ex.: capa de
+    // 1920px dos estudos de caso ficava pendente). As origens já são WebP.
+    formats: ["image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
