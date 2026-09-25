@@ -29,6 +29,6 @@ export const scrollSequence: ScrollSequenceContent = {
   ],
   overlays: [
     { from: 0.3, to: 0.46, title: "Tudo começa com uma linha de código" },
-    { from: 0.84, to: 1.01, title: "E termina em produção, medindo resultado" },
+    { from: 0.84, to: 1.01, title: "E continua em produção, medindo resultados" },
   ],
 };
