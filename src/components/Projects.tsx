@@ -14,10 +14,13 @@ export default function Projects() {
           description="Uma amostra do meu trabalho, da concepção à implementação."
           action={{ href: "/projects", label: "Ver todos os projetos" }}
         />
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProjects.map((project) => (
+        {/* Primeiro projeto em destaque (largura total), demais em 2 colunas */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {featuredProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
+              featured={index === 0}
+              className={index === 0 ? "md:col-span-2" : ""}
               image={project.image}
               link={project.link}
               basePath={project.basePath}

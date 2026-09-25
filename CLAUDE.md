@@ -21,7 +21,7 @@ Site pessoal/portfólio de Wagner Sabor, construído com Next.js App Router.
 src/
   app/           # Rotas (App Router)
   components/    # Componentes React
-  data/          # Dados estáticos (projects.ts, articles.ts, specialties.tsx, scrollSequence.ts)
+  data/          # Dados estáticos (projects.ts, specialties.tsx, about.ts, scrollSequence.ts)
   hooks/         # Hooks client (useMediaQuery, useMounted)
   lib/           # Utilitários (posts.ts, schemas.ts)
 content/
@@ -42,6 +42,7 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 - Componentes em `PascalCase`, arquivos `.tsx`
 - Dados estáticos ficam em `src/data/`, não embutidos nos componentes
 - Posts do blog são arquivos `.mdx` em `content/posts/`
+- Os cards de artigos da home leem o frontmatter dos posts (sem lista manual). Capa: campo opcional `cover`; sem ele, primeira imagem da galeria; sem galeria, a imagem OG do post
 - Usar `lucide-react` para ícones (import otimizado via `optimizePackageImports`)
 - Prettier com `prettier-plugin-tailwindcss` para ordenar classes Tailwind
 

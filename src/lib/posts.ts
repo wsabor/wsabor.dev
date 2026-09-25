@@ -11,7 +11,7 @@ type GalleryImage = {
 };
 
 // Adicionamos 'galleryImages' como um array opcional de strings.
-type PostMetadata = {
+export type PostMetadata = {
   title: string;
   publishedAt: string;
   summary: string;
@@ -24,6 +24,7 @@ type PostMetadata = {
   category?: string; // Categoria/seção (ex: "Experiências", "Tutoriais")
   author?: string; // Nome do autor (se for diferente de você)
   wordCount?: number; // Contagem de palavras
+  cover?: string; // Imagem de capa (caminho em /public); opcional
 };
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
@@ -65,4 +66,13 @@ export function getAllPostsMeta() {
       new Date(b.meta.publishedAt).getTime() -
       new Date(a.meta.publishedAt).getTime(),
   );
+}
+
+// Capa do post para cards: `cover` do frontmatter, senão a primeira imagem da
+// galeria, senão a imagem Open Graph gerada para o post.
+export function getPostCover(meta: PostMetadata, slug: string) {
+  if (meta.cover) return meta.cover;
+  const first = meta.galleryImages?.[0];
+  if (first) return `${meta.galleryBasePath ?? ""}${first.image}`;
+  return `/blog/${slug}/opengraph-image`;
 }
