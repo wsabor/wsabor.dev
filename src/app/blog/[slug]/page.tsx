@@ -22,6 +22,9 @@ export async function generateStaticParams() {
   }));
 }
 
+// Slugs fora do generateStaticParams respondem 404 real (sem render dinâmico)
+export const dynamicParams = false;
+
 // Gera os metadados dinâmicos (título da aba) para cada post
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
@@ -50,75 +53,78 @@ export async function generateMetadata({ params }: Props) {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
 
+  // Só a leitura do conteúdo fica no try: erros de render não são capturados por try/catch
+  let entry: ReturnType<typeof getPostBySlug>;
   try {
-    const { meta, content } = getPostBySlug(slug);
-
-    // Construir a URL completa do post
-    const postUrl = `https://wsabor.dev/blog/${slug}`;
-
-    // Pegar a primeira imagem da galeria como imagem de destaque (se existir)
-    const featuredImage = meta.galleryImages?.[0]
-      ? `https://wsabor.dev${meta.galleryBasePath}${meta.galleryImages[0].image}`
-      : undefined;
-
-    // Gerar o schema do post
-    const blogPostSchema = getBlogPostingSchema({
-      title: meta.title,
-      description: meta.summary,
-      publishedAt: meta.publishedAt,
-      updatedAt: meta.updatedAt, // ← Novo
-      url: postUrl,
-      image: featuredImage,
-      keywords: meta.keywords, // ← Novo
-      category: meta.category, // ← Novo
-      author: meta.author, // ← Novo
-      readingTime: meta.readingTime, // ← Novo
-      wordCount: meta.wordCount, // ← Novo
-    });
-
-    // Gerar o breadcrumb do post
-    const breadcrumbSchema = getBreadcrumbListSchema([
-      { name: "Home", url: "https://wsabor.dev" },
-      { name: "Blog", url: "https://wsabor.dev/blog" },
-      { name: meta.title, url: postUrl },
-    ]);
-
-    return (
-      <>
-        {/* Schema.org Structured Data para o post */}
-        <JsonLd data={blogPostSchema} />
-        <JsonLd data={breadcrumbSchema} />
-
-        <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
-          <article className="prose prose-lg max-w-none dark:prose-invert">
-            <h1>{meta.title}</h1>
-            <p className="mb-8 mt-0 text-lg">
-              Publicado em{" "}
-              {new Date(meta.publishedAt).toLocaleDateString("pt-BR", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-            <MDXRemote
-              source={content}
-              components={{
-                ImageGallery: () => (
-                  <ImageGallery
-                    images={meta.galleryImages || []}
-                    basePath={meta.galleryBasePath || ""}
-                  />
-                ),
-                BlogImage,
-              }}
-            />
-          </article>
-          <hr className="my-12 border-black/10 dark:border-white/10" />
-          <Comments />
-        </main>
-      </>
-    );
+    entry = getPostBySlug(slug);
   } catch {
     notFound();
   }
+  const { meta, content } = entry;
+
+  // Construir a URL completa do post
+  const postUrl = `https://wsabor.dev/blog/${slug}`;
+
+  // Pegar a primeira imagem da galeria como imagem de destaque (se existir)
+  const featuredImage = meta.galleryImages?.[0]
+    ? `https://wsabor.dev${meta.galleryBasePath}${meta.galleryImages[0].image}`
+    : undefined;
+
+  // Gerar o schema do post
+  const blogPostSchema = getBlogPostingSchema({
+    title: meta.title,
+    description: meta.summary,
+    publishedAt: meta.publishedAt,
+    updatedAt: meta.updatedAt, // ← Novo
+    url: postUrl,
+    image: featuredImage,
+    keywords: meta.keywords, // ← Novo
+    category: meta.category, // ← Novo
+    author: meta.author, // ← Novo
+    readingTime: meta.readingTime, // ← Novo
+    wordCount: meta.wordCount, // ← Novo
+  });
+
+  // Gerar o breadcrumb do post
+  const breadcrumbSchema = getBreadcrumbListSchema([
+    { name: "Home", url: "https://wsabor.dev" },
+    { name: "Blog", url: "https://wsabor.dev/blog" },
+    { name: meta.title, url: postUrl },
+  ]);
+
+  return (
+    <>
+      {/* Schema.org Structured Data para o post */}
+      <JsonLd data={blogPostSchema} />
+      <JsonLd data={breadcrumbSchema} />
+
+      <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
+        <article className="prose prose-lg max-w-none dark:prose-invert">
+          <h1>{meta.title}</h1>
+          <p className="mb-8 mt-0 text-lg">
+            Publicado em{" "}
+            {new Date(meta.publishedAt).toLocaleDateString("pt-BR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
+          <MDXRemote
+            source={content}
+            components={{
+              ImageGallery: () => (
+                <ImageGallery
+                  images={meta.galleryImages || []}
+                  basePath={meta.galleryBasePath || ""}
+                />
+              ),
+              BlogImage,
+            }}
+          />
+        </article>
+        <hr className="my-12 border-black/10 dark:border-white/10" />
+        <Comments />
+      </main>
+    </>
+  );
 }

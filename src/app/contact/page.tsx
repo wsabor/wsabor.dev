@@ -58,7 +58,7 @@ export default function ContactPage() {
 
           <a
             href="mailto:wsabor.senai@gmail.com"
-            className="flex items-center justify-center gap-3 rounded-lg bg-[#EA4335] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-80"
+            className="flex items-center justify-center gap-3 rounded-lg bg-[#C5221F] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#A50E0E]"
           >
             <Mail size={20} />
             E-mail

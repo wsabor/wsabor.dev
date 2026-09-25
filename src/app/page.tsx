@@ -1,6 +1,7 @@
-import { Suspense } from "react";
-import Hero from "@/components/Hero";
-import HeroSkeleton from "@/components/HeroSkeleton";
+import ScrollSequence from "@/components/ScrollSequence";
+import HeroIntro from "@/components/HeroIntro";
+import SmoothScroll from "@/components/SmoothScroll";
+import { scrollSequence } from "@/data/scrollSequence";
 import Specialties from "@/components/Specialities";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
@@ -38,9 +39,13 @@ export default function HomePage() {
       ))}
 
       {/* Conteúdo da página */}
-      <Suspense fallback={<HeroSkeleton />}>
-        <Hero />
-      </Suspense>
+      <SmoothScroll />
+
+      {/* Hero sobre o canvas. Para voltar ao layout "Hero + scroll abaixo":
+          <Hero /> (@/components/Hero) acima e <ScrollSequence> sem children. */}
+      <ScrollSequence {...scrollSequence}>
+        <HeroIntro />
+      </ScrollSequence>
       <Specialties />
       <Projects />
       <Testimonials items={featuredTestimonials} />

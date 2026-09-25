@@ -11,16 +11,27 @@
 @theme {
   --color-background: hsl(0 0% 100%);
   --color-surface: hsl(0 0% 95%);
-  --color-primary: hsl(214 100% 50%);
+  /* L44 (não L50): texto/link azul sobre background e surface com AA ≥ 4.5 */
+  --color-primary: hsl(214 100% 44%);
   --color-primary-light: hsl(193 100% 45%);
   --color-text-main: hsl(0 0% 7%);
   --color-text-muted: hsl(0 0% 30%);
+  /* Iguais nos dois temas; separados de --color-primary, que no escuro precisa
+     ser claro para texto. strong: fundo de botão com texto branco (AA 5.1);
+     deep: hover desses botões e texto azul sobre fundos claros tingidos (AA 5.0). */
+  --color-primary-strong: hsl(214 100% 46%);
+  --color-primary-deep: hsl(214 100% 40%);
 }
 
 /* Fontes via variáveis CSS do Next.js */
 @theme inline {
   --font-sans: var(--font-inter);
   --font-display: var(--font-sora);
+}
+
+/* Altura do header sticky (usada pelo ScrollSequence para pinar abaixo dele) */
+:root {
+  --header-h: 84px;
 }
 
 /* ======================================== */
@@ -178,4 +189,12 @@
 .dark .hero-pill {
   background-color: hsl(214 100% 60% / 0.1);
   border-color: hsl(214 100% 60% / 0.22);
+}
+
+/* Pills sobre imagem/vídeo (HeroIntro): fundo opaco para não disputar com o código ao fundo */
+.hero-pill.hero-pill-on-media {
+  background-color: hsl(0 0% 4% / 0.75);
+  border-color: hsl(193 100% 50% / 0.35);
+  color: var(--color-primary-light);
+  backdrop-filter: blur(4px);
 }

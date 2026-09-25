@@ -19,6 +19,7 @@ O projeto foi desenvolvido do zero utilizando as tecnologias mais modernas do ec
 - **Blog com MDX:** Artigos e tutoriais escritos em Markdown, permitindo a inclusão de componentes React diretamente no texto.
 - **Portfólio de Projetos:** Uma seção dedicada para apresentar meus trabalhos e estudos de caso.
 - **Design Responsivo:** Interface totalmente adaptável para desktops, tablets e dispositivos móveis.
+- **Hero com scroll cinematográfico:** Sequência de imagens desenhada em canvas e controlada pelo scroll (GSAP ScrollTrigger + Lenis), com alternativa estática para quem prefere movimento reduzido.
 - **Tema Escuro (Dark Mode):** Suporte nativo para tema claro e escuro, respeitando a preferência do sistema do usuário.
 - **Componentes Reutilizáveis:** Construído com uma arquitetura de componentes bem definida para fácil manutenção e escalabilidade.
 
@@ -32,6 +33,7 @@ Este projeto foi construído com as seguintes tecnologias:
 - **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
 - **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
 - **Conteúdo:** [MDX](https://mdxjs.com/)
+- **Animação:** [GSAP](https://gsap.com/) (ScrollTrigger) e [Lenis](https://lenis.darkroom.engineering/)
 - **Ícones:** [Lucide React](https://lucide.dev/)
 - **Deployment:** [Vercel](https://vercel.com/)
 

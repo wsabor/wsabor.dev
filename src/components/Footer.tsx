@@ -53,7 +53,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Wagner Sabor. Todos os direitos
             reservados.
           </p>
-          <p className="text-sm text-gray-400">
+          <p className="text-text-muted text-sm">
             Desenvolvido com{" "}
             <Heart className="inline h-4 w-4 align-middle text-red-500" /> e{" "}
             <Coffee className="text-topcoat-cyan inline h-4 w-4 align-middle" />{" "}

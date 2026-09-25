@@ -24,7 +24,7 @@ export default function AboutPage() {
           <a
             href="/cv-wagner-sabor.pdf"
             download
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-primary-light md:px-8 md:py-3 md:text-lg"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary-strong px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-primary-deep md:px-8 md:py-3 md:text-lg"
           >
             <Download size={18} aria-hidden="true" />
             Baixar CV
