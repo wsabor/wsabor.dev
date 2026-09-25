@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import StatusPage from "@/components/StatusPage";
 
 export default function Error({
   error,
@@ -15,27 +16,23 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="container mx-auto flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
-      <h2 className="mb-4 text-4xl font-bold text-text-main">
-        Algo deu errado!
-      </h2>
-      <p className="mb-8 text-lg text-text-muted">
-        Desculpe, ocorreu um erro inesperado.
-      </p>
-      <div className="flex gap-4">
-        <button
-          onClick={() => reset()}
-          className="rounded-lg bg-primary-strong px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-deep"
-        >
-          Tentar novamente
-        </button>
-        <Link
-          href="/"
-          className="rounded-lg border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary-strong hover:text-white"
-        >
-          Voltar ao Início
-        </Link>
-      </div>
-    </div>
+    <StatusPage
+      code="Ops!"
+      title="Algo deu errado!"
+      description="Desculpe, ocorreu um erro inesperado."
+    >
+      <button
+        onClick={() => reset()}
+        className="bg-primary-strong hover:bg-primary-deep rounded-lg px-6 py-3 font-bold text-white transition-colors"
+      >
+        Tentar novamente
+      </button>
+      <Link
+        href="/"
+        className="border-primary/40 text-primary hover:border-primary hover:bg-primary/10 rounded-lg border px-6 py-3 font-bold transition-colors"
+      >
+        Voltar ao Início
+      </Link>
+    </StatusPage>
   );
 }

@@ -10,6 +10,9 @@ type ProjectCardProps = {
   description: string;
   tags: string[];
   slug?: string;
+  /** Card largo e horizontal (imagem à esquerda no desktop). */
+  featured?: boolean;
+  className?: string;
 };
 
 export function ProjectCard({
@@ -20,24 +23,46 @@ export function ProjectCard({
   description,
   tags,
   slug,
+  featured = false,
+  className = "",
 }: ProjectCardProps) {
   return (
-    <div className="bg-surface hover:border-primary dark:hover:border-primary flex flex-col overflow-hidden rounded-xl border border-black/10 transition-colors dark:border-white/10">
+    <div
+      data-reveal
+      className={`card card-interactive group flex flex-col overflow-hidden ${
+        featured ? "lg:flex-row" : ""
+      } ${className}`}
+    >
       {image && (
-        <div className="relative h-48 w-full">
+        <div
+          className={`relative w-full shrink-0 overflow-hidden ${
+            featured ? "h-64 sm:h-80 lg:h-auto lg:min-h-96 lg:w-3/5" : "h-52"
+          }`}
+        >
           <Image
             src={`${basePath}${image}`}
             alt={`Imagem de capa do projeto ${title}`}
             fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            sizes={
+              featured
+                ? "(max-width: 1024px) 100vw, 60vw"
+                : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            }
           />
         </div>
       )}
 
       {/* Conteúdo do Card */}
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-text-main text-xl font-semibold">{title}</h3>
+      <div className={`flex flex-1 flex-col ${featured ? "p-8 lg:p-10" : "p-6"}`}>
+        {featured && <p className="eyebrow mb-4">Destaque</p>}
+        <h3
+          className={`font-display text-text-main font-semibold ${
+            featured ? "text-2xl md:text-3xl" : "text-xl"
+          }`}
+        >
+          {title}
+        </h3>
         <p className="text-text-muted mt-2 flex-1">{description}</p>
 
         {/* Tags */}

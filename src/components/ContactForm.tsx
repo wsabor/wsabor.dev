@@ -56,95 +56,113 @@ export function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-lg space-y-6"
-      noValidate
-    >
-      <div>
-        <label
-          htmlFor="name"
-          className="mb-2 block text-left text-sm font-medium text-text-muted"
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full" noValidate>
+      {/* Campos e botão espaçados entre si; a região de status fica fora do
+          space-y (vazia, ela somava margem abaixo do botão) */}
+      <div className="space-y-5">
+        <div>
+          <label
+            htmlFor="name"
+            className="text-text-main mb-2 block text-left text-sm font-medium"
+          >
+            Nome
+          </label>
+          <input
+            id="name"
+            aria-invalid={errors.name ? true : undefined}
+            aria-describedby={errors.name ? "name-error" : undefined}
+            type="text"
+            {...register("name", { required: "O nome é obrigatório" })}
+            className="bg-background/60 text-text-main focus:border-primary focus:ring-primary/30 w-full rounded-lg border border-black/10 px-4 py-3 transition-colors outline-none focus:ring-4 aria-invalid:border-red-600 dark:border-white/10 dark:aria-invalid:border-red-400"
+          />
+          {errors.name && (
+            <p
+              id="name-error"
+              className="mt-1 text-left text-sm text-red-600 dark:text-red-400"
+            >
+              {errors.name.message}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <label
+            htmlFor="email"
+            className="text-text-main mb-2 block text-left text-sm font-medium"
+          >
+            E-mail
+          </label>
+          <input
+            id="email"
+            aria-invalid={errors.email ? true : undefined}
+            aria-describedby={errors.email ? "email-error" : undefined}
+            type="email"
+            {...register("email", {
+              required: "O e-mail é obrigatório",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "E-mail inválido",
+              },
+            })}
+            className="bg-background/60 text-text-main focus:border-primary focus:ring-primary/30 w-full rounded-lg border border-black/10 px-4 py-3 transition-colors outline-none focus:ring-4 aria-invalid:border-red-600 dark:border-white/10 dark:aria-invalid:border-red-400"
+          />
+          {errors.email && (
+            <p
+              id="email-error"
+              className="mt-1 text-left text-sm text-red-600 dark:text-red-400"
+            >
+              {errors.email.message}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <label
+            htmlFor="message"
+            className="text-text-main mb-2 block text-left text-sm font-medium"
+          >
+            Mensagem
+          </label>
+          <textarea
+            id="message"
+            aria-invalid={errors.message ? true : undefined}
+            aria-describedby={errors.message ? "message-error" : undefined}
+            rows={5}
+            {...register("message", { required: "A mensagem é obrigatória" })}
+            className="bg-background/60 text-text-main focus:border-primary focus:ring-primary/30 w-full rounded-lg border border-black/10 px-4 py-3 transition-colors outline-none focus:ring-4 aria-invalid:border-red-600 dark:border-white/10 dark:aria-invalid:border-red-400"
+          />
+          {errors.message && (
+            <p
+              id="message-error"
+              className="mt-1 text-left text-sm text-red-600 dark:text-red-400"
+            >
+              {errors.message.message}
+            </p>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="bg-primary-strong hover:bg-primary-deep w-full rounded-lg px-6 py-3 font-bold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Nome
-        </label>
-        <input
-          id="name"
-          type="text"
-          {...register("name", { required: "O nome é obrigatório" })}
-          className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
-        />
-        {errors.name && (
-          <p className="mt-1 text-left text-sm text-red-500">
-            {errors.name.message}
+          {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
+        </button>
+      </div>
+
+      {/* Região viva: leitores de tela anunciam o resultado do envio */}
+      <div role="status" aria-live="polite">
+        {submitStatus === "success" && (
+          <p className="mt-4 rounded-lg bg-green-600/10 px-4 py-3 text-center text-green-700 dark:text-green-400">
+            Mensagem enviada com sucesso! Obrigado.
+          </p>
+        )}
+        {submitStatus === "error" && (
+          <p className="mt-4 rounded-lg bg-red-600/10 px-4 py-3 text-center text-red-700 dark:text-red-400">
+            Ocorreu um erro. Tente novamente mais tarde.
           </p>
         )}
       </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="mb-2 block text-left text-sm font-medium text-text-muted"
-        >
-          E-mail
-        </label>
-        <input
-          id="email"
-          type="email"
-          {...register("email", {
-            required: "O e-mail é obrigatório",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "E-mail inválido",
-            },
-          })}
-          className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
-        />
-        {errors.email && (
-          <p className="mt-1 text-left text-sm text-red-500">
-            {errors.email.message}
-          </p>
-        )}
-      </div>
-
-      <div>
-        <label
-          htmlFor="message"
-          className="mb-2 block text-left text-sm font-medium text-text-muted"
-        >
-          Mensagem
-        </label>
-        <textarea
-          id="message"
-          rows={5}
-          {...register("message", { required: "A mensagem é obrigatória" })}
-          className="w-full rounded-lg border border-black/10 bg-surface px-4 py-2 text-text-main focus:outline-none focus:ring-2 focus:ring-primary dark:border-white/10"
-        />
-        {errors.message && (
-          <p className="mt-1 text-left text-sm text-red-500">
-            {errors.message.message}
-          </p>
-        )}
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full rounded-lg bg-primary-strong px-6 py-3 font-bold text-white transition-colors hover:bg-primary-deep disabled:cursor-not-allowed disabled:opacity-50"
-      >
-        {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-      </button>
-
-      {submitStatus === "success" && (
-        <p className="text-center text-green-500">
-          Mensagem enviada com sucesso! Obrigado.
-        </p>
-      )}
-      {submitStatus === "error" && (
-        <p className="text-center text-red-500">
-          Ocorreu um erro. Tente novamente mais tarde.
-        </p>
-      )}
     </form>
   );
 }

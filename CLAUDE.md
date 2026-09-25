@@ -21,7 +21,7 @@ Site pessoal/portfólio de Wagner Sabor, construído com Next.js App Router.
 src/
   app/           # Rotas (App Router)
   components/    # Componentes React
-  data/          # Dados estáticos (projects.ts, articles.ts, specialties.tsx, scrollSequence.ts)
+  data/          # Dados estáticos (projects.ts, specialties.tsx, about.ts, scrollSequence.ts)
   hooks/         # Hooks client (useMediaQuery, useMounted)
   lib/           # Utilitários (posts.ts, schemas.ts)
 content/
@@ -42,6 +42,7 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 - Componentes em `PascalCase`, arquivos `.tsx`
 - Dados estáticos ficam em `src/data/`, não embutidos nos componentes
 - Posts do blog são arquivos `.mdx` em `content/posts/`
+- Os cards de artigos da home leem o frontmatter dos posts (sem lista manual). Capa: campo opcional `cover`; sem ele, primeira imagem da galeria; sem galeria, a imagem OG do post
 - Usar `lucide-react` para ícones (import otimizado via `optimizePackageImports`)
 - Prettier com `prettier-plugin-tailwindcss` para ordenar classes Tailwind
 
@@ -51,6 +52,13 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 - Frames em `public/sequence/desktop` (120, 1280×720) e `public/sequence/mobile` (60, recorte 4:5); imagens de `prefers-reduced-motion` em `public/img/sequence/`. Configuração (caminhos, textos, timing) em `src/data/scrollSequence.ts`.
 - O `<main>` é flex: manter `pinSpacing: true` explícito. Altura do header sticky em `--header-h` (globals.css).
 - Cores de botão: `bg-primary-strong` / `hover:bg-primary-deep` para fundos com texto branco (contraste AA); `primary` é para texto/links.
+
+## Linguagem visual (home e páginas internas)
+
+- Classes em `globals.css` (`@layer components`): `.card`, `.card-interactive` (hover com borda ciano/brilho), `.section-dots` (textura), `.eyebrow` (rótulo acima de títulos), `.marquee*`.
+- Componentes compartilhados: `PageHeader` (topo das páginas internas, com trilha), `SectionHeading`, `Reveal` (anima `[data-reveal]` ao entrar na tela; não anima o que já está visível no carregamento), `FeatureCard`, `Timeline`, `TechMarquee`, `ArticleCard` (variantes), `ProjectCard` (`featured`), `ContactChannels`, `CallToAction`, `StatusPage` (404/erro), `ReadingProgress` (posts).
+- Estudos de caso: campo opcional `highlights` (valor + rótulo) no frontmatter vira cards de resultados.
+- Imagens: `next.config.mjs` serve só WebP (o AVIF do sharp travava em imagens largas).
 
 ## SEO / Schema
 

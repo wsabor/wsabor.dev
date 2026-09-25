@@ -1,8 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Download, Mail } from "lucide-react";
-import { BlogImage } from "@/components/BlogImage";
+import { Mail } from "lucide-react";
 
 import JsonLd from "@/components/JsonLd";
+import PageHeader from "@/components/PageHeader";
+import SectionHeading from "@/components/SectionHeading";
+import Reveal from "@/components/Reveal";
+import Timeline from "@/components/Timeline";
+import FeatureCard from "@/components/FeatureCard";
+import TechMarquee from "@/components/TechMarquee";
+import CallToAction from "@/components/CallToAction";
+import { aboutIntro, aboutPage } from "@/data/about";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
 
 export default function AboutPage() {
@@ -15,102 +23,116 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
-        <h1 className="mb-6 text-4xl font-bold text-text-main md:text-5xl">
-          Do Pixel ao Código
-        </h1>
 
-        <div className="mb-10 flex flex-wrap gap-3">
-          <a
-            href="/cv-wagner-sabor.pdf"
-            download
-            className="inline-flex items-center gap-2 rounded-lg bg-primary-strong px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-primary-deep md:px-8 md:py-3 md:text-lg"
+      <PageHeader
+        eyebrow="Sobre"
+        title="Do Pixel ao Código"
+        description={aboutPage.intro}
+        breadcrumbs={[
+          { href: "/", label: "Home" },
+          { href: "/about", label: "Sobre" },
+        ]}
+      >
+        <Link
+          href="/contact"
+          className="bg-primary-strong hover:bg-primary-deep inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
+        >
+          <Mail size={18} aria-hidden="true" />
+          Falar comigo
+        </Link>
+      </PageHeader>
+
+      {/* Trajetória: foto + linha do tempo */}
+      <section className="py-16 md:py-24" aria-labelledby="trajetoria">
+        <Reveal className="container mx-auto grid items-center gap-12 px-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
+          <figure
+            data-reveal
+            className="relative mx-auto w-full max-w-sm lg:max-w-none"
           >
-            <Download size={18} aria-hidden="true" />
-            Baixar CV
-          </a>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-primary/30 px-6 py-2.5 text-base font-bold text-primary transition-colors hover:border-primary hover:bg-primary/5 md:px-8 md:py-3 md:text-lg dark:border-primary/40 dark:hover:bg-primary/10"
-          >
-            <Mail size={18} aria-hidden="true" />
-            Falar comigo
-          </Link>
-        </div>
+            <div
+              aria-hidden="true"
+              className="from-primary/40 to-primary-light/30 absolute -inset-4 rounded-4xl bg-linear-to-br opacity-60 blur-2xl"
+            />
+            <div className="from-primary to-primary-light relative rounded-[1.75rem] bg-linear-to-br p-0.5">
+              <div className="bg-surface relative aspect-square overflow-hidden rounded-[1.65rem]">
+                <Image
+                  src={aboutPage.photo.src}
+                  alt={aboutPage.photo.alt}
+                  fill
+                  sizes="(max-width: 1024px) 384px, 40vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            <figcaption className="text-text-muted relative mt-4 text-center text-sm">
+              {aboutPage.photo.caption}
+            </figcaption>
+          </figure>
 
-        <div className="prose prose-lg max-w-none dark:prose-invert">
-          <p>
-            Minha jornada começou no design gráfico e me levou ao
-            desenvolvimento web. Hoje, sou especialista em{" "}
-            <strong>Next.js</strong> e <strong>React</strong>, criando
-            aplicações modernas que combinam código robusto com design
-            intuitivo, para criar produtos que as pessoas amam usar.
-          </p>
+          <div>
+            <SectionHeading
+              id="trajetoria"
+              eyebrow="Trajetória"
+              title="Do design gráfico à sala de aula"
+            />
+            <Timeline steps={aboutIntro.timeline} />
+          </div>
+        </Reveal>
+      </section>
 
-          <BlogImage
-            src="/img/profile_working.webp"
-            alt="Wagner trabalhando"
-            caption="Trabalhando em um projeto desafiador."
-            size="medium"
-            aspectRatio="square"
+      {/* Filosofia */}
+      <section
+        className="section-dots py-16 md:py-24"
+        aria-labelledby="filosofia"
+      >
+        <Reveal className="container mx-auto px-8">
+          <SectionHeading
+            id="filosofia"
+            eyebrow="Como eu trabalho"
+            title="Minha filosofia"
           />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {aboutPage.philosophy.map((item) => (
+              <FeatureCard key={item.title} {...item} />
+            ))}
+          </div>
+        </Reveal>
+      </section>
 
-          {/* Os h2 e ul dentro de .prose serão estilizados automaticamente */}
-          <h2>Minha Filosofia</h2>
-          <ul>
-            <li>
-              <strong>Performance em Primeiro Lugar:</strong> Aplicações
-              rápidas, otimizadas e escaláveis usando as melhores práticas do
-              Next.js.
-            </li>
-            <li>
-              <strong>Design que Funciona:</strong> A experiência do usuário não
-              é uma etapa final, é o ponto de partida. Penso em UX/UI antes
-              mesmo da primeira linha de código.
-            </li>
-            <li>
-              <strong>Código Limpo e Manutenível:</strong> TypeScript,
-              componentização inteligente e arquitetura escalável para projetos
-              que crescem.
-            </li>
-            <li>
-              <strong>Do Design ao Deploy:</strong> Experiência completa no
-              ciclo de desenvolvimento, desde o Figma até a implantação do
-              sistema.
-            </li>
-            <li>
-              <strong>Valor Acima de Tudo:</strong> Meu objetivo é entregar
-              soluções eficientes e duradouras que resolvam problemas reais,
-              seja para um cliente ou para um aluno.
-            </li>
-            <li>
-              <strong>Aprender Ensinando:</strong> Como instrutor no SENAI-SP,
-              capacito a próxima geração de desenvolvedores e, nesse processo,
-              me mantenho em constante evolução.
-            </li>
-          </ul>
-          <h2>Stack Tecnológica</h2>
-          <p>
-            Trabalho principalmente com{" "}
-            <strong>Next.js, React, TypeScript, Tailwind CSS</strong> e todo o
-            ecossistema moderno de desenvolvimento web. Também tenho experiência
-            com Node.js, APIs RESTful, bancos de dados e ferramentas de CI/CD.
-          </p>
+      {/* Stack */}
+      <section className="py-16 md:py-24" aria-labelledby="stack">
+        <Reveal className="container mx-auto px-8">
+          <SectionHeading
+            id="stack"
+            eyebrow="Ferramentas"
+            title="Stack tecnológica"
+            description={aboutPage.stack}
+          />
+          <TechMarquee />
+        </Reveal>
+      </section>
 
-          <h2>Além do Código</h2>
-          <p>
-            Atuo compartilhando conhecimento e contribuindo na formação de uma
-            nova geração de desenvolvedores como instrutor no SENAI-SP.
-          </p>
-          <p>
-            Como hobby tenho explorado o fantástico mundo da modelagem e
-            impressão 3D, o que me ajuda a manter a criatividade afiada e a
-            pensar fora da caixa. Também estou estudando eletrônica, uma área
-            que sempre me fascinou e agora estou tendo a oportunidade de
-            explorar e entender mais.
-          </p>
-        </div>
-      </main>
+      {/* Além do código */}
+      <section
+        className="bg-surface/40 py-16 md:py-24"
+        aria-labelledby="alem-do-codigo"
+      >
+        <Reveal className="container mx-auto px-8">
+          <SectionHeading
+            id="alem-do-codigo"
+            eyebrow="Fora do editor"
+            title="Além do código"
+          />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {aboutPage.beyondCode.map((item) => (
+              <FeatureCard key={item.title} {...item} />
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <CallToAction />
     </>
   );
 }

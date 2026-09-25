@@ -1,4 +1,5 @@
-import { getPostBySlug, getAllPostsMeta } from "@/lib/posts";
+import Image from "next/image";
+import { getPostBySlug, getAllPostsMeta, getPostCover } from "@/lib/posts";
 import { ImageGallery } from "@/components/ImageGallery";
 import { BlogImage } from "@/components/BlogImage";
 import { Comments } from "@/components/Comments";
@@ -7,6 +8,12 @@ import { notFound } from "next/navigation";
 
 // Importar componente JsonLd e função de schema
 import JsonLd from "@/components/JsonLd";
+import PageHeader from "@/components/PageHeader";
+import SectionHeading from "@/components/SectionHeading";
+import Reveal from "@/components/Reveal";
+import ArticleCard, { PostMeta } from "@/components/ArticleCard";
+import ReadingProgress from "@/components/ReadingProgress";
+import CallToAction from "@/components/CallToAction";
 import { getBlogPostingSchema, getBreadcrumbListSchema } from "@/lib/schemas";
 
 // Tipo para os params no Next.js 15
@@ -65,10 +72,14 @@ export default async function PostPage({ params }: Props) {
   // Construir a URL completa do post
   const postUrl = `https://wsabor.dev/blog/${slug}`;
 
-  // Pegar a primeira imagem da galeria como imagem de destaque (se existir)
-  const featuredImage = meta.galleryImages?.[0]
-    ? `https://wsabor.dev${meta.galleryBasePath}${meta.galleryImages[0].image}`
-    : undefined;
+  // Capa do post (mesma dos cards): cover → 1ª imagem da galeria → imagem OG
+  const cover = getPostCover(meta, slug);
+  const featuredImage = `https://wsabor.dev${cover}`;
+
+  // Leia também: outros posts, mais recentes primeiro
+  const relatedPosts = getAllPostsMeta()
+    .filter((post) => post.slug !== slug)
+    .slice(0, 3);
 
   // Gerar o schema do post
   const blogPostSchema = getBlogPostingSchema({
@@ -98,17 +109,37 @@ export default async function PostPage({ params }: Props) {
       <JsonLd data={blogPostSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      <main className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
-        <article className="prose prose-lg max-w-none dark:prose-invert">
-          <h1>{meta.title}</h1>
-          <p className="mb-8 mt-0 text-lg">
-            Publicado em{" "}
-            {new Date(meta.publishedAt).toLocaleDateString("pt-BR", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
+      <ReadingProgress targetId="post-content" />
+
+      <PageHeader
+        eyebrow={meta.category ?? "Artigo"}
+        title={meta.title}
+        description={meta.summary}
+        breadcrumbs={[
+          { href: "/", label: "Home" },
+          { href: "/blog", label: "Blog" },
+          { href: `/blog/${slug}`, label: meta.title },
+        ]}
+      >
+        <PostMeta meta={meta} showCategory={false} />
+      </PageHeader>
+
+      <div className="container mx-auto px-8">
+        <div className="card relative mx-auto aspect-video max-w-5xl overflow-hidden">
+          <Image
+            src={cover}
+            alt=""
+            fill
+            sizes="(max-width: 1100px) 100vw, 1024px"
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        <article
+          id="post-content"
+          className="prose prose-lg dark:prose-invert mx-auto mt-16 max-w-3xl"
+        >
           <MDXRemote
             source={content}
             components={{
@@ -122,9 +153,32 @@ export default async function PostPage({ params }: Props) {
             }}
           />
         </article>
-        <hr className="my-12 border-black/10 dark:border-white/10" />
-        <Comments />
-      </main>
+
+        <div className="mx-auto max-w-3xl">
+          <hr className="my-12 border-black/10 dark:border-white/10" />
+          <Comments />
+        </div>
+      </div>
+
+      {relatedPosts.length > 0 && (
+        <section className="py-20 md:py-28" aria-labelledby="leia-tambem">
+          <Reveal className="container mx-auto px-8">
+            <SectionHeading
+              id="leia-tambem"
+              eyebrow="Blog"
+              title="Leia também"
+              action={{ href: "/blog", label: "Ver todos os artigos" }}
+            />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((post) => (
+                <ArticleCard key={post.slug} {...post} />
+              ))}
+            </div>
+          </Reveal>
+        </section>
+      )}
+
+      <CallToAction />
     </>
   );
 }

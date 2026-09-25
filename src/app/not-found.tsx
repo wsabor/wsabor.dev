@@ -1,21 +1,19 @@
 import Link from "next/link";
+import StatusPage from "@/components/StatusPage";
 
 export default function NotFound() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center text-center">
-      <h1 className="mb-4 text-6xl font-bold text-primary">404</h1>
-      <p className="mb-2 text-2xl font-semibold text-text-main">
-        Página não encontrada
-      </p>
-      <p className="mb-8 text-lg text-text-muted">
-        A página que você está tentando acessar não existe ou foi removida.
-      </p>
+    <StatusPage
+      code="404"
+      title="Página não encontrada"
+      description="A página que você está tentando acessar não existe ou foi removida."
+    >
       <Link
         href="/"
-        className="inline-block rounded-lg bg-primary-strong px-8 py-3 text-lg font-bold text-white transition-colors hover:bg-primary-deep"
+        className="bg-primary-strong hover:bg-primary-deep inline-block rounded-lg px-8 py-3 text-lg font-bold text-white transition-colors"
       >
         Voltar para a Home
       </Link>
-    </main>
+    </StatusPage>
   );
 }

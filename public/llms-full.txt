@@ -12,6 +12,10 @@ Wagner Sabor é Desenvolvedor Especialista em Next.js e React. Transforma ideias
 
 Stack principal: Next.js, React, TypeScript, Node.js.
 
+### Quem sou
+
+Do pixel ao código: começou no design gráfico (diagramação editorial e atendimento ao cliente), fez a transição para a tecnologia por volta de 2015 (Informática para Negócios na FATEC de São Bernardo do Campo), tornou-se especialista em Next.js e React e hoje é instrutor no Curso Técnico em Desenvolvimento de Sistemas do SENAI-SP. Mais de 10 anos em tecnologia; 2º lugar no Hackathon Agrotech 2025 com seus alunos.
+
 ### Especialidades
 
 **Desenvolvimento Full Stack**
@@ -22,6 +26,13 @@ Criando interfaces intuitivas e experiências de usuário que resolvem problemas
 
 **Mentoria & Educação**
 Capacitando novos talentos em tecnologia com uma abordagem prática e focada no mercado.
+
+**Presença digital para negócios**
+Ajuda pequenos negócios a serem encontrados e escolhidos: sites profissionais, Google Meu Negócio (Perfil da Empresa no Google) e tráfego pago.
+
+### Contato rápido
+
+E-mail: wsabor.senai@gmail.com · LinkedIn: https://www.linkedin.com/in/wsabor · GitHub: https://github.com/wsabor
 
 ---
 
