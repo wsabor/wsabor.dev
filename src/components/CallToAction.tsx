@@ -14,7 +14,7 @@ export default function CallToAction() {
           </p>
           <Link
             href="/contact"
-            className="bg-primary hover:bg-primary-light inline-block rounded-lg px-8 py-3 text-lg font-bold text-white transition-colors"
+            className="bg-primary-strong hover:bg-primary-deep inline-block rounded-lg px-8 py-3 text-lg font-bold text-white transition-colors"
           >
             Entre em Contato
           </Link>

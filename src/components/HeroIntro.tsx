@@ -24,7 +24,7 @@ export default function HeroIntro() {
 
       <div className="mb-8 flex flex-wrap justify-center gap-2">
         {techStack.map((tech) => (
-          <span key={tech} className="hero-pill">
+          <span key={tech} className="hero-pill hero-pill-on-media">
             {tech}
           </span>
         ))}
@@ -33,13 +33,13 @@ export default function HeroIntro() {
       <div className="flex flex-wrap justify-center gap-3">
         <Link
           href="/projects"
-          className="bg-primary hover:bg-primary-light rounded-lg px-6 py-2.5 text-base font-bold text-white transition-colors md:px-8 md:py-3 md:text-lg"
+          className="bg-primary-strong hover:bg-primary-deep rounded-lg px-6 py-2.5 text-base font-bold text-white transition-colors md:px-8 md:py-3 md:text-lg"
         >
           Conheça meus Projetos
         </Link>
         <Link
           href="/contact"
-          className="border-primary/40 text-primary hover:border-primary hover:bg-primary/10 rounded-lg border px-6 py-2.5 text-base font-bold transition-colors md:px-8 md:py-3 md:text-lg"
+          className="border-primary/40 text-primary hover:border-primary hover:bg-primary/10 rounded-lg border bg-neutral-950/70 px-6 py-2.5 text-base font-bold backdrop-blur-sm transition-colors md:px-8 md:py-3 md:text-lg"
         >
           Falar comigo
         </Link>

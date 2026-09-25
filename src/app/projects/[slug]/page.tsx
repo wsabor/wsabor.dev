@@ -114,7 +114,7 @@ export default async function ProjectPage({ params }: Props) {
               {meta.stack.map((s) => (
                 <span
                   key={s}
-                  className="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium"
+                  className="bg-primary/10 text-primary-deep dark:text-primary-light rounded-full px-3 py-1 text-xs font-medium"
                 >
                   {s}
                 </span>
@@ -157,7 +157,7 @@ export default async function ProjectPage({ params }: Props) {
               href={meta.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-primary-light inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
+              className="bg-primary-strong hover:bg-primary-deep inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
             >
               Ver projeto ao vivo
               <ExternalLink size={18} />

@@ -45,7 +45,7 @@ export function ProjectCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium"
+              className="bg-primary/10 text-primary-deep dark:text-primary-light rounded-full px-3 py-1 text-xs font-medium"
             >
               {tag}
             </span>
@@ -57,7 +57,7 @@ export function ProjectCard({
           {slug && (
             <Link
               href={`/projects/${slug}`}
-              className="bg-primary hover:bg-primary-light inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
+              className="bg-primary-strong hover:bg-primary-deep inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
             >
               Ver Estudo de Caso
               <FileText size={16} />
@@ -71,7 +71,7 @@ export function ProjectCard({
               className={
                 slug
                   ? "border-primary/30 text-primary hover:border-primary hover:bg-primary/5 dark:border-primary/40 dark:hover:bg-primary/10 inline-flex w-full items-center justify-center gap-2 rounded-lg border px-4 py-2.5 font-semibold transition-colors"
-                  : "bg-primary hover:bg-primary-light inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
+                  : "bg-primary-strong hover:bg-primary-deep inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
               }
             >
               {slug ? "Visitar site" : "Ver Projeto"}

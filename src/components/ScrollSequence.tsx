@@ -289,16 +289,19 @@ export default function ScrollSequence({
         {children}
       </div>
 
+      {/* Textos de overlay com scrim radial: escurece o centro e preserva as bordas do frame */}
       {overlays.map((overlay, index) => (
-        <p
+        <div
           key={overlay.title}
           aria-hidden={activeOverlay !== index}
-          className={`font-display absolute inset-x-6 top-1/2 z-10 -translate-y-1/2 text-center text-3xl font-bold text-white drop-shadow-lg transition-opacity duration-500 md:text-5xl ${
+          className={`pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-[radial-gradient(ellipse_at_center,rgb(10_10_10/0.75)_0%,rgb(10_10_10/0.45)_45%,transparent_75%)] px-6 transition-opacity duration-500 ${
             activeOverlay === index ? "opacity-100" : "opacity-0"
           }`}
         >
-          {overlay.title}
-        </p>
+          <p className="font-display max-w-4xl text-center text-balance text-3xl font-bold text-white drop-shadow-lg md:text-5xl">
+            {overlay.title}
+          </p>
+        </div>
       ))}
     </section>
   );

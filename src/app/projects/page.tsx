@@ -26,6 +26,8 @@ export default function ProjectsPage() {
           </p>
         </div>
 
+        {/* Título só para leitores de tela: os cards usam h3 */}
+        <h2 className="sr-only">Lista de projetos</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {allProjects.map((project) => (
             <ProjectCard

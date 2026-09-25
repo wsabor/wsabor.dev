@@ -119,7 +119,7 @@ export default function RootLayout({
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-primary focus:p-4 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-primary-strong focus:p-4 focus:text-white"
         >
           Pular para o conteúdo principal
         </a>

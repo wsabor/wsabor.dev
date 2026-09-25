@@ -44,7 +44,7 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center gap-3 md:justify-end">
               <Link
                 href="/projects"
-                className="bg-primary hover:bg-primary-light rounded-lg px-6 py-2.5 text-base font-bold text-white transition-colors md:px-8 md:py-3 md:text-lg"
+                className="bg-primary-strong hover:bg-primary-deep rounded-lg px-6 py-2.5 text-base font-bold text-white transition-colors md:px-8 md:py-3 md:text-lg"
               >
                 Conheça meus Projetos
               </Link>
