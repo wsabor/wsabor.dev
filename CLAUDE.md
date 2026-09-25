@@ -53,6 +53,13 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 - O `<main>` é flex: manter `pinSpacing: true` explícito. Altura do header sticky em `--header-h` (globals.css).
 - Cores de botão: `bg-primary-strong` / `hover:bg-primary-deep` para fundos com texto branco (contraste AA); `primary` é para texto/links.
 
+## Linguagem visual (home e páginas internas)
+
+- Classes em `globals.css` (`@layer components`): `.card`, `.card-interactive` (hover com borda ciano/brilho), `.section-dots` (textura), `.eyebrow` (rótulo acima de títulos), `.marquee*`.
+- Componentes compartilhados: `PageHeader` (topo das páginas internas, com trilha), `SectionHeading`, `Reveal` (anima `[data-reveal]` ao entrar na tela; não anima o que já está visível no carregamento), `FeatureCard`, `Timeline`, `TechMarquee`, `ArticleCard` (variantes), `ProjectCard` (`featured`), `ContactChannels`, `CallToAction`, `StatusPage` (404/erro), `ReadingProgress` (posts).
+- Estudos de caso: campo opcional `highlights` (valor + rótulo) no frontmatter vira cards de resultados.
+- Imagens: `next.config.mjs` serve só WebP (o AVIF do sharp travava em imagens largas).
+
 ## SEO / Schema
 
 - Schemas JSON-LD gerados em `src/lib/schemas.ts` e injetados via `src/components/JsonLd.tsx`
