@@ -21,6 +21,8 @@ export function useMediaQuery(query: string) {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
+export const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
 export function usePrefersReducedMotion() {
-  return useMediaQuery("(prefers-reduced-motion: reduce)");
+  return useMediaQuery(REDUCED_MOTION_QUERY);
 }

@@ -5,7 +5,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useRef, useState, type ReactNode } from "react";
-import { useMediaQuery, usePrefersReducedMotion } from "@/hooks/useMediaQuery";
+import {
+  REDUCED_MOTION_QUERY,
+  useMediaQuery,
+  usePrefersReducedMotion,
+} from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,6 +114,16 @@ export default function ScrollSequence({
   useGSAP(
     () => {
       if (reducedMotion) return;
+
+      // Na hidratação o useSyncExternalStore ainda devolve o snapshot do servidor
+      // (desktop, sem reduced motion). Espera o re-render com os valores reais
+      // para não baixar frames do conjunto errado.
+      if (
+        window.matchMedia(MOBILE_QUERY).matches !== isMobile ||
+        window.matchMedia(REDUCED_MOTION_QUERY).matches
+      ) {
+        return;
+      }
 
       const section = sectionRef.current;
       const canvas = canvasRef.current;
@@ -273,6 +287,22 @@ export default function ScrollSequence({
       ref={sectionRef}
       className="dark relative h-[calc(100svh-var(--header-h))] overflow-hidden bg-neutral-950 text-text-main"
     >
+      {/* Pré-carrega o 1º frame junto com o HTML, antes da hidratação.
+          O React 19 move <link> para o <head>; media escolhe mobile/desktop. */}
+      <link
+        rel="preload"
+        as="image"
+        href={frameSrc(mobileFramesPath, 0)}
+        media={`${MOBILE_QUERY} and (prefers-reduced-motion: no-preference)`}
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={frameSrc(framesPath, 0)}
+        media="(min-width: 768px) and (prefers-reduced-motion: no-preference)"
+        fetchPriority="high"
+      />
       <canvas
         ref={canvasRef}
         aria-hidden="true"
