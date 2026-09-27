@@ -51,7 +51,7 @@ log "Git pull concluído. Commit: $(git rev-parse --short HEAD)"
 # 2. Instalar dependências (apenas se package.json mudou)
 if git diff HEAD@{1} HEAD --name-only 2>/dev/null | grep -q "package-lock.json\|package.json"; then
   log "Mudanças em dependências detectadas. Rodando npm ci..."
-  npm ci --omit=dev
+  npm ci
 else
   log "Sem mudanças em dependências. Pulando npm install."
 fi
