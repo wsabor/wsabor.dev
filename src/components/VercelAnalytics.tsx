@@ -6,7 +6,8 @@ import { useMounted } from "@/hooks/useMounted";
 /**
  * Vercel Analytics só nos domínios servidos pela Vercel (wsabor.dev e
  * previews *.vercel.app). No wsabor.com (Oracle) o script daria 404.
- * Checa o domínio no navegador: a variável VERCEL não chega ao build.
+ * Checa o domínio no navegador para não depender de variáveis de ambiente
+ * configuradas no painel da Vercel.
  */
 export default function VercelAnalytics() {
   const mounted = useMounted();
