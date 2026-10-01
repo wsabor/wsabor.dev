@@ -1,8 +1,8 @@
-# wsabor.dev — Site Completo de Wagner Sabor
+# wsabor.com — Site Completo de Wagner Sabor
 
 > Site pessoal e portfólio de Wagner Sabor — Desenvolvedor Especialista em Next.js e React, Designer e Instrutor no SENAI-SP.
 
-URL: https://wsabor.dev
+URL: https://wsabor.com
 
 ---
 
@@ -116,7 +116,7 @@ Tags: React, Node.js, UX/UI, Mentoria
 ## Blog — /blog
 
 ### Hackaton Agrotech 2025
-URL: https://wsabor.dev/blog/hackaton-agrotech-2025
+URL: https://wsabor.com/blog/hackaton-agrotech-2025
 Publicado em: 2025-09-03 | Atualizado em: 2025-11-16
 Categoria: Experiências | Leitura: 8 min
 Resumo: Um breve relato sobre a minha primeira experiência em um Hackaton com meus alunos.
@@ -172,7 +172,7 @@ Importância de validar ideias, focar no cliente e trabalhar em equipe. Ver o cr
 ---
 
 ### Jogo Educacional — Quiz Prepara Aí 2025
-URL: https://wsabor.dev/blog/quiz-preparai
+URL: https://wsabor.com/blog/quiz-preparai
 Publicado em: 2025-06-05 | Atualizado em: 2025-06-05
 Categoria: Projetos | Leitura: 4 min
 Resumo: Um estudo de caso sobre a orientação e desenvolvimento de um jogo de quiz interativo para preparar estudantes para o ENEM, utilizando React, Node.js e metodologias ágeis.
@@ -207,7 +207,7 @@ MVP funcional entregue. Os alunos evoluíram de conceitos teóricos para a prát
 ---
 
 ### Do Pixel ao Código: Como o Design Moldou Minha Trajetória na Tecnologia
-URL: https://wsabor.dev/blog/minha-trajetoria
+URL: https://wsabor.com/blog/minha-trajetoria
 Publicado em: 2025-05-26 | Atualizado em: 2025-05-26
 Categoria: Trajetória Pessoal | Leitura: 4 min
 Resumo: Um relato pessoal sobre a jornada de transição de carreira, saindo do design gráfico para se tornar desenvolvedor de software e, hoje, instrutor.
@@ -251,6 +251,6 @@ Wagner está sempre aberto a novas colaborações, conversas sobre tecnologia, e
 - **Estilos:** Tailwind CSS 4
 - **Blog:** MDX via next-mdx-remote
 - **Animação da home:** sequência de imagens em canvas controlada pelo scroll (GSAP ScrollTrigger + Lenis)
-- **Deploy:** Vercel
-- **RSS Feed:** https://wsabor.dev/feed.xml
-- **Sitemap:** https://wsabor.dev/sitemap.xml
+- **Deploy:** wsabor.com (domínio principal, Oracle Cloud) e wsabor.dev (espelho, Vercel)
+- **RSS Feed:** https://wsabor.com/feed.xml
+- **Sitemap:** https://wsabor.com/sitemap.xml

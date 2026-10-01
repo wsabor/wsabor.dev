@@ -16,6 +16,7 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 - [x] **Redesign das páginas internas** — /about, /projects, /blog, /contact, 404 e erro (PR #4).
 - [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com link para cada credencial e `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
 - [x] **Hotel Brisa do Mar no portfólio** — projeto de estudo, entre os destaques da home. O EPI System continua como exemplo, sem link (fora do ar, só na rede do SENAI).
+- [x] **SEO para dois domínios (fase 1 do CI/CD)** — `wsabor.com` como domínio principal: canonical em todas as páginas, sitemap/robots/feed/schemas/OG no .com, títulos próprios em /about, /projects e /contact, `og:image` e sitemap para os estudos de caso, Vercel Analytics só na Vercel.
 - [x] **OG dinâmica por post** (`next/og`) e OG/banner da home.
 - [x] **Reading progress bar** nos posts.
 - [x] **Limpeza de repositório** (backups, blocos comentados, componentes mortos).
@@ -41,7 +42,7 @@ Vercel Analytics é raso (sem funil, eventos limitados no plano gratuito). GA4 p
 **Decisões em aberto**
 
 - Manter o Vercel Analytics em paralelo ou removê-lo? (Ele não usa cookies; pode ficar como métrica "sem consentimento".)
-- LP em `/servicos` ou em subdomínio: com subdomínio de `wsabor.dev`, a **mesma propriedade/ID** do GA4 funciona sem configuração extra (o cookie fica no domínio raiz). Domínio próprio diferente exigiria configurar _cross-domain_.
+- LP em `/servicos` ou em subdomínio: com subdomínio de `wsabor.com`, a **mesma propriedade/ID** do GA4 funciona sem configuração extra (o cookie fica no domínio raiz). O `wsabor.dev` é outro domínio: a mesma propriedade mede os dois, separados por hostname.
 
 ### 2. Landing page de serviços
 
@@ -55,7 +56,7 @@ Página de conversão separada da home (a home continua sendo portfólio pessoal
 
 **Decisões em aberto**
 
-- Endereço: `/servicos` ou subdomínio (ex.: `servicos.wsabor.dev`)?
+- Endereço: `wsabor.com/servicos` ou subdomínio (ex.: `servicos.wsabor.com`)? Domínio definido: `wsabor.com`.
 - Nome/marca: "Wagner Sabor" ou uma marca separada?
 - Região/cidade atendida.
 - Mostrar preços ("a partir de") ou "sob consulta"?
@@ -115,6 +116,20 @@ O componente e o schema já existem; `src/data/testimonials.ts` está vazio, ent
 
 ---
 
+## Infra / CI-CD
+
+O mesmo site em dois domínios: **wsabor.com** (principal para o Google, Oracle Cloud) e **wsabor.dev** (espelho, Vercel). Servidor: Oracle Cloud ARM A1, Ubuntu, Nginx, PM2 — configuração no playbook Ansible do repositório [`wsabor/infra`](https://github.com/wsabor/infra).
+
+- [ ] **Fase 2 — CI nos PRs** (GitHub Actions): lint, typecheck e build em todo PR. A Vercel continua com a integração atual.
+- [ ] **Fase 3 — Preparar o servidor** (no playbook do `wsabor/infra`): usuário `deploy` sem sudo com chave SSH só para o GitHub; estrutura `/srv/wsabor/releases/` + symlink `current`; PM2 apontando para `current/server.js`.
+- [ ] **Fase 4 — Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do binário nativo do `sharp`) → rsync para uma release nova → troca do symlink + `pm2 reload` → health check com curl e rollback automático para a release anterior. Deploy direto, sem aprovação manual. Manter as últimas 3 releases.
+- [ ] **`deploy.sh`**: virar plano B manual (corrigir `npm ci --omit=dev`, que quebra o build, e a pergunta interativa, que trava no CI) ou remover depois da fase 4.
+- [ ] **Nginx: redirecionar `www.wsabor.com` → `wsabor.com`** (hoje os dois respondem 200).
+- [ ] **Google Search Console**: adicionar a propriedade `wsabor.com` e enviar o sitemap; manter a do `.dev` para acompanhar a migração do canonical.
+- [ ] **Formspree**: conferir se há restrição de domínio que bloqueie envios do `.com`.
+
+---
+
 ## Fora do repositório (infra de clientes)
 
 - [ ] **Separar projetos de clientes da conta pessoal na Vercel** — a Topcoat (com Speed Insights ativo) está na mesma conta do wsabor.dev. Criar uma conta/time por cliente, de preferência em nome do cliente, antes de novos projetos para ele. Atenção: o plano Hobby da Vercel é para uso pessoal e não comercial; site de cliente pago normalmente exige plano Pro (confirmar nos termos atuais).
@@ -131,7 +146,8 @@ O componente e o schema já existem; `src/data/testimonials.ts` está vazio, ent
 
 ## Ordem sugerida
 
-1. **GA4 + consentimento** no site atual → a LP já nasce medida.
-2. **LP de serviços**, em fases (depois de responder as decisões em aberto).
-3. Em paralelo e fora do código: **coletar depoimentos** e **escrever os estudos de caso** restantes.
-4. Depois: blog (rascunhos), /labs, posts relacionados + TOC.
+1. **GA4 + consentimento** no site atual → a LP já nasce medida. Uma propriedade para os dois domínios.
+2. **CI/CD** (fases 2–4 de "Infra / CI-CD").
+3. **LP de serviços** (no domínio `wsabor.com`), em fases (depois de responder as decisões em aberto).
+4. Em paralelo e fora do código: **coletar depoimentos** e **escrever os estudos de caso** restantes.
+5. Depois: blog (rascunhos), /labs, posts relacionados + TOC.

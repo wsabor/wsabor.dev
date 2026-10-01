@@ -1,7 +1,7 @@
 import { getAllPostsMeta } from "@/lib/posts";
+import { SITE_URL } from "@/lib/site";
 
-// Configurações do site (você pode mover isso para um arquivo de config depois)
-const SITE_URL = "https://wsabor.dev";
+// Configurações do feed (domínio em src/lib/site.ts)
 const SITE_TITLE = "Wagner Sabor - Blog";
 const SITE_DESCRIPTION =
   "Artigos e tutoriais sobre Next.js, React, TypeScript e desenvolvimento web moderno.";

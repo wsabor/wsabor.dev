@@ -1,19 +1,20 @@
 // Schemas estruturados para SEO (Schema.org)
 
 import { certifications } from "@/data/certifications";
+import { SITE_URL, absoluteUrl } from "@/lib/site";
 
 // Informações base do site (centralizadas)
 const SITE_CONFIG = {
   name: "Wagner Sabor",
-  url: "https://wsabor.dev",
+  url: SITE_URL,
   description:
     "Desenvolvedor Especialista em Next.js e React. Transformando ideias em aplicações web modernas e performáticas.",
-  logo: "https://wsabor.dev/img/profile-hero.webp",
+  logo: absoluteUrl("/img/profile-hero.webp"),
   author: {
     name: "Wagner Sabor",
     email: "wsabor.senai@gmail.com",
     jobTitle: "Desenvolvedor Full Stack",
-    image: "https://wsabor.dev/img/profile-hero.webp",
+    image: absoluteUrl("/img/profile-hero.webp"),
     location: "Presidente Prudente, São Paulo, Brasil",
   },
   social: {

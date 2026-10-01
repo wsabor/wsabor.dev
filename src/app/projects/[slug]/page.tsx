@@ -14,6 +14,7 @@ import CallToAction from "@/components/CallToAction";
 import { ProjectCard } from "@/components/ProjectCard";
 import { allProjects } from "@/data/projects";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,15 +30,17 @@ export async function generateMetadata({ params }: Props) {
 
   try {
     const { meta } = getProjectBySlug(slug);
-    return {
+    return pageMetadata({
+      path: `/projects/${slug}`,
       title: meta.title,
       description: meta.summary,
       openGraph: {
-        title: meta.title,
-        description: meta.summary,
         type: "article",
+        ...(meta.coverImage && {
+          images: [{ url: meta.coverImage, alt: meta.title }],
+        }),
       },
-    };
+    });
   } catch {
     return { title: "Projeto não encontrado" };
   }
@@ -55,10 +58,10 @@ export default async function ProjectPage({ params }: Props) {
   }
   const { meta, content } = entry;
 
-  const projectUrl = `https://wsabor.dev/projects/${slug}`;
+  const projectUrl = absoluteUrl(`/projects/${slug}`);
   const breadcrumbSchema = getBreadcrumbListSchema([
-    { name: "Home", url: "https://wsabor.dev" },
-    { name: "Projetos", url: "https://wsabor.dev/projects" },
+    { name: "Home", url: absoluteUrl() },
+    { name: "Projetos", url: absoluteUrl("/projects") },
     { name: meta.title, url: projectUrl },
   ]);
 

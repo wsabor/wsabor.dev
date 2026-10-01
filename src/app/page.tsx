@@ -12,12 +12,15 @@ import CallToAction from "@/components/CallToAction";
 
 // Importar o componente JsonLd e os schemas
 import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/site";
 import {
   getWebSiteSchema,
   getPersonSchema,
   getReviewSchema,
 } from "@/lib/schemas";
 import { featuredTestimonials } from "@/data/testimonials";
+
+export const metadata = pageMetadata({ path: "/" });
 
 export default function HomePage() {
   // Gerar os schemas

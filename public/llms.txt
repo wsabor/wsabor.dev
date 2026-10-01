@@ -1,21 +1,21 @@
-# wsabor.dev — Wagner Sabor
+# wsabor.com — Wagner Sabor
 
 > Desenvolvedor Especialista em Next.js e React, Designer e Instrutor no SENAI-SP.
 > Site pessoal com portfólio, blog e contato.
 
 ## Páginas
 
-- [Home](https://wsabor.dev): Apresentação, trajetória, certificações Microsoft, especialidades (incluindo presença digital para negócios), projetos e artigos em destaque.
-- [Sobre](https://wsabor.dev/about): Trajetória profissional, certificações Microsoft (AZ-900, DP-900, SC-900, AI-900, PL-900), filosofia de trabalho e stack tecnológica.
-- [Projetos](https://wsabor.dev/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
-- [Blog](https://wsabor.dev/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
-- [Contato](https://wsabor.dev/contact): GitHub, LinkedIn e formulário de contato.
+- [Home](https://wsabor.com): Apresentação, trajetória, certificações Microsoft, especialidades (incluindo presença digital para negócios), projetos e artigos em destaque.
+- [Sobre](https://wsabor.com/about): Trajetória profissional, certificações Microsoft (AZ-900, DP-900, SC-900, AI-900, PL-900), filosofia de trabalho e stack tecnológica.
+- [Projetos](https://wsabor.com/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
+- [Blog](https://wsabor.com/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
+- [Contato](https://wsabor.com/contact): GitHub, LinkedIn e formulário de contato.
 
 ## Blog Posts
 
-- [Hackaton Agrotech 2025](https://wsabor.dev/blog/hackaton-agrotech-2025): Relato sobre liderar alunos do SENAI-SP em um hackaton, onde conquistaram o 2º lugar.
-- [Jogo Educacional — Quiz Prepara Aí 2025](https://wsabor.dev/blog/quiz-preparai): Estudo de caso sobre mentoria e desenvolvimento de um quiz para o ENEM com React e Node.js.
-- [Do Pixel ao Código](https://wsabor.dev/blog/minha-trajetoria): Trajetória de transição de carreira do design gráfico para o desenvolvimento web.
+- [Hackaton Agrotech 2025](https://wsabor.com/blog/hackaton-agrotech-2025): Relato sobre liderar alunos do SENAI-SP em um hackaton, onde conquistaram o 2º lugar.
+- [Jogo Educacional — Quiz Prepara Aí 2025](https://wsabor.com/blog/quiz-preparai): Estudo de caso sobre mentoria e desenvolvimento de um quiz para o ENEM com React e Node.js.
+- [Do Pixel ao Código](https://wsabor.com/blog/minha-trajetoria): Trajetória de transição de carreira do design gráfico para o desenvolvimento web.
 
 ## Projetos em Destaque
 
@@ -26,6 +26,6 @@
 
 ## Mais Informações
 
-- Versão completa do conteúdo: https://wsabor.dev/llms-full.txt
-- RSS Feed: https://wsabor.dev/feed.xml
-- Sitemap: https://wsabor.dev/sitemap.xml
+- Versão completa do conteúdo: https://wsabor.com/llms-full.txt
+- RSS Feed: https://wsabor.com/feed.xml
+- Sitemap: https://wsabor.com/sitemap.xml
