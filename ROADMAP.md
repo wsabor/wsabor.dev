@@ -1,159 +1,135 @@
 # Roadmap — wsabor.dev
 
-Plano de evolução do site pessoal/portfólio. Foco: **profundidade** (mostrar _como_ trabalho, não só _o que_ entregou) e **canais de captura** (transformar visitas em conexões).
+Plano de evolução do site pessoal/portfólio. Dois objetivos:
 
-> Status atual: portfólio cobre o básico (projetos, blog, SEO sólido, dark mode, llms.txt) com qualidade. As lacunas reais não são "o que falta" e sim aprofundamento e canais de relacionamento.
+1. **Portfólio** (recrutadores, área de tecnologia, educação) — mostrar _como_ trabalho, não só _o que_ entreguei.
+2. **Captação de clientes locais** — vender sites, Google Meu Negócio (Perfil da Empresa no Google) e tráfego pago para pequenos negócios, e **medir** de onde vêm os contatos.
 
----
-
-## Fase 1 — Quick wins (1–2 semanas)
-
-Alto impacto, baixo esforço, encaixam na arquitetura atual.
-
-- [x] **OG image dinâmica por post** (`next/og`) — concluído no Sprint 1
-      `src/app/blog/[slug]/opengraph-image.tsx`, com SSG pré-gerado para os 3 posts.
-
-- [ ] **Table of Contents auto-gerado** em posts longos
-      Posts MDX já têm `readingTime`/`wordCount`. TOC com scroll-spy melhora UX em peças como "Minha Trajetória".
-
-- [ ] **"Posts relacionados"** ao final do MDX
-      Usa `category`/`keywords` que já existem em `src/lib/posts.ts`. Aumenta tempo de sessão.
-
-- [ ] **Reading progress bar** no topo do post
-      ~30 linhas, alto valor percebido.
-
-- [x] **Limpeza de repositório** — concluído no Sprint 1
-      Removidos `Header.backup.tsx`, blocos comentados em `articles.ts` e `projects.ts`.
-
-- [x] **Botão "Baixar CV em PDF"** na página `/about` — concluído no Sprint 1
-      Botão pronto em `src/app/about/page.tsx`. Pendente: subir o PDF em `public/cv-wagner-sabor.pdf`.
+> Última revisão: 2026-09-26, depois do redesign completo (PRs #3 e #4).
 
 ---
 
-## Fase 2 — Profundidade de portfólio (3–4 semanas)
+## Concluído
 
-O núcleo do "demonstrar habilidades". Hoje os projetos são cards de 1 parágrafo — esse é o teto da prova técnica que o site oferece.
-
-- [ ] **Páginas dedicadas por projeto** (`/projects/[slug]`)
-      Estrutura sugerida para cada case study:
-  - Contexto e problema
-  - Decisões técnicas (com trade-offs)
-  - Resultado / métricas / aprendizados
-  - Galeria + link para o live
-  - Stack detalhado
-
-  Reaproveita o pipeline MDX que já existe. Migrar `src/data/projects.ts` (array estático) para arquivos `content/projects/*.mdx`.
-
-- [ ] **Página `/uses`**
-      Convenção popular entre devs (uses.tech). Hardware, editor, extensões, terminal, dotfiles. Aparece no Google quando alguém pesquisa "Wagner Sabor setup".
-
-- [ ] **Página `/now`**
-      Convenção do [nownownow.com](https://nownownow.com). O que você está fazendo _agora_ (curso, leitura, projeto pessoal). Sinaliza atividade.
-
-- [ ] **Seção `/labs` ou `/experiments`**
-      Você já tem `snakeGame/` e `pixelart/` em `/public`. Crie uma vitrine. Mini-projetos são ótimos para demonstrar curiosidade técnica.
+- [x] **Scroll sequence no hero da home** — canvas com frames WebP guiados pelo scroll (PR #3).
+- [x] **Redesign da home** — "Quem sou", bento de especialidades com o card "Presença digital para negócios", marquee de tecnologias, projetos e artigos, CTA com canais diretos (PR #4).
+- [x] **Redesign das páginas internas** — /about, /projects, /blog, /contact, 404 e erro (PR #4).
+- [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com link para cada credencial e `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
+- [x] **OG dinâmica por post** (`next/og`) e OG/banner da home.
+- [x] **Reading progress bar** nos posts.
+- [x] **Limpeza de repositório** (backups, blocos comentados, componentes mortos).
+- [x] **Comentários com Giscus** — ativos nos posts.
+- [x] **Estrutura de estudos de caso** (`/projects/[slug]` em MDX, com `highlights`) — o conteúdo está parcial, veja "Agora".
 
 ---
 
-## Fase 3 — Prova social e captação (1–2 meses)
+## Agora (P1)
 
-- [ ] **Depoimentos**
-      De alunos do SENAI, clientes (Topcoat, DR Prev). Schema.org `Review` melhora SEO. Você é instrutor: depoimentos de alunos formados são _o_ diferencial.
+### 1. Medição com GA4
 
-- [ ] **Newsletter** (Resend / Buttondown / Beehiiv)
-      Captura assíncrona, retenção > formulário de contato. Combine com banner discreto após o post.
+Vercel Analytics é raso (sem funil, eventos limitados no plano gratuito). GA4 passa a ser a fonte principal, no site e na LP de serviços.
 
-- [ ] **Blog: search + filtros por tag/categoria**
-      `keywords` já existem no frontmatter — basta indexar. Use `fuse.js` ou build-time index.
+- [ ] Criar propriedade GA4 (e vincular ao Google Search Console).
+- [ ] Integrar via `@next/third-parties/google` (`GoogleAnalytics` + `sendGAEvent`).
+- [ ] **Banner de consentimento (LGPD) + Consent Mode v2** — GA4 grava cookies; sem consentimento só envia sinais anônimos.
+- [ ] Eventos-chave: clique no WhatsApp, clique em e-mail/LinkedIn, envio do formulário de contato, clique em "ver projeto ao vivo".
+- [ ] Marcar como _key events_ (conversões) os que indicam contato.
+- [ ] Atualizar a política de privacidade (`public/privacy_policy`) mencionando GA4 e cookies.
+- [ ] Depois, quando houver anúncios: vincular GA4 ao Google Ads e/ou instalar o Pixel da Meta (mesmo banner de consentimento).
 
-- [ ] **Comentários ativos**
-      Você tem `src/components/Comments.tsx`, confirmar se está em uso. Giscus (issues do GitHub) é zero-config e combina com sua audiência dev.
+**Decisões em aberto**
 
-- [ ] **Página `/servicos` ou `/contrate`**
-      Se aceita freelance/consultoria, separar isso do `/contact` genérico. Pacotes, processo, faixas de preço (mesmo que "sob consulta").
+- Manter o Vercel Analytics em paralelo ou removê-lo? (Ele não usa cookies; pode ficar como métrica "sem consentimento".)
+- LP em `/servicos` ou em subdomínio: com subdomínio de `wsabor.dev`, a **mesma propriedade/ID** do GA4 funciona sem configuração extra (o cookie fica no domínio raiz). Domínio próprio diferente exigiria configurar _cross-domain_.
+
+### 2. Landing page de serviços
+
+Página de conversão separada da home (a home continua sendo portfólio pessoal), em linguagem de negócio, sem jargão técnico, com CTA de WhatsApp.
+
+- [ ] Estrutura: hero com proposta de valor + WhatsApp → dores do cliente → 3 serviços → processo (conversa → proposta → entrega → acompanhamento) → portfólio de clientes → pacotes/"a partir de" → FAQ → formulário + WhatsApp.
+- [ ] Reaproveitar a linguagem visual (`PageHeader`, `FeatureCard`, `ContactChannels`, `CallToAction`).
+- [ ] SEO local: schema `ProfessionalService`, metadata, sitemap, `llms.txt`.
+- [ ] Eventos do GA4 (item 1) desde o lançamento.
+- [ ] Apontar o CTA do card "Presença digital para negócios" (`businessServices.cta.href` em `src/data/specialties.tsx`, hoje `/contact`) para a LP.
+
+**Decisões em aberto**
+
+- Endereço: `/servicos` ou subdomínio (ex.: `servicos.wsabor.dev`)?
+- Nome/marca: "Wagner Sabor" ou uma marca separada?
+- Região/cidade atendida.
+- Mostrar preços ("a partir de") ou "sob consulta"?
+- Tráfego pago: Google Ads, Meta ou os dois?
+- Número público de WhatsApp.
+- Brisa do Mar (template de hotel) pode entrar no portfólio? Precisa de URL ou prints.
+
+### 3. Completar os estudos de caso
+
+Existem 2 de 6: Topcoat Vernizes e Sistema de Simulados.
+
+- [ ] DR Prev Serviços Previdenciários _(cliente — também serve de prova para a LP)_
+- [ ] Quiz Prepara Aí 2025
+- [ ] EPI System
+- [ ] Agro Solutio
+
+Esforço real é o **texto** (contexto, decisões, resultados); o código já existe.
+
+### 4. Depoimentos
+
+O componente e o schema já existem; `src/data/testimonials.ts` está vazio, então a seção fica oculta.
+
+- [ ] Coletar: clientes (Topcoat, DR Prev) e alunos/ex-alunos do SENAI.
+- [ ] Possível primeiro depoimento: comentário da Cris D'Avilla no post do hackathon (só com autorização dela).
+- [ ] Depoimentos de clientes também entram na LP de serviços.
 
 ---
 
-## Fase 4 — Diferenciação e alcance (2–3 meses)
+## Próximo (P2)
 
-Investimento maior; só perseguir se Fase 1–3 estiverem maduras.
+- [ ] **Cadência de blog** — último post em 2025-09-03. Há dois rascunhos em `content/scratch/` ("Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam"). Meta: 1 post/mês.
+- [ ] **/labs** — vitrine para `public/snakeGame/` e `public/pixelart/`, que hoje não têm nenhum link no site.
+- [ ] **Posts relacionados** ao final do post (usa `category`/`keywords`). Barato; valor cresce com o volume de posts.
+- [ ] **Table of Contents** — só para posts longos (hoje apenas o do hackathon: ~1650 palavras, 5 seções). Fazer junto com "posts relacionados".
+- [ ] **/uses** — setup (hardware, editor, extensões, terminal). SEO long-tail entre devs.
+- [ ] **Vertente educador (`/recursos`)** — materiais, links e snippets usados em aula; schema `Course`. Exige curadoria de conteúdo.
+- [ ] **Newsletter** — só depois que o blog tiver cadência.
 
-- [ ] **i18n (PT/EN)**
-      Next.js App Router suporta nativamente. Abre mercado para recrutadores internacionais e remote.
+---
 
-- [ ] **Vertente "educador"**
-      Você é instrutor, mas o site não comunica isso fortemente.
-  - `/recursos` — listas de links, materiais, snippets que usa em aula
-  - `/cursos` — se planeja vender cursos próprios no futuro
-  - Schema.org `Course` em conteúdos pedagógicos
+## Adiado — revisitar quando…
 
-- [ ] **Integração GitHub**
-      Últimos commits/repos via API. Mostra atividade. Cache via ISR pra não estourar rate limit.
+| Item                        | Revisitar quando                                            |
+| --------------------------- | ----------------------------------------------------------- |
+| Filtro por tag em /projects | Houver mais de 10 projetos                                  |
+| Busca/filtros no blog       | Houver ~15 posts                                            |
+| /now                        | Houver disposição para atualizar todo mês                   |
+| Integração GitHub           | Houver motivo além de cosmético (o perfil do GitHub já mostra) |
+| /stats público              | Houver números reais e verificáveis para mostrar            |
+| i18n PT/EN                  | Houver foco ativo em mercado internacional                  |
 
-- [ ] **Analytics próprio** (Plausible / PostHog)
-      Vercel Analytics é raso. Saber _quais_ posts retêm leitura informa o que escrever.
+## Descartado
 
-- [ ] **Dashboard `/stats` público**
-      Alunos formados, posts publicados, projetos entregues, anos no SENAI. Números concretos > adjetivos.
+- ~~Botão "Baixar CV"~~ — decisão: não haverá CV no site.
+- ~~Analytics próprio (Plausible/PostHog)~~ — substituído por GA4 (Agora, item 1).
+
+---
+
+## Fora do repositório (infra de clientes)
+
+- [ ] **Separar projetos de clientes da conta pessoal na Vercel** — a Topcoat (com Speed Insights ativo) está na mesma conta do wsabor.dev. Criar uma conta/time por cliente, de preferência em nome do cliente, antes de novos projetos para ele. Atenção: o plano Hobby da Vercel é para uso pessoal e não comercial; site de cliente pago normalmente exige plano Pro (confirmar nos termos atuais).
 
 ---
 
 ## Contínuo
 
-- [ ] **Cadência de blog** — 1 post/mês é o mínimo para SEO compostar. Hoje são 3 posts.
-- [ ] **Manutenção dos `llms.txt`** — já documentado no CLAUDE.md.
-- [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral.
+- [ ] **Manutenção dos `llms.txt`** ao adicionar posts, projetos ou a LP (documentado no CLAUDE.md).
+- [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral e após adicionar GA4 (script de terceiros).
+- [ ] **Testes em dispositivos reais** — iPhone Safari (`100svh`, pin, toque) e Android de entrada.
 
 ---
 
-## Top 3 sugeridos para começar
+## Ordem sugerida
 
-1. **OG dinâmica + TOC + reading progress** (Fase 1) — uma tarde de trabalho, ganho enorme em percepção de qualidade.
-2. **Case studies em MDX** (Fase 2) — sem isso, o portfólio fica raso para quem vai contratar.
-3. **Depoimentos de alunos** (Fase 3) — é o ativo único; ninguém mais tem.
-
----
-
-## Matriz Esforço × Impacto
-
-**Legenda**
-
-- **Esforço:** P (~2-4h) · M (~1-2 dias) · G (~3+ dias)
-- **Impacto:** 🟢 alto · 🟡 médio · 🔴 baixo
-- **Prioridade:** P1 (fazer agora) · P2 (próximo trimestre) · P3 (adiar / condicional)
-
-| #   | Tarefa                                  | Esforço | Impacto | Prioridade | Racional                                                                              |
-| --- | --------------------------------------- | ------- | ------- | ---------- | ------------------------------------------------------------------------------------- |
-| 1   | OG dinâmica por post                    | P       | 🟢      | **P1**     | Cada share no LinkedIn/Twitter passa a vender o post. `next/og` é nativo.             |
-| 2   | Botão "Baixar CV" em /about             | P       | 🟢      | **P1**     | Recrutador chega no /about e quer levar embora. Hoje não tem como.                    |
-| 3   | Páginas por projeto (MDX)               | G       | 🟢      | **P1**     | Núcleo do portfólio. Sem isso, "demonstrar habilidades" fica em cards de 1 parágrafo. |
-| 4   | Depoimentos de alunos/clientes          | M       | 🟢      | **P1**     | Ativo único de quem é instrutor. Esforço real é _coletar_, não codar.                 |
-| 5   | Limpeza repo (backup/comentados)        | P       | 🔴      | **P1**     | Impacto baixo mas esforço quase zero — tirar antes que vire dívida.                   |
-| 6   | Table of Contents nos posts longos      | P       | 🟡      | **P2**     | Posts curtos não precisam; só rende em peças tipo "Minha Trajetória".                 |
-| 7   | Posts relacionados                      | P       | 🟡      | **P2**     | Valor cresce com volume — com 3 posts hoje, retorno é limitado.                       |
-| 8   | Reading progress bar                    | P       | 🟡      | **P2**     | Ganho perceptual ("vibe de qualidade"), não conversão.                                |
-| 9   | /uses                                   | P       | 🟡      | **P2**     | SEO long-tail entre devs, baixo custo de manutenção.                                  |
-| 10  | /labs (snake, pixelart, futuros)        | M       | 🟡      | **P2**     | Vitrine de curiosidade técnica; reaproveita o que já está em /public.                 |
-| 11  | Comentários ativos (Giscus)             | P       | 🟡      | **P2**     | Componente já existe, só ativar. Tração depende de tráfego.                           |
-| 12  | Analytics próprio (Plausible/PostHog)   | P       | 🟡      | **P2**     | Informa _o que_ escrever a seguir. Vercel Analytics não dá funil.                     |
-| 13  | Newsletter                              | M       | 🟡      | **P2**     | Alto a longo prazo; só faz sentido com cadência editorial firme.                      |
-| 14  | Vertente educador (/recursos, Course)   | G       | 🟢      | **P2**     | Diferenciação real, mas exige curadoria de conteúdo — não é só código.                |
-| 15  | /servicos ou /contrate                  | M       | 🟡      | **P2**     | Condicional: P1 se você aceita freelance hoje, P3 se não.                             |
-| 16  | /now                                    | P       | 🔴      | **P3**     | Convenção legal, mas exige manutenção contínua e público é nicho.                     |
-| 17  | Search/filtros no blog                  | M       | 🔴      | **P3**     | Com 3 posts não há demanda. Revisitar com ~15 posts.                                  |
-| 18  | Integração GitHub (atividade)           | M       | 🟡      | **P3**     | Cosmético; github.io/perfil já faz isso.                                              |
-| 19  | /stats público                          | M       | 🟡      | **P3**     | Bom storytelling, mas requer dashboard e dados curados.                               |
-| 20  | i18n PT/EN                              | G       | 🟡      | **P3**     | Dobra a manutenção do conteúdo. Só vale se mirar mercado internacional ativamente.    |
-
----
-
-## Sprint 1 sugerido (P1, ordem de execução)
-
-Sequência otimizada para entregar valor crescente:
-
-1. **Limpeza repo** (~30 min) — começar pelo mais barato, repo limpo de saída.
-2. **OG dinâmica + Botão CV** (~1 dia) — quick wins visíveis, dão tração imediata.
-3. **Depoimentos** — iniciar **coleta em paralelo hoje** (mensagens a alunos/clientes); o componente em si é simples.
-4. **Páginas por projeto (MDX)** — maior bloco; começar pelos 2-3 projetos mais fortes (Topcoat, EPI System, Quiz Prepara Aí). Os demais entram gradualmente.
-
-Estimativa total Sprint 1: **~1-2 semanas** de trabalho efetivo (descontando coleta de depoimentos, que é assíncrona).
+1. **GA4 + consentimento** no site atual → a LP já nasce medida.
+2. **LP de serviços**, em fases (depois de responder as decisões em aberto).
+3. Em paralelo e fora do código: **coletar depoimentos** e **escrever os estudos de caso** restantes.
+4. Depois: blog (rascunhos), /labs, posts relacionados + TOC.

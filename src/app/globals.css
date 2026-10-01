@@ -202,7 +202,8 @@
       width: auto;
       animation: none;
     }
-    .marquee-track > [aria-hidden="true"] {
+    .marquee-track > [aria-hidden="true"],
+    .marquee-group > [aria-hidden="true"] {
       display: none;
     }
     .marquee-group {
@@ -210,6 +211,25 @@
       flex-wrap: wrap;
       justify-content: center;
       padding-right: 0;
+    }
+  }
+
+  /* Selos de certificação: cinza até o hover/foco. Só em dispositivos com
+     hover — no toque ficam sempre coloridos. */
+  .cert-badge {
+    transition:
+      filter 0.3s ease,
+      opacity 0.3s ease;
+  }
+  @media (hover: hover) {
+    .cert-card .cert-badge {
+      filter: grayscale(1);
+      opacity: 0.7;
+    }
+    .cert-card:hover .cert-badge,
+    .cert-card:focus-visible .cert-badge {
+      filter: none;
+      opacity: 1;
     }
   }
 
