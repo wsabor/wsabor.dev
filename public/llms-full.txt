@@ -87,9 +87,13 @@ URL: https://simulado.wsabor.dev
 Sistema de simulados e provas para aplicação em sala de aula desenvolvido utilizando Next.js e Tailwind CSS.
 Tags: Next.js, Tailwind CSS, Educacional, UX/UI
 
+### Hotel Brisa do Mar
+URL: https://brisa-mar-hotel.wsabor.dev
+Projeto de estudo: landing page de um hotel fictício (nomes, depoimentos e contatos fictícios; imagens geradas por IA) para praticar técnicas de front-end. Destaque para a sequência cinematográfica controlada pelo scroll: 120 quadros WebP no desktop e 60 no celular desenhados num canvas com GSAP ScrollTrigger. Também usa smooth scroll com Lenis, animações de reveal, parallax e contadores, carrossel com Embla e marquee em CSS. O conteúdo fica separado do código, o que permite reaproveitar o site como modelo para outros negócios. Respeita prefers-reduced-motion. Next.js, TypeScript e Tailwind CSS.
+Tags: Next.js, GSAP, Scroll Sequence, Tailwind CSS, Projeto de estudo
+
 ### EPI System
-URL: https://epi-system.wsabor.dev
-Sistema completo de gestão de EPIs - Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS.
+Sistema completo de gestão de EPIs - Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS. Sem demonstração pública no momento.
 Tags: React, Tailwind CSS, Firebase, ERP, UX/UI
 
 ### Agro Solutio

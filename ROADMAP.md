@@ -15,6 +15,7 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 - [x] **Redesign da home** — "Quem sou", bento de especialidades com o card "Presença digital para negócios", marquee de tecnologias, projetos e artigos, CTA com canais diretos (PR #4).
 - [x] **Redesign das páginas internas** — /about, /projects, /blog, /contact, 404 e erro (PR #4).
 - [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com link para cada credencial e `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
+- [x] **Hotel Brisa do Mar no portfólio** — projeto de estudo, entre os destaques da home. O EPI System continua como exemplo, sem link (fora do ar, só na rede do SENAI).
 - [x] **OG dinâmica por post** (`next/og`) e OG/banner da home.
 - [x] **Reading progress bar** nos posts.
 - [x] **Limpeza de repositório** (backups, blocos comentados, componentes mortos).
@@ -60,15 +61,16 @@ Página de conversão separada da home (a home continua sendo portfólio pessoal
 - Mostrar preços ("a partir de") ou "sob consulta"?
 - Tráfego pago: Google Ads, Meta ou os dois?
 - Número público de WhatsApp.
-- Brisa do Mar (template de hotel) pode entrar no portfólio? Precisa de URL ou prints.
+- Brisa do Mar já está no portfólio como projeto de estudo (https://brisa-mar-hotel.wsabor.dev). Na LP, apresentar como exemplo/modelo, deixando claro que o hotel é fictício.
 
 ### 3. Completar os estudos de caso
 
-Existem 2 de 6: Topcoat Vernizes e Sistema de Simulados.
+Existem 2 de 7: Topcoat Vernizes e Sistema de Simulados.
 
 - [ ] DR Prev Serviços Previdenciários _(cliente — também serve de prova para a LP)_
 - [ ] Quiz Prepara Aí 2025
 - [ ] EPI System
+- [ ] Hotel Brisa do Mar _(projeto de estudo; o README do repositório já tem o conteúdo técnico)_
 - [ ] Agro Solutio
 
 Esforço real é o **texto** (contexto, decisões, resultados); o código já existe.
