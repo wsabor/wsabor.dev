@@ -124,7 +124,7 @@ O mesmo site em dois domínios: **wsabor.com** (principal para o Google, Oracle 
 - [ ] **Fase 3 — Preparar o servidor** (no playbook do `wsabor/infra`): usuário `deploy` sem sudo com chave SSH só para o GitHub; estrutura `/srv/wsabor/releases/` + symlink `current`; PM2 apontando para `current/server.js`.
 - [ ] **Fase 4 — Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do binário nativo do `sharp`) → rsync para uma release nova → troca do symlink + `pm2 reload` → health check com curl e rollback automático para a release anterior. Deploy direto, sem aprovação manual. Manter as últimas 3 releases.
 - [ ] **`deploy.sh`**: virar plano B manual (corrigir `npm ci --omit=dev`, que quebra o build, e a pergunta interativa, que trava no CI) ou remover depois da fase 4.
-- [ ] **Nginx: redirecionar `www.wsabor.com` → `wsabor.com`** (hoje os dois respondem 200).
+- [x] **Redirecionar `www.wsabor.com` → `wsabor.com`** — feito por uma Redirect Rule na Cloudflare (não no Nginx): 301, padrão curinga `https://www.*` → `https://${1}`, preservando a query string. O registro DNS `www` precisa continuar com proxy (nuvem laranja). Anotar no `wsabor/infra`.
 - [ ] **Google Search Console**: adicionar a propriedade `wsabor.com` e enviar o sitemap; manter a do `.dev` para acompanhar a migração do canonical.
 - [ ] **Formspree**: conferir se há restrição de domínio que bloqueie envios do `.com`.
 
