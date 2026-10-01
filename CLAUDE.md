@@ -64,7 +64,7 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 
 - **Domínio principal:** `SITE_URL` em `src/lib/site.ts` (`https://wsabor.com`). Canonical, sitemap, robots, feed, Open Graph e schemas usam sempre esse domínio, nos dois deploys — o `wsabor.dev` é espelho. Nunca escrever o domínio fixo; usar `absoluteUrl()`.
 - Toda página define `export const metadata = pageMetadata({ path, title, description })` (canonical + og:url). Rotas com `opengraph-image.tsx` passam `fileImage: true`.
-- `<Analytics />` da Vercel só é renderizado quando `process.env.VERCEL` existe.
+- Vercel Analytics via `VercelAnalytics.tsx`: só carrega quando o hostname é `wsabor.dev` ou `*.vercel.app` (checado no navegador; `process.env.VERCEL` não chega ao build da Vercel).
 
 - Schemas JSON-LD gerados em `src/lib/schemas.ts` e injetados via `src/components/JsonLd.tsx`
 - Sitemap em `src/app/sitemap.ts`, robots em `src/app/robots.ts`

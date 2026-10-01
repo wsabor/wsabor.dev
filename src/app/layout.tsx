@@ -3,11 +3,11 @@ import { Inter, Sora, Bricolage_Grotesque } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-import { Analytics } from "@vercel/analytics/next";
 import { SITE_URL, defaultOpenGraph } from "@/lib/site";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import VercelAnalytics from "@/components/VercelAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -114,8 +114,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          {/* Só existe na Vercel (wsabor.dev); no wsabor.com o script daria 404 */}
-          {process.env.VERCEL && <Analytics />}
+          <VercelAnalytics />
         </ThemeProvider>
       </body>
     </html>
