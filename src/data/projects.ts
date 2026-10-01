@@ -41,10 +41,28 @@ export const allProjects: Project[] = [
   },
   {
     id: 3,
+    title: "Hotel Brisa do Mar",
+    image: "brisa-mar-hotel.webp",
+    basePath: "/img/projects/",
+    link: "https://brisa-mar-hotel.wsabor.dev",
+    description:
+      "Projeto de estudo: landing page de um hotel fictício com sequência cinematográfica controlada pelo scroll (canvas + GSAP ScrollTrigger), smooth scroll com Lenis, carrossel e marquee, usando Next.js e Tailwind CSS",
+    tags: [
+      "Next.js",
+      "GSAP",
+      "Scroll Sequence",
+      "Tailwind CSS",
+      "Projeto de estudo",
+    ],
+  },
+  {
+    id: 7,
     title: "EPI System",
     image: "epi-system.webp",
     basePath: "/img/projects/",
-    link: "https://epi-system.wsabor.dev",
+    // Fora do ar (só na rede do SENAI). "#" esconde o botão "Ver Projeto";
+    // trocar pelo endereço da versão white label quando ela for publicada.
+    link: "#",
     description:
       "Sistema completo de gestão de EPIs - Equipamentos de Proteção Individual desenvolvido com React, Firebase e Tailwind CSS",
     tags: ["React", "Tailwind CSS", "Firebase", "ERP", "UX/UI"],

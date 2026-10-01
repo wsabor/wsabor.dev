@@ -21,7 +21,8 @@
 
 - [Topcoat Vernizes](https://topcoatvernizes.com.br): Site institucional com i18n (PT/ES) em Next.js.
 - [Sistema de Simulados e Provas](https://simulado.wsabor.dev): Plataforma educacional para aplicação em sala de aula.
-- [EPI System](https://epi-system.wsabor.dev): Sistema de gestão de EPIs com React e Firebase.
+- [Hotel Brisa do Mar](https://brisa-mar-hotel.wsabor.dev): Projeto de estudo — landing page de hotel fictício com sequência controlada pelo scroll (Next.js, GSAP, Lenis).
+- EPI System: Sistema de gestão de EPIs com React e Firebase (sem demonstração pública no momento).
 
 ## Mais Informações
 
