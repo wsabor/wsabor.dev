@@ -1,5 +1,7 @@
 // Schemas estruturados para SEO (Schema.org)
 
+import { certifications } from "@/data/certifications";
+
 // Informações base do site (centralizadas)
 const SITE_CONFIG = {
   name: "Wagner Sabor",
@@ -75,6 +77,14 @@ export function getPersonSchema() {
       "Front-end Development",
       "Full Stack Development",
     ],
+    hasCredential: certifications.map((cert) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: `Microsoft Certified: ${cert.name} (${cert.code})`,
+      credentialCategory: "certification",
+      dateCreated: cert.issuedAt,
+      url: cert.url,
+      recognizedBy: { "@type": "Organization", name: cert.issuer },
+    })),
     alumniOf: {
       "@type": "EducationalOrganization",
       name: "SENAI-SP", // Ajuste conforme sua formação

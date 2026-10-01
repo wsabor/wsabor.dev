@@ -1,6 +1,7 @@
 import ScrollSequence from "@/components/ScrollSequence";
 import HeroIntro from "@/components/HeroIntro";
 import AboutIntro from "@/components/AboutIntro";
+import Certifications from "@/components/Certifications";
 import SmoothScroll from "@/components/SmoothScroll";
 import { scrollSequence } from "@/data/scrollSequence";
 import Specialties from "@/components/Specialities";
@@ -48,6 +49,7 @@ export default function HomePage() {
         <HeroIntro />
       </ScrollSequence>
       <AboutIntro />
+      <Certifications />
       <Specialties />
       <Projects />
       <Testimonials items={featuredTestimonials} />

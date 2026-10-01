@@ -14,6 +14,7 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 - [x] **Scroll sequence no hero da home** — canvas com frames WebP guiados pelo scroll (PR #3).
 - [x] **Redesign da home** — "Quem sou", bento de especialidades com o card "Presença digital para negócios", marquee de tecnologias, projetos e artigos, CTA com canais diretos (PR #4).
 - [x] **Redesign das páginas internas** — /about, /projects, /blog, /contact, 404 e erro (PR #4).
+- [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com link para cada credencial e `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
 - [x] **OG dinâmica por post** (`next/og`) e OG/banner da home.
 - [x] **Reading progress bar** nos posts.
 - [x] **Limpeza de repositório** (backups, blocos comentados, componentes mortos).

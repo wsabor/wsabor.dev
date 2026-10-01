@@ -9,6 +9,7 @@ import Reveal from "@/components/Reveal";
 import Timeline from "@/components/Timeline";
 import FeatureCard from "@/components/FeatureCard";
 import TechMarquee from "@/components/TechMarquee";
+import Certifications from "@/components/Certifications";
 import CallToAction from "@/components/CallToAction";
 import { aboutIntro, aboutPage } from "@/data/about";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
@@ -80,6 +81,8 @@ export default function AboutPage() {
           </div>
         </Reveal>
       </section>
+
+      <Certifications className="py-16 md:py-24" />
 
       {/* Filosofia */}
       <section

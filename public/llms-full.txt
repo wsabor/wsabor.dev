@@ -16,6 +16,16 @@ Stack principal: Next.js, React, TypeScript, Node.js.
 
 Do pixel ao código: começou no design gráfico (diagramação editorial e atendimento ao cliente), fez a transição para a tecnologia por volta de 2015 (Informática para Negócios na FATEC de São Bernardo do Campo), tornou-se especialista em Next.js e React e hoje é instrutor no Curso Técnico em Desenvolvimento de Sistemas do SENAI-SP. Mais de 10 anos em tecnologia; 2º lugar no Hackathon Agrotech 2025 com seus alunos.
 
+### Certificações
+
+Cinco certificações Microsoft ativas, verificáveis no Microsoft Learn:
+
+- AZ-900 — Microsoft Certified: Azure Fundamentals (maio de 2023): https://learn.microsoft.com/api/credentials/share/pt-br/wsabor/A4C55A2EFC3591EE?sharingId=5DA16412146FA582
+- DP-900 — Microsoft Certified: Azure Data Fundamentals (agosto de 2023): https://learn.microsoft.com/api/credentials/share/pt-br/wsabor/9798822A9473D122?sharingId=5DA16412146FA582
+- SC-900 — Microsoft Certified: Security, Compliance, and Identity Fundamentals (maio de 2023): https://learn.microsoft.com/api/credentials/share/pt-br/wsabor/43D5E805885D08A8?sharingId=5DA16412146FA582
+- AI-900 — Microsoft Certified: Azure AI Fundamentals (outubro de 2023): https://learn.microsoft.com/api/credentials/share/pt-br/wsabor/FCC33C698B951C19?sharingId=5DA16412146FA582
+- PL-900 — Microsoft Certified: Power Platform Fundamentals (setembro de 2023): https://learn.microsoft.com/api/credentials/share/pt-br/wsabor/9985A891EB1C14F5?sharingId=5DA16412146FA582
+
 ### Especialidades
 
 **Desenvolvimento Full Stack**
@@ -41,6 +51,10 @@ E-mail: wsabor.senai@gmail.com · LinkedIn: https://www.linkedin.com/in/wsabor �
 ### Do Pixel ao Código
 
 A jornada de Wagner começou no design gráfico e o levou ao desenvolvimento web. Hoje, é especialista em Next.js e React, criando aplicações modernas que combinam código robusto com design intuitivo.
+
+### Certificações
+
+As mesmas cinco certificações Microsoft da página inicial (AZ-900, DP-900, SC-900, AI-900, PL-900), com links para as credenciais.
 
 ### Filosofia
 

@@ -5,8 +5,8 @@
 
 ## Páginas
 
-- [Home](https://wsabor.dev): Apresentação, trajetória, especialidades (incluindo presença digital para negócios), projetos e artigos em destaque.
-- [Sobre](https://wsabor.dev/about): Trajetória profissional, filosofia de trabalho e stack tecnológica.
+- [Home](https://wsabor.dev): Apresentação, trajetória, certificações Microsoft, especialidades (incluindo presença digital para negócios), projetos e artigos em destaque.
+- [Sobre](https://wsabor.dev/about): Trajetória profissional, certificações Microsoft (AZ-900, DP-900, SC-900, AI-900, PL-900), filosofia de trabalho e stack tecnológica.
 - [Projetos](https://wsabor.dev/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
 - [Blog](https://wsabor.dev/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
 - [Contato](https://wsabor.dev/contact): GitHub, LinkedIn e formulário de contato.
