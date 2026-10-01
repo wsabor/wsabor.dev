@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL, defaultOpenGraph } from "@/lib/site";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -30,7 +31,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wsabor.dev"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Wagner Sabor | Desenvolvedor Especialista em Next.js e React",
     template: "%s | Wagner Sabor",
@@ -49,27 +50,11 @@ export const metadata: Metadata = {
     "web development",
     "javascript",
   ],
-  authors: [{ name: "Wagner Sabor", url: "https://wsabor.dev" }],
+  authors: [{ name: "Wagner Sabor", url: SITE_URL }],
   creator: "Wagner Sabor",
 
-  // Open Graph
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    url: "https://wsabor.dev",
-    title: "Wagner Sabor | Desenvolvedor Especialista em Next.js e React",
-    description:
-      "Transformando ideias em aplicações web modernas e performáticas.",
-    siteName: "Wagner Sabor",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Wagner Sabor - Desenvolvedor Especialista em Next.js e React",
-      },
-    ],
-  },
+  // Open Graph (as páginas definem og:url e canonical via pageMetadata)
+  openGraph: defaultOpenGraph,
 
   // Twitter Card
   twitter: {
@@ -129,7 +114,8 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <Analytics />
+          {/* Só existe na Vercel (wsabor.dev); no wsabor.com o script daria 404 */}
+          {process.env.VERCEL && <Analytics />}
         </ThemeProvider>
       </body>
     </html>

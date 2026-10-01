@@ -15,6 +15,7 @@ import ArticleCard, { PostMeta } from "@/components/ArticleCard";
 import ReadingProgress from "@/components/ReadingProgress";
 import CallToAction from "@/components/CallToAction";
 import { getBlogPostingSchema, getBreadcrumbListSchema } from "@/lib/schemas";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
 
 // Tipo para os params no Next.js 15
 type Props = {
@@ -38,18 +39,18 @@ export async function generateMetadata({ params }: Props) {
 
   try {
     const { meta } = getPostBySlug(slug);
-    return {
+    // A imagem OG vem do opengraph-image.tsx da rota
+    return pageMetadata({
+      path: `/blog/${slug}`,
+      fileImage: true,
       title: meta.title,
       description: meta.summary,
-      // Adicionar Open Graph para posts
       openGraph: {
-        title: meta.title,
-        description: meta.summary,
         type: "article",
         publishedTime: meta.publishedAt,
         authors: ["Wagner Sabor"],
       },
-    };
+    });
   } catch {
     return {
       title: "Post não encontrado",
@@ -70,11 +71,11 @@ export default async function PostPage({ params }: Props) {
   const { meta, content } = entry;
 
   // Construir a URL completa do post
-  const postUrl = `https://wsabor.dev/blog/${slug}`;
+  const postUrl = absoluteUrl(`/blog/${slug}`);
 
   // Capa do post (mesma dos cards): cover → 1ª imagem da galeria → imagem OG
   const cover = getPostCover(meta, slug);
-  const featuredImage = `https://wsabor.dev${cover}`;
+  const featuredImage = absoluteUrl(cover);
 
   // Leia também: outros posts, mais recentes primeiro
   const relatedPosts = getAllPostsMeta()
@@ -98,8 +99,8 @@ export default async function PostPage({ params }: Props) {
 
   // Gerar o breadcrumb do post
   const breadcrumbSchema = getBreadcrumbListSchema([
-    { name: "Home", url: "https://wsabor.dev" },
-    { name: "Blog", url: "https://wsabor.dev/blog" },
+    { name: "Home", url: absoluteUrl() },
+    { name: "Blog", url: absoluteUrl("/blog") },
     { name: meta.title, url: postUrl },
   ]);
 

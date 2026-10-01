@@ -6,12 +6,20 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import CallToAction from "@/components/CallToAction";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata({
+  path: "/projects",
+  title: "Projetos",
+  description:
+    "Portfólio de projetos que desenvolvi ou orientei: sites institucionais de clientes, sistemas web e aplicações educacionais.",
+});
 
 export default function ProjectsPage() {
   // Gerar breadcrumb para a página de projetos
   const breadcrumbSchema = getBreadcrumbListSchema([
-    { name: "Home", url: "https://wsabor.dev" },
-    { name: "Projetos", url: "https://wsabor.dev/projects" },
+    { name: "Home", url: absoluteUrl() },
+    { name: "Projetos", url: absoluteUrl("/projects") },
   ]);
 
   return (

@@ -13,12 +13,19 @@ import Certifications from "@/components/Certifications";
 import CallToAction from "@/components/CallToAction";
 import { aboutIntro, aboutPage } from "@/data/about";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata({
+  path: "/about",
+  title: "Sobre",
+  description: aboutPage.intro,
+});
 
 export default function AboutPage() {
   // Gerar breadcrumb para a página sobre
   const breadcrumbSchema = getBreadcrumbListSchema([
-    { name: "Home", url: "https://wsabor.dev" },
-    { name: "Sobre", url: "https://wsabor.dev/about" },
+    { name: "Home", url: absoluteUrl() },
+    { name: "Sobre", url: absoluteUrl("/about") },
   ]);
 
   return (

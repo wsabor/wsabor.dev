@@ -4,12 +4,20 @@ import PageHeader from "@/components/PageHeader";
 
 import JsonLd from "@/components/JsonLd";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata({
+  path: "/contact",
+  title: "Contato",
+  description:
+    "Fale comigo por e-mail, LinkedIn, GitHub ou pelo formulário de contato.",
+});
 
 export default function ContactPage() {
   // Gerar breadcrumb para a página de contato
   const breadcrumbSchema = getBreadcrumbListSchema([
-    { name: "Home", url: "https://wsabor.dev" },
-    { name: "Contato", url: "https://wsabor.dev/contact" },
+    { name: "Home", url: absoluteUrl() },
+    { name: "Contato", url: absoluteUrl("/contact") },
   ]);
 
   return (

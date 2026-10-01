@@ -6,20 +6,22 @@ import Reveal from "@/components/Reveal";
 import ArticleCard from "@/components/ArticleCard";
 import CallToAction from "@/components/CallToAction";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
+import { absoluteUrl, pageMetadata } from "@/lib/site";
 
-export const metadata = {
-  title: "Blog | Wagner Sabor",
+export const metadata = pageMetadata({
+  path: "/blog",
+  title: "Blog",
   description:
     "Artigos e tutoriais sobre Next.js, React, TypeScript e desenvolvimento web moderno.",
-};
+});
 
 export default function BlogPage() {
   const [featured, ...others] = getAllPostsMeta();
 
   // Gerar breadcrumb para a página de blog
   const breadcrumbSchema = getBreadcrumbListSchema([
-    { name: "Home", url: "https://wsabor.dev" },
-    { name: "Blog", url: "https://wsabor.dev/blog" },
+    { name: "Home", url: absoluteUrl() },
+    { name: "Blog", url: absoluteUrl("/blog") },
   ]);
 
   return (
