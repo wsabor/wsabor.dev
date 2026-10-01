@@ -13,7 +13,7 @@ Site pessoal/portfólio de Wagner Sabor, construído com Next.js App Router.
 - **Galeria:** `yet-another-react-lightbox`
 - **Animação da home:** GSAP + ScrollTrigger (`@gsap/react`) e Lenis (smooth scroll, só na home)
 - **Analytics:** `@vercel/analytics`
-- **Deploy:** Vercel
+- **Deploy:** o mesmo site em dois domínios — `wsabor.com` (principal, Oracle Cloud, Ubuntu ARM + Nginx + PM2; infra no repo `wsabor/infra`) e `wsabor.dev` (espelho, Vercel)
 
 ## Estrutura
 
@@ -61,6 +61,10 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 - Imagens: `next.config.mjs` serve só WebP (o AVIF do sharp travava em imagens largas).
 
 ## SEO / Schema
+
+- **Domínio principal:** `SITE_URL` em `src/lib/site.ts` (`https://wsabor.com`). Canonical, sitemap, robots, feed, Open Graph e schemas usam sempre esse domínio, nos dois deploys — o `wsabor.dev` é espelho. Nunca escrever o domínio fixo; usar `absoluteUrl()`.
+- Toda página define `export const metadata = pageMetadata({ path, title, description })` (canonical + og:url). Rotas com `opengraph-image.tsx` passam `fileImage: true`.
+- `<Analytics />` da Vercel só é renderizado quando `process.env.VERCEL` existe.
 
 - Schemas JSON-LD gerados em `src/lib/schemas.ts` e injetados via `src/components/JsonLd.tsx`
 - Sitemap em `src/app/sitemap.ts`, robots em `src/app/robots.ts`
