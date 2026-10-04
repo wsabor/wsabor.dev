@@ -50,7 +50,7 @@ export const aboutIntro: AboutIntroContent = {
   },
   badge: "Instrutor no SENAI-SP",
   stats: [
-    // "Por volta de 2015" (post Do Pixel ao Código) → 10+ anos em 2026.
+    // Já trabalhava com tecnologia antes da FATEC (2015): 15+ anos em 2026, valor confirmado pelo autor.
     { value: 15, suffix: "+", label: "anos em tecnologia" },
     {
       value: 2,

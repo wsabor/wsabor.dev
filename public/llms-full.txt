@@ -14,7 +14,7 @@ Stack principal: Next.js, React, TypeScript, Node.js.
 
 ### Quem sou
 
-Do pixel ao código: começou no design gráfico (diagramação editorial e atendimento ao cliente), fez a transição para a tecnologia por volta de 2015 (Informática para Negócios na FATEC de São Bernardo do Campo), tornou-se especialista em Next.js e React e hoje é instrutor no Curso Técnico em Desenvolvimento de Sistemas do SENAI-SP. Mais de 10 anos em tecnologia; 2º lugar no Hackathon Agrotech 2025 com seus alunos.
+Do pixel ao código: começou no design gráfico (diagramação editorial e atendimento ao cliente), fez a transição para a tecnologia por volta de 2015 (Informática para Negócios na FATEC de São Bernardo do Campo), tornou-se especialista em Next.js e React e hoje é instrutor no Curso Técnico em Desenvolvimento de Sistemas do SENAI-SP. Mais de 15 anos em tecnologia; 2º lugar no Hackathon Agrotech 2025 com seus alunos.
 
 ### Certificações
 
