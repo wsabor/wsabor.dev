@@ -1,6 +1,7 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { contactChannels, type ContactChannel } from "@/data/contact";
+import { trackAttrs } from "@/lib/analytics";
 
 const channelIcons: Record<ContactChannel["id"], React.ReactNode> = {
   email: <Mail size={20} aria-hidden="true" />,
@@ -9,13 +10,19 @@ const channelIcons: Record<ContactChannel["id"], React.ReactNode> = {
 };
 
 // Atalhos de contato direto (e-mail, LinkedIn, GitHub). Usado no CTA e em /contact.
-export default function ContactChannels() {
+// `location` identifica o bloco nos eventos do GA4.
+export default function ContactChannels({
+  location,
+}: {
+  location: "cta" | "contact_page";
+}) {
   return (
     <ul className="flex flex-col gap-3">
       {contactChannels.map((channel) => (
         <li key={channel.id}>
           <a
             href={channel.href}
+            {...trackAttrs("contact_click", { method: channel.id, location })}
             {...(channel.external && {
               target: "_blank",
               rel: "noopener noreferrer",

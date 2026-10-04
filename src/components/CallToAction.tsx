@@ -47,7 +47,7 @@ export default function CallToAction() {
             </div>
 
             {/* Atalhos diretos */}
-            <ContactChannels />
+            <ContactChannels location="cta" />
           </div>
         </div>
       </Reveal>

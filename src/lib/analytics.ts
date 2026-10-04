@@ -57,6 +57,27 @@ export function setConsent(choice: ConsentChoice) {
   window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
 }
 
+/**
+ * Envia um evento ao GA4. Sem o gtag (localhost, previews) não faz nada.
+ * No modo avançado, antes do aceite o evento vai sem cookies.
+ */
+export function trackEvent(name: string, params: Record<string, string> = {}) {
+  gtag("event", name, params);
+}
+
+/**
+ * Atributos para rastrear cliques sem tornar o componente client:
+ * `<a {...trackAttrs("contact_click", { method: "email" })}>`. O ouvinte
+ * fica em TrackClicks.tsx.
+ */
+export function trackAttrs(name: string, params: Record<string, string>) {
+  const attrs: Record<string, string> = { "data-track": name };
+  for (const [key, value] of Object.entries(params)) {
+    attrs[`data-track-${key}`] = value;
+  }
+  return attrs;
+}
+
 export function openConsentPreferences() {
   window.dispatchEvent(new Event(OPEN_CONSENT_EVENT));
 }

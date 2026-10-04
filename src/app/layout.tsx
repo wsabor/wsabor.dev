@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VercelAnalytics from "@/components/VercelAnalytics";
 import CookieConsent from "@/components/CookieConsent";
+import TrackClicks from "@/components/TrackClicks";
 import Script from "next/script";
 import { gaInlineScript } from "@/lib/analytics";
 
@@ -119,6 +120,7 @@ export default function RootLayout({
           <Footer />
           <VercelAnalytics />
           <CookieConsent />
+          <TrackClicks />
         </ThemeProvider>
         {/* GA4 + Consent Mode v2 (só em wsabor.com/wsabor.dev) */}
         <Script id="ga4" strategy="afterInteractive">

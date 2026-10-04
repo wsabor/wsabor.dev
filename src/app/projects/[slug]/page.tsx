@@ -15,6 +15,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { allProjects } from "@/data/projects";
 import { getBreadcrumbListSchema } from "@/lib/schemas";
 import { absoluteUrl, pageMetadata } from "@/lib/site";
+import { trackAttrs } from "@/lib/analytics";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -126,6 +127,11 @@ export default async function ProjectPage({ params }: Props) {
               <dd className="mt-1">
                 <a
                   href={meta.liveUrl}
+                  {...trackAttrs("project_click", {
+                    project: slug,
+                    action: "live_site",
+                    location: "case_study",
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:text-primary-deep dark:hover:text-primary-light inline-flex items-center gap-1 font-semibold transition-colors"
@@ -196,6 +202,11 @@ export default async function ProjectPage({ params }: Props) {
           <div className="mt-12 flex justify-center">
             <a
               href={meta.liveUrl}
+              {...trackAttrs("project_click", {
+                project: slug,
+                action: "live_site",
+                location: "case_study",
+              })}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary-strong hover:bg-primary-deep inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"

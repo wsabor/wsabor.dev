@@ -2,20 +2,24 @@ import Link from "next/link";
 import { Rss, Heart, Coffee } from "lucide-react";
 import { GithubIcon, LinkedinIcon, XIcon } from "./BrandIcons";
 import CookiePreferencesButton from "./CookiePreferencesButton";
+import { trackAttrs } from "@/lib/analytics";
 
 const socialLinks = [
   {
     href: "https://github.com/wsabor",
+    method: "github",
     label: "Link para o perfil de Wagner Sabor no GitHub",
     icon: <GithubIcon size={20} />,
   },
   {
     href: "https://linkedin.com/in/wsabor",
+    method: "linkedin",
     label: "Link para o perfil de Wagner Sabor no LinkedIn",
     icon: <LinkedinIcon size={20} />,
   },
   {
     href: "https://twitter.com/wsabor",
+    method: "x",
     label: "Link para o perfil de Wagner Sabor no Twitter",
     icon: <XIcon size={20} />,
   },
@@ -55,10 +59,12 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          {socialLinks.map(({ href, label, icon }) => (
+          {socialLinks.map(({ href, label, icon, method }) => (
             <Link
               key={href}
               href={href}
+              {...(method &&
+                trackAttrs("contact_click", { method, location: "footer" }))}
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
