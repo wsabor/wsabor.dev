@@ -14,8 +14,8 @@ export const contactChannels: ContactChannel[] = [
   {
     id: "email",
     label: "E-mail",
-    handle: "wsabor.senai@gmail.com",
-    href: "mailto:wsabor.senai@gmail.com",
+    handle: "contato@wsabor.com",
+    href: "mailto:contato@wsabor.com",
     external: false,
   },
   {

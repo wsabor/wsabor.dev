@@ -12,7 +12,7 @@ const SITE_CONFIG = {
   logo: absoluteUrl("/img/profile-hero.webp"),
   author: {
     name: "Wagner Sabor",
-    email: "wsabor.senai@gmail.com",
+    email: "contato@wsabor.com",
     jobTitle: "Desenvolvedor Full Stack",
     image: absoluteUrl("/img/profile-hero.webp"),
     location: "Presidente Prudente, São Paulo, Brasil",

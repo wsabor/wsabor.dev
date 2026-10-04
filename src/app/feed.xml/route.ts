@@ -6,7 +6,7 @@ const SITE_TITLE = "Wagner Sabor - Blog";
 const SITE_DESCRIPTION =
   "Artigos e tutoriais sobre Next.js, React, TypeScript e desenvolvimento web moderno.";
 const SITE_LANGUAGE = "pt-BR";
-const SITE_AUTHOR_EMAIL = "wsabor.senai@gmail.com (Wagner Sabor)";
+const SITE_AUTHOR_EMAIL = "contato@wsabor.com (Wagner Sabor)";
 
 export async function GET() {
   const posts = getAllPostsMeta();
