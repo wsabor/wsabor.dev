@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           <p>
             Este site é mantido por Wagner Sabor. Dúvidas ou pedidos sobre seus
             dados:{" "}
-            <a href="mailto:wsabor.senai@gmail.com">wsabor.senai@gmail.com</a>.
+            <a href="mailto:contato@wsabor.com">contato@wsabor.com</a>.
           </p>
 
           <h2>O que é coletado</h2>

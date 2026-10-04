@@ -9,7 +9,7 @@
 - [Sobre](https://wsabor.com/about): Trajetória profissional, certificações Microsoft (AZ-900, DP-900, SC-900, AI-900, PL-900), filosofia de trabalho e stack tecnológica.
 - [Projetos](https://wsabor.com/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
 - [Blog](https://wsabor.com/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
-- [Contato](https://wsabor.com/contact): GitHub, LinkedIn e formulário de contato.
+- [Contato](https://wsabor.com/contact): e-mail (contato@wsabor.com), GitHub, LinkedIn e formulário de contato.
 
 ## Blog Posts
 
