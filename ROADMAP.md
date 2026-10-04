@@ -37,7 +37,7 @@ Vercel Analytics é raso (sem funil, eventos limitados no plano gratuito). GA4 p
 - [x] Eventos: `contact_click` (`method`, `location`), `project_click` (`project`, `action`, `location`) e `generate_lead` (formulário). Cliques marcados com `trackAttrs()` + ouvinte único em `TrackClicks.tsx`. WhatsApp entra como `method: "whatsapp"` quando houver número.
 - [ ] No GA4 (painel): marcar `contact_click` e `generate_lead` como _key events_ e criar as dimensões personalizadas `method`, `location`, `project`, `action` e `form` (escopo de evento).
 - [x] Política de privacidade do site em `/privacidade`. (`public/privacy_policy/` é a política do app Zen Focus, não do site.)
-- [ ] **CSP do Nginx no `wsabor/infra`**: liberar `https://www.googletagmanager.com` no `script-src` e `https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com` no `connect-src` — sem isso o GA4 é bloqueado no wsabor.com.
+- [x] **CSP do Nginx no `wsabor/infra`** liberando o Google (`googletagmanager.com` no `script-src`; `*.google-analytics.com`, `*.analytics.google.com` e `googletagmanager.com` no `connect-src`) — GA4 verificado no wsabor.com em 2026-10-03.
 - [ ] Depois, quando houver anúncios: vincular GA4 ao Google Ads e/ou instalar o Pixel da Meta (mesmo banner de consentimento).
 
 **Decisões em aberto**
