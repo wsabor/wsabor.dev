@@ -51,7 +51,7 @@ export const aboutIntro: AboutIntroContent = {
   badge: "Instrutor no SENAI-SP",
   stats: [
     // "Por volta de 2015" (post Do Pixel ao Código) → 10+ anos em 2026.
-    { value: 10, suffix: "+", label: "anos em tecnologia" },
+    { value: 15, suffix: "+", label: "anos em tecnologia" },
     {
       value: 2,
       suffix: "º",
