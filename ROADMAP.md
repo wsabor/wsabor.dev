@@ -5,7 +5,7 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 1. **Portfólio** (recrutadores, área de tecnologia, educação) — mostrar _como_ trabalho, não só _o que_ entreguei.
 2. **Captação de clientes locais** — vender sites, Google Meu Negócio (Perfil da Empresa no Google) e tráfego pago para pequenos negócios, e **medir** de onde vêm os contatos.
 
-> Última revisão: 2026-10-04, depois do GA4 com consentimento e eventos (PRs #11 e #12).
+> Última revisão: 2026-10-04, depois do deploy com releases e rollback (`wsabor/infra` PR #13) e do e-mail `contato@wsabor.com` (PR #15).
 
 ---
 
@@ -32,7 +32,6 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 | --- | --- | --- | --- |
 | 👤 **GA4: key events e dimensões** | 🟢 | P | Marcar com estrela `contact_click` e `generate_lead` em Admin → Eventos quando aparecerem em "Eventos recentes". Criar as dimensões personalizadas (escopo Evento) `method`, `location`, `project`, `action` e `form`. Sem isso, os relatórios não mostram as conversões nem os parâmetros. |
 | 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas devem aparecer como "Página alternativa com tag canônica adequada" — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
-| **`deploy.sh` com rollback** | 🟢 | P | Build numa pasta nova e troca só no fim (site sem queda durante o build), guardar a release anterior para voltar em segundos e remover a pergunta interativa. Dá 2 dos 4 ganhos do CI/CD completo sem abrir o servidor para o GitHub. |
 | 👤 **Logo e OG com "wsabor.com"** | 🟡 | P | Decisão de marca: o logo do Header e a imagem OG dos posts ainda mostram "wsabor.dev", e o domínio principal agora é o `.com`. |
 | 👤 **Publicar os 2 rascunhos do blog** | 🟢 | M | Último post em 2025-09-03. Rascunhos em `content/scratch/`: "Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam". O esforço é de escrita. Meta: 1 post/mês. |
 
@@ -82,17 +81,17 @@ O componente e o schema já existem; `src/data/testimonials.ts` está vazio, ent
 
 Modelo de negócio: hospedagem + manutenção como receita recorrente. A Topcoat seria o piloto. Análise completa no ai-memory (projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`).
 
-- [ ] Pré-requisitos: deploy com rollback (grupo 1), role Ansible parametrizado por site no `wsabor/infra`, monitoramento de disponibilidade.
+- [ ] Pré-requisitos: role Ansible parametrizado por site no `wsabor/infra` (o `deploy.sh` já é um template com repositório, branch, PM2 e porta como variáveis), monitoramento de disponibilidade.
 - [ ] 👤 Conferir se a conta OCI é Pay As You Go (contas só Always Free podem ter instâncias ociosas recuperadas).
 - [ ] 👤 Acordo por escrito com o cliente sobre hospedagem e manutenção.
 
 ### 2.5 CI/CD completo — 🟡 · G
 
-Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` resolve a Oracle. Vale quando esquecer o deploy virar problema ou como material didático.
+Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e rollback automático. Falta só o disparo automático. Vale quando esquecer o deploy virar problema ou como material didático.
 
 - [ ] **CI nos PRs** (GitHub Actions): lint e typecheck explícitos. Ganho pequeno, porque a Vercel já barra build quebrado.
-- [ ] **Preparar o servidor** (playbook do `wsabor/infra`): usuário `deploy` sem sudo, `/srv/wsabor/releases/` + symlink `current`, PM2 em `current/server.js`.
-- [ ] **Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do `sharp`) → rsync → troca do symlink + `pm2 reload` → health check e rollback automático. Manter as últimas 3 releases.
+- [ ] **Preparar o servidor** (playbook do `wsabor/infra`): usuário `deploy` sem sudo para o GitHub entrar. A estrutura `~/apps/wsabor/releases/` + symlink `current` já existe.
+- [ ] **Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do `sharp`) → rsync para uma pasta nova em `releases/` → a mesma troca de symlink, health check e rollback do `deploy.sh`. Alternativa mais simples: o Action só roda `deploy.sh` por SSH. `pm2 reload` em modo cluster tiraria o 1–2 s fora do ar no restart.
 
 ---
 
@@ -129,6 +128,7 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` resolve a Oracle. Vale
 
 ## Fora deste repositório
 
+- [ ] 👤 **Apagar o clone antigo no servidor** — depois de alguns dias com o deploy novo: `ssh -p 9922 ubuntu@<IP> 'rm -rf ~/apps/wsabor.dev'`.
 - [ ] 👤 **README do `wsabor/infra`** — blocos prontos sobre os dois domínios e o redirect `www` na Cloudflare: ai-memory, projeto `infra`, `notes/site-dois-dominios-readme-2026-10-01.md`.
 - [ ] **Site da Topcoat** — bug de canonical/hreflang (todas as páginas apontam para a home em PT, inclusive a versão ES), og:image nas páginas internas, redirect `www`, GA4 com consentimento, Search Console, JSON-LD e `llms.txt`: ai-memory, projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`.
 - [ ] 👤 **Conta da Vercel por cliente** — a Topcoat está na conta pessoal (com Speed Insights); o plano Hobby é para uso não comercial. Alternativa: o item 2.4.
@@ -140,7 +140,7 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` resolve a Oracle. Vale
 - [ ] **Manutenção dos `llms.txt`** ao adicionar posts, projetos ou a LP (documentado no CLAUDE.md).
 - [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral; a primeira depois do GA4 (script de terceiros).
 - [ ] **Testes em dispositivos reais** — iPhone Safari (`100svh`, pin, toque) e Android de entrada.
-- [ ] **Deploy nos dois domínios** — depois de cada merge na `main`, a Vercel publica o `wsabor.dev` sozinha; o `wsabor.com` precisa do `deploy.sh` no servidor.
+- [ ] **Deploy nos dois domínios** — depois de cada merge na `main`, a Vercel publica o `wsabor.dev` sozinha; o `wsabor.com` precisa de `ssh -p 9922 ubuntu@<IP> '~/apps/wsabor/deploy.sh'` (`rollback` volta uma versão; `status` lista as guardadas).
 
 ---
 
@@ -148,6 +148,8 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` resolve a Oracle. Vale
 
 - **Dois domínios, o mesmo site:** `wsabor.com` (principal para o Google; Oracle Cloud ARM A1, Ubuntu, Nginx, PM2; playbook no [`wsabor/infra`](https://github.com/wsabor/infra)) e `wsabor.dev` (espelho na Vercel). Canonical, sitemap e schemas apontam sempre para o `.com` (`SITE_URL` em `src/lib/site.ts`).
 - **Cloudflare na frente do `wsabor.com`:** Redirect Rule `www.wsabor.com` → `wsabor.com` (301, curinga `https://www.*` → `https://${1}`, preservando a query string; o registro `www` precisa continuar com proxy). Email Address Obfuscation ativo.
+- **Deploy na Oracle:** `~/apps/wsabor/deploy.sh`, instalado pelo role `site` do `wsabor/infra`. Cada deploy faz o build numa pasta nova em `releases/` e só então troca o link `current` (o PM2 sobe dali). Build com erro não muda nada; se o site não responder 200 em 30 s, volta sozinho para a versão anterior. Guarda as 3 últimas versões.
+- **E-mail `contato@wsabor.com`:** Cloudflare Email Routing (MX `route1-3.mx.cloudflare.net` + SPF na raiz) encaminhando para o Gmail. Só recebe; para responder como `contato@` seria preciso um SMTP (ex.: Resend no subdomínio `send.wsabor.com`). As primeiras mensagens caíram no spam: filtro no Gmail "Nunca enviar para spam".
 - **CSP do Nginx** libera Giscus, Formspree e Google Analytics. Qualquer serviço externo novo (Google Ads, Pixel da Meta) exige ampliar a CSP no `wsabor/infra`.
 - **Medição:** GA4 `G-B2JE8SNHP3` nos dois domínios (Consent Mode v2, modo avançado; dados retidos por 14 meses; vinculado ao Search Console) e Vercel Analytics só no `.dev`.
 
@@ -157,6 +159,8 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` resolve a Oracle. Vale
 
 **Outubro de 2026**
 
+- [x] **Deploy com releases e rollback** — o `deploy.sh` saiu deste repositório e virou template no role `site` do `wsabor/infra` (PR #13): build numa pasta nova, troca atômica do `current`, health check com rollback automático, `deploy.sh rollback`/`status`, sem pergunta interativa. Testado num container ARM e aplicado no servidor.
+- [x] **E-mail `contato@wsabor.com`** — Cloudflare Email Routing para o Gmail; substituiu o Gmail no site, no JSON-LD, no RSS, na política de privacidade, no Formspree e nos `llms.txt` (PR #15).
 - [x] **GA4 com consentimento (LGPD)** — script próprio em `src/lib/analytics.ts` (só em wsabor.com/wsabor.dev), Consent Mode v2 no modo avançado, banner com "Aceitar"/"Recusar" de mesmo peso, "Preferências de cookies" no rodapé, recusar apaga os cookies `_ga` (PR #11).
 - [x] **Eventos do GA4** — `contact_click` (`method`, `location`), `project_click` (`project`, `action`, `location`) e `generate_lead` (formulário), com `trackAttrs()` + ouvinte único em `TrackClicks.tsx`. Verificados no Tempo real em 2026-10-04 (PR #12).
 - [x] **Política de privacidade** em `/privacidade`, curta, com retenção de 14 meses. (`public/privacy_policy/` é a política do app Zen Focus, não do site.)
