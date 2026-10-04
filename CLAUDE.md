@@ -13,7 +13,8 @@ Site pessoal/portfólio de Wagner Sabor, construído com Next.js App Router.
 - **Galeria:** `yet-another-react-lightbox`
 - **Animação da home:** GSAP + ScrollTrigger (`@gsap/react`) e Lenis (smooth scroll, só na home)
 - **Analytics:** `@vercel/analytics`
-- **Deploy:** o mesmo site em dois domínios — `wsabor.com` (principal, Oracle Cloud, Ubuntu ARM + Nginx + PM2; infra no repo `wsabor/infra`) e `wsabor.dev` (espelho, Vercel)
+- **Deploy:** o mesmo site em dois domínios — `wsabor.com` (principal, Oracle Cloud, Ubuntu ARM + Nginx + PM2; infra no repo `wsabor/infra`) e `wsabor.dev` (espelho, Vercel). A Vercel publica sozinha a cada merge na `main`; o `wsabor.com` precisa de `~/apps/wsabor/deploy.sh` no servidor (`rollback` e `status` também). O script mora no `wsabor/infra` (role `site`), não neste repo.
+- **E-mail público:** `contato@wsabor.com` (Cloudflare Email Routing → Gmail). Não usar o Gmail pessoal no site.
 
 ## Estrutura
 

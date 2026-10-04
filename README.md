@@ -40,7 +40,7 @@ Este projeto foi construído com as seguintes tecnologias:
 - **Animação:** [GSAP](https://gsap.com/) (ScrollTrigger) e [Lenis](https://lenis.darkroom.engineering/)
 - **Ícones:** [Lucide React](https://lucide.dev/)
 - **Medição:** [Google Analytics 4](https://marketingplatform.google.com/about/analytics/) e [Vercel Analytics](https://vercel.com/analytics)
-- **Deployment:** `wsabor.com` na [Oracle Cloud](https://www.oracle.com/cloud/) (Nginx + PM2, atrás da [Cloudflare](https://www.cloudflare.com/)) e `wsabor.dev` na [Vercel](https://vercel.com/)
+- **Deployment:** `wsabor.com` na [Oracle Cloud](https://www.oracle.com/cloud/) (Nginx + PM2, atrás da [Cloudflare](https://www.cloudflare.com/); deploy com uma pasta por versão e rollback automático, configurado com Ansible num repositório de infra separado) e `wsabor.dev` na [Vercel](https://vercel.com/)
 
 ---
 
@@ -48,5 +48,6 @@ Este projeto foi construído com as seguintes tecnologias:
 
 Obrigado por visitar o repositório! Sinta-se à vontade para se conectar comigo:
 
+- **E-mail:** [contato@wsabor.com](mailto:contato@wsabor.com)
 - **LinkedIn:** [Wagner Sabor](https://www.linkedin.com/in/wsabor/)
 - **GitHub:** [@wsabor](https://github.com/wsabor)
