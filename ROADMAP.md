@@ -31,17 +31,18 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 
 Vercel Analytics é raso (sem funil, eventos limitados no plano gratuito). GA4 passa a ser a fonte principal, no site e na LP de serviços.
 
-- [ ] Criar propriedade GA4 (e vincular ao Google Search Console).
-- [ ] Integrar via `@next/third-parties/google` (`GoogleAnalytics` + `sendGAEvent`).
-- [ ] **Banner de consentimento (LGPD) + Consent Mode v2** — GA4 grava cookies; sem consentimento só envia sinais anônimos.
+- [x] Criar propriedade GA4 — `G-B2JE8SNHP3`, um fluxo para os dois domínios (falta vincular ao Search Console).
+- [x] Integrar o GA4 — script próprio em `src/lib/analytics.ts` (só roda em wsabor.com/wsabor.dev), sem dependência extra.
+- [x] **Banner de consentimento (LGPD) + Consent Mode v2, modo avançado** — sem cookies até o aceite; antes disso só sinais anônimos. "Preferências de cookies" no rodapé reabre o banner.
 - [ ] Eventos-chave: clique no WhatsApp, clique em e-mail/LinkedIn, envio do formulário de contato, clique em "ver projeto ao vivo".
 - [ ] Marcar como _key events_ (conversões) os que indicam contato.
-- [ ] Atualizar a política de privacidade (`public/privacy_policy`) mencionando GA4 e cookies.
+- [x] Política de privacidade do site em `/privacidade`. (`public/privacy_policy/` é a política do app Zen Focus, não do site.)
+- [ ] **CSP do Nginx no `wsabor/infra`**: liberar `https://www.googletagmanager.com` no `script-src` e `https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com` no `connect-src` — sem isso o GA4 é bloqueado no wsabor.com.
 - [ ] Depois, quando houver anúncios: vincular GA4 ao Google Ads e/ou instalar o Pixel da Meta (mesmo banner de consentimento).
 
 **Decisões em aberto**
 
-- Manter o Vercel Analytics em paralelo ou removê-lo? (Ele não usa cookies; pode ficar como métrica "sem consentimento".)
+- ~~Manter o Vercel Analytics?~~ Decidido: mantém no wsabor.dev (sem cookies).
 - LP em `/servicos` ou em subdomínio: com subdomínio de `wsabor.com`, a **mesma propriedade/ID** do GA4 funciona sem configuração extra (o cookie fica no domínio raiz). O `wsabor.dev` é outro domínio: a mesma propriedade mede os dois, separados por hostname.
 
 ### 2. Landing page de serviços
@@ -90,7 +91,7 @@ O componente e o schema já existem; `src/data/testimonials.ts` está vazio, ent
 
 - [ ] **Cadência de blog** — último post em 2025-09-03. Há dois rascunhos em `content/scratch/` ("Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam"). Meta: 1 post/mês.
 - [ ] **/labs** — vitrine para `public/snakeGame/` e `public/pixelart/`, que hoje não têm nenhum link no site.
-- [ ] **Posts relacionados** ao final do post (usa `category`/`keywords`). Barato; valor cresce com o volume de posts.
+- [ ] **Posts relacionados** — o "Leia também" já existe, mas mostra os mais recentes; trocar o critério para `category`/`keywords`. Valor cresce com o volume de posts.
 - [ ] **Table of Contents** — só para posts longos (hoje apenas o do hackathon: ~1650 palavras, 5 seções). Fazer junto com "posts relacionados".
 - [ ] **/uses** — setup (hardware, editor, extensões, terminal). SEO long-tail entre devs.
 - [ ] **Vertente educador (`/recursos`)** — materiais, links e snippets usados em aula; schema `Course`. Exige curadoria de conteúdo.
@@ -123,7 +124,7 @@ O mesmo site em dois domínios: **wsabor.com** (principal para o Google, Oracle 
 - [ ] **Fase 2 — CI nos PRs** (GitHub Actions): lint, typecheck e build em todo PR. A Vercel continua com a integração atual.
 - [ ] **Fase 3 — Preparar o servidor** (no playbook do `wsabor/infra`): usuário `deploy` sem sudo com chave SSH só para o GitHub; estrutura `/srv/wsabor/releases/` + symlink `current`; PM2 apontando para `current/server.js`.
 - [ ] **Fase 4 — Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do binário nativo do `sharp`) → rsync para uma release nova → troca do symlink + `pm2 reload` → health check com curl e rollback automático para a release anterior. Deploy direto, sem aprovação manual. Manter as últimas 3 releases.
-- [ ] **`deploy.sh`**: virar plano B manual (corrigir `npm ci --omit=dev`, que quebra o build, e a pergunta interativa, que trava no CI) ou remover depois da fase 4.
+- [ ] **`deploy.sh`**: build numa pasta nova e troca só no fim (site sem queda + rollback, sem abrir o servidor para o GitHub) e remover a pergunta interativa. O `npm ci --omit=dev` já foi corrigido. Alternativa mais barata às fases 3–4.
 - [x] **Redirecionar `www.wsabor.com` → `wsabor.com`** — feito por uma Redirect Rule na Cloudflare (não no Nginx): 301, padrão curinga `https://www.*` → `https://${1}`, preservando a query string. O registro DNS `www` precisa continuar com proxy (nuvem laranja). Anotar no `wsabor/infra`.
 - [ ] **Google Search Console**: adicionar a propriedade `wsabor.com` e enviar o sitemap; manter a do `.dev` para acompanhar a migração do canonical.
 - [ ] **Formspree**: conferir se há restrição de domínio que bloqueie envios do `.com`.
