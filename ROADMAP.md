@@ -5,79 +5,72 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 1. **Portfólio** (recrutadores, área de tecnologia, educação) — mostrar _como_ trabalho, não só _o que_ entreguei.
 2. **Captação de clientes locais** — vender sites, Google Meu Negócio (Perfil da Empresa no Google) e tráfego pago para pequenos negócios, e **medir** de onde vêm os contatos.
 
-> Última revisão: 2026-09-26, depois do redesign completo (PRs #3 e #4).
+> Última revisão: 2026-10-04, depois do GA4 com consentimento e eventos (PRs #11 e #12).
 
 ---
 
-## Concluído
+## Como ler este roadmap
 
-- [x] **Scroll sequence no hero da home** — canvas com frames WebP guiados pelo scroll (PR #3).
-- [x] **Redesign da home** — "Quem sou", bento de especialidades com o card "Presença digital para negócios", marquee de tecnologias, projetos e artigos, CTA com canais diretos (PR #4).
-- [x] **Redesign das páginas internas** — /about, /projects, /blog, /contact, 404 e erro (PR #4).
-- [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com link para cada credencial e `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
-- [x] **Hotel Brisa do Mar no portfólio** — projeto de estudo, entre os destaques da home. O EPI System continua como exemplo, sem link (fora do ar, só na rede do SENAI).
-- [x] **SEO para dois domínios (fase 1 do CI/CD)** — `wsabor.com` como domínio principal: canonical em todas as páginas, sitemap/robots/feed/schemas/OG no .com, títulos próprios em /about, /projects e /contact, `og:image` e sitemap para os estudos de caso, Vercel Analytics só na Vercel.
-- [x] **OG dinâmica por post** (`next/og`) e OG/banner da home.
-- [x] **Reading progress bar** nos posts.
-- [x] **Limpeza de repositório** (backups, blocos comentados, componentes mortos).
-- [x] **Comentários com Giscus** — ativos nos posts.
-- [x] **Estrutura de estudos de caso** (`/projects/[slug]` em MDX, com `highlights`) — o conteúdo está parcial, veja "Agora".
+Os itens estão agrupados por **retorno × esforço**, para escolher o próximo trabalho.
+
+- **Retorno:** 🟢 alto · 🟡 médio · ⚪ baixo — quanto ajuda os dois objetivos acima.
+- **Esforço:** **P** até meio dia · **M** 1–2 dias · **G** 3 dias ou mais.
+- 👤 = depende de você (painel, conteúdo ou decisão), não de código.
+
+| Grupo | O que é | Quando fazer |
+| --- | --- | --- |
+| 1. Ganhos rápidos | Retorno alto, esforço pequeno | Primeiro |
+| 2. Projetos estratégicos | Retorno alto, esforço grande | Um por vez, em fases |
+| 3. Quando sobrar tempo | Retorno médio ou baixo, esforço pequeno | Entre os projetos grandes |
+| 4. Adiado | Só faz sentido quando uma condição mudar | Revisitar na condição |
 
 ---
 
-## Agora (P1)
+## 1. Ganhos rápidos (retorno alto, esforço pequeno)
 
-### 1. Medição com GA4
+| Item | Retorno | Esforço | Observação |
+| --- | --- | --- | --- |
+| 👤 **GA4: key events e dimensões** | 🟢 | P | Marcar com estrela `contact_click` e `generate_lead` em Admin → Eventos quando aparecerem em "Eventos recentes". Criar as dimensões personalizadas (escopo Evento) `method`, `location`, `project`, `action` e `form`. Sem isso, os relatórios não mostram as conversões nem os parâmetros. |
+| 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas devem aparecer como "Página alternativa com tag canônica adequada" — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
+| **`deploy.sh` com rollback** | 🟢 | P | Build numa pasta nova e troca só no fim (site sem queda durante o build), guardar a release anterior para voltar em segundos e remover a pergunta interativa. Dá 2 dos 4 ganhos do CI/CD completo sem abrir o servidor para o GitHub. |
+| 👤 **Logo e OG com "wsabor.com"** | 🟡 | P | Decisão de marca: o logo do Header e a imagem OG dos posts ainda mostram "wsabor.dev", e o domínio principal agora é o `.com`. |
+| 👤 **Publicar os 2 rascunhos do blog** | 🟢 | M | Último post em 2025-09-03. Rascunhos em `content/scratch/`: "Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam". O esforço é de escrita. Meta: 1 post/mês. |
 
-Vercel Analytics é raso (sem funil, eventos limitados no plano gratuito). GA4 passa a ser a fonte principal, no site e na LP de serviços.
+---
 
-- [x] Criar propriedade GA4 — `G-B2JE8SNHP3`, um fluxo para os dois domínios (falta vincular ao Search Console).
-- [x] Integrar o GA4 — script próprio em `src/lib/analytics.ts` (só roda em wsabor.com/wsabor.dev), sem dependência extra.
-- [x] **Banner de consentimento (LGPD) + Consent Mode v2, modo avançado** — sem cookies até o aceite; antes disso só sinais anônimos. "Preferências de cookies" no rodapé reabre o banner.
-- [x] Eventos: `contact_click` (`method`, `location`), `project_click` (`project`, `action`, `location`) e `generate_lead` (formulário). Cliques marcados com `trackAttrs()` + ouvinte único em `TrackClicks.tsx`. WhatsApp entra como `method: "whatsapp"` quando houver número.
-- [ ] No GA4 (painel): marcar `contact_click` e `generate_lead` como _key events_ e criar as dimensões personalizadas `method`, `location`, `project`, `action` e `form` (escopo de evento).
-- [x] Política de privacidade do site em `/privacidade`. (`public/privacy_policy/` é a política do app Zen Focus, não do site.)
-- [x] **CSP do Nginx no `wsabor/infra`** liberando o Google (`googletagmanager.com` no `script-src`; `*.google-analytics.com`, `*.analytics.google.com` e `googletagmanager.com` no `connect-src`) — GA4 verificado no wsabor.com em 2026-10-03.
-- [ ] Depois, quando houver anúncios: vincular GA4 ao Google Ads e/ou instalar o Pixel da Meta (mesmo banner de consentimento).
+## 2. Projetos estratégicos (retorno alto, esforço grande)
 
-**Decisões em aberto**
+### 2.1 Landing page de serviços — 🟢 · G
 
-- ~~Manter o Vercel Analytics?~~ Decidido: mantém no wsabor.dev (sem cookies).
-- LP em `/servicos` ou em subdomínio: com subdomínio de `wsabor.com`, a **mesma propriedade/ID** do GA4 funciona sem configuração extra (o cookie fica no domínio raiz). O `wsabor.dev` é outro domínio: a mesma propriedade mede os dois, separados por hostname.
-
-### 2. Landing page de serviços
-
-Página de conversão separada da home (a home continua sendo portfólio pessoal), em linguagem de negócio, sem jargão técnico, com CTA de WhatsApp.
+Página de conversão separada da home (a home continua sendo portfólio pessoal), em linguagem de negócio, sem jargão técnico, com CTA de WhatsApp. É o item que traz receita.
 
 - [ ] Estrutura: hero com proposta de valor + WhatsApp → dores do cliente → 3 serviços → processo (conversa → proposta → entrega → acompanhamento) → portfólio de clientes → pacotes/"a partir de" → FAQ → formulário + WhatsApp.
 - [ ] Reaproveitar a linguagem visual (`PageHeader`, `FeatureCard`, `ContactChannels`, `CallToAction`).
-- [ ] SEO local: schema `ProfessionalService`, metadata, sitemap, `llms.txt`.
-- [ ] Eventos do GA4 (item 1) desde o lançamento.
+- [ ] SEO local: schema `ProfessionalService`, metadata (`pageMetadata()`), sitemap, `llms.txt`.
+- [ ] Eventos do GA4 desde o lançamento (`trackAttrs()`; WhatsApp como `contact_click` com `method: "whatsapp"`).
 - [ ] Apontar o CTA do card "Presença digital para negócios" (`businessServices.cta.href` em `src/data/specialties.tsx`, hoje `/contact`) para a LP.
 
-**Decisões em aberto**
+**👤 Decisões em aberto (bloqueiam o início)**
 
-- Endereço: `wsabor.com/servicos` ou subdomínio (ex.: `servicos.wsabor.com`)? Domínio definido: `wsabor.com`.
+- Endereço: `wsabor.com/servicos` ou subdomínio (ex.: `servicos.wsabor.com`)? O GA4 funciona igual nos dois.
 - Nome/marca: "Wagner Sabor" ou uma marca separada?
 - Região/cidade atendida.
 - Mostrar preços ("a partir de") ou "sob consulta"?
-- Tráfego pago: Google Ads, Meta ou os dois?
+- Tráfego pago: Google Ads, Meta ou os dois? (Quando houver anúncios: vincular o GA4 ao Google Ads e/ou instalar o Pixel da Meta, com o mesmo banner de consentimento e a CSP do Nginx ampliada.)
 - Número público de WhatsApp.
-- Brisa do Mar já está no portfólio como projeto de estudo (https://brisa-mar-hotel.wsabor.dev). Na LP, apresentar como exemplo/modelo, deixando claro que o hotel é fictício.
+- Brisa do Mar entra como exemplo/modelo (https://brisa-mar-hotel.wsabor.dev), deixando claro que o hotel é fictício.
 
-### 3. Completar os estudos de caso
+### 2.2 Completar os estudos de caso — 🟢 · M cada (👤 texto)
 
-Existem 2 de 7: Topcoat Vernizes e Sistema de Simulados.
+Existem 2 de 7: Topcoat Vernizes e Sistema de Simulados. O código já existe; o esforço é escrever contexto, decisões e resultados.
 
 - [ ] DR Prev Serviços Previdenciários _(cliente — também serve de prova para a LP)_
+- [ ] Hotel Brisa do Mar _(projeto de estudo; o README do repositório já tem o conteúdo técnico)_
 - [ ] Quiz Prepara Aí 2025
 - [ ] EPI System
-- [ ] Hotel Brisa do Mar _(projeto de estudo; o README do repositório já tem o conteúdo técnico)_
 - [ ] Agro Solutio
 
-Esforço real é o **texto** (contexto, decisões, resultados); o código já existe.
-
-### 4. Depoimentos
+### 2.3 Depoimentos — 🟢 · M (👤 coleta)
 
 O componente e o schema já existem; `src/data/testimonials.ts` está vazio, então a seção fica oculta.
 
@@ -85,70 +78,102 @@ O componente e o schema já existem; `src/data/testimonials.ts` está vazio, ent
 - [ ] Possível primeiro depoimento: comentário da Cris D'Avilla no post do hackathon (só com autorização dela).
 - [ ] Depoimentos de clientes também entram na LP de serviços.
 
+### 2.4 Hospedar sites de clientes na OCI — 🟡 · G
+
+Modelo de negócio: hospedagem + manutenção como receita recorrente. A Topcoat seria o piloto. Análise completa no ai-memory (projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`).
+
+- [ ] Pré-requisitos: deploy com rollback (grupo 1), role Ansible parametrizado por site no `wsabor/infra`, monitoramento de disponibilidade.
+- [ ] 👤 Conferir se a conta OCI é Pay As You Go (contas só Always Free podem ter instâncias ociosas recuperadas).
+- [ ] 👤 Acordo por escrito com o cliente sobre hospedagem e manutenção.
+
+### 2.5 CI/CD completo — 🟡 · G
+
+Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` resolve a Oracle. Vale quando esquecer o deploy virar problema ou como material didático.
+
+- [ ] **CI nos PRs** (GitHub Actions): lint e typecheck explícitos. Ganho pequeno, porque a Vercel já barra build quebrado.
+- [ ] **Preparar o servidor** (playbook do `wsabor/infra`): usuário `deploy` sem sudo, `/srv/wsabor/releases/` + symlink `current`, PM2 em `current/server.js`.
+- [ ] **Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do `sharp`) → rsync → troca do symlink + `pm2 reload` → health check e rollback automático. Manter as últimas 3 releases.
+
 ---
 
-## Próximo (P2)
+## 3. Quando sobrar tempo (retorno médio ou baixo, esforço pequeno)
 
-- [ ] **Cadência de blog** — último post em 2025-09-03. Há dois rascunhos em `content/scratch/` ("Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam"). Meta: 1 post/mês.
-- [ ] **/labs** — vitrine para `public/snakeGame/` e `public/pixelart/`, que hoje não têm nenhum link no site.
-- [ ] **Posts relacionados** — o "Leia também" já existe, mas mostra os mais recentes; trocar o critério para `category`/`keywords`. Valor cresce com o volume de posts.
-- [ ] **Table of Contents** — só para posts longos (hoje apenas o do hackathon: ~1650 palavras, 5 seções). Fazer junto com "posts relacionados".
-- [ ] **/uses** — setup (hardware, editor, extensões, terminal). SEO long-tail entre devs.
-- [ ] **Vertente educador (`/recursos`)** — materiais, links e snippets usados em aula; schema `Course`. Exige curadoria de conteúdo.
-- [ ] **Newsletter** — só depois que o blog tiver cadência.
+| Item | Retorno | Esforço | Observação |
+| --- | --- | --- | --- |
+| **/labs** | 🟡 | P | Vitrine para `public/snakeGame/` e `public/pixelart/`, que hoje não têm nenhum link no site. |
+| **/uses** | 🟡 | P | Setup (hardware, editor, extensões, terminal). SEO long-tail entre devs. |
+| **Posts relacionados por categoria** | ⚪ | P | O "Leia também" já existe, mas mostra os mais recentes; trocar o critério para `category`/`keywords`. Cresce com o volume de posts. |
+| **Table of Contents** | ⚪ | P | Só para posts longos (hoje apenas o do hackathon). Fazer junto com "posts relacionados". |
+| **Vertente educador (`/recursos`)** | 🟡 | G (👤 curadoria) | Materiais, links e snippets usados em aula; schema `Course`. |
 
 ---
 
-## Adiado — revisitar quando…
+## 4. Adiado — revisitar quando…
 
-| Item                        | Revisitar quando                                            |
-| --------------------------- | ----------------------------------------------------------- |
-| Filtro por tag em /projects | Houver mais de 10 projetos                                  |
-| Busca/filtros no blog       | Houver ~15 posts                                            |
-| /now                        | Houver disposição para atualizar todo mês                   |
-| Integração GitHub           | Houver motivo além de cosmético (o perfil do GitHub já mostra) |
-| /stats público              | Houver números reais e verificáveis para mostrar            |
-| i18n PT/EN                  | Houver foco ativo em mercado internacional                  |
+| Item | Revisitar quando |
+| --- | --- |
+| Newsletter | O blog tiver cadência (1 post/mês por alguns meses) |
+| Filtro por tag em /projects | Houver mais de 10 projetos |
+| Busca/filtros no blog | Houver ~15 posts |
+| /now | Houver disposição para atualizar todo mês |
+| Integração GitHub | Houver motivo além de cosmético (o perfil do GitHub já mostra) |
+| /stats público | Houver números reais e verificáveis para mostrar |
+| i18n PT/EN | Houver foco ativo em mercado internacional |
 
 ## Descartado
 
 - ~~Botão "Baixar CV"~~ — decisão: não haverá CV no site.
-- ~~Analytics próprio (Plausible/PostHog)~~ — substituído por GA4 (Agora, item 1).
+- ~~Analytics próprio (Plausible/PostHog)~~ — substituído por GA4.
 
 ---
 
-## Infra / CI-CD
+## Fora deste repositório
 
-O mesmo site em dois domínios: **wsabor.com** (principal para o Google, Oracle Cloud) e **wsabor.dev** (espelho, Vercel). Servidor: Oracle Cloud ARM A1, Ubuntu, Nginx, PM2 — configuração no playbook Ansible do repositório [`wsabor/infra`](https://github.com/wsabor/infra).
-
-- [ ] **Fase 2 — CI nos PRs** (GitHub Actions): lint, typecheck e build em todo PR. A Vercel continua com a integração atual.
-- [ ] **Fase 3 — Preparar o servidor** (no playbook do `wsabor/infra`): usuário `deploy` sem sudo com chave SSH só para o GitHub; estrutura `/srv/wsabor/releases/` + symlink `current`; PM2 apontando para `current/server.js`.
-- [ ] **Fase 4 — Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do binário nativo do `sharp`) → rsync para uma release nova → troca do symlink + `pm2 reload` → health check com curl e rollback automático para a release anterior. Deploy direto, sem aprovação manual. Manter as últimas 3 releases.
-- [ ] **`deploy.sh`**: build numa pasta nova e troca só no fim (site sem queda + rollback, sem abrir o servidor para o GitHub) e remover a pergunta interativa. O `npm ci --omit=dev` já foi corrigido. Alternativa mais barata às fases 3–4.
-- [x] **Redirecionar `www.wsabor.com` → `wsabor.com`** — feito por uma Redirect Rule na Cloudflare (não no Nginx): 301, padrão curinga `https://www.*` → `https://${1}`, preservando a query string. O registro DNS `www` precisa continuar com proxy (nuvem laranja). Anotar no `wsabor/infra`.
-- [ ] **Google Search Console**: adicionar a propriedade `wsabor.com` e enviar o sitemap; manter a do `.dev` para acompanhar a migração do canonical.
-- [ ] **Formspree**: conferir se há restrição de domínio que bloqueie envios do `.com`.
-
----
-
-## Fora do repositório (infra de clientes)
-
-- [ ] **Separar projetos de clientes da conta pessoal na Vercel** — a Topcoat (com Speed Insights ativo) está na mesma conta do wsabor.dev. Criar uma conta/time por cliente, de preferência em nome do cliente, antes de novos projetos para ele. Atenção: o plano Hobby da Vercel é para uso pessoal e não comercial; site de cliente pago normalmente exige plano Pro (confirmar nos termos atuais).
+- [ ] 👤 **README do `wsabor/infra`** — blocos prontos sobre os dois domínios e o redirect `www` na Cloudflare: ai-memory, projeto `infra`, `notes/site-dois-dominios-readme-2026-10-01.md`.
+- [ ] **Site da Topcoat** — bug de canonical/hreflang (todas as páginas apontam para a home em PT, inclusive a versão ES), og:image nas páginas internas, redirect `www`, GA4 com consentimento, Search Console, JSON-LD e `llms.txt`: ai-memory, projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`.
+- [ ] 👤 **Conta da Vercel por cliente** — a Topcoat está na conta pessoal (com Speed Insights); o plano Hobby é para uso não comercial. Alternativa: o item 2.4.
 
 ---
 
 ## Contínuo
 
 - [ ] **Manutenção dos `llms.txt`** ao adicionar posts, projetos ou a LP (documentado no CLAUDE.md).
-- [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral e após adicionar GA4 (script de terceiros).
+- [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral; a primeira depois do GA4 (script de terceiros).
 - [ ] **Testes em dispositivos reais** — iPhone Safari (`100svh`, pin, toque) e Android de entrada.
+- [ ] **Deploy nos dois domínios** — depois de cada merge na `main`, a Vercel publica o `wsabor.dev` sozinha; o `wsabor.com` precisa do `deploy.sh` no servidor.
 
 ---
 
-## Ordem sugerida
+## Infra (referência)
 
-1. **GA4 + consentimento** no site atual → a LP já nasce medida. Uma propriedade para os dois domínios.
-2. **CI/CD** (fases 2–4 de "Infra / CI-CD").
-3. **LP de serviços** (no domínio `wsabor.com`), em fases (depois de responder as decisões em aberto).
-4. Em paralelo e fora do código: **coletar depoimentos** e **escrever os estudos de caso** restantes.
-5. Depois: blog (rascunhos), /labs, posts relacionados + TOC.
+- **Dois domínios, o mesmo site:** `wsabor.com` (principal para o Google; Oracle Cloud ARM A1, Ubuntu, Nginx, PM2; playbook no [`wsabor/infra`](https://github.com/wsabor/infra)) e `wsabor.dev` (espelho na Vercel). Canonical, sitemap e schemas apontam sempre para o `.com` (`SITE_URL` em `src/lib/site.ts`).
+- **Cloudflare na frente do `wsabor.com`:** Redirect Rule `www.wsabor.com` → `wsabor.com` (301, curinga `https://www.*` → `https://${1}`, preservando a query string; o registro `www` precisa continuar com proxy). Email Address Obfuscation ativo.
+- **CSP do Nginx** libera Giscus, Formspree e Google Analytics. Qualquer serviço externo novo (Google Ads, Pixel da Meta) exige ampliar a CSP no `wsabor/infra`.
+- **Medição:** GA4 `G-B2JE8SNHP3` nos dois domínios (Consent Mode v2, modo avançado; dados retidos por 14 meses; vinculado ao Search Console) e Vercel Analytics só no `.dev`.
+
+---
+
+## Concluído
+
+**Outubro de 2026**
+
+- [x] **GA4 com consentimento (LGPD)** — script próprio em `src/lib/analytics.ts` (só em wsabor.com/wsabor.dev), Consent Mode v2 no modo avançado, banner com "Aceitar"/"Recusar" de mesmo peso, "Preferências de cookies" no rodapé, recusar apaga os cookies `_ga` (PR #11).
+- [x] **Eventos do GA4** — `contact_click` (`method`, `location`), `project_click` (`project`, `action`, `location`) e `generate_lead` (formulário), com `trackAttrs()` + ouvinte único em `TrackClicks.tsx`. Verificados no Tempo real em 2026-10-04 (PR #12).
+- [x] **Política de privacidade** em `/privacidade`, curta, com retenção de 14 meses. (`public/privacy_policy/` é a política do app Zen Focus, não do site.)
+- [x] **CSP do Nginx** liberando o Google Analytics no `wsabor.com`.
+- [x] **Search Console** — propriedade de domínio `wsabor.com`, sitemap enviado e vínculo com o GA4. A propriedade `wsabor.dev` continua para acompanhar a transição.
+- [x] **Formspree** funcionando no `wsabor.com` (envio de teste recebido).
+- [x] **Redirect `www.wsabor.com` → `wsabor.com`** na Cloudflare.
+- [x] **SEO para dois domínios** — `wsabor.com` como principal: canonical e `og:url` em todas as páginas, títulos próprios em /about, /projects e /contact, `og:image` e sitemap para os estudos de caso (PR #7).
+- [x] **Vercel Analytics por domínio** — carrega só em `wsabor.dev` e `*.vercel.app` (`VercelAnalytics.tsx`).
+- [x] **Hotel Brisa do Mar no portfólio** — projeto de estudo entre os destaques da home. O EPI System continua como exemplo, sem link (fora do ar, só na rede do SENAI).
+- [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
+- [x] **Dependências atualizadas** dentro das faixas do `package.json` (Next 16.3.8; ESLint continua no 9).
+
+**Setembro de 2026**
+
+- [x] **Scroll sequence no hero da home** — canvas com frames WebP guiados pelo scroll (PR #3).
+- [x] **Redesign da home e das páginas internas** — "Quem sou", bento de especialidades, marquee de tecnologias, CTA com canais diretos, /about, /projects, /blog, /contact, 404 e erro (PR #4).
+- [x] **Estrutura de estudos de caso** (`/projects/[slug]` em MDX, com `highlights`).
+- [x] **OG dinâmica por post** (`next/og`), OG/banner da home e **reading progress bar** nos posts.
+- [x] **Comentários com Giscus** e **limpeza de repositório**.
