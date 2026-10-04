@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Rss, Heart, Coffee } from "lucide-react";
 import { GithubIcon, LinkedinIcon, XIcon } from "./BrandIcons";
+import CookiePreferencesButton from "./CookiePreferencesButton";
 
 const socialLinks = [
   {
@@ -41,6 +42,15 @@ export default function Footer() {
             <Heart className="inline h-4 w-4 align-middle text-red-500" /> e{" "}
             <Coffee className="text-topcoat-cyan inline h-4 w-4 align-middle" />{" "}
             usando Next.js e Tailwind CSS.
+          </p>
+          <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm md:justify-start">
+            <Link
+              href="/privacidade"
+              className="hover:text-primary underline-offset-2 transition-colors hover:underline"
+            >
+              Privacidade
+            </Link>
+            <CookiePreferencesButton />
           </p>
         </div>
 

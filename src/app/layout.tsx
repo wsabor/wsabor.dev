@@ -8,6 +8,9 @@ import { SITE_URL, defaultOpenGraph } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VercelAnalytics from "@/components/VercelAnalytics";
+import CookieConsent from "@/components/CookieConsent";
+import Script from "next/script";
+import { gaInlineScript } from "@/lib/analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -115,7 +118,12 @@ export default function RootLayout({
           </main>
           <Footer />
           <VercelAnalytics />
+          <CookieConsent />
         </ThemeProvider>
+        {/* GA4 + Consent Mode v2 (só em wsabor.com/wsabor.dev) */}
+        <Script id="ga4" strategy="afterInteractive">
+          {gaInlineScript}
+        </Script>
       </body>
     </html>
   );
