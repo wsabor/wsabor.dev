@@ -2,6 +2,7 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Inputs = {
   name: string;
@@ -38,6 +39,7 @@ export function ContactForm() {
       });
 
       if (response.ok) {
+        trackEvent("generate_lead", { form: "contact" });
         setSubmitStatus("success");
         reset();
       } else {

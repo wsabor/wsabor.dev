@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, FileText } from "lucide-react";
+import { trackAttrs } from "@/lib/analytics";
 
 type ProjectCardProps = {
   title: string;
@@ -82,6 +83,11 @@ export function ProjectCard({
           {slug && (
             <Link
               href={`/projects/${slug}`}
+              {...trackAttrs("project_click", {
+                project: slug,
+                action: "case_study",
+                location: "card",
+              })}
               className="bg-primary-strong hover:bg-primary-deep inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
             >
               Ver Estudo de Caso
@@ -91,6 +97,11 @@ export function ProjectCard({
           {link && link !== "#" && (
             <Link
               href={link}
+              {...trackAttrs("project_click", {
+                project: slug ?? title,
+                action: "live_site",
+                location: "card",
+              })}
               target="_blank"
               rel="noopener noreferrer"
               className={

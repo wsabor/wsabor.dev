@@ -46,7 +46,7 @@ export default function ContactPage() {
           <p className="text-text-muted mb-6">
             Prefere seu canal? Escolha um dos atalhos abaixo.
           </p>
-          <ContactChannels />
+          <ContactChannels location="contact_page" />
         </section>
 
         {/* Formulário */}
