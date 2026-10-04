@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 import JsonLd from "@/components/JsonLd";
 import PageHeader from "@/components/PageHeader";
