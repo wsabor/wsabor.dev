@@ -14,7 +14,7 @@ Stack principal: Next.js, React, TypeScript, Node.js.
 
 ### Quem sou
 
-Do pixel ao código: começou no design gráfico (diagramação editorial e atendimento ao cliente), fez a transição para a tecnologia por volta de 2015 (Informática para Negócios na FATEC de São Bernardo do Campo), tornou-se especialista em Next.js e React e hoje é instrutor no Curso Técnico em Desenvolvimento de Sistemas do SENAI-SP. Mais de 15 anos em tecnologia; 2º lugar no Hackathon Agrotech 2025 com seus alunos.
+Do pixel ao código: começou no design gráfico (diagramação editorial e atendimento ao cliente), fez a transição para a tecnologia em 2011 (freelas e o emprego da época) e depois cursou Informática para Negócios na FATEC de São Bernardo do Campo (por volta de 2015), tornou-se especialista em Next.js e React e hoje é instrutor no Curso Técnico em Desenvolvimento de Sistemas do SENAI-SP. Trabalha com tecnologia desde 2011; 2º lugar no Hackathon Agrotech 2025 com seus alunos.
 
 ### Certificações
 
@@ -208,7 +208,7 @@ MVP funcional entregue. Os alunos evoluíram de conceitos teóricos para a prát
 
 ### Do Pixel ao Código: Como o Design Moldou Minha Trajetória na Tecnologia
 URL: https://wsabor.com/blog/minha-trajetoria
-Publicado em: 2025-05-26 | Atualizado em: 2025-05-26
+Publicado em: 2025-05-26 | Atualizado em: 2026-10-04
 Categoria: Trajetória Pessoal | Leitura: 4 min
 Resumo: Um relato pessoal sobre a jornada de transição de carreira, saindo do design gráfico para se tornar desenvolvedor de software e, hoje, instrutor.
 
@@ -222,7 +222,7 @@ O atendimento direto ao cliente proporcionou uma visão ampla das necessidades e
 
 **Transição de carreira**
 
-Por volta de 2015, decidiu realizar a transição de carreira, saindo do mundo gráfico para a tecnologia. Fez o curso superior em Informática para Negócios na FATEC de São Bernardo do Campo, aprofundando conhecimentos em programação, banco de dados, redes e TI.
+Em 2011, começou a transição de carreira, saindo do mundo gráfico para a tecnologia: passou a atuar com tecnologia em freelas e no trabalho em que estava na época. Por volta de 2015, fez o curso superior em Informática para Negócios na FATEC de São Bernardo do Campo, aprofundando conhecimentos em programação, banco de dados, redes e TI.
 
 O background em design e atendimento ao cliente proporcionou uma visão sistêmica e um olhar cuidadoso ao desenvolver software: não apenas escrever código, mas construir experiências.
 
