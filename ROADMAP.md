@@ -128,7 +128,6 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 
 ## Fora deste repositório
 
-- [ ] 👤 **Apagar o clone antigo no servidor** — depois de alguns dias com o deploy novo: `ssh -p 9922 ubuntu@<IP> 'rm -rf ~/apps/wsabor.dev'`.
 - [ ] 👤 **README do `wsabor/infra`** — blocos prontos sobre os dois domínios e o redirect `www` na Cloudflare: ai-memory, projeto `infra`, `notes/site-dois-dominios-readme-2026-10-01.md`.
 - [ ] **Site da Topcoat** — bug de canonical/hreflang (todas as páginas apontam para a home em PT, inclusive a versão ES), og:image nas páginas internas, redirect `www`, GA4 com consentimento, Search Console, JSON-LD e `llms.txt`: ai-memory, projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`.
 - [ ] 👤 **Conta da Vercel por cliente** — a Topcoat está na conta pessoal (com Speed Insights); o plano Hobby é para uso não comercial. Alternativa: o item 2.4.
@@ -160,6 +159,7 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 **Outubro de 2026**
 
 - [x] **Deploy com releases e rollback** — o `deploy.sh` saiu deste repositório e virou template no role `site` do `wsabor/infra` (PR #13): build numa pasta nova, troca atômica do `current`, health check com rollback automático, `deploy.sh rollback`/`status`, sem pergunta interativa. Testado num container ARM e aplicado no servidor.
+- [x] **Clone antigo `~/apps/wsabor.dev` apagado** do servidor depois da migração para o deploy com releases.
 - [x] **E-mail `contato@wsabor.com`** — Cloudflare Email Routing para o Gmail; substituiu o Gmail no site, no JSON-LD, no RSS, na política de privacidade, no Formspree e nos `llms.txt` (PR #15).
 - [x] **GA4 com consentimento (LGPD)** — script próprio em `src/lib/analytics.ts` (só em wsabor.com/wsabor.dev), Consent Mode v2 no modo avançado, banner com "Aceitar"/"Recusar" de mesmo peso, "Preferências de cookies" no rodapé, recusar apaga os cookies `_ga` (PR #11).
 - [x] **Eventos do GA4** — `contact_click` (`method`, `location`), `project_click` (`project`, `action`, `location`) e `generate_lead` (formulário), com `trackAttrs()` + ouvinte único em `TrackClicks.tsx`. Verificados no Tempo real em 2026-10-04 (PR #12).

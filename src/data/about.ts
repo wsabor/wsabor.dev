@@ -40,6 +40,13 @@ export type AboutIntroContent = {
   timeline: TimelineStep[];
 };
 
+// Ano em que começou a trabalhar com tecnologia (freelas e o emprego da época).
+// A FATEC (2015) veio depois, como curso superior.
+export const TECH_CAREER_START = 2011;
+
+// Calculado no build: cada deploy atualiza o número.
+const yearsInTech = new Date().getFullYear() - TECH_CAREER_START;
+
 export const aboutIntro: AboutIntroContent = {
   eyebrow: "Quem sou",
   title: "Do pixel ao código",
@@ -50,8 +57,7 @@ export const aboutIntro: AboutIntroContent = {
   },
   badge: "Instrutor no SENAI-SP",
   stats: [
-    // "Por volta de 2015" (post Do Pixel ao Código) → 10+ anos em 2026.
-    { value: 15, suffix: "+", label: "anos em tecnologia" },
+    { value: yearsInTech, suffix: "+", label: "anos em tecnologia" },
     {
       value: 2,
       suffix: "º",
@@ -67,8 +73,14 @@ export const aboutIntro: AboutIntroContent = {
         "Diagramação editorial de livros, revistas e jornais, com atendimento direto ao cliente.",
     },
     {
-      period: "2015",
+      period: "2011",
       title: "Transição para a tecnologia",
+      description:
+        "Primeiros trabalhos com tecnologia, em freelas e no emprego da época.",
+    },
+    {
+      period: "2015",
+      title: "Curso superior",
       description:
         "Informática para Negócios na FATEC de São Bernardo do Campo.",
     },
