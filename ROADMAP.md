@@ -32,7 +32,6 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 | --- | --- | --- | --- |
 | 👤 **GA4: key events e dimensões** | 🟢 | P | Marcar com estrela `contact_click` e `generate_lead` em Admin → Eventos quando aparecerem em "Eventos recentes". Criar as dimensões personalizadas (escopo Evento) `method`, `location`, `project`, `action` e `form`. Sem isso, os relatórios não mostram as conversões nem os parâmetros. |
 | 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas devem aparecer como "Página alternativa com tag canônica adequada" — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
-| 👤 **Logo e OG com "wsabor.com"** | 🟡 | P | Decisão de marca: o logo do Header e a imagem OG dos posts ainda mostram "wsabor.dev", e o domínio principal agora é o `.com`. |
 | 👤 **Publicar os 2 rascunhos do blog** | 🟢 | M | Último post em 2025-09-03. Rascunhos em `content/scratch/`: "Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam". O esforço é de escrita. Meta: 1 post/mês. |
 
 ---
@@ -158,6 +157,7 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 
 **Outubro de 2026**
 
+- [x] **Logo e OG com "wsabor.com"** — Header, OG dos posts, OG da home (`public/og-image.png`) e banner do README.
 - [x] **Deploy com releases e rollback** — o `deploy.sh` saiu deste repositório e virou template no role `site` do `wsabor/infra` (PR #13): build numa pasta nova, troca atômica do `current`, health check com rollback automático, `deploy.sh rollback`/`status`, sem pergunta interativa. Testado num container ARM e aplicado no servidor.
 - [x] **Clone antigo `~/apps/wsabor.dev` apagado** do servidor depois da migração para o deploy com releases.
 - [x] **E-mail `contato@wsabor.com`** — Cloudflare Email Routing para o Gmail; substituiu o Gmail no site, no JSON-LD, no RSS, na política de privacidade, no Formspree e nos `llms.txt` (PR #15).

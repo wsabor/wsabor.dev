@@ -34,7 +34,7 @@ export default function HeaderOptimized() {
           href="/"
           className="font-display text-xl font-bold transition-colors hover:text-primary"
         >
-          wsabor.dev
+          wsabor.com
         </Link>
 
         <div className="hidden items-center gap-4 md:flex">

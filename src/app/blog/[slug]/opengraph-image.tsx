@@ -62,7 +62,7 @@ export default async function OgImage({ params }: Props) {
             letterSpacing: "-0.01em",
           }}
         >
-          wsabor.dev
+          wsabor.com
         </div>
 
         {/* Categoria (se houver) */}
