@@ -30,7 +30,6 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 
 | Item | Retorno | Esforço | Observação |
 | --- | --- | --- | --- |
-| 👤 **GA4: key events e dimensões** | 🟢 | P | Marcar com estrela `contact_click` e `generate_lead` em Admin → Eventos quando aparecerem em "Eventos recentes". Criar as dimensões personalizadas (escopo Evento) `method`, `location`, `project`, `action` e `form`. Sem isso, os relatórios não mostram as conversões nem os parâmetros. |
 | 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas devem aparecer como "Página alternativa com tag canônica adequada" — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
 | 👤 **Publicar os 2 rascunhos do blog** | 🟢 | M | Último post em 2025-09-03. Rascunhos em `content/scratch/`: "Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam". O esforço é de escrita. Meta: 1 post/mês. |
 
@@ -38,25 +37,14 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 
 ## 2. Projetos estratégicos (retorno alto, esforço grande)
 
-### 2.1 Landing page de serviços — 🟢 · G
+### 2.1 Landing page de serviços — 🟢 · no ar, falta o Google Ads
 
-Página de conversão separada da home (a home continua sendo portfólio pessoal), em linguagem de negócio, sem jargão técnico, com CTA de WhatsApp. É o item que traz receita.
+`wsabor.com/seu-negocio` está no ar (PR #21): marca Wagner Sabor, Osvaldo Cruz e Oeste Paulista com atendimento a distância, preço sob consulta, WhatsApp Business como chamada principal. Conteúdo em `src/data/business.ts`.
 
-- [ ] Estrutura: hero com proposta de valor + WhatsApp → dores do cliente → 3 serviços → processo (conversa → proposta → entrega → acompanhamento) → portfólio de clientes → pacotes/"a partir de" → FAQ → formulário + WhatsApp.
-- [ ] Reaproveitar a linguagem visual (`PageHeader`, `FeatureCard`, `ContactChannels`, `CallToAction`).
-- [ ] SEO local: schema `ProfessionalService`, metadata (`pageMetadata()`), sitemap, `llms.txt`.
-- [ ] Eventos do GA4 desde o lançamento (`trackAttrs()`; WhatsApp como `contact_click` com `method: "whatsapp"`).
-- [ ] Apontar o CTA do card "Presença digital para negócios" (`businessServices.cta.href` em `src/data/specialties.tsx`, hoje `/contact`) para a LP.
-
-**👤 Decisões em aberto (bloqueiam o início)**
-
-- Endereço: `wsabor.com/servicos` ou subdomínio (ex.: `servicos.wsabor.com`)? O GA4 funciona igual nos dois.
-- Nome/marca: "Wagner Sabor" ou uma marca separada?
-- Região/cidade atendida.
-- Mostrar preços ("a partir de") ou "sob consulta"?
-- Tráfego pago: Google Ads, Meta ou os dois? (Quando houver anúncios: vincular o GA4 ao Google Ads e/ou instalar o Pixel da Meta, com o mesmo banner de consentimento e a CSP do Nginx ampliada.)
-- Número público de WhatsApp.
-- Brisa do Mar entra como exemplo/modelo (https://brisa-mar-hotel.wsabor.dev), deixando claro que o hotel é fictício.
+- [ ] 👤 **Google Ads (fase D):** conta criada no modo especialista (país Brasil, fuso Brasília, BRL), vinculada ao GA4; importar `whatsapp_click` como conversão (contagem "Uma"); campanha de Pesquisa só na rede de pesquisa, local Osvaldo Cruz + raio, destino `/seu-negocio`. Nunca importar `contact_click` (inclui LinkedIn/GitHub).
+- [ ] Depois de 2 a 4 semanas de anúncio: revisar termos de pesquisa, negativar o que não converte e trocar o lance para "Maximizar conversões" quando houver ~15 a 30 conversões.
+- [ ] Meta Ads (Instagram/Facebook) só se o Google Ads der retorno; exige o Pixel da Meta, o banner de consentimento e a CSP do nginx ampliada.
+- Regra: nunca colocar prazo de entrega em dias na página (a entrega antes do prazo é surpresa para o cliente).
 
 ### 2.2 Completar os estudos de caso — 🟢 · M cada (👤 texto)
 
@@ -157,6 +145,9 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 
 **Outubro de 2026**
 
+- [x] **Landing page `/seu-negocio`** — topo com WhatsApp, problemas do cliente, 3 serviços com o que inclui, como funciona, exemplos (Topcoat, DR Prev, Brisa do Mar como modelo), perguntas frequentes; schema `ProfessionalService`, imagem de prévia própria, item no menu e card da home apontando para ela (PR #21).
+- [x] **Card do X por página** — título, descrição e imagem de cada página (antes todas mandavam os da home) (PR #21).
+- [x] **GA4: eventos principais e dimensões** — `contact_click`, `generate_lead` e `whatsapp_click` (novo, só os cliques no WhatsApp, para importar no Google Ads) com estrela; dimensões `method`, `location`, `project`, `action` e `form` (escopo Evento).
 - [x] **Logo e OG com "wsabor.com"** — Header, OG dos posts, OG da home (`public/og-image.png`) e banner do README.
 - [x] **Deploy com releases e rollback** — o `deploy.sh` saiu deste repositório e virou template no role `site` do `wsabor/infra` (PR #13): build numa pasta nova, troca atômica do `current`, health check com rollback automático, `deploy.sh rollback`/`status`, sem pergunta interativa. Testado num container ARM e aplicado no servidor.
 - [x] **Clone antigo `~/apps/wsabor.dev` apagado** do servidor depois da migração para o deploy com releases.
