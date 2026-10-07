@@ -1,6 +1,7 @@
 // Schemas estruturados para SEO (Schema.org)
 
 import { certifications } from "@/data/certifications";
+import { businessPage, serviceArea, WHATSAPP_NUMBER } from "@/data/business";
 import { SITE_URL, absoluteUrl } from "@/lib/site";
 
 // Informações base do site (centralizadas)
@@ -93,6 +94,40 @@ export function getPersonSchema() {
     worksFor: {
       "@type": "Organization",
       name: "SENAI-SP",
+    },
+  };
+}
+
+// Schema: ProfessionalService (landing /seu-negocio). Sem endereço: o negócio
+// atende por área (areaServed), não recebe clientes num local fixo.
+export function getProfessionalServiceSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${absoluteUrl("/seu-negocio")}#servico`,
+    name: SITE_CONFIG.name,
+    url: absoluteUrl("/seu-negocio"),
+    image: absoluteUrl("/og-image.png"),
+    description: businessPage.hero.description,
+    telephone: `+${WHATSAPP_NUMBER}`,
+    email: SITE_CONFIG.author.email,
+    areaServed: [
+      { "@type": "City", name: `${serviceArea.city}, SP` },
+      { "@type": "AdministrativeArea", name: serviceArea.region },
+      { "@type": "Country", name: "Brasil" },
+    ],
+    founder: { "@type": "Person", name: SITE_CONFIG.author.name },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Serviços",
+      itemListElement: businessPage.services.items.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.description,
+        },
+      })),
     },
   };
 }

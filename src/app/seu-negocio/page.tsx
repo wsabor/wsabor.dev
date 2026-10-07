@@ -15,7 +15,10 @@ import {
   whatsappHref,
 } from "@/data/business";
 import { trackAttrs } from "@/lib/analytics";
-import { getBreadcrumbListSchema } from "@/lib/schemas";
+import {
+  getBreadcrumbListSchema,
+  getProfessionalServiceSchema,
+} from "@/lib/schemas";
 import { absoluteUrl, pageMetadata } from "@/lib/site";
 
 const PATH = "/seu-negocio";
@@ -65,6 +68,7 @@ export default function BusinessPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={getProfessionalServiceSchema()} />
 
       <PageHeader
         eyebrow={hero.eyebrow}
