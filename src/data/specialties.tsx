@@ -54,7 +54,7 @@ export const businessServices = {
     { icon: <MapPin size={20} />, label: "Google Meu Negócio" },
     { icon: <TrendingUp size={20} />, label: "Tráfego pago" },
   ],
-  cta: { href: "/contact", label: "Quero divulgar meu negócio" },
+  cta: { href: "/seu-negocio", label: "Quero divulgar meu negócio" },
 };
 
 // Faixa de tecnologias (marquee) abaixo do bento.

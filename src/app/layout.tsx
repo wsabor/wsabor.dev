@@ -3,7 +3,7 @@ import { Inter, Sora, Bricolage_Grotesque } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-import { SITE_URL, defaultOpenGraph } from "@/lib/site";
+import { SITE_URL, defaultOpenGraph, defaultTwitter } from "@/lib/site";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -61,14 +61,7 @@ export const metadata: Metadata = {
   openGraph: defaultOpenGraph,
 
   // Twitter Card
-  twitter: {
-    card: "summary_large_image",
-    title: "Wagner Sabor | Desenvolvedor Especialista em Next.js e React",
-    description:
-      "Transformando ideias em aplicações web modernas e performáticas.",
-    creator: "@wsabor",
-    images: ["/og-image.png"],
-  },
+  twitter: defaultTwitter,
 
   // Robots
   robots: {

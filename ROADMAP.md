@@ -81,7 +81,7 @@ O componente e o schema já existem; `src/data/testimonials.ts` está vazio, ent
 Modelo de negócio: hospedagem + manutenção como receita recorrente. A Topcoat seria o piloto. Análise completa no ai-memory (projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`).
 
 - [ ] Pré-requisitos: role Ansible parametrizado por site no `wsabor/infra` (o `deploy.sh` já é um template com repositório, branch, PM2 e porta como variáveis), monitoramento de disponibilidade.
-- [ ] 👤 Conferir se a conta OCI é Pay As You Go (contas só Always Free podem ter instâncias ociosas recuperadas).
+- [x] Conta OCI em Pay As You Go (confirmado em 2026-10-07). O Always Free agora é 2 vCPUs e 12 GB no total da conta, já usados pelo servidor atual: sites de clientes entram nele (cabem ~25 a 30 sites Next.js com pouco acesso, ou centenas como HTML estático) ou numa VPS paga.
 - [ ] 👤 Acordo por escrito com o cliente sobre hospedagem e manutenção.
 
 ### 2.5 CI/CD completo — 🟡 · G

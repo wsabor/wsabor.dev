@@ -22,6 +22,7 @@ const navLinks = [
   { href: "/about", label: "Sobre" },
   { href: "/projects", label: "Projetos" },
   { href: "/blog", label: "Blog" },
+  { href: "/seu-negocio", label: "Seu negócio" },
   { href: "/contact", label: "Contato" },
 ];
 

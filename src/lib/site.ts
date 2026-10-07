@@ -36,10 +36,20 @@ export const defaultOpenGraph = {
   ],
 } satisfies Metadata["openGraph"];
 
+/** Twitter/X Card padrão (mesmos textos e imagem do Open Graph da home). */
+export const defaultTwitter = {
+  card: "summary_large_image",
+  title: defaultOpenGraph.title,
+  description: defaultOpenGraph.description,
+  creator: "@wsabor",
+  images: ["/og-image.png"],
+} satisfies Metadata["twitter"];
+
 /**
  * Metadados de uma página: canonical, og:url e (opcional) título/descrição.
- * O Next substitui `alternates` e `openGraph` inteiros quando a página os
- * define, por isso o RSS e o Open Graph padrão são repetidos aqui.
+ * O Next substitui `alternates`, `openGraph` e `twitter` inteiros quando a
+ * página os define, por isso o RSS, o Open Graph e o card do X são repetidos
+ * aqui (sem isso o X recebia título, descrição e imagem da home).
  * Rotas com opengraph-image.tsx passam `fileImage: true`: uma imagem no
  * objeto teria prioridade sobre a gerada pelo arquivo.
  */
@@ -58,6 +68,8 @@ export function pageMetadata({
 }): Metadata {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { images, ...withoutImage } = defaultOpenGraph;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { images: _twitterImages, ...twitterWithoutImage } = defaultTwitter;
 
   return {
     ...(title && { title }),
@@ -69,6 +81,13 @@ export function pageMetadata({
       ...(description && { description }),
       ...openGraph,
       url: path,
+    },
+    twitter: {
+      ...(fileImage ? twitterWithoutImage : defaultTwitter),
+      ...(title && { title: `${title} | Wagner Sabor` }),
+      ...(description && { description }),
+      // Imagem própria passada no openGraph (ex.: capa do estudo de caso)
+      ...(openGraph?.images && { images: openGraph.images }),
     },
   };
 }
