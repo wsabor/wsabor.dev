@@ -16,7 +16,7 @@ const SITE_CONFIG = {
     email: "contato@wsabor.com",
     jobTitle: "Desenvolvedor Full Stack",
     image: absoluteUrl("/img/profile-hero.webp"),
-    location: "Presidente Prudente, São Paulo, Brasil",
+    location: "Osvaldo Cruz, São Paulo, Brasil",
   },
   social: {
     linkedin: "https://www.linkedin.com/in/wsabor/",
@@ -59,7 +59,7 @@ export function getPersonSchema() {
     description: SITE_CONFIG.description,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Presidente Prudente",
+      addressLocality: "Osvaldo Cruz",
       addressRegion: "SP",
       addressCountry: "BR",
     },

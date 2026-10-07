@@ -27,6 +27,7 @@ export const metadata = pageMetadata({
   path: PATH,
   title: `Sites e Google Meu Negócio em ${serviceArea.city} e ${serviceArea.region}`,
   description: `Site profissional, Perfil da Empresa no Google e anúncios para negócios de ${serviceArea.label}. Fale comigo no WhatsApp.`,
+  fileImage: true,
 });
 
 const { hero, pains, services, process, examples, faq, finalCta } =
