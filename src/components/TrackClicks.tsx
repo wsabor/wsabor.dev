@@ -24,6 +24,12 @@ export default function TrackClicks() {
         }
       }
       if (track) trackEvent(track, params);
+
+      // Conversão do Google Ads: evento próprio para o WhatsApp, porque o
+      // "criar evento sem código" do GA4 não aceita contact_click como acionador
+      if (track === "contact_click" && params.method === "whatsapp") {
+        trackEvent("whatsapp_click", params);
+      }
     };
 
     // auxclick: clique do meio (abrir em nova aba)
