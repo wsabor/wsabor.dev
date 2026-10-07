@@ -234,6 +234,29 @@ Fora da sala de aula, explora o potencial da Inteligência Artificial e é entus
 
 ---
 
+## Seu negócio — /seu-negocio
+
+Página de serviços para pequenos negócios de Osvaldo Cruz e de toda a região do Oeste Paulista, com atendimento também a distância em todo o Brasil. Preço sob consulta; o contato principal é o WhatsApp Business (18) 98172-1905 (https://wa.me/5518981721905).
+
+### Serviços
+
+- **Site profissional:** site rápido, bonito no celular e fácil de achar no Google, com o WhatsApp a um toque. Inclui a criação das páginas, o registro do domínio para o cliente (ou ajuda para registrar) e hospedagem e manutenção com mensalidade. Fotos e filmagem profissionais à parte, sob consulta.
+- **Google Meu Negócio (Perfil da Empresa no Google):** perfil completo e atualizado para aparecer no Maps e nas buscas da região. Inclui criação, otimização, respostas às avaliações e fotos enviadas pelo cliente (ou produção de fotos sob consulta).
+- **Tráfego pago:** anúncios no Google para quem já está procurando o que o negócio vende, com o resultado medido. Criação e gestão das campanhas com acompanhamento mensal; a verba dos anúncios é paga pelo cliente.
+
+### Como funciona
+
+1. **Conversa:** o cliente conta sobre o negócio pelo WhatsApp.
+2. **Proposta:** proposta com o que faz sentido para o momento do negócio.
+3. **Entrega:** site, perfil ou anúncios no ar, com o cliente acompanhando cada etapa.
+4. **Acompanhamento:** medição de onde vêm os contatos e ajustes para trazer mais clientes.
+
+### Exemplos
+
+- **Topcoat Vernizes** (cliente): site institucional em português e espanhol. Estudo de caso: https://wsabor.com/projects/topcoat-vernizes
+- **DR Prev Serviços Previdenciários** (cliente): site institucional para uma empresa de serviços previdenciários. https://drprev.com.br
+- **Hotel Brisa do Mar** (modelo de demonstração, hotel fictício): https://brisa-mar-hotel.wsabor.dev
+
 ## Contato — /contact
 
 Wagner está sempre aberto a novas colaborações, conversas sobre tecnologia, educação ou para ajudar em projetos open source.
