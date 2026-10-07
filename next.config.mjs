@@ -16,6 +16,11 @@ const nextConfig = {
     optimizePackageImports: ["lucide-react"], // Otimiza imports de ícones
   },
 
+  // /home nunca existiu neste site, mas o Google rastreou (Search Console, 404)
+  async redirects() {
+    return [{ source: "/home", destination: "/", permanent: true }];
+  },
+
   // Headers de segurança
   async headers() {
     return [
