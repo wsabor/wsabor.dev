@@ -35,7 +35,7 @@ export default function PrivacyPage() {
       <section className="py-16 md:py-24">
         <div className="prose prose-lg dark:prose-invert container mx-auto max-w-3xl px-8">
           <p>
-            <em>Última atualização: 3 de outubro de 2026.</em>
+            <em>Última atualização: 12 de outubro de 2026.</em>
           </p>
           <p>
             Este site é mantido por Wagner Sabor. Dúvidas ou pedidos sobre seus
@@ -62,8 +62,8 @@ export default function PrivacyPage() {
             </li>
             <li>
               <strong>Hospedagem:</strong> os serviços que mantêm o site no ar
-              (Oracle Cloud, Cloudflare e Vercel) registram dados técnicos de
-              acesso, como o endereço IP.
+              (Oracle Cloud e Cloudflare) registram dados técnicos de acesso, como
+              o endereço IP.
             </li>
           </ul>
           <p>

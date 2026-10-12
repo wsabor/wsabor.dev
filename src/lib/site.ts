@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 
 /**
- * Domínio principal do site. O mesmo build roda em wsabor.com (Oracle) e
- * wsabor.dev (Vercel); os dois apontam canonical, sitemap, Open Graph e
- * schemas para este endereço, para o Google tratar o .dev como espelho.
+ * Domínio do site. Canonical, sitemap, Open Graph e schemas usam sempre este
+ * endereço. O wsabor.dev só redireciona para cá (regra no Cloudflare).
  */
 export const SITE_URL = "https://wsabor.com";
 

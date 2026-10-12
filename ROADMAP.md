@@ -30,7 +30,7 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 
 | Item | Retorno | Esforço | Observação |
 | --- | --- | --- | --- |
-| 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas devem aparecer como "Página alternativa com tag canônica adequada" — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
+| 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas passam a aparecer como "Página com redirecionamento" desde que o domínio virou redirect (2026-10) — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
 | 👤 **Publicar os 2 rascunhos do blog** | 🟢 | M | Último post em 2025-09-03. Rascunhos em `content/scratch/`: "Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam". O esforço é de escrita. Meta: 1 post/mês. |
 
 ---
@@ -74,9 +74,9 @@ Modelo de negócio: hospedagem + manutenção como receita recorrente. A Topcoat
 
 ### 2.5 CI/CD completo — 🟡 · G
 
-Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e rollback automático. Falta só o disparo automático. Vale quando esquecer o deploy virar problema ou como material didático.
+O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e rollback automático. Desde a saída da Vercel (2026-10) ninguém faz o build dos PRs; faltam esse build e o disparo automático do deploy. Vale quando esquecer o deploy virar problema ou como material didático.
 
-- [ ] **CI nos PRs** (GitHub Actions): lint e typecheck explícitos. Ganho pequeno, porque a Vercel já barra build quebrado.
+- [ ] **CI nos PRs** (GitHub Actions): lint, typecheck e build. Sem a Vercel, é a única checagem automática antes do merge.
 - [ ] **Preparar o servidor** (playbook do `wsabor/infra`): usuário `deploy` sem sudo para o GitHub entrar. A estrutura `~/apps/wsabor/releases/` + symlink `current` já existe.
 - [ ] **Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do `sharp`) → rsync para uma pasta nova em `releases/` → a mesma troca de symlink, health check e rollback do `deploy.sh`. Alternativa mais simples: o Action só roda `deploy.sh` por SSH. `pm2 reload` em modo cluster tiraria o 1–2 s fora do ar no restart.
 
@@ -117,7 +117,7 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 
 - [ ] 👤 **README do `wsabor/infra`** — blocos prontos sobre os dois domínios e o redirect `www` na Cloudflare: ai-memory, projeto `infra`, `notes/site-dois-dominios-readme-2026-10-01.md`.
 - [ ] **Site da Topcoat** — bug de canonical/hreflang (todas as páginas apontam para a home em PT, inclusive a versão ES), og:image nas páginas internas, redirect `www`, GA4 com consentimento, Search Console, JSON-LD e `llms.txt`: ai-memory, projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`.
-- [ ] 👤 **Conta da Vercel por cliente** — a Topcoat está na conta pessoal (com Speed Insights); o plano Hobby é para uso não comercial. Alternativa: o item 2.4.
+- [x] **Topcoat fora da conta pessoal da Vercel** — o site da Topcoat foi para o servidor na Oracle em 2026-10 (role `site` do `wsabor/infra`); o item 2.4 deixou de ser alternativa e virou o caminho adotado.
 
 ---
 
@@ -126,18 +126,18 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 - [ ] **Manutenção dos `llms.txt`** ao adicionar posts, projetos ou a LP (documentado no CLAUDE.md).
 - [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral; a primeira depois do GA4 (script de terceiros).
 - [ ] **Testes em dispositivos reais** — iPhone Safari (`100svh`, pin, toque) e Android de entrada.
-- [ ] **Deploy nos dois domínios** — depois de cada merge na `main`, a Vercel publica o `wsabor.dev` sozinha; o `wsabor.com` precisa de `ssh -p 9922 ubuntu@<IP> '~/apps/wsabor/deploy.sh'` (`rollback` volta uma versão; `status` lista as guardadas).
+- [ ] **Deploy manual** — depois de cada merge na `main`, rodar `ssh -p 9922 ubuntu@<IP> '~/apps/wsabor/deploy.sh'` (`rollback` volta uma versão; `status` lista as guardadas).
 
 ---
 
 ## Infra (referência)
 
-- **Dois domínios, o mesmo site:** `wsabor.com` (principal para o Google; Oracle Cloud ARM A1, Ubuntu, Nginx, PM2; playbook no [`wsabor/infra`](https://github.com/wsabor/infra)) e `wsabor.dev` (espelho na Vercel). Canonical, sitemap e schemas apontam sempre para o `.com` (`SITE_URL` em `src/lib/site.ts`).
+- **Um domínio:** `wsabor.com` (Oracle Cloud ARM A1, Ubuntu, Nginx, PM2, atrás do Cloudflare; playbook no [`wsabor/infra`](https://github.com/wsabor/infra)). O `wsabor.dev` redireciona para ele por uma regra no Cloudflare; o espelho na Vercel acabou em 2026-10. Canonical, sitemap e schemas usam `SITE_URL` (`src/lib/site.ts`).
 - **Cloudflare na frente do `wsabor.com`:** Redirect Rule `www.wsabor.com` → `wsabor.com` (301, curinga `https://www.*` → `https://${1}`, preservando a query string; o registro `www` precisa continuar com proxy). Email Address Obfuscation ativo.
 - **Deploy na Oracle:** `~/apps/wsabor/deploy.sh`, instalado pelo role `site` do `wsabor/infra`. Cada deploy faz o build numa pasta nova em `releases/` e só então troca o link `current` (o PM2 sobe dali). Build com erro não muda nada; se o site não responder 200 em 30 s, volta sozinho para a versão anterior. Guarda as 3 últimas versões.
 - **E-mail `contato@wsabor.com`:** Cloudflare Email Routing (MX `route1-3.mx.cloudflare.net` + SPF na raiz) encaminhando para o Gmail. Só recebe; para responder como `contato@` seria preciso um SMTP (ex.: Resend no subdomínio `send.wsabor.com`). As primeiras mensagens caíram no spam: filtro no Gmail "Nunca enviar para spam".
 - **CSP do Nginx** libera Giscus, Formspree e Google Analytics. Qualquer serviço externo novo (Google Ads, Pixel da Meta) exige ampliar a CSP no `wsabor/infra`.
-- **Medição:** GA4 `G-B2JE8SNHP3` nos dois domínios (Consent Mode v2, modo avançado; dados retidos por 14 meses; vinculado ao Search Console) e Vercel Analytics só no `.dev`.
+- **Medição:** GA4 `G-B2JE8SNHP3` (Consent Mode v2, modo avançado; dados retidos por 14 meses; vinculado ao Search Console).
 
 ---
 
@@ -156,11 +156,11 @@ Hoje a Vercel já faz o build de todo PR, e o `deploy.sh` do `wsabor/infra` publ
 - [x] **Eventos do GA4** — `contact_click` (`method`, `location`), `project_click` (`project`, `action`, `location`) e `generate_lead` (formulário), com `trackAttrs()` + ouvinte único em `TrackClicks.tsx`. Verificados no Tempo real em 2026-10-04 (PR #12).
 - [x] **Política de privacidade** em `/privacidade`, curta, com retenção de 14 meses. (`public/privacy_policy/` é a política do app Zen Focus, não do site.)
 - [x] **CSP do Nginx** liberando o Google Analytics no `wsabor.com`.
-- [x] **Search Console** — propriedade de domínio `wsabor.com`, sitemap enviado e vínculo com o GA4. A propriedade `wsabor.dev` continua para acompanhar a transição.
+- [x] **Search Console** — propriedade de domínio `wsabor.com`, sitemap enviado e vínculo com o GA4. A propriedade `wsabor.dev` continua para acompanhar o redirect.
 - [x] **Formspree** funcionando no `wsabor.com` (envio de teste recebido).
 - [x] **Redirect `www.wsabor.com` → `wsabor.com`** na Cloudflare.
 - [x] **SEO para dois domínios** — `wsabor.com` como principal: canonical e `og:url` em todas as páginas, títulos próprios em /about, /projects e /contact, `og:image` e sitemap para os estudos de caso (PR #7).
-- [x] **Vercel Analytics por domínio** — carrega só em `wsabor.dev` e `*.vercel.app` (`VercelAnalytics.tsx`).
+- [x] **Vercel Analytics removido** — o componente `VercelAnalytics.tsx` e o pacote saíram quando o `wsabor.dev` deixou de ser espelho na Vercel (2026-10).
 - [x] **Hotel Brisa do Mar no portfólio** — projeto de estudo entre os destaques da home. O EPI System continua como exemplo, sem link (fora do ar, só na rede do SENAI).
 - [x] **Certificações Microsoft** — marquee de selos (cinza → colorido no hover) na home e no /about, com `hasCredential` no schema. Novas certificações: `src/data/certifications.ts`.
 - [x] **Dependências atualizadas** dentro das faixas do `package.json` (Next 16.3.8; ESLint continua no 9).

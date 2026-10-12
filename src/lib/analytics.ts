@@ -1,4 +1,4 @@
-/** ID de medição do GA4 (uma propriedade para wsabor.com e wsabor.dev). */
+/** ID de medição do GA4 (propriedade do wsabor.com). */
 export const GA_MEASUREMENT_ID = "G-B2JE8SNHP3";
 
 /** Chave no localStorage com a escolha do banner: "granted" | "denied". */
@@ -83,12 +83,12 @@ export function openConsentPreferences() {
 }
 
 /**
- * Script inline do GA4. Só roda nos domínios de produção (não em localhost
- * nem nos previews da Vercel). Modo avançado do Consent Mode: o gtag carrega
+ * Script inline do GA4. Só roda no domínio de produção (não em localhost).
+ * Modo avançado do Consent Mode: o gtag carrega
  * sempre, mas sem cookies até o visitante aceitar no banner.
  */
 export const gaInlineScript = `
-if (/(^|\\.)wsabor\\.(com|dev)$/.test(location.hostname)) {
+if (/(^|\\.)wsabor\\.com$/.test(location.hostname)) {
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
   gtag("consent", "default", {

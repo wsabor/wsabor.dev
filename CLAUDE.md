@@ -12,8 +12,8 @@ Site pessoal/portfólio de Wagner Sabor, construído com Next.js App Router.
 - **Tema:** `next-themes` (dark/light)
 - **Galeria:** `yet-another-react-lightbox`
 - **Animação da home:** GSAP + ScrollTrigger (`@gsap/react`) e Lenis (smooth scroll, só na home)
-- **Analytics:** `@vercel/analytics`
-- **Deploy:** o mesmo site em dois domínios — `wsabor.com` (principal, Oracle Cloud, Ubuntu ARM + Nginx + PM2; infra no repo `wsabor/infra`) e `wsabor.dev` (espelho, Vercel). A Vercel publica sozinha a cada merge na `main`; o `wsabor.com` precisa de `~/apps/wsabor/deploy.sh` no servidor (`rollback` e `status` também). O script mora no `wsabor/infra` (role `site`), não neste repo.
+- **Analytics:** Google Analytics 4 (script próprio em `src/lib/analytics.ts`, com consentimento)
+- **Deploy:** `wsabor.com` (Oracle Cloud, Ubuntu ARM + Nginx + PM2, atrás do Cloudflare; infra no repo `wsabor/infra`). O deploy é manual: depois de cada merge na `main`, rodar `~/apps/wsabor/deploy.sh` no servidor (`rollback` e `status` também). O script mora no `wsabor/infra` (role `site`), não neste repo. O `wsabor.dev` só redireciona para o `wsabor.com` (regra no Cloudflare); o site saiu da Vercel em 2026-10, então não há mais deploy automático nem preview de PR.
 - **E-mail público:** `contato@wsabor.com` (Cloudflare Email Routing → Gmail). Não usar o Gmail pessoal no site.
 
 ## Estrutura
@@ -63,9 +63,8 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 
 ## SEO / Schema
 
-- **Domínio principal:** `SITE_URL` em `src/lib/site.ts` (`https://wsabor.com`). Canonical, sitemap, robots, feed, Open Graph e schemas usam sempre esse domínio, nos dois deploys — o `wsabor.dev` é espelho. Nunca escrever o domínio fixo; usar `absoluteUrl()`.
+- **Domínio:** `SITE_URL` em `src/lib/site.ts` (`https://wsabor.com`). Canonical, sitemap, robots, feed, Open Graph e schemas usam sempre esse domínio. Nunca escrever o domínio fixo; usar `absoluteUrl()`.
 - Toda página define `export const metadata = pageMetadata({ path, title, description })` (canonical + og:url). Rotas com `opengraph-image.tsx` passam `fileImage: true`.
-- Vercel Analytics via `VercelAnalytics.tsx`: só carrega quando o hostname é `wsabor.dev` ou `*.vercel.app` (checado no navegador, sem depender de variáveis do painel da Vercel). O script vem de um caminho aleatório (`/<hash>/script.js`), não de `/_vercel/insights/script.js`; para testar, conferir `window.va`.
 
 - Schemas JSON-LD gerados em `src/lib/schemas.ts` e injetados via `src/components/JsonLd.tsx`
 - Sitemap em `src/app/sitemap.ts`, robots em `src/app/robots.ts`
