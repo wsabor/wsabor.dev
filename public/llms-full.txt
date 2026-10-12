@@ -274,6 +274,6 @@ Wagner está sempre aberto a novas colaborações, conversas sobre tecnologia, e
 - **Estilos:** Tailwind CSS 4
 - **Blog:** MDX via next-mdx-remote
 - **Animação da home:** sequência de imagens em canvas controlada pelo scroll (GSAP ScrollTrigger + Lenis)
-- **Deploy:** wsabor.com (domínio principal, Oracle Cloud) e wsabor.dev (espelho, Vercel)
+- **Deploy:** wsabor.com (Oracle Cloud, atrás da Cloudflare); wsabor.dev redireciona para wsabor.com
 - **RSS Feed:** https://wsabor.com/feed.xml
 - **Sitemap:** https://wsabor.com/sitemap.xml

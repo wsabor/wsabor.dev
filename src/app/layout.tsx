@@ -7,7 +7,6 @@ import { SITE_URL, defaultOpenGraph, defaultTwitter } from "@/lib/site";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import VercelAnalytics from "@/components/VercelAnalytics";
 import CookieConsent from "@/components/CookieConsent";
 import TrackClicks from "@/components/TrackClicks";
 import Script from "next/script";
@@ -111,11 +110,10 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <VercelAnalytics />
           <CookieConsent />
           <TrackClicks />
         </ThemeProvider>
-        {/* GA4 + Consent Mode v2 (só em wsabor.com/wsabor.dev) */}
+        {/* GA4 + Consent Mode v2 (só em wsabor.com) */}
         <Script id="ga4" strategy="afterInteractive">
           {gaInlineScript}
         </Script>
