@@ -1,0 +1,36 @@
+# Publica a main no servidor: entra por SSH e roda o deploy.sh do site.
+# O build é feito lá; se falhar, ou se o site não responder, a versão no ar continua a anterior.
+# A chave (DEPLOY_SSH_KEY) só consegue rodar esse script. Os secrets vêm do scripts/ci-key.sh
+# do repositório wsabor/infra.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # botão "Run workflow": publica a main de novo
+
+permissions: {}
+
+# Um deploy por vez; o seguinte espera e publica o commit mais novo.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy no servidor
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Roda o deploy.sh
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy
+          chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p "$PORT" "ubuntu@$HOST"

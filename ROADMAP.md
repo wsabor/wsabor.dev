@@ -74,11 +74,12 @@ Modelo de negócio: hospedagem + manutenção como receita recorrente. A Topcoat
 
 ### 2.5 CI/CD completo — 🟡 · G
 
-O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e rollback automático. Desde a saída da Vercel (2026-10) ninguém faz o build dos PRs; faltam esse build e o disparo automático do deploy. Vale quando esquecer o deploy virar problema ou como material didático.
+O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e rollback automático. Desde 2026-10 o GitHub Actions faz o build das PRs e dispara o deploy a cada push na `main`, na forma mais simples (o Action só roda o `deploy.sh` por SSH).
 
-- [ ] **CI nos PRs** (GitHub Actions): lint, typecheck e build. Sem a Vercel, é a única checagem automática antes do merge.
-- [ ] **Preparar o servidor** (playbook do `wsabor/infra`): usuário `deploy` sem sudo para o GitHub entrar. A estrutura `~/apps/wsabor/releases/` + symlink `current` já existe.
-- [ ] **Deploy contínuo na Oracle**: push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do `sharp`) → rsync para uma pasta nova em `releases/` → a mesma troca de symlink, health check e rollback do `deploy.sh`. Alternativa mais simples: o Action só roda `deploy.sh` por SSH. `pm2 reload` em modo cluster tiraria o 1–2 s fora do ar no restart.
+- [x] **CI nos PRs** (`.github/workflows/ci.yml`): lint e build (o build já confere os tipos). Sem a Vercel, é a única checagem automática antes do merge.
+- [x] **Preparar o servidor** (playbook do `wsabor/infra`): em vez de um usuário `deploy`, uma chave no `ubuntu` que só consegue rodar o `deploy.sh` deste site (`restrict,command=`).
+- [x] **Deploy contínuo na Oracle** (`.github/workflows/deploy.yml`): push na `main` → o Action roda o `deploy.sh` por SSH, com o build no servidor.
+- [ ] **Build fora do servidor** (só se o build passar a pesar na máquina): push na `main` → build `output: "standalone"` em runner ARM (`ubuntu-24.04-arm`, por causa do `sharp`) → rsync para uma pasta nova em `releases/` → a mesma troca de symlink, health check e rollback do `deploy.sh`. Alternativa mais simples: o Action só roda `deploy.sh` por SSH. `pm2 reload` em modo cluster tiraria o 1–2 s fora do ar no restart.
 
 ---
 
@@ -126,7 +127,7 @@ O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e r
 - [ ] **Manutenção dos `llms.txt`** ao adicionar posts, projetos ou a LP (documentado no CLAUDE.md).
 - [ ] **Lighthouse / Core Web Vitals** — auditoria trimestral; a primeira depois do GA4 (script de terceiros).
 - [ ] **Testes em dispositivos reais** — iPhone Safari (`100svh`, pin, toque) e Android de entrada.
-- [ ] **Deploy manual** — depois de cada merge na `main`, rodar `ssh -p 9922 ubuntu@<IP> '~/apps/wsabor/deploy.sh'` (`rollback` volta uma versão; `status` lista as guardadas).
+- [ ] **Deploy** — automático a cada merge na `main` (aba Actions; falha chega por e-mail). À mão: `ssh -p 9922 ubuntu@<IP> '~/apps/wsabor/deploy.sh'` (`rollback` volta uma versão; `status` lista as guardadas).
 
 ---
 
