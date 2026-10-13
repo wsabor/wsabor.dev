@@ -1,0 +1,28 @@
+# Confere toda PR antes do merge: instala, roda o lint e faz o build.
+name: CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+# Push novo na mesma PR cancela a execução anterior.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Lint e build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24 # a mesma do servidor
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build

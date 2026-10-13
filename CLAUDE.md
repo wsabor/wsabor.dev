@@ -13,7 +13,7 @@ Site pessoal/portfólio de Wagner Sabor, construído com Next.js App Router.
 - **Galeria:** `yet-another-react-lightbox`
 - **Animação da home:** GSAP + ScrollTrigger (`@gsap/react`) e Lenis (smooth scroll, só na home)
 - **Analytics:** Google Analytics 4 (script próprio em `src/lib/analytics.ts`, com consentimento)
-- **Deploy:** `wsabor.com` (Oracle Cloud, Ubuntu ARM + Nginx + PM2, atrás do Cloudflare; infra no repo `wsabor/infra`). O deploy é manual: depois de cada merge na `main`, rodar `~/apps/wsabor/deploy.sh` no servidor (`rollback` e `status` também). O script mora no `wsabor/infra` (role `site`), não neste repo. O `wsabor.dev` só redireciona para o `wsabor.com` (regra no Cloudflare); o site saiu da Vercel em 2026-10, então não há mais deploy automático nem preview de PR.
+- **Deploy:** `wsabor.com` (Oracle Cloud, Ubuntu ARM + Nginx + PM2, atrás do Cloudflare; infra no repo `wsabor/infra`). O deploy é automático: cada push na `main` dispara o `.github/workflows/deploy.yml`, que entra por SSH e roda `~/apps/wsabor/deploy.sh` no servidor (à mão também dá; `rollback` e `status` só à mão). Toda PR passa pelo `.github/workflows/ci.yml` (lint e build). O script mora no `wsabor/infra` (role `site`), não neste repo. O `wsabor.dev` só redireciona para o `wsabor.com` (regra no Cloudflare); o site saiu da Vercel em 2026-10, então não há preview de PR.
 - **E-mail público:** `contato@wsabor.com` (Cloudflare Email Routing → Gmail). Não usar o Gmail pessoal no site.
 
 ## Estrutura
