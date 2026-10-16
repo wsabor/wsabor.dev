@@ -5,7 +5,7 @@ Plano de evolução do site pessoal/portfólio. Dois objetivos:
 1. **Portfólio** (recrutadores, área de tecnologia, educação) — mostrar _como_ trabalho, não só _o que_ entreguei.
 2. **Captação de clientes locais** — vender sites, Google Meu Negócio (Perfil da Empresa no Google) e tráfego pago para pequenos negócios, e **medir** de onde vêm os contatos.
 
-> Última revisão: 2026-10-04, depois do deploy com releases e rollback (`wsabor/infra` PR #13) e do e-mail `contato@wsabor.com` (PR #15).
+> Última revisão: 2026-10-16, depois do deploy automático (PR #25), do fim do espelho na Vercel (PR #24) e da arrumação do Search Console (PR #26).
 
 ---
 
@@ -30,7 +30,7 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 
 | Item | Retorno | Esforço | Observação |
 | --- | --- | --- | --- |
-| 👤 **Search Console: acompanhar** | 🟢 | P | Conferir se o sitemap do `wsabor.com` passou de "Não foi possível ler" para "Sucesso" (11 URLs). Na propriedade `wsabor.dev`, as páginas passam a aparecer como "Página com redirecionamento" desde que o domínio virou redirect (2026-10) — é o esperado. Se o sitemap continuar com erro depois de alguns dias, ver Segurança → Eventos na Cloudflare. |
+| 👤 **Search Console: revisar em 2026-10-30** | 🟢 | P | Em 2026-10-16 o sitemap estava "Processado" (12 URLs), mas 8 páginas internas estavam em "Detectada, mas não indexada" (fila de domínio novo). Já foram feitos a mudança de endereço `wsabor.dev` → `wsabor.com` e o pedido de indexação de /seu-negocio, /about e /projects. Esperado: as 8 páginas indexadas e as 2 cópias `www` aprovadas. "Página com redirecionamento" e o `sitemap.xml` em "Rastreada, mas não indexada" são normais — não validar. Se nada andar, levar links externos (LinkedIn, GitHub, Perfil da Empresa) para o `wsabor.com`. |
 | 👤 **Publicar os 2 rascunhos do blog** | 🟢 | M | Último post em 2025-09-03. Rascunhos em `content/scratch/`: "Por que todo Dev Deveria Aprender Design" e "Os 3 Maiores Desafios que Meus Alunos Enfrentam". O esforço é de escrita. Meta: 1 post/mês. |
 
 ---
@@ -116,7 +116,7 @@ O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e r
 
 ## Fora deste repositório
 
-- [ ] 👤 **README do `wsabor/infra`** — blocos prontos sobre os dois domínios e o redirect `www` na Cloudflare: ai-memory, projeto `infra`, `notes/site-dois-dominios-readme-2026-10-01.md`.
+- [ ] **README do `wsabor/infra`** — trocar a regra do `www` pela nova (`*://www.wsabor.com/*`, um salto só) e, quando o Google Ads rodar, conferir se a CSP bloqueia algo: ai-memory, projeto `infra`, `notes/pendente-readme-www-e-csp-google-ads-2026-10-16.md`.
 - [ ] **Site da Topcoat** — bug de canonical/hreflang (todas as páginas apontam para a home em PT, inclusive a versão ES), og:image nas páginas internas, redirect `www`, GA4 com consentimento, Search Console, JSON-LD e `llms.txt`: ai-memory, projeto `topcoat`, `notes/melhorias-vindas-do-wsabor-2026-10-03.md`.
 - [x] **Topcoat fora da conta pessoal da Vercel** — o site da Topcoat foi para o servidor na Oracle em 2026-10 (role `site` do `wsabor/infra`); o item 2.4 deixou de ser alternativa e virou o caminho adotado.
 
@@ -134,7 +134,7 @@ O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e r
 ## Infra (referência)
 
 - **Um domínio:** `wsabor.com` (Oracle Cloud ARM A1, Ubuntu, Nginx, PM2, atrás do Cloudflare; playbook no [`wsabor/infra`](https://github.com/wsabor/infra)). O `wsabor.dev` redireciona para ele por uma regra no Cloudflare; o espelho na Vercel acabou em 2026-10. Canonical, sitemap e schemas usam `SITE_URL` (`src/lib/site.ts`).
-- **Cloudflare na frente do `wsabor.com`:** Redirect Rule `www.wsabor.com` → `wsabor.com` (301, curinga `https://www.*` → `https://${1}`, preservando a query string; o registro `www` precisa continuar com proxy). Email Address Obfuscation ativo.
+- **Cloudflare na frente do `wsabor.com`:** Redirect Rule `www.wsabor.com` → `wsabor.com` (301, curinga `*://www.wsabor.com/*` → `https://wsabor.com/${2}`, preservando a query string; um salto só, também vindo de `http://`; o domínio fica escrito por extenso para não virar open redirect; o registro `www` precisa continuar com proxy). Na zona `wsabor.dev`, a regra usa expressão (`http.host in {"wsabor.dev" "www.wsabor.dev"}` → `concat("https://wsabor.com", http.request.uri.path)`); o `simulado.wsabor.dev` fica de fora de propósito. Email Address Obfuscation ativo.
 - **Deploy na Oracle:** `~/apps/wsabor/deploy.sh`, instalado pelo role `site` do `wsabor/infra`. Cada deploy faz o build numa pasta nova em `releases/` e só então troca o link `current` (o PM2 sobe dali). Build com erro não muda nada; se o site não responder 200 em 30 s, volta sozinho para a versão anterior. Guarda as 3 últimas versões.
 - **E-mail `contato@wsabor.com`:** Cloudflare Email Routing (MX `route1-3.mx.cloudflare.net` + SPF na raiz) encaminhando para o Gmail. Só recebe; para responder como `contato@` seria preciso um SMTP (ex.: Resend no subdomínio `send.wsabor.com`). As primeiras mensagens caíram no spam: filtro no Gmail "Nunca enviar para spam".
 - **CSP do Nginx** libera Giscus, Formspree e Google Analytics. Qualquer serviço externo novo (Google Ads, Pixel da Meta) exige ampliar a CSP no `wsabor/infra`.
@@ -146,6 +146,9 @@ O `deploy.sh` do `wsabor/infra` publica na Oracle com releases, health check e r
 
 **Outubro de 2026**
 
+- [x] **`lastmod` do sitemap com datas reais** — antes cada deploy marcava quase todas as páginas como alteradas no dia; agora posts usam `updatedAt`, estudos de caso têm `updatedAt` obrigatório e as páginas fixas usam `STATIC_PAGES_UPDATED` em `src/app/sitemap.ts` (PR #26).
+- [x] **Mudança de endereço no Search Console** — `wsabor.dev` → `wsabor.com` confirmada em 2026-10-16.
+- [x] **Redirect do `www` em um salto** — `http://www.wsabor.com` ia para `https://www` e só depois para `wsabor.com`; a regra passou a cobrir os dois protocolos.
 - [x] **Landing page `/seu-negocio`** — topo com WhatsApp, problemas do cliente, 3 serviços com o que inclui, como funciona, exemplos (Topcoat, DR Prev, Brisa do Mar como modelo), perguntas frequentes; schema `ProfessionalService`, imagem de prévia própria, item no menu e card da home apontando para ela (PR #21).
 - [x] **Card do X por página** — título, descrição e imagem de cada página (antes todas mandavam os da home) (PR #21).
 - [x] **GA4: eventos principais e dimensões** — `contact_click`, `generate_lead` e `whatsapp_click` (novo, só os cliques no WhatsApp, para importar no Google Ads) com estrela; dimensões `method`, `location`, `project`, `action` e `form` (escopo Evento).
