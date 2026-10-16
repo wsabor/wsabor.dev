@@ -9,6 +9,8 @@ export type ProjectMetadata = {
   summary: string;
   client?: string;
   year?: string;
+  /** Última mudança do texto (AAAA-MM-DD); vai para o lastmod do sitemap. */
+  updatedAt: string;
   liveUrl?: string;
   coverImage?: string;
   stack?: string[];
