@@ -40,7 +40,7 @@ Este projeto foi construído com as seguintes tecnologias:
 - **Animação:** [GSAP](https://gsap.com/) (ScrollTrigger) e [Lenis](https://lenis.darkroom.engineering/)
 - **Ícones:** [Lucide React](https://lucide.dev/)
 - **Medição:** [Google Analytics 4](https://marketingplatform.google.com/about/analytics/)
-- **Deployment:** `wsabor.com` na [Oracle Cloud](https://www.oracle.com/cloud/) (Nginx + PM2, atrás da [Cloudflare](https://www.cloudflare.com/); deploy com uma pasta por versão e rollback automático, configurado com Ansible num repositório de infra separado)
+- **Deployment:** `wsabor.com` na [Oracle Cloud](https://www.oracle.com/cloud/) (Nginx + PM2, atrás da [Cloudflare](https://www.cloudflare.com/); deploy automático pelo GitHub Actions a cada merge na `main`, com uma pasta por versão e rollback automático, configurado com Ansible num repositório de infra separado)
 
 ---
 
