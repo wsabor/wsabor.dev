@@ -67,7 +67,7 @@ npm run lint   # ESLint (flat config; manter ESLint 9 — eslint-plugin-react n�
 - Toda página define `export const metadata = pageMetadata({ path, title, description })` (canonical + og:url). Rotas com `opengraph-image.tsx` passam `fileImage: true`.
 
 - Schemas JSON-LD gerados em `src/lib/schemas.ts` e injetados via `src/components/JsonLd.tsx`
-- Sitemap em `src/app/sitemap.ts`, robots em `src/app/robots.ts`
+- Sitemap em `src/app/sitemap.ts`, robots em `src/app/robots.ts`. O `lastmod` usa datas reais, nunca a do build: posts usam `updatedAt` (ou `publishedAt`), estudos de caso exigem `updatedAt` no frontmatter e as páginas fixas têm a data em `STATIC_PAGES_UPDATED` — atualizar ao mudar o texto da página.
 - RSS feed em `src/app/feed.xml/route.ts`
 
 ## Indexação para LLMs
