@@ -5,7 +5,7 @@ export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "Site, Google e anúncios para o seu negócio — Wagner Sabor, Osvaldo Cruz e Oeste Paulista";
+  "Automação e inteligência artificial para o seu negócio — Wagner Sabor, Osvaldo Cruz e Oeste Paulista";
 
 // Prévia do link /seu-negocio (WhatsApp, redes sociais). Mesmo visual da OG dos posts.
 export default function OgImage() {
@@ -73,9 +73,11 @@ export default function OgImage() {
             marginTop: 16,
           }}
         >
+          {/* Duas linhas fixas: evita "IA" sozinha na segunda linha */}
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
               fontSize: 72,
               fontWeight: 800,
               lineHeight: 1.1,
@@ -83,7 +85,8 @@ export default function OgImage() {
               color: "hsl(0, 0%, 96%)",
             }}
           >
-            Site, Google e anúncios para o seu negócio
+            <span>Seu negócio pronto</span>
+            <span>para a era da IA</span>
           </div>
           <div
             style={{

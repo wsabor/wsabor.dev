@@ -37,8 +37,8 @@ Criando interfaces intuitivas e experiências de usuário que resolvem problemas
 **Mentoria & Educação**
 Capacitando novos talentos em tecnologia com uma abordagem prática e focada no mercado.
 
-**Presença digital para negócios**
-Ajuda pequenos negócios a serem encontrados e escolhidos: sites profissionais, Google Meu Negócio (Perfil da Empresa no Google) e tráfego pago.
+**Inteligência artificial para negócios**
+Ajuda pequenos negócios a entrar na era da inteligência artificial: automação de processos, treinamento da equipe e presença digital (sites e Google Meu Negócio).
 
 ### Contato rápido
 
@@ -236,9 +236,16 @@ Fora da sala de aula, explora o potencial da Inteligência Artificial e é entus
 
 ## Seu negócio — /seu-negocio
 
-Página de serviços para pequenos negócios de Osvaldo Cruz e de toda a região do Oeste Paulista, com atendimento também a distância em todo o Brasil. Preço sob consulta; o contato principal é o WhatsApp Business (18) 98172-1905 (https://wa.me/5518981721905).
+Página de serviços de automação e inteligência artificial para pequenos negócios de Osvaldo Cruz e de toda a região do Oeste Paulista, com atendimento também a distância em todo o Brasil. Wagner é professor do curso técnico em Desenvolvimento de Sistemas e explica tudo em linguagem simples, sem exigir conhecimento de tecnologia. Preço sob consulta; o contato principal é o WhatsApp Business (18) 98172-1905 (https://wa.me/5518981721905).
 
 ### Serviços
+
+- **Automação de processos:** tarefas repetitivas feitas pelo computador. Inclui atendimento automático no WhatsApp (dúvidas, horários e preços), agendamentos, lembretes e confirmações, e orçamentos, planilhas e relatórios sem copiar e colar. Quando o cliente precisa de uma pessoa, a conversa passa para o dono ou a equipe.
+- **Diagnóstico e consultoria:** análise da rotina do negócio para mostrar onde a inteligência artificial ajuda de verdade, com a lista do que dá para automatizar e um plano por etapas.
+- **Treinamento da equipe:** treinamento prático para o dono e a equipe usarem o ChatGPT, o Gemini e outras ferramentas de IA nas tarefas do próprio negócio, incluindo o que pode e o que não pode ser colocado numa IA.
+- **Encontrado pelas IAs:** informações do negócio organizadas para as IAs lerem, com site e Perfil da Empresa no Google completos e coerentes, para o negócio aparecer quando alguém pergunta a uma IA onde comprar.
+
+### Também faz (presença digital)
 
 - **Site profissional:** site rápido, bonito no celular e fácil de achar no Google, com o WhatsApp a um toque. Inclui a criação das páginas, o registro do domínio para o cliente (ou ajuda para registrar) e hospedagem e manutenção com mensalidade. Fotos e filmagem profissionais à parte, sob consulta.
 - **Google Meu Negócio (Perfil da Empresa no Google):** perfil completo e atualizado para aparecer no Maps e nas buscas da região. Inclui criação, otimização, respostas às avaliações e fotos enviadas pelo cliente (ou produção de fotos sob consulta).
@@ -246,12 +253,12 @@ Página de serviços para pequenos negócios de Osvaldo Cruz e de toda a região
 
 ### Como funciona
 
-1. **Conversa:** o cliente conta sobre o negócio pelo WhatsApp.
-2. **Proposta:** proposta com o que faz sentido para o momento do negócio.
-3. **Entrega:** site, perfil ou anúncios no ar, com o cliente acompanhando cada etapa.
-4. **Acompanhamento:** medição de onde vêm os contatos e ajustes para trazer mais clientes.
+1. **Conversa:** o cliente conta sobre o negócio pelo WhatsApp, inclusive o que mais toma o seu tempo.
+2. **Diagnóstico:** proposta mostrando onde a automação e a inteligência artificial fazem diferença.
+3. **Implantação:** automações e ferramentas funcionando, com o cliente acompanhando cada etapa.
+4. **Treinamento e acompanhamento:** o dono e a equipe aprendem a usar; o resultado é medido e ajustado.
 
-### Exemplos
+### Exemplos de sites
 
 - **Topcoat Vernizes** (cliente): site institucional em português e espanhol. Estudo de caso: https://wsabor.com/projects/topcoat-vernizes
 - **DR Prev Serviços Previdenciários** (cliente): site institucional para uma empresa de serviços previdenciários. https://drprev.com.br
