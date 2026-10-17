@@ -1,6 +1,6 @@
 # 🚀 Portfólio e Blog Pessoal - Wagner Sabor
 
-![Banner do Site](https://github.com/wsabor/wsabor.dev/blob/main/public/screenshot.webp)
+![Banner do Site](https://github.com/wsabor/wsabor.dev/blob/master/public/screenshot.webp)
 
 Bem-vindo ao repositório do meu site pessoal e blog, um espaço onde compartilho minha jornada profissional, projetos, artigos e reflexões sobre tecnologia, design e educação. Este projeto foi construído com o objetivo de ser não apenas um portfólio, mas também uma plataforma para aplicar e demonstrar minhas habilidades.
 
@@ -40,7 +40,7 @@ Este projeto foi construído com as seguintes tecnologias:
 - **Animação:** [GSAP](https://gsap.com/) (ScrollTrigger) e [Lenis](https://lenis.darkroom.engineering/)
 - **Ícones:** [Lucide React](https://lucide.dev/)
 - **Medição:** [Google Analytics 4](https://marketingplatform.google.com/about/analytics/)
-- **Deployment:** `wsabor.com` na [Oracle Cloud](https://www.oracle.com/cloud/) (Nginx + PM2, atrás da [Cloudflare](https://www.cloudflare.com/); deploy automático pelo GitHub Actions a cada merge na `main`, com uma pasta por versão e rollback automático, configurado com Ansible num repositório de infra separado)
+- **Deployment:** `wsabor.com` na [Oracle Cloud](https://www.oracle.com/cloud/) (Nginx + PM2, atrás da [Cloudflare](https://www.cloudflare.com/); deploy automático pelo GitHub Actions a cada merge na `master`, com uma pasta por versão e rollback automático, configurado com Ansible num repositório de infra separado)
 
 ---
 

@@ -1,4 +1,4 @@
-# Publica a main no servidor: entra por SSH e roda o deploy.sh do site.
+# Publica a master no servidor: entra por SSH e roda o deploy.sh do site.
 # O build é feito lá; se falhar, ou se o site não responder, a versão no ar continua a anterior.
 # A chave (DEPLOY_SSH_KEY) só consegue rodar esse script. Os secrets vêm do scripts/ci-key.sh
 # do repositório wsabor/infra.
@@ -6,8 +6,8 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch: # botão "Run workflow": publica a main de novo
+    branches: [master]
+  workflow_dispatch: # botão "Run workflow": publica a master de novo
 
 permissions: {}
 
