@@ -6,6 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
+import SmoothScroll from "@/components/SmoothScroll";
 import FeatureCard from "@/components/FeatureCard";
 import { WhatsappIcon } from "@/components/BrandIcons";
 import {
@@ -100,6 +101,7 @@ export default function BusinessPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={getProfessionalServiceSchema()} />
+      <SmoothScroll />
 
       <PageHeader
         eyebrow={hero.eyebrow}

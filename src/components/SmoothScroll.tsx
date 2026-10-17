@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Lenis from "lenis";
 
 // Smooth scroll (Lenis) sincronizado com o ticker do GSAP.
-// Renderizado apenas na home: ao sair da página o Lenis é destruído.
+// Renderizado na home e em /seu-negocio: ao sair da página o Lenis é destruído.
 export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({ syncTouch: false });
