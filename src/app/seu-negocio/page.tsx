@@ -6,11 +6,13 @@ import JsonLd from "@/components/JsonLd";
 import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
+import SmoothScroll from "@/components/SmoothScroll";
 import FeatureCard from "@/components/FeatureCard";
 import { WhatsappIcon } from "@/components/BrandIcons";
 import {
   businessPage,
   serviceArea,
+  type Service,
   WHATSAPP_DISPLAY,
   whatsappHref,
 } from "@/data/business";
@@ -25,13 +27,21 @@ const PATH = "/seu-negocio";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: `Sites e Google Meu Negócio em ${serviceArea.city} e ${serviceArea.region}`,
-  description: `Site profissional, Perfil da Empresa no Google e anúncios para negócios de ${serviceArea.label}. Fale comigo no WhatsApp.`,
+  title: `Automação e inteligência artificial para negócios em ${serviceArea.city} e região`,
+  description: `Automação de processos, atendimento no WhatsApp, consultoria e treinamento em IA para negócios de ${serviceArea.label}. Também faço sites e Google Meu Negócio.`,
   fileImage: true,
 });
 
-const { hero, pains, services, process, examples, faq, finalCta } =
-  businessPage;
+const {
+  hero,
+  pains,
+  services,
+  process,
+  alsoServices,
+  examples,
+  faq,
+  finalCta,
+} = businessPage;
 
 // Botão principal: WhatsApp com a mensagem pronta. `location` vai para o GA4.
 function WhatsappButton({
@@ -60,6 +70,27 @@ function WhatsappButton({
   );
 }
 
+function ServiceCard({ icon: Icon, title, description, includes }: Service) {
+  return (
+    <div data-reveal className="card card-interactive flex flex-col p-8">
+      <div className="from-primary/20 to-primary-light/10 ring-primary/20 text-primary mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br ring-1">
+        <Icon size={22} aria-hidden="true" />
+      </div>
+      <h3 className="font-display text-text-main text-xl font-semibold">
+        {title}
+      </h3>
+      <p className="text-text-muted mt-2 leading-relaxed">{description}</p>
+      {includes.length > 0 && (
+        <ul className="text-text-muted mt-4 list-disc space-y-1 pl-5 text-sm">
+          {includes.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 export default function BusinessPage() {
   const breadcrumbSchema = getBreadcrumbListSchema([
     { name: "Home", url: absoluteUrl() },
@@ -70,6 +101,7 @@ export default function BusinessPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={getProfessionalServiceSchema()} />
+      <SmoothScroll />
 
       <PageHeader
         eyebrow={hero.eyebrow}
@@ -125,33 +157,10 @@ export default function BusinessPage() {
             title={services.title}
             description={services.description}
           />
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {services.items.map(
-              ({ icon: Icon, title, description, includes }) => (
-                <div
-                  key={title}
-                  data-reveal
-                  className="card card-interactive flex flex-col p-8"
-                >
-                  <div className="from-primary/20 to-primary-light/10 ring-primary/20 text-primary mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br ring-1">
-                    <Icon size={22} aria-hidden="true" />
-                  </div>
-                  <h3 className="font-display text-text-main text-xl font-semibold">
-                    {title}
-                  </h3>
-                  <p className="text-text-muted mt-2 leading-relaxed">
-                    {description}
-                  </p>
-                  {includes.length > 0 && (
-                    <ul className="text-text-muted mt-4 list-disc space-y-1 pl-5 text-sm">
-                      {includes.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ),
-            )}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {services.items.map((service) => (
+              <ServiceCard key={service.title} {...service} />
+            ))}
           </div>
         </Reveal>
       </section>
@@ -197,11 +206,28 @@ export default function BusinessPage() {
         </Reveal>
       </section>
 
-      {/* Exemplos */}
+      {/* Também faço: presença digital */}
       <section
         className="section-dots py-16 md:py-24"
-        aria-labelledby="exemplos"
+        aria-labelledby="tambem-faco"
       >
+        <Reveal className="container mx-auto px-8">
+          <SectionHeading
+            id="tambem-faco"
+            eyebrow={alsoServices.eyebrow}
+            title={alsoServices.title}
+            description={alsoServices.description}
+          />
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {alsoServices.items.map((service) => (
+              <ServiceCard key={service.title} {...service} />
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Exemplos */}
+      <section className="py-16 md:py-24" aria-labelledby="exemplos">
         <Reveal className="container mx-auto px-8">
           <SectionHeading
             id="exemplos"
@@ -259,7 +285,10 @@ export default function BusinessPage() {
       </section>
 
       {/* Perguntas frequentes */}
-      <section className="py-16 md:py-24" aria-labelledby="perguntas">
+      <section
+        className="section-dots py-16 md:py-24"
+        aria-labelledby="perguntas"
+      >
         <Reveal className="container mx-auto max-w-3xl px-8">
           <SectionHeading
             id="perguntas"
@@ -292,10 +321,7 @@ export default function BusinessPage() {
       </section>
 
       {/* Chamada final */}
-      <section
-        className="section-dots py-24 md:py-36"
-        aria-labelledby="contato-negocio"
-      >
+      <section className="py-24 md:py-36" aria-labelledby="contato-negocio">
         <Reveal className="container mx-auto px-8">
           <div
             data-reveal

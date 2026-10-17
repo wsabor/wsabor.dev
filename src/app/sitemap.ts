@@ -10,7 +10,7 @@ const STATIC_PAGES_UPDATED = {
   home: "2026-10-07",
   about: "2026-10-04",
   projects: "2026-10-01",
-  seuNegocio: "2026-10-07",
+  seuNegocio: "2026-10-17",
   contact: "2026-10-04",
   privacidade: "2026-10-03",
 };

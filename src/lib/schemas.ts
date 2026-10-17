@@ -120,7 +120,10 @@ export function getProfessionalServiceSchema() {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Serviços",
-      itemListElement: businessPage.services.items.map((service) => ({
+      itemListElement: [
+        ...businessPage.services.items,
+        ...businessPage.alsoServices.items,
+      ].map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",

@@ -5,11 +5,11 @@
 
 ## Páginas
 
-- [Home](https://wsabor.com): Apresentação, trajetória, certificações Microsoft, especialidades (incluindo presença digital para negócios), projetos e artigos em destaque.
+- [Home](https://wsabor.com): Apresentação, trajetória, certificações Microsoft, especialidades (incluindo inteligência artificial para negócios), projetos e artigos em destaque.
 - [Sobre](https://wsabor.com/about): Trajetória profissional, certificações Microsoft (AZ-900, DP-900, SC-900, AI-900, PL-900), filosofia de trabalho e stack tecnológica.
 - [Projetos](https://wsabor.com/projects): Portfólio com projetos de clientes, aplicações educacionais e sistemas web.
 - [Blog](https://wsabor.com/blog): Artigos sobre desenvolvimento, mentoria e experiências pessoais.
-- [Seu negócio](https://wsabor.com/seu-negocio): Site profissional, Google Meu Negócio (Perfil da Empresa no Google) e anúncios no Google para negócios de Osvaldo Cruz e da região do Oeste Paulista, com atendimento a distância em todo o Brasil. Contato pelo WhatsApp (18) 98172-1905.
+- [Seu negócio](https://wsabor.com/seu-negocio): Automação de processos (incluindo atendimento automático no WhatsApp), diagnóstico e consultoria em inteligência artificial, treinamento de equipes e preparo do negócio para ser encontrado por IAs, para negócios de Osvaldo Cruz e da região do Oeste Paulista, com atendimento a distância em todo o Brasil. Também site profissional, Google Meu Negócio (Perfil da Empresa no Google) e anúncios no Google. Contato pelo WhatsApp (18) 98172-1905.
 - [Contato](https://wsabor.com/contact): e-mail (contato@wsabor.com), GitHub, LinkedIn e formulário de contato.
 
 ## Blog Posts

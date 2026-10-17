@@ -3,9 +3,9 @@ import {
   BrainCircuit,
   CodeXml,
   Globe,
-  MapPin,
+  GraduationCap,
   PenTool,
-  TrendingUp,
+  Workflow,
 } from "lucide-react";
 
 export type Specialty = {
@@ -43,18 +43,17 @@ export const specialties: Specialty[] = [
   },
 ];
 
-// Bloco de serviços para pequenos negócios. Quando a landing /servicos
-// existir, trocar cta.href para ela.
+// Bloco de serviços para pequenos negócios (leva à landing /seu-negocio).
 export const businessServices = {
-  title: "Presença digital para negócios",
+  title: "Inteligência artificial para negócios",
   description:
-    "Ajudo pequenos negócios a serem encontrados e escolhidos: site profissional, perfil no Google e anúncios que trazem clientes.",
+    "Ajudo pequenos negócios a entrar na era da inteligência artificial: automação de processos, treinamento da equipe e presença digital.",
   items: [
-    { icon: <Globe size={20} />, label: "Sites profissionais" },
-    { icon: <MapPin size={20} />, label: "Google Meu Negócio" },
-    { icon: <TrendingUp size={20} />, label: "Tráfego pago" },
+    { icon: <Workflow size={20} />, label: "Automação de processos" },
+    { icon: <GraduationCap size={20} />, label: "Treinamento em IA" },
+    { icon: <Globe size={20} />, label: "Sites e Google Meu Negócio" },
   ],
-  cta: { href: "/seu-negocio", label: "Quero divulgar meu negócio" },
+  cta: { href: "/seu-negocio", label: "Quero modernizar meu negócio" },
 };
 
 // Faixa de tecnologias (marquee) abaixo do bento.

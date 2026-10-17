@@ -39,9 +39,11 @@ Os itens estão agrupados por **retorno × esforço**, para escolher o próximo 
 
 ### 2.1 Landing page de serviços — 🟢 · no ar, falta o Google Ads
 
-`wsabor.com/seu-negocio` está no ar (PR #21): marca Wagner Sabor, Osvaldo Cruz e Oeste Paulista com atendimento a distância, preço sob consulta, WhatsApp Business como chamada principal. Conteúdo em `src/data/business.ts`.
+`wsabor.com/seu-negocio` está no ar (PR #21): marca Wagner Sabor, Osvaldo Cruz e Oeste Paulista com atendimento a distância, preço sob consulta, WhatsApp Business como chamada principal. Conteúdo em `src/data/business.ts`. Em 2026-10-17 o foco mudou para automação de processos e inteligência artificial (automação e atendimento no WhatsApp, diagnóstico e consultoria, treinamento da equipe, ser encontrado pelas IAs); site, Google Meu Negócio e anúncios viraram a seção "Também faço". A versão anterior está na tag `seu-negocio-v1`. Na página não citar o SENAI pelo nome: "professor de tecnologia" ou "professor do curso técnico em Desenvolvimento de Sistemas".
 
-- [ ] 👤 **Google Ads (fase D):** conta criada no modo especialista (país Brasil, fuso Brasília, BRL), vinculada ao GA4; importar `whatsapp_click` como conversão (contagem "Uma"); campanha de Pesquisa só na rede de pesquisa, local Osvaldo Cruz + raio, destino `/seu-negocio`. Nunca importar `contact_click` (inclui LinkedIn/GitHub).
+- [ ] 👤 **Search Console:** depois do deploy, pedir de novo a indexação de `/seu-negocio` (título e descrição mudaram).
+
+- [ ] 👤 **Google Ads (fase D):** conta criada no modo especialista (país Brasil, fuso Brasília, BRL), vinculada ao GA4; importar `whatsapp_click` como conversão (contagem "Uma"); campanha de Pesquisa só na rede de pesquisa, local Osvaldo Cruz + raio, destino `/seu-negocio`. Nunca importar `contact_click` (inclui LinkedIn/GitHub). As palavras-chave e os anúncios precisam seguir o foco novo da página (automação, atendimento automático no WhatsApp, IA para negócios).
 - [ ] Depois de 2 a 4 semanas de anúncio: revisar termos de pesquisa, negativar o que não converte e trocar o lance para "Maximizar conversões" quando houver ~15 a 30 conversões.
 - [ ] Meta Ads (Instagram/Facebook) só se o Google Ads der retorno; exige o Pixel da Meta, o banner de consentimento e a CSP do nginx ampliada.
 - Regra: nunca colocar prazo de entrega em dias na página (a entrega antes do prazo é surpresa para o cliente).

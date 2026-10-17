@@ -1,19 +1,26 @@
 import {
-  BarChart3,
+  Bot,
   ClipboardList,
+  Clock,
+  Compass,
   Globe,
+  GraduationCap,
   HelpCircle,
   MapPin,
   MessageCircle,
-  MousePointerClick,
+  Repeat,
   Rocket,
   SearchX,
-  Smartphone,
+  Sparkles,
   TrendingUp,
+  Users,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
 // Conteúdo da landing page /seu-negocio (serviços para pequenos negócios).
+// Foco: automação de processos, inteligência artificial e treinamento.
+// Site, Google Meu Negócio e anúncios seguem como serviços secundários.
 // Linguagem de negócio, sem jargão técnico. Só fatos confirmados pelo Wagner.
 // Não citar prazo em dias nem o provedor da hospedagem (decisão do Wagner).
 
@@ -54,48 +61,132 @@ export type FaqItem = {
 export const businessPage = {
   hero: {
     eyebrow: "Para o seu negócio",
-    title: "Seu negócio encontrado no Google e escolhido pelos clientes",
-    description: `Site profissional, perfil no Google e anúncios para negócios de ${serviceArea.label}. ${serviceArea.remote} Você cuida do seu negócio; eu cuido de quem procura por ele na internet.`,
+    title: "Seu negócio pronto para a era da inteligência artificial",
+    description: `Automação de processos, inteligência artificial e treinamento de equipe para negócios de ${serviceArea.label}, e a distância em todo o Brasil. Sou professor de tecnologia e explico tudo sem complicação.`,
   },
 
   pains: {
     eyebrow: "Isso acontece com você?",
-    title: "Quem procura não encontra o seu negócio",
+    title: "Falta tempo, e a tecnologia parece complicada",
     description:
-      "Hoje o cliente pesquisa no celular antes de sair de casa. Se ele não acha você, acha o concorrente.",
+      "A inteligência artificial chegou também para os pequenos negócios. Quem aprende a usar agora sai na frente.",
     items: [
       {
+        icon: Clock,
+        title: "O WhatsApp toma o seu dia",
+        description:
+          "As mesmas perguntas, várias vezes por dia: horário, preço, endereço. E quem demora para responder perde o cliente.",
+      },
+      {
+        icon: Repeat,
+        title: "Tarefas repetitivas",
+        description:
+          "Agenda, orçamento, planilha e lembrete feitos à mão, um por um, todos os dias.",
+      },
+      {
+        icon: Bot,
+        title: "Não sabe por onde começar",
+        description:
+          "Todo mundo fala de inteligência artificial, mas ninguém mostra como ela ajuda no seu negócio, na prática.",
+      },
+      {
         icon: SearchX,
-        title: "Não aparece no Google",
+        title: "As IAs não conhecem você",
         description:
-          "Alguém procura pelo que você vende na sua cidade, e o seu negócio não está na lista.",
-      },
-      {
-        icon: MapPin,
-        title: "Perfil no Google incompleto",
-        description:
-          "Horário errado, sem fotos, sem telefone ou sem avaliações: o cliente desiste antes de ligar.",
-      },
-      {
-        icon: Smartphone,
-        title: "Só nas redes sociais",
-        description:
-          "Endereço, serviços e contato espalhados em posts. Falta um lugar que mostre tudo de forma clara.",
-      },
-      {
-        icon: BarChart3,
-        title: "Anúncio sem saber o resultado",
-        description:
-          "Dinheiro investido em impulsionamento sem saber quantos clientes vieram dele.",
+          "O cliente pergunta ao ChatGPT onde encontrar o que você vende na sua cidade, e o seu negócio não aparece na resposta.",
       },
     ] satisfies IconCard[],
   },
 
   services: {
     eyebrow: "O que eu faço",
-    title: "Três frentes para trazer clientes",
+    title: "Inteligência artificial a serviço do seu negócio",
     description:
-      "Você pode começar por uma delas ou combinar as três. Cada proposta é montada para o momento do seu negócio.",
+      "Você pode começar pelo que mais pesa na sua rotina. Cada proposta é montada para o momento do seu negócio.",
+    items: [
+      {
+        icon: Workflow,
+        title: "Automação de processos",
+        description:
+          "As tarefas repetitivas ficam por conta do computador, e você e sua equipe cuidam do que importa.",
+        includes: [
+          "Atendimento automático no WhatsApp: dúvidas, horários e preços",
+          "Agendamentos, lembretes e confirmações",
+          "Orçamentos, planilhas e relatórios sem copiar e colar",
+          "Quando o cliente precisa de uma pessoa, a conversa passa para você",
+        ],
+      },
+      {
+        icon: Compass,
+        title: "Diagnóstico e consultoria",
+        description:
+          "Olho como o seu negócio funciona hoje e mostro onde a inteligência artificial ajuda de verdade, e onde não vale a pena.",
+        includes: [
+          "Conversa sobre a rotina do negócio",
+          "Lista do que dá para automatizar",
+          "Plano por etapas, começando pelo que traz mais resultado",
+        ],
+      },
+      {
+        icon: GraduationCap,
+        title: "Treinamento da equipe",
+        description:
+          "Sou professor do curso técnico em Desenvolvimento de Sistemas. Ensino você e sua equipe a usar o ChatGPT, o Gemini e outras ferramentas de IA, em linguagem simples.",
+        includes: [
+          "Treinamento prático, com as tarefas do seu negócio",
+          "Para o dono e para a equipe",
+          "O que pode e o que não pode ser colocado numa IA",
+        ],
+      },
+      {
+        icon: Sparkles,
+        title: "Encontrado pelas IAs",
+        description:
+          "Cada vez mais gente pergunta a uma IA onde comprar. Preparo o seu negócio para aparecer nessas respostas.",
+        includes: [
+          "Informações do negócio organizadas para as IAs lerem",
+          "Site e Perfil da Empresa no Google completos e coerentes",
+        ],
+      },
+    ] satisfies Service[],
+  },
+
+  process: {
+    eyebrow: "Como funciona",
+    title: "Do primeiro contato ao negócio funcionando",
+    steps: [
+      {
+        icon: MessageCircle,
+        title: "Conversa",
+        description:
+          "Você me conta sobre o seu negócio pelo WhatsApp: o que vende, como trabalha e o que mais toma o seu tempo.",
+      },
+      {
+        icon: ClipboardList,
+        title: "Diagnóstico",
+        description:
+          "Mostro onde a automação e a inteligência artificial fazem diferença, numa proposta clara.",
+      },
+      {
+        icon: Rocket,
+        title: "Implantação",
+        description:
+          "Coloco as automações e as ferramentas para funcionar, e você acompanha cada etapa.",
+      },
+      {
+        icon: Users,
+        title: "Treinamento e acompanhamento",
+        description:
+          "Ensino você e sua equipe a usar, meço o resultado e ajusto o que for preciso.",
+      },
+    ] satisfies IconCard[],
+  },
+
+  alsoServices: {
+    eyebrow: "Também faço",
+    title: "Presença digital, a base de tudo",
+    description:
+      "Para ser encontrado por pessoas e por IAs, o seu negócio precisa estar bem apresentado na internet.",
     items: [
       {
         icon: Globe,
@@ -135,40 +226,9 @@ export const businessPage = {
     ] satisfies Service[],
   },
 
-  process: {
-    eyebrow: "Como funciona",
-    title: "Do primeiro contato ao cliente chegando",
-    steps: [
-      {
-        icon: MessageCircle,
-        title: "Conversa",
-        description:
-          "Você me conta sobre o seu negócio pelo WhatsApp: o que vende, para quem e onde quer chegar.",
-      },
-      {
-        icon: ClipboardList,
-        title: "Proposta",
-        description:
-          "Monto uma proposta com o que faz sentido para o seu momento.",
-      },
-      {
-        icon: Rocket,
-        title: "Entrega",
-        description:
-          "Coloco o site, o perfil ou os anúncios no ar, e você acompanha cada etapa.",
-      },
-      {
-        icon: MousePointerClick,
-        title: "Acompanhamento",
-        description:
-          "Meço de onde vêm os contatos e ajusto o que for preciso para trazer mais clientes.",
-      },
-    ] satisfies IconCard[],
-  },
-
   examples: {
     eyebrow: "Trabalhos",
-    title: "Exemplos do que eu faço",
+    title: "Sites que eu fiz",
     items: [
       {
         title: "Topcoat Vernizes",
@@ -217,23 +277,33 @@ export const businessPage = {
           "Depende do que o seu negócio precisa. Me chame no WhatsApp, conte um pouco sobre ele e eu monto uma proposta.",
       },
       {
+        question: "Preciso entender de tecnologia?",
+        answer:
+          "Não. Sou professor de tecnologia e explico tudo em linguagem simples. Eu cuido da parte técnica e ensino você e sua equipe a usar o que for implantado.",
+      },
+      {
+        question: "Por onde eu começo?",
+        answer:
+          "Pela conversa e pelo diagnóstico. Juntos, vemos o que mais toma tempo no seu negócio e começamos por ali.",
+      },
+      {
+        question: "O atendimento automático substitui as pessoas?",
+        answer:
+          "Não. Ele responde as perguntas que se repetem e, quando o cliente precisa de uma pessoa, passa a conversa para você ou para a sua equipe.",
+      },
+      {
+        question: "O que é ser encontrado pelas IAs?",
+        answer:
+          "Muita gente já pergunta ao ChatGPT, ao Gemini ou ao Google onde comprar. Essas ferramentas leem o que está na internet sobre o seu negócio. Com o site e o Perfil da Empresa no Google completos e organizados, fica mais fácil elas indicarem você.",
+      },
+      {
+        question: "Você ainda faz sites, Google Meu Negócio e anúncios?",
+        answer:
+          "Sim. Crio o site e cuido da hospedagem e da manutenção numa mensalidade, deixo o Perfil da Empresa no Google completo e faço a gestão dos anúncios no Google. A verba dos anúncios é paga por você.",
+      },
+      {
         question: "Quais cidades você atende?",
         answer: `${serviceArea.label}. ${serviceArea.remote}`,
-      },
-      {
-        question: "Quanto tempo leva para o site ficar pronto?",
-        answer:
-          "Pouquíssimo tempo. Depois que a proposta é aprovada e você me envia as informações do seu negócio, você acompanha cada etapa até o site entrar no ar.",
-      },
-      {
-        question: "Os anúncios são pagos à parte?",
-        answer:
-          "Sim. A verba dos anúncios é paga por você. Eu cuido da criação e da gestão das campanhas, com acompanhamento todo mês.",
-      },
-      {
-        question: "Você cuida da hospedagem e da manutenção do site?",
-        answer:
-          "Sim. O site fica num servidor que eu administro, e a hospedagem e a manutenção são cobradas numa mensalidade. Você não precisa se preocupar com a parte técnica.",
       },
     ] satisfies FaqItem[],
   },
@@ -242,6 +312,6 @@ export const businessPage = {
     eyebrow: "Vamos conversar?",
     title: "Conte sobre o seu negócio",
     description:
-      "Mande uma mensagem no WhatsApp e me conte o que você vende, para quem e onde quer chegar.",
+      "Mande uma mensagem no WhatsApp e me conte o que mais toma o seu tempo hoje. A gente vê junto onde a inteligência artificial pode ajudar.",
   },
 };
