@@ -107,6 +107,12 @@
     --tw-prose-counters: var(--color-primary);
     --tw-prose-quotes: var(--color-text-main);
     --tw-prose-code: var(--color-primary-light);
+    --tw-prose-bold: var(--color-text-main);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quote-borders: var(--color-primary);
+    --tw-prose-captions: var(--color-text-muted);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
 
     --tw-prose-invert-body: var(--color-text-muted);
     --tw-prose-invert-headings: var(--color-text-main);
@@ -115,6 +121,12 @@
     --tw-prose-invert-counters: var(--color-primary);
     --tw-prose-invert-quotes: var(--color-text-main);
     --tw-prose-invert-code: var(--color-primary-light);
+    --tw-prose-invert-bold: var(--color-text-main);
+    --tw-prose-invert-hr: var(--color-border);
+    --tw-prose-invert-quote-borders: var(--color-primary);
+    --tw-prose-invert-captions: var(--color-text-muted);
+    --tw-prose-invert-th-borders: var(--color-border);
+    --tw-prose-invert-td-borders: var(--color-border);
   }
 }
 
@@ -339,6 +351,39 @@
     .btn:active {
       translate: none;
     }
+  }
+
+  /* Campo de formulário: borda com contraste ≥ 3:1 (WCAG 1.4.11), anel azul
+     no foco e borda vermelha quando aria-invalid. */
+  .field {
+    width: 100%;
+    border-radius: 0.625rem;
+    border: 1px solid hsl(220 12% 56%);
+    background-color: var(--color-background);
+    padding: 0.75rem 1rem;
+    color: var(--color-text-main);
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .dark .field {
+    border-color: hsl(220 10% 44%);
+  }
+  .field:hover {
+    border-color: var(--color-text-muted);
+  }
+  .field:focus-visible,
+  .field:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px hsl(214 100% 50% / 0.2);
+    outline: none;
+  }
+  .field[aria-invalid="true"] {
+    border-color: hsl(0 72% 45%);
+  }
+  .dark .field[aria-invalid="true"] {
+    border-color: hsl(0 85% 65%);
   }
 
   /* Rótulo curto acima dos títulos de seção (mesmo estilo do "OLÁ, EU SOU") */

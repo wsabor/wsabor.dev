@@ -3,6 +3,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
+import { isActivePath } from "@/lib/navigation";
 
 // Carrega o menu mobile e theme switcher dinamicamente (lazy loading)
 const MobileMenu = dynamic(() => import("./MobileMenu"), {
@@ -26,11 +27,6 @@ const navLinks = [
   { href: "/seu-negocio", label: "Seu negócio" },
   { href: "/contact", label: "Contato" },
 ];
-
-/** Link ativo: a home só casa com "/", as demais também com subpáginas. */
-function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
-}
 
 export default function HeaderOptimized() {
   const pathname = usePathname();
@@ -60,7 +56,7 @@ export default function HeaderOptimized() {
                 <li key={href}>
                   <Link
                     href={href}
-                    aria-current={isActive(pathname, href) ? "page" : undefined}
+                    aria-current={isActivePath(pathname, href) ? "page" : undefined}
                     className="rounded-full px-3 py-1.5 text-sm font-medium text-text-muted transition-colors hover:text-text-main aria-[current=page]:bg-primary/10 aria-[current=page]:text-primary-deep dark:aria-[current=page]:text-primary-light"
                   >
                     {label}

@@ -44,7 +44,7 @@ export default function Footer() {
           <p className="text-text-muted text-sm">
             Desenvolvido com{" "}
             <Heart className="inline h-4 w-4 align-middle text-red-500" /> e{" "}
-            <Coffee className="text-topcoat-cyan inline h-4 w-4 align-middle" />{" "}
+            <Coffee className="text-primary-deep dark:text-primary-light inline h-4 w-4 align-middle" />{" "}
             usando Next.js e Tailwind CSS.
           </p>
           <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm md:justify-start">
@@ -58,7 +58,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1 md:-mr-3">
           {socialLinks.map(({ href, label, icon, method }) => (
             <Link
               key={href}
@@ -68,7 +68,7 @@ export default function Footer() {
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-muted hover:text-primary transition-colors"
+              className="text-text-muted hover:text-primary hover:bg-primary/10 rounded-full p-3 transition-colors"
             >
               {icon}
             </Link>
