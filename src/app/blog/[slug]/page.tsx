@@ -156,7 +156,7 @@ export default async function PostPage({ params }: Props) {
         </article>
 
         <div className="mx-auto max-w-3xl">
-          <hr className="my-12 border-black/10 dark:border-white/10" />
+          <hr className="my-12 border-border" />
           <Comments />
         </div>
       </div>

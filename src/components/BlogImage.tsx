@@ -35,7 +35,7 @@ export function BlogImage({
   return (
     <figure className={`not-prose my-8 ${sizeClasses[size]}`}>
       <div
-        className={`relative ${aspectClasses[aspectRatio]} w-full overflow-hidden rounded-lg border border-black/10 dark:border-white/10`}
+        className={`relative ${aspectClasses[aspectRatio]} w-full overflow-hidden rounded-lg border border-border`}
       >
         <Image
           src={src}

@@ -148,7 +148,7 @@ export default function Specialties() {
                   {businessServices.items.map((item) => (
                     <li
                       key={item.label}
-                      className="bg-background/60 text-text-main inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm font-medium dark:border-white/10"
+                      className="bg-background/60 text-text-main inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-medium"
                     >
                       <span className="text-primary">{item.icon}</span>
                       {item.label}

@@ -40,7 +40,7 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
       {/* Painel do Menu Mobile */}
       <div
         id="mobile-menu"
-        className={`fixed left-0 right-0 top-[88px] z-40 h-[calc(100vh-88px)] w-full transform bg-background/95 backdrop-blur-sm transition-transform duration-300 ease-in-out md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed left-0 right-0 top-(--header-h) z-40 h-[calc(100dvh-var(--header-h))] w-full transform bg-background/95 backdrop-blur-sm transition-transform duration-300 ease-in-out md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <nav
           className="flex h-full flex-col items-center justify-center"
