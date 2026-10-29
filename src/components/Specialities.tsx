@@ -158,7 +158,7 @@ export default function Specialties() {
               </div>
               <Link
                 href={businessServices.cta.href}
-                className="group bg-primary-strong hover:bg-primary-deep inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-lg px-6 py-3 font-bold text-white transition-colors lg:self-center"
+                className="group btn btn-primary shrink-0 self-start lg:self-center"
               >
                 {businessServices.cta.label}
                 <ArrowRight

@@ -32,7 +32,7 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
         aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
-        className="relative z-50"
+        className="relative z-50 -m-2 rounded-full p-2 transition-colors hover:bg-primary/10"
       >
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>

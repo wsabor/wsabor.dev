@@ -76,7 +76,7 @@ export default function AboutIntro() {
           <div data-reveal className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/about"
-              className="group bg-primary-strong hover:bg-primary-deep inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
+              className="group btn btn-primary"
             >
               Conheça minha trajetória
               <ArrowRight

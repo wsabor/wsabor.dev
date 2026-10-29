@@ -43,7 +43,7 @@ export default function AboutPage() {
       >
         <Link
           href="/contact"
-          className="bg-primary-strong hover:bg-primary-deep inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
+          className="btn btn-primary"
         >
           <Mail size={18} aria-hidden="true" />
           Falar comigo

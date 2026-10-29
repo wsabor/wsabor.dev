@@ -19,7 +19,7 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-full p-2 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-800"
+      className="-m-1 rounded-full p-3 text-text-muted transition-colors hover:bg-primary/10 hover:text-text-main"
       aria-label={`Mudar para o tema ${theme === "dark" ? "claro" : "escuro"}`}
     >
       {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}

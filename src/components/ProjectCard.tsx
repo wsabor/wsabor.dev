@@ -79,7 +79,7 @@ export function ProjectCard({
         </div>
 
         {/* Botões de ação */}
-        <div className="mt-6 flex flex-col gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
           {slug && (
             <Link
               href={`/projects/${slug}`}
@@ -88,7 +88,7 @@ export function ProjectCard({
                 action: "case_study",
                 location: "card",
               })}
-              className="bg-primary-strong hover:bg-primary-deep inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
+              className="btn btn-primary flex-1 basis-52 whitespace-nowrap"
             >
               Ver Estudo de Caso
               <FileText size={16} />
@@ -106,8 +106,8 @@ export function ProjectCard({
               rel="noopener noreferrer"
               className={
                 slug
-                  ? "border-primary/30 text-primary hover:border-primary hover:bg-primary/5 dark:border-primary/40 dark:hover:bg-primary/10 inline-flex w-full items-center justify-center gap-2 rounded-lg border px-4 py-2.5 font-semibold transition-colors"
-                  : "bg-primary-strong hover:bg-primary-deep inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold text-white transition-colors"
+                  ? "btn btn-secondary flex-1 basis-52 whitespace-nowrap"
+                  : "btn btn-primary flex-1 basis-52 whitespace-nowrap"
               }
             >
               {slug ? "Visitar site" : "Ver Projeto"}

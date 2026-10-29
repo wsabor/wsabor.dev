@@ -44,13 +44,13 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center gap-3 md:justify-end">
               <Link
                 href="/projects"
-                className="bg-primary-strong hover:bg-primary-deep rounded-lg px-6 py-2.5 text-base font-bold text-white transition-colors md:px-8 md:py-3 md:text-lg"
+                className="btn btn-primary md:btn-lg"
               >
                 Conheça meus Projetos
               </Link>
               <Link
                 href="/contact"
-                className="border-primary/30 text-primary hover:border-primary hover:bg-primary/5 dark:border-primary/40 dark:hover:bg-primary/10 rounded-lg border px-6 py-2.5 text-base font-bold transition-colors md:px-8 md:py-3 md:text-lg"
+                className="btn btn-secondary md:btn-lg"
               >
                 Falar comigo
               </Link>

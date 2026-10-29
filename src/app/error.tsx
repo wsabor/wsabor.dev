@@ -23,13 +23,13 @@ export default function Error({
     >
       <button
         onClick={() => reset()}
-        className="bg-primary-strong hover:bg-primary-deep rounded-lg px-6 py-3 font-bold text-white transition-colors"
+        className="btn btn-primary"
       >
         Tentar novamente
       </button>
       <Link
         href="/"
-        className="border-primary/40 text-primary hover:border-primary hover:bg-primary/10 rounded-lg border px-6 py-3 font-bold transition-colors"
+        className="btn btn-secondary"
       >
         Voltar ao Início
       </Link>

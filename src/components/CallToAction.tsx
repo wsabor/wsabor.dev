@@ -35,7 +35,7 @@ export default function CallToAction() {
               </p>
               <Link
                 href="/contact"
-                className="group bg-primary-strong hover:bg-primary-deep mt-8 inline-flex items-center gap-2 rounded-lg px-8 py-3 text-lg font-bold text-white transition-colors"
+                className="group btn btn-primary btn-lg mt-8"
               >
                 Enviar mensagem
                 <ArrowRight

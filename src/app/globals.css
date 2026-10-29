@@ -267,6 +267,80 @@
     }
   }
 
+  /* Botões: .btn + variante (.btn-primary / .btn-secondary) + tamanho
+     opcional (.btn-sm / .btn-lg). Layout (largura, margens) fica nos
+     utilitários de cada uso. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.625rem;
+    border: 1px solid transparent;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      translate 0.1s ease;
+  }
+  .btn:active {
+    translate: 0 1px;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    translate: none;
+  }
+  .btn svg {
+    flex-shrink: 0;
+    transition: translate 0.2s ease;
+  }
+
+  /* Fundo forte com texto branco (AA 5.1); brilho azul no hover */
+  .btn-primary {
+    background-color: var(--color-primary-strong);
+    color: #fff;
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.18),
+      0 1px 2px hsl(214 100% 30% / 0.25);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-deep);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.18),
+      0 8px 24px -8px hsl(214 100% 50% / 0.55);
+  }
+
+  /* Contorno azul, para a ação secundária ao lado de um .btn-primary */
+  .btn-secondary {
+    border-color: hsl(214 100% 44% / 0.35);
+    color: var(--color-primary-deep);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-primary);
+    background-color: hsl(214 100% 50% / 0.06);
+  }
+  .dark .btn-secondary {
+    border-color: hsl(214 100% 60% / 0.4);
+    color: var(--color-primary);
+  }
+  .dark .btn-secondary:hover {
+    border-color: var(--color-primary);
+    background-color: hsl(214 100% 60% / 0.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn:active {
+      translate: none;
+    }
+  }
+
   /* Rótulo curto acima dos títulos de seção (mesmo estilo do "OLÁ, EU SOU") */
   .eyebrow {
     display: inline-flex;
@@ -288,6 +362,18 @@
     border-radius: 9999px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
   }
+}
+
+/* Tamanhos de .btn como utilitários, para aceitar variantes (md:btn-lg) */
+@utility btn-sm {
+  min-height: 2.5rem;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.875rem;
+}
+@utility btn-lg {
+  min-height: 3.25rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.0625rem;
 }
 
 /* --- Hero Background CSS puro --- */

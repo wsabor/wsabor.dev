@@ -70,14 +70,14 @@ export default function CookieConsent() {
           <button
             type="button"
             onClick={() => choose("denied")}
-            className="border-primary/40 text-text-main hover:border-primary rounded-lg border px-5 py-2.5 text-sm font-semibold transition-colors"
+            className="btn btn-secondary btn-sm"
           >
             Recusar
           </button>
           <button
             type="button"
             onClick={() => choose("granted")}
-            className="bg-primary-strong hover:bg-primary-deep rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-colors"
+            className="btn btn-primary btn-sm"
           >
             Aceitar
           </button>
