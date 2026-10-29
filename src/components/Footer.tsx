@@ -34,7 +34,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background text-text-muted border-t border-black/10 py-8 dark:border-white/10">
+    <footer className="bg-background text-text-muted border-t border-border py-8">
       <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-8 md:flex-row">
         <div className="flex flex-col items-center gap-2 text-center md:items-start md:text-left">
           <p className="text-sm">
@@ -44,7 +44,7 @@ export default function Footer() {
           <p className="text-text-muted text-sm">
             Desenvolvido com{" "}
             <Heart className="inline h-4 w-4 align-middle text-red-500" /> e{" "}
-            <Coffee className="text-topcoat-cyan inline h-4 w-4 align-middle" />{" "}
+            <Coffee className="text-primary-deep dark:text-primary-light inline h-4 w-4 align-middle" />{" "}
             usando Next.js e Tailwind CSS.
           </p>
           <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm md:justify-start">
@@ -58,7 +58,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1 md:-mr-3">
           {socialLinks.map(({ href, label, icon, method }) => (
             <Link
               key={href}
@@ -68,7 +68,7 @@ export default function Footer() {
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-muted hover:text-primary transition-colors"
+              className="text-text-muted hover:text-primary hover:bg-primary/10 rounded-full p-3 transition-colors"
             >
               {icon}
             </Link>

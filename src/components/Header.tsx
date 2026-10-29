@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
+import { isActivePath } from "@/lib/navigation";
 
 // Carrega o menu mobile e theme switcher dinamicamente (lazy loading)
 const MobileMenu = dynamic(() => import("./MobileMenu"), {
@@ -27,8 +29,16 @@ const navLinks = [
 ];
 
 export default function HeaderOptimized() {
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-50 bg-background py-6 text-text-main">
+    <header className="sticky top-0 z-50 py-6 text-text-main">
+      {/* Fundo translúcido numa camada à parte: backdrop-filter no próprio
+          header viraria o containing block do painel fixed do menu mobile. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-background/80 shadow-[inset_0_-1px_0_var(--color-border)] backdrop-blur-md"
+      />
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
         <Link
@@ -41,12 +51,13 @@ export default function HeaderOptimized() {
         <div className="hidden items-center gap-4 md:flex">
           {/* Menu de Navegação para Desktop */}
           <nav aria-label="Navegação principal">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-1">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="transition-colors hover:text-primary"
+                    aria-current={isActivePath(pathname, href) ? "page" : undefined}
+                    className="rounded-full px-3 py-1.5 text-sm font-medium text-text-muted transition-colors hover:text-text-main aria-[current=page]:bg-primary/10 aria-[current=page]:text-primary-deep dark:aria-[current=page]:text-primary-light"
                   >
                     {label}
                   </Link>

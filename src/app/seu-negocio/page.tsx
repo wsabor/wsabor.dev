@@ -57,9 +57,7 @@ function WhatsappButton({
       target="_blank"
       rel="noopener noreferrer"
       {...trackAttrs("contact_click", { method: "whatsapp", location })}
-      className={`group bg-primary-strong hover:bg-primary-deep inline-flex items-center justify-center gap-2 rounded-lg text-center font-bold text-white transition-colors ${
-        size === "lg" ? "px-6 py-4 text-lg sm:px-8" : "px-6 py-3"
-      }`}
+      className={`group btn btn-primary ${size === "lg" ? "btn-lg" : ""}`}
     >
       <WhatsappIcon size={size === "lg" ? 22 : 20} />
       {/* Em telas bem estreitas (320px) o texto longo quebra em duas linhas */}

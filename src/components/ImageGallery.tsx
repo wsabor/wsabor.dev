@@ -44,7 +44,7 @@ export function ImageGallery({ images, basePath }: ImageGalleryProps) {
             className="group flex cursor-pointer flex-col gap-2"
             onClick={() => setIndex(idx)}
           >
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-black/10 transition-colors hover:border-primary dark:border-white/10 dark:hover:border-primary">
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border transition-colors hover:border-primary dark:hover:border-primary">
               <Image
                 src={`${basePath}${item.image}`}
                 alt={item.caption}

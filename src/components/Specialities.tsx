@@ -148,7 +148,7 @@ export default function Specialties() {
                   {businessServices.items.map((item) => (
                     <li
                       key={item.label}
-                      className="bg-background/60 text-text-main inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm font-medium dark:border-white/10"
+                      className="bg-background/60 text-text-main inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-medium"
                     >
                       <span className="text-primary">{item.icon}</span>
                       {item.label}
@@ -158,7 +158,7 @@ export default function Specialties() {
               </div>
               <Link
                 href={businessServices.cta.href}
-                className="group bg-primary-strong hover:bg-primary-deep inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-lg px-6 py-3 font-bold text-white transition-colors lg:self-center"
+                className="group btn btn-primary shrink-0 self-start lg:self-center"
               >
                 {businessServices.cta.label}
                 <ArrowRight

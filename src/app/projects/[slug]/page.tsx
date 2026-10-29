@@ -209,7 +209,7 @@ export default async function ProjectPage({ params }: Props) {
               })}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary-strong hover:bg-primary-deep inline-flex items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-colors"
+              className="btn btn-primary"
             >
               Ver projeto ao vivo
               <ExternalLink size={18} aria-hidden="true" />

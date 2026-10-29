@@ -75,7 +75,7 @@ export function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
             type="text"
             {...register("name", { required: "O nome é obrigatório" })}
-            className="bg-background/60 text-text-main focus:border-primary focus:ring-primary/30 w-full rounded-lg border border-black/10 px-4 py-3 transition-colors outline-none focus:ring-4 aria-invalid:border-red-600 dark:border-white/10 dark:aria-invalid:border-red-400"
+            className="field"
           />
           {errors.name && (
             <p
@@ -106,7 +106,7 @@ export function ContactForm() {
                 message: "E-mail inválido",
               },
             })}
-            className="bg-background/60 text-text-main focus:border-primary focus:ring-primary/30 w-full rounded-lg border border-black/10 px-4 py-3 transition-colors outline-none focus:ring-4 aria-invalid:border-red-600 dark:border-white/10 dark:aria-invalid:border-red-400"
+            className="field"
           />
           {errors.email && (
             <p
@@ -131,7 +131,7 @@ export function ContactForm() {
             aria-describedby={errors.message ? "message-error" : undefined}
             rows={5}
             {...register("message", { required: "A mensagem é obrigatória" })}
-            className="bg-background/60 text-text-main focus:border-primary focus:ring-primary/30 w-full rounded-lg border border-black/10 px-4 py-3 transition-colors outline-none focus:ring-4 aria-invalid:border-red-600 dark:border-white/10 dark:aria-invalid:border-red-400"
+            className="field"
           />
           {errors.message && (
             <p
@@ -146,7 +146,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-primary-strong hover:bg-primary-deep w-full rounded-lg px-6 py-3 font-bold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+          className="btn btn-primary w-full"
         >
           {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
         </button>

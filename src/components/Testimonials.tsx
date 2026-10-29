@@ -29,7 +29,7 @@ export default function Testimonials({
           {items.map((t) => (
             <figure
               key={t.id}
-              className="flex h-full flex-col rounded-2xl border border-black/10 bg-surface p-6 transition-colors hover:border-primary/40 dark:border-white/10"
+              className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-primary/40"
             >
               <Quote
                 className="mb-4 text-primary/40"
@@ -39,7 +39,7 @@ export default function Testimonials({
               <blockquote className="flex-1 text-text-main">
                 <p className="leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
               </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-black/10 pt-4 dark:border-white/10">
+              <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-4">
                 {t.authorImage && (
                   <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
                     <Image
