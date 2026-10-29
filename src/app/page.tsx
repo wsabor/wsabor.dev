@@ -34,8 +34,11 @@ export default function HomePage() {
     }),
   );
 
+  // Um único elemento raiz (não fragmento): ao navegar, o Next chama
+  // scrollIntoView em cada nó do topo da página, do último ao primeiro, e
+  // com o hero pinado (fixed) a home abria no meio da sequência.
   return (
-    <>
+    <div>
       {/* Schema.org Structured Data */}
       <JsonLd data={websiteSchema} />
       <JsonLd data={personSchema} />
@@ -58,6 +61,6 @@ export default function HomePage() {
       <Testimonials items={featuredTestimonials} />
       <RecentArticles />
       <CallToAction />
-    </>
+    </div>
   );
 }
